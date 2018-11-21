@@ -4,7 +4,7 @@ import {
   View,
   ScrollView,TouchableOpacity,Image
 } from 'react-native';
-import styles from './Style'
+import styles from '../Style/Style'
 import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import ResponsiveImage from 'react-native-responsive-image'

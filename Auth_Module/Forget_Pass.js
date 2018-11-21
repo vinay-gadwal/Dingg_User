@@ -9,7 +9,7 @@ import {
   View,
   Image,ScrollView
 } from 'react-native';
-import styles from '../Component/Style'
+import styles from '../Style/Style'
 // import Frisbee from 'frisbee';
 import Spinner from 'react-native-loading-spinner-overlay';
 import Form from 'react-native-form';

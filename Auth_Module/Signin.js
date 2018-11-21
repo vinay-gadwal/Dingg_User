@@ -8,7 +8,7 @@ import {
   TextInput,
   TouchableOpacity,KeyboardAvoidingView,Keyboard,ScrollView
 } from "react-native";
-import styles from '../Component/Style'
+import styles from '../Style/Style'
 import RF from "react-native-responsive-fontsize"
 import ResponsiveImage from 'react-native-responsive-image'
 import {TextInputLayout} from 'rn-textinputlayout';
@@ -63,7 +63,7 @@ export default class Login extends Component {
          keyboardType="numeric"
          autoCapitalize="none"
          autoCorrect={false}
-         placeholder="Mobile Number"
+         placeholder="Enter Mobile Number"
        />
       </TextInputLayout>
       </View>
@@ -155,7 +155,7 @@ export default class Login extends Component {
           <Text style={styles.buttonText}>Sign In</Text>
           </TouchableOpacity>
       <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Forget_password')}}>
-          <Text style={{color:"rgb(255,163,0)",fontSize: RF(2),marginTop:hp("3%"),fontWeight:"bold"}}>Continue without Signing in</Text>
+          <Text style={{color:"rgb(255,163,0)",fontSize: RF(2),marginTop:hp("3%"),fontWeight:"bold"}}>Continue without Signing In</Text>
           </TouchableOpacity>
       <View style={{flexDirection:"row",marginTop:hp("1%")}}>
         <Text style={styles.text}>Don't have an account? </Text>

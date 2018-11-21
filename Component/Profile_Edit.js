@@ -3,7 +3,7 @@ import { Text,View,ScrollView,TextInput,TouchableOpacity,Image
         } from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 import { Dropdown } from 'react-native-material-dropdown';
-import styles from './Style'
+import styles from '../Style/Style'
 import {GooglePlacesAutocomplete,} from 'react-native-google-places-autocomplete'; // 1.2.12
 import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';

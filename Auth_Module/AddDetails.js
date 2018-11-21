@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { TouchableOpacity,View,TextInput,Image,Text,Button,ScrollView
         } from 'react-native';
-import styles from './Style'
+import styles from '../Style/Style'
 import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {TextInputLayout} from 'rn-textinputlayout';

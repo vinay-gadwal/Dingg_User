@@ -7,7 +7,7 @@ import {
   TextInput,
   TouchableOpacity,ScrollView
 } from "react-native";
-import styles from '../Component/Style'
+import styles from '../Style/Style'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {TextInputLayout} from 'rn-textinputlayout';
 import ResponsiveImage from 'react-native-responsive-image'

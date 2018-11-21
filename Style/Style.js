@@ -63,11 +63,6 @@ const styles = StyleSheet.create({
         // fontFamily:'Muli-Bold',
         fontWeight: 'bold',
     },
-   
-    margin:{
-          marginBottom:5,
-          color:"white",
-        },
     
     Custom:{
           width: wp('86%'),
@@ -147,20 +142,6 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       paddingRight: 10
     },
-    avatarContainer: {
-      borderColor: '#9B9B9B',
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor:"white",
-    },
-  
-    avatarMultiple: {
-      borderRadius: wp("2"),
-      width: wp('20%'),
-      height: hp('11%'),
-      paddingHorizontal:"1%"
-    },
-    
     boxDetails:{
       alignItems:"center",
       width: wp('90%'),
@@ -200,26 +181,20 @@ const styles = StyleSheet.create({
       fontFamily:"Muli-Bold",
       // fontWeight: 'bold',
     },
+    Details_image:{
+      width: hp("2.5%"),
+      height: hp("2.5%"),
+      marginTop:hp("2"),
+      marginRight:wp("8%")
+    },
     
     setting_Image:{
       width: hp("2%"),
       height: hp("2%"),
       marginTop:hp("2.5"),
-      marginRight:wp("8%")
+      marginRight:wp("6%")
     },
-    Dashbosrd_image:{
-      width: hp("2%"),
-      height: hp("2.5%"),
-      // marginVertical:hp("1"),
-      // marginRight:wp("8%")
-    },
-    Dashbosrd_image_top:{
-      height:hp("4%"),
-      width:wp("7.5%"),
-      marginLeft:wp("2%"),
-      marginVertical:wp("5%"),
-      marginRight:wp("8%")
-    },
+  
     profile_Small_text:{
       fontSize: RF(2),
       justifyContent:"flex-start",
@@ -281,50 +256,7 @@ const styles = StyleSheet.create({
       paddingVertical:hp("3%"),
       backgroundColor:"white"
     },
-    Dashboard_block:{
-      width:wp("40%"),flexDirection:"row",
-      backgroundColor:"white",
-      height:hp("13%"),
-      borderRadius:10
-    },
-
-    Business_hour:{
-      flexDirection:"row",
-      justifyContent:"space-between",
-      marginVertical:hp("1.5%"),
-      paddingHorizontal:wp("7%")
-    },
-    Business_hour_main:{
-      marginLeft:"0%",marginLeft:wp("2%"),marginRight:wp("10%"),marginTop:hp(".5%")
-    },
-    Business_hour_time:{
-      flexDirection:"row",marginTop:hp(".3%"),marginLeft:wp("2%")
-    },
-    business_hour_image_Arrow:{
-      marginTop:wp("2%"),marginRight:wp("0%"),width:wp("5%")
-    },
-    Business_hour_text:{
-      marginRight:wp("0%"),width:wp("13%"),marginHorizontal:wp("0%"),
-       fontSize: RF(2.2), 
-          color: "rgb(68,68,68)",
-          // fontFamily:'Muli-Bold',
-          fontWeight:"bold",
-          marginTop:hp(".5%")
-    },
-    business_line:{
-      marginRight:wp("0%"),marginTop:hp("1%"),width:wp("5%")
-    },
-    Business_Arrow_right:{
-      marginLeft:wp("7%"),marginTop:hp("1.5%")
-    },
-    Business_to:{
-      marginHorizontal:wp("0%"),
-      fontSize: RF(2.2), 
-      color: "rgb(68,68,68)",
-      fontWeight:"bold",
-      marginTop:hp(".5%"),
-      fontWeight:"bold"
-    },
+   
     History_Action:{
       justifyContent:"flex-start",marginLeft:wp("5%"),marginBottom:hp("1%"),width:wp("65%"),
       fontSize: RF(2.5),

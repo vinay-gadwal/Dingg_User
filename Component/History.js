@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../Component/Style'
+import styles from '../Style/Style'
 import { TouchableOpacity, ScrollView, View, Animated, FlatList, Text, Dimensions, Image, YellowBox } from 'react-native';
 import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
