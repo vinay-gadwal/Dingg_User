@@ -228,7 +228,7 @@ export default class example extends Component {
         <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="94" initHeight="65"/>
         
         </View>
-        <View style={[styles.box_SignUp,{height: hp('19%'),marginTop:hp("3%")}]}>
+        <View style={[styles.box_SignUp,{height: hp('19%'),marginTop:hp("3%"),paddingVertical:hp('3%'),}]}>
         {/* <Form ref={'form'} style={styles.form}>
 
           <View style={{ flexDirection: 'row' }}>

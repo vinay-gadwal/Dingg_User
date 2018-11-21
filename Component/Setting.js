@@ -21,14 +21,14 @@ export default class App extends Component {
    
     return (
       <ScrollView style={{backgroundColor:"rgb(243,242,242)"}} horizontal={false}>
-          <Text style={[styles.text,{marginTop:hp("8%"),fontSize:RF(3),marginHorizontal:wp("10%")}]}>Select a category to continue</Text>
+          <Text style={{marginTop:hp("8%"),fontSize:RF(3),marginHorizontal:wp("10%"),fontWeight:"bold"}}>Select a category to continue</Text>
           <View style={[styles.Profile_Container,{paddingVertical:hp("2%"),marginTop:hp("8%")}]}>
             <TouchableOpacity onPress={() => {this.props.navigation.navigate('AuthStack')}}>
              <View style={{justifyContent:"space-between"}}>
                    <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
                    <Image
                                 source={require('../Image/new_images/salonIcon3x.png')}
-                                style={[styles.Details_image,{marginLeft:wp("5%"),marginRight:wp("0%")}]}
+                                style={[styles.Details_image,{marginLeft:wp("5%"),marginRight:wp("0%"),height:hp("2.9%")}]}
                     />
                     <Text style={[styles.setting_text,{marginRight:wp("50%")}]}>Salon</Text>
                     <Image
@@ -44,7 +44,7 @@ export default class App extends Component {
             <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
                    <Image
                                 source={require('../Image/new_images/doctorIcon3x.png')}
-                                style={[styles.Details_image,{marginLeft:wp("5%"),marginRight:wp("0%"),height:hp("2.8%")}]}
+                                style={[styles.Details_image,{marginLeft:wp("5%"),marginRight:wp("0%"),height:hp("2.9%")}]}
                     />
                     <Text style={[styles.setting_text,{marginRight:wp("48%")}]}>Doctor</Text>
                     <Image
@@ -58,7 +58,7 @@ export default class App extends Component {
               <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
                    <Image
                                 source={require('../Image/new_images/restaurantIcon3x.png')}
-                                style={[styles.Details_image,{marginLeft:wp("5%"),marginRight:wp("0%")}]}
+                                style={[styles.Details_image,{marginLeft:wp("5%"),marginRight:wp("0%"),height:hp("2.7%")}]}
                     />
                     <Text style={[styles.setting_text,{marginRight:wp("40%")}]}>Restaurant</Text>
                     <Image

@@ -14,10 +14,29 @@ import Profile_edit from './Component/Profile_Edit'
 import history from './Component/History'
 import Queue from './Component/Queue'
 import styles from './Style/Style';
+import Home from './Component/Home'
+import QR from './Component/QR'
 import ResponsiveImage from 'react-native-responsive-image'
 console.disableYellowBox = true;
 
 const AuthStack = createBottomTabNavigator({
+  Home: {
+    screen: Home,
+    navigationOptions: () => ({
+      tabBarIcon: ({ focused }) => {
+        const line = focused ? require('./Image/main/highlight3x.png') : require('./Image/main/line-transparent-vertical-2.png')
+        const image = focused 
+        ? require('./Image/new_images/homeIcon_yellow3x.png')
+        : require('./Image/new_images/homeIcon3x.png') 
+        return (
+          <View style={{flexDirection:"column",alignItems:"center"}}>
+          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth="60" initHeight="3"/>
+          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="23" initHeight="23"/>
+          </View>
+        )
+    }
+    })
+  },
   
   Q: {
     screen: Queue,
@@ -27,6 +46,23 @@ const AuthStack = createBottomTabNavigator({
         const image = focused 
         ? require('./Image/icon/queueIcon_yellow2x.png') 
         : require('./Image/icon/queueIcon2x.png')
+        return (
+          <View style={{flexDirection:"column",alignItems:"center"}}>
+          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth="60" initHeight="3"/>
+          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="23" initHeight="23"/>
+          </View>
+        )
+    }
+    })
+  },
+  QR: {
+    screen: QR,
+    navigationOptions: () => ({
+      tabBarIcon: ({ focused }) => {
+        const line = focused ? require('./Image/main/highlight3x.png') : require('./Image/main/line-transparent-vertical-2.png')
+        const image = focused 
+        ? require('./Image/new_images/qrCodeIcon_yellow3x.png') 
+        : require('./Image/new_images/qrCodeIcon3x.png')
         return (
           <View style={{flexDirection:"column",alignItems:"center"}}>
           <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth="60" initHeight="3"/>
@@ -72,7 +108,7 @@ const AuthStack = createBottomTabNavigator({
   }
 },
 {
-  initialRouteName: 'Q',
+  initialRouteName: 'Home',
   headerMode:"none",
   
   tabBarOptions: {

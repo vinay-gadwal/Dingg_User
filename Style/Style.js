@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
           width: wp('90%'),
           height: hp('20%'),
           backgroundColor:"white",
-          paddingVertical:hp('3%'),
+          // paddingVertical:hp('3%'),
           borderRadius:10,
     },
     text:{
@@ -179,6 +179,7 @@ const styles = StyleSheet.create({
       ,marginLeft:"5%",
       paddingVertical:"2.5%",
       fontFamily:"Muli-Bold",
+      color:"rgb(118,118,118)"
       // fontWeight: 'bold',
     },
     Details_image:{
@@ -249,11 +250,7 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between',marginHorizontal:"5%"
     },
     Header:{
-      justifyContent:"center",
-      fontSize: RF(2.5),
-      color:"black",
-      paddingHorizontal:wp("34%"),
-      paddingVertical:hp("3%"),
+     height:hp("15%"),width:wp("100%"),
       backgroundColor:"white"
     },
    

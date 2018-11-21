@@ -91,6 +91,7 @@
 		<string>Muli-Italic.ttf</string>
 		<string>Muli-Light.ttf</string>
 		<string>Muli-LightItalic.ttf</string>
+		<string>Muli-ExtraBold.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch Screen</string>

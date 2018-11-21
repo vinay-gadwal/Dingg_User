@@ -157,10 +157,10 @@ export default class App extends Component {
                      <TouchableOpacity onPress={() => this.openDialog(false)}>
                      <Image
                                 source={require('../Image/icon/cancel1.png')}
-                                style={[styles.setting_Image,{marginLeft:wp("75%"),marginBottom:hp("2%"),marginTop:hp("0%")}]}
+                                style={[styles.setting_Image,{marginLeft:wp("75%"),marginBottom:hp("0%"),marginTop:hp("0%")}]}
                     />
                     </TouchableOpacity>
-                    <Text style={[styles.text,{fontWeight:"bold"}]}>Terms & Conditions</Text>
+                    <Text style={{fontWeight:"bold",fontSize:RF(2.5)}}>Terms & Conditions</Text>
                     <ScrollView>
                     <Text style={[styles.text,{color:"rgb(107,107,107)",marginVertical:hp("3%")}]}>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

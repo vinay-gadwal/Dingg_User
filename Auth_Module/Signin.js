@@ -125,13 +125,13 @@ export default class Login extends Component {
         <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="94" initHeight="65"/>
         </View>
         
-         <View style={[styles.box,{marginTop:"2%",height: hp('35%'),}]}>
-         <Text style={[styles.text,{alignItems:"flex-start",marginRight:wp("42%")}]}>Sign In Using</Text>
+         <View style={[styles.box,{marginTop:"2%",height: hp('38%'),}]}>
+         <Text style={[styles.text,{alignItems:"flex-start",marginRight:wp("42.5%")}]}>Sign In Using</Text>
          <Text></Text>
          
          <View style={{flexDirection:"row"}}>
          <RadioGroup style={{fontWeight:"bold"}} radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
-         <Text style={{color:"white"}}>hhvvc</Text>
+         <Text style={{color:"white"}}>hh.</Text>
          </View>
          {selectedButton}
           
@@ -155,9 +155,9 @@ export default class Login extends Component {
           <Text style={styles.buttonText}>Sign In</Text>
           </TouchableOpacity>
       <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Forget_password')}}>
-          <Text style={{color:"rgb(255,163,0)",fontSize: RF(2),marginTop:hp("3%"),fontWeight:"bold"}}>Continue without Signing In</Text>
+          <Text style={{color:"rgb(255,163,0)",fontSize: RF(2),marginTop:hp("4%"),fontWeight:"bold"}}>Continue without Signing In</Text>
           </TouchableOpacity>
-      <View style={{flexDirection:"row",marginTop:hp("1%")}}>
+      <View style={{flexDirection:"row",marginTop:hp("3%")}}>
         <Text style={styles.text}>Don't have an account? </Text>
         <View style={{flexDirection:"column"}}>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('SignUp')}>
