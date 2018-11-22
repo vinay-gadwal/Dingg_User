@@ -27,7 +27,7 @@ class Ongoing extends React.Component {
             }
           index = 0;
           animatedValue = new Animated.Value(0);
-    openDialog = (show) => {
+          openDialog = (show) => {
             this.setState({ showDialog: show });
         }
 

@@ -131,7 +131,7 @@ export default class Login extends Component {
          
          <View style={{flexDirection:"row"}}>
          <RadioGroup style={{fontWeight:"bold"}} radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
-         <Text style={{color:"white"}}>hh.</Text>
+         <Text style={{color:"white"}}>hhhhhm</Text>
          </View>
          {selectedButton}
           

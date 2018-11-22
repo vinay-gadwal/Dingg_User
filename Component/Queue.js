@@ -54,7 +54,7 @@ return (
           
      <View style={{flexDirection:"row"}}>
               <FlatList      
-              horizontal="true"    
+            //   horizontal="true"    
                     data={ this.state.dataSource }
                     renderItem={({item}) => 
                     <View style={{ 

@@ -18,7 +18,7 @@ import Home from './Component/Home'
 import QR from './Component/QR'
 import ResponsiveImage from 'react-native-responsive-image'
 console.disableYellowBox = true;
-
+import StartScreen from './Home_screens/RatingScreen'
 const AuthStack = createBottomTabNavigator({
   Home: {
     screen: Home,
@@ -223,6 +223,20 @@ const RootStack = createStackNavigator({
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
             title: 'EDIT PROFILE',
+            headerLeft:( 
+              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+            <Image
+              source={require('./Image/icon/back_2x.png')}
+              style={styles.back_butt0n} 
+            />
+            </TouchableOpacity>)
+          })
+        },
+        StartScreen:{
+          screen:StartScreen,
+          headerMode: null,
+          navigationOptions: ({ navigation }) => ({
+            title: 'REVIEW',
             headerLeft:( 
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image

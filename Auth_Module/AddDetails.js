@@ -21,12 +21,12 @@ export default class App extends Component {
           {
               label: 'Male',
               color: 'rgb(255,164,0)',
-              fontWeight:"bold"
+              fontFamily:'Muli-ExtraBold',
           },
           {
               label: 'Female',
               color: 'rgb(255,164,0)',
-              fontWeight:"bold"
+              fontFamily:'Muli-ExtraBold',
           },
         ],
         Check_box:true,

@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
       fontSize: RF(2.2),
       marginTop:"0%",
       textAlign:'left',  
-      fontFamily:'Muli-Bold',
+      fontFamily:'Muli-ExtraBold',
       // fontWeight: 'bold',
       },
     
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
       justifyContent:"flex-start"
       ,marginLeft:"5%",
       paddingVertical:"2.5%",
-      fontFamily:"Muli-Bold",
+      fontFamily:'Muli-ExtraBold',
       color:"rgb(118,118,118)"
       // fontWeight: 'bold',
     },
