@@ -109,5 +109,7 @@
 	<false/>
 	<key>priva</key>
 	<string/>
+	<key>CodePushDeploymentKey</key>
+	<string>deployment-key-here</string>
 </dict>
 </plist>

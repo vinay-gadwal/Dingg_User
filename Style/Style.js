@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
       fontSize: RF(2.2),
       marginTop:"0%",
       textAlign:'left',  
-      fontFamily:'Muli-ExtraBold',
+      fontFamily:'Muli-Bold',
       // fontWeight: 'bold',
       },
     
@@ -63,7 +63,17 @@ const styles = StyleSheet.create({
         // fontFamily:'Muli-Bold',
         fontWeight: 'bold',
     },
-    
+    list_box:{
+      width: wp('90%'),marginLeft:"5%",
+      height: hp('20%"'),
+      backgroundColor:"white",
+      marginVertical:hp('2%'),
+      borderRadius:10,
+      shadowColor: 'rgb(243,242,242)',
+      shadowOffset: { width: 0, height: hp("0.5%") },
+      shadowOpacity: 0.8,
+      shadowRadius: 4,
+    },
     Custom:{
           width: wp('86%'),
           height: hp('43%'),
@@ -80,7 +90,30 @@ const styles = StyleSheet.create({
         paddingVertical:hp('3%'),
         borderRadius:10,
     },
-    
+    BookServiceBox:{
+      alignItems:"center",
+          width: wp('85%'),
+          height: hp('17%'),
+          backgroundColor:"white",
+          borderBottomRightRadius: 10,
+          borderTopRightRadius: 10,
+          height: hp('10%'),
+          paddingVertical:hp('1%'),
+          justifyContent:"space-between",
+          flexDirection:"row"
+    },
+    BookServiceText:{
+      fontFamily:"Muli-ExtraBold",fontSize:RF(2),marginBottom:hp("2%"),marginTop:wp("9%"),color:"rgb(140,140,140)",marginRight:wp("60%")
+    },
+    BookServiceBoxYello:{
+      alignItems:"center",
+      height: hp('17%'),
+      width:"3%",
+      backgroundColor: "rgb(255,164,0)",
+      borderBottomLeftRadius: 10,
+      borderTopLeftRadius: 10,
+      height: hp('10%'),paddingVertical:hp('1%')
+    },
     box_SignUp:{
           alignItems:"center",
           width: wp('90%'),
@@ -170,7 +203,7 @@ const styles = StyleSheet.create({
     setting_Row:{
         flexDirection:"row",
         justifyContent:"space-between",
-        
+        marginBottom:hp("0%")
         },
     
     setting_text:{
@@ -178,7 +211,7 @@ const styles = StyleSheet.create({
       justifyContent:"flex-start"
       ,marginLeft:"5%",
       paddingVertical:"2.5%",
-      fontFamily:'Muli-ExtraBold',
+      fontFamily:'Muli-Bold',
       color:"rgb(118,118,118)"
       // fontWeight: 'bold',
     },
@@ -216,6 +249,7 @@ const styles = StyleSheet.create({
         marginLeft:wp("4%"),
         width: wp('6%'),
         height: hp('2.8%'),
+        marginBottom:hp("1.4%")
     },
     tab_button:{
       marginLeft:wp("5%"),
@@ -261,7 +295,6 @@ const styles = StyleSheet.create({
       ,marginLeft:"5%",
       paddingVertical:"2.5%",
       // fontFamily:"Muli-Bold",
-      fontWeight: 'bold',
     }
     
   });

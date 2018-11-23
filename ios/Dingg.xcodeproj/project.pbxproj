@@ -61,6 +61,7 @@
 		746A5C5A0737425C8026AF51 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83AA2AD812F54C4DAAB4FD0C /* Feather.ttf */; };
 		75F88F36ED8D40AD8AA0316A /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABE068FA412F414EA75E83AC /* FontAwesome5_Brands.ttf */; };
 		7669263DB55C4FBFA35CFE2B /* Muli Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9A8790D041742BBB2CF8F30 /* Muli Light.ttf */; };
+		77A063E3A01F4D3B8C4DB472 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D7EF5EED483D4E7F917895F3 /* libz.tbd */; };
 		7A86D92B8EC44EE1A6C931EE /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AB855EFAC474E3396964066 /* Poppins-Medium.ttf */; };
 		7D47CB9B8A7D489289E4800D /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 150D819A71374757A410D152 /* Octicons.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
@@ -68,6 +69,7 @@
 		85E8A360347E40D3A1F76854 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD8FA3D3B37F46C18D9E5715 /* Ionicons.ttf */; };
 		8804AAB72ED44650A4C302B4 /* libRNVectorIcons-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FED0328AA4C4BDDB7642FAF /* libRNVectorIcons-tvOS.a */; };
 		8A9E684596D848B8A4D91639 /* libRNShare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3EEA81AD5D34423B654EA92 /* libRNShare.a */; };
+		9081A70DE99B4F36860F8C60 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA163B9DB5EB4F668FB87709 /* libCodePush.a */; };
 		91B11C36184D4A9D83FC82A6 /* Muli-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9B98A6B99CF4184848934B5 /* Muli-BoldItalic.ttf */; };
 		A20A40DF9D834A6B8A1A393E /* AeroRegularSWFTE.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 225A3C1CEFFA4639B2BE2FD9 /* AeroRegularSWFTE.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
@@ -176,6 +178,20 @@
 			proxyType = 2;
 			remoteGlobalIDString = 00E356EE1AD99517003FC87E;
 			remoteInfo = TimePickerTests;
+		};
+		04BE3F0D21A7C58B004F8410 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC159A46BC214AE3A8296248 /* CodePush.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = CodePush;
+		};
+		04BE3F0F21A7C58B004F8410 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC159A46BC214AE3A8296248 /* CodePush.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F886647B1F4ADB500036D01B;
+			remoteInfo = "CodePush-tvOS";
 		};
 		139105C01AF99BAD00B5F7CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -472,8 +488,10 @@
 		9AB855EFAC474E3396964066 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Medium.ttf"; path = "../assets/fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		9E33C2E39B4C4782AF176E89 /* Muli-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Muli-LightItalic.ttf"; path = "../assets/fonts/Muli-LightItalic.ttf"; sourceTree = "<group>"; };
 		A25B84BB324E4CFBB9D9E325 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
+		AA163B9DB5EB4F668FB87709 /* libCodePush.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libCodePush.a; sourceTree = "<group>"; };
 		ABE068FA412F414EA75E83AC /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		AC044D4723FC4CD5B6C14660 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
+		AC159A46BC214AE3A8296248 /* CodePush.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		B3EEA81AD5D34423B654EA92 /* libRNShare.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNShare.a; sourceTree = "<group>"; };
 		B7A864F447034E3E814A7911 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
@@ -482,6 +500,7 @@
 		C7BE2338FAC04165989DAA9F /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		C9B98A6B99CF4184848934B5 /* Muli-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Muli-BoldItalic.ttf"; path = "../assets/fonts/Muli-BoldItalic.ttf"; sourceTree = "<group>"; };
 		CA9A373DAA6D448F8B096C6C /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+		D7EF5EED483D4E7F917895F3 /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		D9D6FFF0F67C42A7835B5B64 /* Muli-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Muli-ExtraBold.ttf"; path = "../assets/fonts/Muli-ExtraBold.ttf"; sourceTree = "<group>"; };
 		E03FE1698A674F1C9E1B3D03 /* Poppins-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Light.ttf"; path = "../assets/fonts/Poppins-Light.ttf"; sourceTree = "<group>"; };
 		E2A81F6604164212BDE5E33F /* Muli-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Muli-ExtraLightItalic.ttf"; path = "../assets/fonts/Muli-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -526,6 +545,8 @@
 				323E08BA58054CB9AC6B8B12 /* libRNNavybitsDateTimePicker.a in Frameworks */,
 				5C9E917ECBD14B248A3FD5CA /* TimePicker.app in Frameworks */,
 				410F421CD9BA4A3C97A4FA2E /* TimePickerTests.xctest in Frameworks */,
+				9081A70DE99B4F36860F8C60 /* libCodePush.a in Frameworks */,
+				77A063E3A01F4D3B8C4DB472 /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,6 +656,7 @@
 				59D43F4CF78E4353893CD359 /* TimePickerTests.xctest */,
 				00D0871F28404AE1B7776C4B /* libRNLocation.a */,
 				349A54A94F45469E8309DD10 /* libRNGooglePlaces.a */,
+				AA163B9DB5EB4F668FB87709 /* libCodePush.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -669,6 +691,15 @@
 			children = (
 				047591742199540E007E1D82 /* TimePicker.app */,
 				047591762199540E007E1D82 /* TimePickerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04BE3F0921A7C58B004F8410 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04BE3F0E21A7C58B004F8410 /* libCodePush.a */,
+				04BE3F1021A7C58B004F8410 /* libCodePush.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -736,6 +767,7 @@
 				044C39FB21771B1A00FE662D /* MessageUI.framework */,
 				044C39F921771B0400FE662D /* Social.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
+				D7EF5EED483D4E7F917895F3 /* libz.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -780,6 +812,7 @@
 				29DE8DB74859431A91A8BE37 /* TimePicker.xcodeproj */,
 				501F2FC1CE8E4B5BB6D6FBDE /* RNLocation.xcodeproj */,
 				04D6CA2364D544799B687471 /* RNGooglePlaces.xcodeproj */,
+				AC159A46BC214AE3A8296248 /* CodePush.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -988,6 +1021,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 04BE3F0921A7C58B004F8410 /* Products */;
+					ProjectRef = AC159A46BC214AE3A8296248 /* CodePush.xcodeproj */;
+				},
+				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
 					ProjectRef = 00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */;
 				},
@@ -1149,6 +1186,20 @@
 			fileType = wrapper.cfbundle;
 			path = TimePickerTests.xctest;
 			remoteRef = 047591752199540E007E1D82 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		04BE3F0E21A7C58B004F8410 /* libCodePush.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCodePush.a;
+			remoteRef = 04BE3F0D21A7C58B004F8410 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		04BE3F1021A7C58B004F8410 /* libCodePush.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCodePush.a;
+			remoteRef = 04BE3F0F21A7C58B004F8410 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		139105C11AF99BAD00B5F7CC /* libRCTSettings.a */ = {
@@ -1547,12 +1598,14 @@
 					"$(SRCROOT)/../node_modules/react-native-timepicker/ios/TimePicker",
 					"$(SRCROOT)/../node_modules/react-native-location/ios",
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
+					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 				);
 				INFOPLIST_FILE = DinggTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1588,12 +1641,14 @@
 					"$(SRCROOT)/../node_modules/react-native-timepicker/ios/TimePicker",
 					"$(SRCROOT)/../node_modules/react-native-location/ios",
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
+					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 				);
 				INFOPLIST_FILE = DinggTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1630,6 +1685,7 @@
 					"$(SRCROOT)/../node_modules/react-native-timepicker/ios/TimePicker",
 					"$(SRCROOT)/../node_modules/react-native-location/ios",
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
+					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 				);
 				INFOPLIST_FILE = Dingg/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1660,6 +1716,7 @@
 					"$(SRCROOT)/../node_modules/react-native-timepicker/ios/TimePicker",
 					"$(SRCROOT)/../node_modules/react-native-location/ios",
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
+					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 				);
 				INFOPLIST_FILE = Dingg/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1696,11 +1753,13 @@
 					"$(SRCROOT)/../node_modules/react-native-timepicker/ios/TimePicker",
 					"$(SRCROOT)/../node_modules/react-native-location/ios",
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
+					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 				);
 				INFOPLIST_FILE = "Dingg-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1744,11 +1803,13 @@
 					"$(SRCROOT)/../node_modules/react-native-timepicker/ios/TimePicker",
 					"$(SRCROOT)/../node_modules/react-native-location/ios",
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
+					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 				);
 				INFOPLIST_FILE = "Dingg-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1791,11 +1852,13 @@
 					"$(SRCROOT)/../node_modules/react-native-timepicker/ios/TimePicker",
 					"$(SRCROOT)/../node_modules/react-native-location/ios",
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
+					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 				);
 				INFOPLIST_FILE = "Dingg-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1838,11 +1901,13 @@
 					"$(SRCROOT)/../node_modules/react-native-timepicker/ios/TimePicker",
 					"$(SRCROOT)/../node_modules/react-native-location/ios",
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
+					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 				);
 				INFOPLIST_FILE = "Dingg-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
