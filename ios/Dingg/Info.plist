@@ -109,5 +109,7 @@
 	<false/>
 	<key>priva</key>
 	<string/>
+	<key>CodePushDeploymentKey</key>
+	<string>WJSLBq99T4FVKXZuRHvGY3cnVWLBrJFrG2_RQ</string>
 </dict>
 </plist>

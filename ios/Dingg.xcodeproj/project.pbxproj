@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
@@ -83,6 +82,12 @@
 		E904F4CCDB674FAA998FE148 /* Muli Light Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06DAA5C5FFDD4FACADFC5DD7 /* Muli Light Italic.ttf */; };
 		F37AA39A4538494095AF7A15 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98C9177356D14B3B8D36239B /* Entypo.ttf */; };
 		F440C2FD923A4C208998416F /* Muli-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5726659F9C34F38A2AF5C1A /* Muli-Italic.ttf */; };
+		A3AE1992C3AA48519EA93DA3 /* libAppCenterReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63978BA51BC34F4EA46E7D36 /* libAppCenterReactNative.a */; };
+		13C6A6D47C55488EA2D230F1 /* AppCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = A30E3BEFFB9B41A9B9840A21 /* AppCenter-Config.plist */; };
+		0ADCA8542A4446EA9F41CDE5 /* libAppCenterReactNativeAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5145B79B6260467BA89DB386 /* libAppCenterReactNativeAnalytics.a */; };
+		8B74D966509242A5A1AB8104 /* libAppCenterReactNativeCrashes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2928A78A5B9A4188BBE92FE2 /* libAppCenterReactNativeCrashes.a */; };
+		060A6B82F3E4405594AB7683 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C8B2EBD2C341DA8A13EF4E /* libCodePush.a */; };
+		27A13C6D8158463ABE9AD2E3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5583C8BC43FC4EBEB0E95356 /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -491,6 +496,16 @@
 		E5726659F9C34F38A2AF5C1A /* Muli-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Muli-Italic.ttf"; path = "../assets/fonts/Muli-Italic.ttf"; sourceTree = "<group>"; };
 		FB3B870542E64C839DECB48E /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		FEAFBC77FA6F4011A51DE316 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		1FE1A1F7DE6B42FDB48493D9 /* AppCenterReactNative.xcodeproj */ = {isa = PBXFileReference; name = "AppCenterReactNative.xcodeproj"; path = "../node_modules/appcenter/ios/AppCenterReactNative.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		63978BA51BC34F4EA46E7D36 /* libAppCenterReactNative.a */ = {isa = PBXFileReference; name = "libAppCenterReactNative.a"; path = "libAppCenterReactNative.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		A30E3BEFFB9B41A9B9840A21 /* AppCenter-Config.plist */ = {isa = PBXFileReference; name = "AppCenter-Config.plist"; path = "Dingg/AppCenter-Config.plist"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = text.plist.xml; explicitFileType = undefined; includeInIndex = 0; };
+		54F123E4696743D2A09593CC /* AppCenterReactNativeAnalytics.xcodeproj */ = {isa = PBXFileReference; name = "AppCenterReactNativeAnalytics.xcodeproj"; path = "../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		5145B79B6260467BA89DB386 /* libAppCenterReactNativeAnalytics.a */ = {isa = PBXFileReference; name = "libAppCenterReactNativeAnalytics.a"; path = "libAppCenterReactNativeAnalytics.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		5FB92D6CC09D4D54A296A88F /* AppCenterReactNativeCrashes.xcodeproj */ = {isa = PBXFileReference; name = "AppCenterReactNativeCrashes.xcodeproj"; path = "../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		2928A78A5B9A4188BBE92FE2 /* libAppCenterReactNativeCrashes.a */ = {isa = PBXFileReference; name = "libAppCenterReactNativeCrashes.a"; path = "libAppCenterReactNativeCrashes.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		2EA88C3BBBF64B4192E8E4A5 /* CodePush.xcodeproj */ = {isa = PBXFileReference; name = "CodePush.xcodeproj"; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		86C8B2EBD2C341DA8A13EF4E /* libCodePush.a */ = {isa = PBXFileReference; name = "libCodePush.a"; path = "libCodePush.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		5583C8BC43FC4EBEB0E95356 /* libz.tbd */ = {isa = PBXFileReference; name = "libz.tbd"; path = "usr/lib/libz.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -526,6 +541,11 @@
 				323E08BA58054CB9AC6B8B12 /* libRNNavybitsDateTimePicker.a in Frameworks */,
 				5C9E917ECBD14B248A3FD5CA /* TimePicker.app in Frameworks */,
 				410F421CD9BA4A3C97A4FA2E /* TimePickerTests.xctest in Frameworks */,
+				A3AE1992C3AA48519EA93DA3 /* libAppCenterReactNative.a in Frameworks */,
+				0ADCA8542A4446EA9F41CDE5 /* libAppCenterReactNativeAnalytics.a in Frameworks */,
+				8B74D966509242A5A1AB8104 /* libAppCenterReactNativeCrashes.a in Frameworks */,
+				060A6B82F3E4405594AB7683 /* libCodePush.a in Frameworks */,
+				27A13C6D8158463ABE9AD2E3 /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,6 +756,7 @@
 				044C39FB21771B1A00FE662D /* MessageUI.framework */,
 				044C39F921771B0400FE662D /* Social.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
+				5583C8BC43FC4EBEB0E95356 /* libz.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -780,6 +801,10 @@
 				29DE8DB74859431A91A8BE37 /* TimePicker.xcodeproj */,
 				501F2FC1CE8E4B5BB6D6FBDE /* RNLocation.xcodeproj */,
 				04D6CA2364D544799B687471 /* RNGooglePlaces.xcodeproj */,
+				1FE1A1F7DE6B42FDB48493D9 /* AppCenterReactNative.xcodeproj */,
+				54F123E4696743D2A09593CC /* AppCenterReactNativeAnalytics.xcodeproj */,
+				5FB92D6CC09D4D54A296A88F /* AppCenterReactNativeCrashes.xcodeproj */,
+				2EA88C3BBBF64B4192E8E4A5 /* CodePush.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -803,6 +828,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				043F84EF2174A8B400ED0C12 /* Recovered References */,
 				90FF15DEA8224C3DAF21D7E8 /* Resources */,
+				A30E3BEFFB9B41A9B9840A21 /* AppCenter-Config.plist */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -1427,6 +1453,7 @@
 				6DCAAE72DCEA4D4E845A0831 /* Muli-Light.ttf in Resources */,
 				B9641587C3C54BF9A5ACE08A /* Muli-LightItalic.ttf in Resources */,
 				BAD25F8F1FCA41D6A087B132 /* Muli-ExtraBold.ttf in Resources */,
+				13C6A6D47C55488EA2D230F1 /* AppCenter-Config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1547,12 +1574,20 @@
 					"$(SRCROOT)/../node_modules/react-native-timepicker/ios/TimePicker",
 					"$(SRCROOT)/../node_modules/react-native-location/ios",
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
+					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
+					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
+					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
+					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 				);
 				INFOPLIST_FILE = DinggTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1588,12 +1623,20 @@
 					"$(SRCROOT)/../node_modules/react-native-timepicker/ios/TimePicker",
 					"$(SRCROOT)/../node_modules/react-native-location/ios",
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
+					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
+					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
+					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
+					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 				);
 				INFOPLIST_FILE = DinggTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1630,6 +1673,10 @@
 					"$(SRCROOT)/../node_modules/react-native-timepicker/ios/TimePicker",
 					"$(SRCROOT)/../node_modules/react-native-location/ios",
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
+					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
+					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
+					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
+					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 				);
 				INFOPLIST_FILE = Dingg/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1660,6 +1707,10 @@
 					"$(SRCROOT)/../node_modules/react-native-timepicker/ios/TimePicker",
 					"$(SRCROOT)/../node_modules/react-native-location/ios",
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
+					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
+					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
+					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
+					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 				);
 				INFOPLIST_FILE = Dingg/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1696,11 +1747,19 @@
 					"$(SRCROOT)/../node_modules/react-native-timepicker/ios/TimePicker",
 					"$(SRCROOT)/../node_modules/react-native-location/ios",
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
+					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
+					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
+					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
+					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 				);
 				INFOPLIST_FILE = "Dingg-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1744,11 +1803,19 @@
 					"$(SRCROOT)/../node_modules/react-native-timepicker/ios/TimePicker",
 					"$(SRCROOT)/../node_modules/react-native-location/ios",
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
+					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
+					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
+					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
+					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 				);
 				INFOPLIST_FILE = "Dingg-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1791,11 +1858,19 @@
 					"$(SRCROOT)/../node_modules/react-native-timepicker/ios/TimePicker",
 					"$(SRCROOT)/../node_modules/react-native-location/ios",
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
+					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
+					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
+					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
+					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 				);
 				INFOPLIST_FILE = "Dingg-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1838,11 +1913,19 @@
 					"$(SRCROOT)/../node_modules/react-native-timepicker/ios/TimePicker",
 					"$(SRCROOT)/../node_modules/react-native-location/ios",
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
+					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
+					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
+					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
+					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 				);
 				INFOPLIST_FILE = "Dingg-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
