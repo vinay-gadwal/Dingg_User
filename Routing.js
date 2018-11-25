@@ -31,7 +31,7 @@ const AuthStack = createBottomTabNavigator({
         : require('./Image/new_images/homeIcon3x.png')
         return (
           <View style={{flexDirection:"column",alignItems:"center"}}>
-          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth="60" initHeight="3"/>
+          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth="55" initHeight="3"/>
           <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="23" initHeight="23"/>
           </View>
         )
@@ -100,7 +100,7 @@ const AuthStack = createBottomTabNavigator({
         : require('./Image/icon/profileIcon2x.png')
         return (
          <View style={{flexDirection:"column",alignItems:"center"}}>
-          <ResponsiveImage source={line} style={{marginBottom:hp("2%"),marginRight:wp("4%")}} initWidth="50" initHeight="3"/>
+          <ResponsiveImage source={line} style={{marginBottom:hp("2%"),marginRight:wp("4%")}} initWidth="55" initHeight="3"/>
           <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="21" initHeight="23"/>
           </View>
         )
@@ -262,7 +262,7 @@ const RootStack = createStackNavigator({
 });
 
 
-class DinggApp extends React.Component {
+export default class DinggApp extends React.Component {
   constructor(){
     super();
   }
@@ -276,4 +276,4 @@ class DinggApp extends React.Component {
   }
 }
 
-export default DinggApp = codePush(MyApp);
+// export default DinggApp = DinggApp;

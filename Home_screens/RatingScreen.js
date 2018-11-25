@@ -181,7 +181,7 @@ export default class StarReview extends Component {
       :
       this.displayMode()
     return (
-       <View style={{backgroundColor:"rgb(243,242,242)",alignItems:"center"}}>
+       <View style={{backgroundColor:"rgb(243,242,242)",alignItems:"center",flex:1}}>
         <Text style={{fontFamily:"Muli-ExtraBold",fontSize:RF(2.3),marginTop:hp("5%")}}>Hope you enjoyed our service</Text>
         <Text style={{fontFamily:"Muli-ExtraBold",fontSize:RF(2),marginBottom:hp("5%"),marginTop:wp("3%"),color:"rgb(140,140,140)"}}>How did you feel?</Text>
 
@@ -202,23 +202,23 @@ export default class StarReview extends Component {
             autoCorrect={false}
           />
           </View>
-          <View style={[styles.box_SignUp,{height: hp('25%'),marginTop:hp("2%"),paddingVertical:hp('1%'),}]}>
+          <View style={[styles.box_SignUp,{height: hp('30%'),marginTop:hp("2%"),paddingVertical:hp('2%'),}]}>
           <TextInput
             value={this.state.username}
             onChangeText={username => this.setState({ username })}
-            style={[styles.input,{width: wp('52'), height: hp('5%'),marginRight:wp("25%")}]}
+            style={[styles.input,{width: wp('80'), height: hp('5%'),marginHorizontal:wp("10%")}]}
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="done"
             underlineColorAndroid='transparent'
             ref={input => (this.emailInput = input)}
             // onSubmitEditing={() => this.passwordCInput.focus()}
             keyboardType="numeric"
-            placeholder="Review Title"
+            placeholder="Tell us more about it..."
             autoCapitalize="none"
             autoCorrect={false}
           />
           </View>
-          <TouchableOpacity style={[styles.button,{marginTop:hp("3%")}]} >
+          <TouchableOpacity style={[styles.button,{marginTop:hp("5%")}]} >
           <Text style={styles.buttonText}>Submit</Text>
           </TouchableOpacity>
 

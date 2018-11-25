@@ -5,14 +5,14 @@ import {
   ScrollView,Alert,TouchableOpacity,FlatList
 } from 'react-native';
 import styles from '../Style/Style'
-import ToggleSwitch from 'toggle-switch-react-native'
+// import Star from '../Home_screens/RatingScreen'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import RF from "react-native-responsive-fontsize"
-import { Dialog } from "react-native-simple-dialogs";
-import CountDown from 'react-native-countdown-component';
-import TimerCountdown from 'react-native-timer-countdown';
+import { createStackNavigator } from 'react-navigation'
+import Booking from '../Home_screens/BookService'
+import Alert_top from '../Component/Alert' 
 import ResponsiveImage from 'react-native-responsive-image'
-import SwitchButton from 'switch-button-react-native';
+import Search from '../Home_screens/Search'
 console.disableYellowBox = true;
 import { Card } from "react-native-elements";
 import PropTypes from 'prop-types'
@@ -43,7 +43,7 @@ const data = [
     title: "something six"
   }
 ];
-export default class StarReview extends Component {
+class StarReview extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -291,6 +291,7 @@ export default class StarReview extends Component {
       );
     };
 
+    
   render() {
     const Star_Rating = this.displayValue == null ?
     (this.props.half ? this.halfRatingMode() : this.fullRatingMode())
@@ -306,15 +307,17 @@ export default class StarReview extends Component {
           </TouchableOpacity>
           <Text style={{fontFamily:"Muli-ExtraBold",fontSize:RF(2.3),marginLeft:wp("2%"),marginTop:hp(".5%")}}>Sahyog Mandir Rd, Thane</Text>
           <ResponsiveImage source={require('../Image/new_images/editAddressIcon2x.png')} style={{marginVertical:hp("1%"),marginLeft:wp("2%")}} initWidth="14" initHeight="15"/>                
+          <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Alert_top')}}>
           <ResponsiveImage source={require('../Image/new_images/notificationIcon3x.png')} style={{marginVertical:hp(".5%"),marginLeft:wp("20%")}} initWidth="21" initHeight="23"/>
+          </TouchableOpacity>
         </View>
         <View style={{flexDirection:"row"}}>
         
         <View style={{flexDirection:"column",marginBottom:hp("2%"),marginHorizontal:wp("5%")}}>
-          <View style={{flexDirection:"row"}}>
+          <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Search')}} style={{marginLeft:wp("3%"),flexDirection:"row"}}>
           <ResponsiveImage source={require('../Image/new_images/searchIcon2x.png')} style={{marginTop:hp("1%")}} initWidth="15" initHeight="15"/> 
           <Text style={{fontFamily:"Muli-Bold",fontSize:RF(2.3),color:"rgb(221,221,221)",marginLeft:wp("2%"),marginBottom:hp(".5%")}}>Search</Text>
-          </View>
+          </TouchableOpacity>
           <ResponsiveImage style={{marginLeft:"1%",marginVertical:hp("1%")}} source={require('../Image/main/tableDivider2x.png')} initWidth="200" initHeight="2"/>
         </View>
        
@@ -374,7 +377,7 @@ export default class StarReview extends Component {
                   <ResponsiveImage style={{marginLeft:"1%",marginVertical:hp("1%")}} source={require('../Image/new_images/rectangle1_3x.png')} initWidth="3" initHeight="35"/>
                 <View style={{flexDirection:"column",marginTop:hp(".5%")}}>
                   <Text style={[styles.text,{fontSize:RF(1.8),color:"rgb(140,140,140)"}]}>Wait time 2h</Text>
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={() =>{this.props.navigation.navigate('Booking')}}>
                   <Text style={[styles.text,{fontSize:RF(1.8),color:"rgb(255,164,0)"}]}>Join Queue</Text>
                   </TouchableOpacity>
                 </View>
@@ -389,19 +392,14 @@ export default class StarReview extends Component {
               <FlatList          
                     data={ this.state.dataSource1 }
                     renderItem={({item}) => 
-                    <View style={{ 
-                        width: wp('90%'),marginLeft:"4%",
-                        height: hp('21%'),
-                        backgroundColor:"white",
-                        marginVertical:hp('2%'),
-                        borderRadius:10,}}>
+                    <View style={[styles.list_box,{height:hp("22%")}]}>
                         <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
                              <View >
                                  <View style={[styles.button,{height:hp("5%"),width:wp("9.5%"),borderRadius:6}]}>
                                  <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>20%</Text>
                                  <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>off</Text>
                                  </View>
-                                 <Image style={{width: 100, height: 100,borderRadius:10,marginBottom:hp("10%"),marginLeft:wp("5%")}} source={{uri:item.imageUrl}} />                                 
+                                 <Image style={{width:wp("25%"), height:hp("15%"),borderRadius:10,marginLeft:wp("5%")}} source={{uri:item.imageUrl}} />                                 
                             </View>           
                             <View style={{flexDirection:"column",marginVertical:hp("2%"),width:wp("60%")}}>
                                   <Text style={[styles.text,{fontSize:RF(1.8),marginLeft:wp("45%"),color:"rgb(140,140,140)"}]}>2.5 km</Text>
@@ -420,7 +418,7 @@ export default class StarReview extends Component {
                                 <ResponsiveImage style={{marginLeft:"1%",marginVertical:hp("1%")}} source={require('../Image/new_images/rectangle1_3x.png')} initWidth="3" initHeight="35"/>
                                     <View style={{flexDirection:"column",marginTop:hp(".5%")}}>
                                       <Text style={[styles.text,{fontSize:RF(1.8)}]}>Wait time 2h</Text>
-                                      <TouchableOpacity>
+                                      <TouchableOpacity onPress={() =>{this.props.navigation.navigate('Booking')}}>
                                       <Text style={[styles.text,{fontSize:RF(1.8),color:"rgb(255,164,0)"}]}>Join Queue</Text>
                                       </TouchableOpacity>
                                     </View>
@@ -486,3 +484,40 @@ StarReview.defaultProps = {
   spacing: 18
 }
 
+export default createStackNavigator({
+  StarReview:{
+    screen:StarReview,
+    headerMode: null,
+    navigationOptions: ({ navigation }) => ({
+    })
+  },
+  Search:{
+          screen:Search,
+          headerMode: null,
+    navigationOptions: ({ navigation }) => ({
+    })
+        },
+ Alert_top:{
+          screen:Alert_top,
+          navigationOptions: ({ navigation }) => ({
+            title: 'NOTIFICATION',
+          })
+        },
+  Booking:{
+          screen:Booking,
+          navigationOptions: ({ navigation }) => ({
+            title: 'NOTIFICATION',
+          })
+        }
+},
+
+{
+  initialRouteName:"StarReview",
+  headerMode: "none",
+  navigationOptions: {
+    headerTitleStyle: {
+      fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
+    },
+      },
+
+});

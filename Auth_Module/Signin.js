@@ -41,7 +41,7 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    // this.props.navigation.navigate('AuthStack')
+    this.props.navigation.navigate('AuthStack')
   }
   phone(){
     return(

@@ -29,7 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
         protected String getJSBundleFile() {
         return CodePush.getJSBundleFile();
         }
-    
+
     @Override
     public boolean getUseDeveloperSupport() {
       return BuildConfig.DEBUG;
@@ -40,9 +40,12 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new CodePush(null, getApplicationContext(), BuildConfig.DEBUG),
+<<<<<<< HEAD
             new AppCenterReactNativeCrashesPackage(MainApplication.this, getResources().getString(R.string.appCenterCrashes_whenToSendCrashes)),
             new AppCenterReactNativeAnalyticsPackage(MainApplication.this, getResources().getString(R.string.appCenterAnalytics_whenToEnableAnalytics)),
             new AppCenterReactNativePackage(MainApplication.this),
+=======
+>>>>>>> 8857db9578823d509033b389ebdd0c4f5faf9d49
             new RNGooglePlacesPackage(),
             new RNNavybitsDateTimePickerPackage(),
             new VectorIconsPackage(),
