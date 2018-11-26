@@ -6,10 +6,13 @@
  */
 
 #import "AppDelegate.h"
-#import <CodePush/CodePush.h>
 #import <AppCenterReactNativeCrashes/AppCenterReactNativeCrashes.h>
 #import <AppCenterReactNativeAnalytics/AppCenterReactNativeAnalytics.h>
 #import <AppCenterReactNative/AppCenterReactNative.h>
+#import <CodePush/CodePush.h>
+// #import <AppCenterReactNativeCrashes.h>
+// #import <AppCenterReactNativeAnalytics.h>
+// #import <AppCenterReactNative.h>
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
@@ -19,6 +22,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   NSURL *jsCodeLocation;
+
+  [AppCenterReactNative register];  // Initialize AppCenter 
 
   [AppCenterReactNative register];  // Initialize AppCenter
 
