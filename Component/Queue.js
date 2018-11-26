@@ -6,8 +6,10 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import ResponsiveImage from 'react-native-responsive-image'
 import { Dialog } from "react-native-simple-dialogs";
 import PopoverTooltip from 'react-native-popover-tooltip';
+import Alert_top from '../Component/Alert' 
+import {createBottomTabNavigator,createStackNavigator,} from 'react-navigation';
 
-export default class Queue_request extends Component {
+class Queue extends Component {
  
  constructor(props) {
    super(props);
@@ -59,7 +61,6 @@ return (
                     renderItem={({item}) => 
                     <View style={{ 
                         width: wp('90%'),marginLeft:"5%",
-                        height: hp('35%'),
                         backgroundColor:"white",
                         marginVertical:hp('2%'),
                         borderRadius:10,}}>
@@ -107,12 +108,12 @@ return (
 
                             </View>           
                               <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("45%")}}>
-                                 <Text style={[styles.text,{fontSize:RF(2.7),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7),marginBottom:hp("1%")}]}>{item.name}</Text>
+                                 <Text style={[styles.text,{fontSize:RF(2.5),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
+                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),marginBottom:hp("1%")}]}>{item.name}</Text>
                                  <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1.5%")}]}>Service</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7)}]}>{item.name}</Text>
+                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5)}]}>{item.name}</Text>
                                  <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1.5%")}]}>Stylist</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7)}]}>{item.name}</Text>
+                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5)}]}>{item.name}</Text>
                             </View>  
                             </View>         
                         </View>   }                       
@@ -162,3 +163,42 @@ return (
    );
  }
 }
+export default createStackNavigator({
+    Queue:{
+      screen:Queue,
+      navigationOptions: ({ navigation }) => ({
+        title: 'QUEUE',
+       
+        headerRight:(
+          <TouchableOpacity onPress={() => {navigation.navigate('Alert_top')}}>
+           <Image
+          source={require('../Image/new_images/notificationIcon3x.png')}
+          style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+        />
+          </TouchableOpacity>)
+        })
+    },
+   Alert_top:{
+            screen:Alert_top,
+            navigationOptions: ({ navigation }) => ({
+              title: 'ALERTS',
+              headerLeft:null,
+              headerRight:(
+              <Image
+                source={require('../Image/new_images/activenotificationIcon3x_2.png')}
+                style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+              />)
+            })
+          },
+  },
+  
+  {
+    initialRouteName:"Queue",
+    // headerMode: "none",
+    navigationOptions: {
+      headerTitleStyle: {
+        fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
+      },
+        },
+  
+  });

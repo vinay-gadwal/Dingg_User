@@ -216,8 +216,8 @@ const styles = StyleSheet.create({
       // fontWeight: 'bold',
     },
     Details_image:{
-      width: hp("2.5%"),
-      height: hp("2.5%"),
+      width: hp("2.3%"),
+      height: hp(".1%"),
       marginTop:hp("2"),
       marginRight:wp("8%")
     },

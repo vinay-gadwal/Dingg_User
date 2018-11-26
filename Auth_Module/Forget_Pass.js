@@ -294,7 +294,7 @@ export default class example extends Component {
         
         </View>      
          <View style={[styles.box_SignUp,{height: hp('20%'),marginTop:hp("3%")}]}>
-         <Text style={styles.text}>Enter the registered mobile number</Text>
+         <Text style={[styles.text,{marginVertical:hp("2%")}]}>Enter the registered mobile number</Text>
        
          {/* <Form ref={'form'} style={styles.form}>
 

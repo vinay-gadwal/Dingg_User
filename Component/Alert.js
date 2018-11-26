@@ -52,11 +52,6 @@ return (
       backgroundColor: "rgb(243,242,242)",
       paddingVertical:"0%"}}>
         
-   
-    <View style={[styles.Header,{height:hp("8%"),flexDirection:"row",justifyContent:"flex-end",alignItems:"center"}]}>
-        <Text style={[styles.text,{fontSize:RF(2.4),marginRight:wp("25%")}]}>NOTIFICATION</Text>
-        <ResponsiveImage source={require('../Image/new_images/activenotificationIcon3x_2.png')} style={{marginRight:wp("5%")}} initWidth="20" initHeight="21"/>
-    </View>
      <View style={{flexDirection:"row"}}>
               <FlatList          
                     data={ this.state.dataSource }

@@ -187,6 +187,7 @@ const RootStack = createStackNavigator({
 
   AuthStack:{
              screen:AuthStack,
+             headerMode:"none",
              navigationOptions: ({ navigation }) => ({
               header: null,
             })

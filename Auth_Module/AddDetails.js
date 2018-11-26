@@ -135,7 +135,7 @@ export default class App extends Component {
                  
                   <View style={{flexDirection:"row",marginTop:hp("1%"),marginRight:wp("4%")}}>
                   <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.Select_unselect_mon }>
-                        <Image source = { ( this.state.Check_box ) ? require('../Image/new_images/uncheckedIcon3x.png') : require('../Image/new_images/selectedIcon3x.png') } style = {{width:wp(4.5),height:hp(2.5),marginTop:hp("1%"),marginRight:wp("3%")}} />
+                        <Image source = { ( this.state.Check_box ) ? require('../Image/new_images/uncheckedIcon3x.png') : require('../Image/new_images/selectedIcon3x.png') } style = {{width:wp(4.5),height:hp(2.2),marginTop:hp("1%"),marginRight:wp("3%")}} />
                   </TouchableOpacity>
                 <Text style={[styles.copy_rigth,{marginTop:hp("1%")}]}>I agree to Dingg's</Text>
                 <TouchableOpacity onPress={ () => this.openDialog(true) }>

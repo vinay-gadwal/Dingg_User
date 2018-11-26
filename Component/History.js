@@ -7,6 +7,8 @@ import ResponsiveImage from 'react-native-responsive-image'
 import { createMaterialTopTabNavigator } from 'react-navigation';
 import PropTypes from 'prop-types'
 import { Dialog } from "react-native-simple-dialogs";
+import Alert_top from '../Component/Alert' 
+import {createBottomTabNavigator,createStackNavigator,} from 'react-navigation';
 
 class Ongoing extends React.Component {
     
@@ -85,7 +87,6 @@ class Ongoing extends React.Component {
                             renderItem={({item}) => 
                             <View style={{ 
                               width: wp('90%'),marginLeft:"5%",
-                              height: hp('35%'),
                               backgroundColor:"white",
                               marginVertical:hp('2%'),
                               borderRadius:10,}}> 
@@ -114,12 +115,12 @@ class Ongoing extends React.Component {
                                           </TouchableOpacity>
                                     </View>           
                                       <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("45%")}}>
-                                         <Text style={[styles.text,{fontSize:RF(2.7),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7),marginBottom:hp("1%")}]}>{item.name}</Text>
+                                         <Text style={[styles.text,{fontSize:RF(2.5),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),marginBottom:hp("1%")}]}>{item.name}</Text>
                                          <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Service</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7),marginBottom:hp("1%")}]}>{item.name}</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),marginBottom:hp("1%")}]}>{item.name}</Text>
                                          <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Stylist</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7)}]}>{item.name}</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5)}]}>{item.name}</Text>
                                     </View>           
                                 </View>  
                                 </View> }                       
@@ -417,7 +418,6 @@ class StarReview extends React.Component {
                             renderItem={({item}) => 
                             <View style={{ 
                               width: wp('90%'),marginLeft:"5%",
-                              height: hp('40%'),
                               backgroundColor:"white",
                               marginVertical:hp('2%'),
                               borderRadius:10,}}>
@@ -433,12 +433,12 @@ class StarReview extends React.Component {
                                          {view}
                                     </View>           
                                       <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("45%")}}>
-                                         <Text style={[styles.text,{fontSize:RF(2.7),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7),marginBottom:hp("1%")}]}>{item.name}</Text>
+                                         <Text style={[styles.text,{fontSize:RF(2.5),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),marginBottom:hp("1%")}]}>{item.name}</Text>
                                          <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Service</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7)}]}>{item.name}</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5)}]}>{item.name}</Text>
                                          <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Stylist</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7)}]}>{item.name}</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5)}]}>{item.name}</Text>
                                     </View>           
                                 </View> 
                                 </View>  }                       
@@ -485,7 +485,7 @@ StarReview.defaultProps = {
   spacing: 0
 }
 
-export default createMaterialTopTabNavigator({
+const AuthStack = createMaterialTopTabNavigator({
   Ongoing: Ongoing,
   Completed: StarReview,
   
@@ -501,10 +501,11 @@ export default createMaterialTopTabNavigator({
       width: Dimensions.get('window').width,
     },
     optimizationsEnabled: true,
-    tabBarOptions: {
-      labelStyles:{ fontSize:30 } ,
+    tabBarOptions: 
+     {
+      labelStyles:{ fontSize:RF(3)
+       } ,
       upperCaseLabel: false,
-      // backgroundColor: 'transparent',
       style: {
         height: hp("8%"),
         marginTop:hp("3%"),
@@ -515,13 +516,58 @@ export default createMaterialTopTabNavigator({
       indicatorStyle: {
         borderBottomColor: "rgb(255,164,0)",
         borderBottomWidth: 2,
+        opacity: 0
       },
       tabStyle: {
         borderRightColor: '#ffffff',
         borderRightWidth: 1,
+        fontSize:RF(3)
+      },
+      labelStyle: {
+        fontSize: RF(2.5),
+        fontFamily:"Muli-Bold"
       },
       activeTintColor: 'black',
       inactiveTintColor: 'black',
     },
   }
   );
+  export default createStackNavigator({
+    AuthStack:{
+      screen:AuthStack,
+      navigationOptions: ({ navigation }) => ({
+        title: 'HISTORY',
+       
+        headerRight:(
+          <TouchableOpacity onPress={() => {navigation.navigate('Alert_top')}}>
+           <Image
+          source={require('../Image/new_images/notificationIcon3x.png')}
+          style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+        />
+          </TouchableOpacity>)
+        })
+    },
+   Alert_top:{
+            screen:Alert_top,
+            navigationOptions: ({ navigation }) => ({
+              title: 'ALERTS',
+              headerLeft:null,
+              headerRight:(
+              <Image
+                source={require('../Image/new_images/activenotificationIcon3x_2.png')}
+                style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+              />)
+            })
+          },
+  },
+  
+  {
+    initialRouteName:"AuthStack",
+    // headerMode: "none",
+    navigationOptions: {
+      headerTitleStyle: {
+        fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
+      },
+        },
+  
+  });

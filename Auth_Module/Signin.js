@@ -41,7 +41,7 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    // this.props.navigation.navigate('AuthStack')
+    this.props.navigation.navigate('AuthStack')
   }
   phone(){
     return(
@@ -125,7 +125,7 @@ export default class Login extends Component {
         <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="94" initHeight="65"/>
         </View>
         
-         <View style={[styles.box,{marginTop:"2%",height: hp('38%'),}]}>
+         <View style={[styles.box,{marginTop:"2%",height: hp('36%'),}]}>
          <Text style={[styles.text,{alignItems:"flex-start",marginRight:wp("42.5%")}]}>Sign In Using</Text>
          <Text></Text>
          
@@ -157,7 +157,7 @@ export default class Login extends Component {
       <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Forget_password')}}>
           <Text style={{color:"rgb(255,163,0)",fontSize: RF(2),marginTop:hp("4%"),fontWeight:"bold"}}>Continue without Signing In</Text>
           </TouchableOpacity>
-      <View style={{flexDirection:"row",marginTop:hp("3%")}}>
+      <View style={{flexDirection:"row",marginTop:hp("2%")}}>
         <Text style={styles.text}>Don't have an account? </Text>
         <View style={{flexDirection:"column"}}>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('SignUp')}>
@@ -175,16 +175,15 @@ export default class Login extends Component {
         <Text style={styles.text}>here</Text>
       </View>
       
-      <View style={{flexDirection:"row",marginTop:hp("1%")}}>
+      <View style={{flexDirection:"row"}}>
         <Image
           source={require('../Image/icon/copyright.png')}
           style={styles.copy_rigth_image}
         />
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>
-          <Text style={[styles.copy_rigth]}> Vrienden Tech Private Limited 2018 </Text>
+          <Text style={[styles.copy_rigth,{marginVertical:hp("1%")}]}> Vrienden Tech Private Limited 2018 </Text>
 
-      
 </KeyboardAwareScrollView>
     );
   }

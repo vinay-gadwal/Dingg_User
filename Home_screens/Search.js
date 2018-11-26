@@ -329,7 +329,7 @@ export default class StarReview extends Component {
                                  <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>20%</Text>
                                  <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>off</Text>
                                  </View>
-                                 <Image style={{width:wp("25%"), height:hp("15%"),borderRadius:10,marginLeft:wp("5%")}} source={{uri:item.imageUrl}} />                                 
+                                 <Image style={{width:wp("25%"), height:hp("12%"),borderRadius:10,marginLeft:wp("5%")}} source={{uri:item.imageUrl}} />                                 
                             </View>           
                             <View style={{flexDirection:"column",marginVertical:hp("2%"),width:wp("60%")}}>
                                   <Text style={[styles.text,{fontSize:RF(1.8),marginLeft:wp("45%"),color:"rgb(140,140,140)"}]}>2.5 km</Text>

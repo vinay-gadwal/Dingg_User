@@ -306,9 +306,10 @@ class StarReview extends Component {
           <ResponsiveImage source={require('../Image/new_images/locationIcon2x.png')} style={{marginVertical:hp(".5%")}} initWidth="20" initHeight="23"/>                
           </TouchableOpacity>
           <Text style={{fontFamily:"Muli-ExtraBold",fontSize:RF(2.3),marginLeft:wp("2%"),marginTop:hp(".5%")}}>Sahyog Mandir Rd, Thane</Text>
+          {/* {this.state.location} */}
           <ResponsiveImage source={require('../Image/new_images/editAddressIcon2x.png')} style={{marginVertical:hp("1%"),marginLeft:wp("2%")}} initWidth="14" initHeight="15"/>                
           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Alert_top')}}>
-          <ResponsiveImage source={require('../Image/new_images/notificationIcon3x.png')} style={{marginVertical:hp(".5%"),marginLeft:wp("20%")}} initWidth="21" initHeight="23"/>
+          <ResponsiveImage source={require('../Image/new_images/notificationIcon3x.png')} style={{marginVertical:hp(".5%"),marginLeft:wp("15%")}} initWidth="21" initHeight="23"/>
           </TouchableOpacity>
         </View>
         <View style={{flexDirection:"row"}}>
@@ -507,6 +508,13 @@ export default createStackNavigator({
           screen:Booking,
           navigationOptions: ({ navigation }) => ({
             title: 'NOTIFICATION',
+              headerLeft:(
+                <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+              <Image
+                source={require('../Image/icon/back_2x.png')}
+                style={styles.back_butt0n}
+              />
+              </TouchableOpacity>)
           })
         }
 },

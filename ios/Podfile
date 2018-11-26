@@ -13,6 +13,10 @@ target 'Dingg' do
   
 
   platform :ios, '9.0'
+  pod 'ReactNativePermissions', :path => '../node_modules/react-native-permissions'
+
+  pod 'react-native-camera', :path => '../node_modules/react-native-camera'
+
   target 'DinggTests' do
     inherit! :search_paths
     # Pods for testing
