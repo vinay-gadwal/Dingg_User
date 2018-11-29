@@ -69,14 +69,12 @@
 		7D47CB9B8A7D489289E4800D /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 150D819A71374757A410D152 /* Octicons.ttf */; };
 		81F01A492E383B2E12BAFCF4 /* libPods-Dingg-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1C25F4991CE4ED4998BC2FE /* libPods-Dingg-tvOSTests.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		833C02737711327336E872E8 /* Pods_DinggTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F03F4887F4DE26BA8AD1417D /* Pods_DinggTests.framework */; };
 		84C7FAC29E2A43A2BA6E8520 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB3B870542E64C839DECB48E /* SimpleLineIcons.ttf */; };
 		85E8A360347E40D3A1F76854 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD8FA3D3B37F46C18D9E5715 /* Ionicons.ttf */; };
 		8804AAB72ED44650A4C302B4 /* libRNVectorIcons-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FED0328AA4C4BDDB7642FAF /* libRNVectorIcons-tvOS.a */; };
 		8A9E684596D848B8A4D91639 /* libRNShare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3EEA81AD5D34423B654EA92 /* libRNShare.a */; };
 		8B74D966509242A5A1AB8104 /* libAppCenterReactNativeCrashes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2928A78A5B9A4188BBE92FE2 /* libAppCenterReactNativeCrashes.a */; };
 		91B11C36184D4A9D83FC82A6 /* Muli-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9B98A6B99CF4184848934B5 /* Muli-BoldItalic.ttf */; };
-		9DD379E2E14FDF2382E3470D /* Pods_Dingg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59673FBAEAF3FBAC47157219 /* Pods_Dingg.framework */; };
 		A20A40DF9D834A6B8A1A393E /* AeroRegularSWFTE.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 225A3C1CEFFA4639B2BE2FD9 /* AeroRegularSWFTE.ttf */; };
 		A3AE1992C3AA48519EA93DA3 /* libAppCenterReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63978BA51BC34F4EA46E7D36 /* libAppCenterReactNative.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
@@ -591,7 +589,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
-				833C02737711327336E872E8 /* Pods_DinggTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,7 +621,6 @@
 				8B74D966509242A5A1AB8104 /* libAppCenterReactNativeCrashes.a in Frameworks */,
 				060A6B82F3E4405594AB7683 /* libCodePush.a in Frameworks */,
 				27A13C6D8158463ABE9AD2E3 /* libz.tbd in Frameworks */,
-				9DD379E2E14FDF2382E3470D /* Pods_Dingg.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import {
-  View,TouchableOpacity,Image,Text
+  View,TouchableOpacity,Image,Text,ScrollView
 } from 'react-native'
 import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -9,7 +9,30 @@ import styles from '../Style/Style'
 import ResponsiveImage from 'react-native-responsive-image'
 import { Dialog } from "react-native-simple-dialogs";
 import RadioGroup from 'react-native-radio-buttons-group';
-
+import RadioGroupS from 'react-native-custom-radio-group';
+const radioGroupList = [{
+    label: '4 pm',
+    value: 'transport_car'
+  }, {
+    label: '5 pm',
+    value: 'transport_bike',
+  }, {
+    label: '6 pm',
+    value: 'transport_bus'
+  },{
+    label: '5 pm',
+    value: 'transport_bike',
+  }, {
+    label: '6 pm',
+    value: 'transport_bus'
+  },{
+    label: '5 pm',
+    value: 'transport_bike',
+  }, {
+    label: '6 pm',
+    value: 'transport_bus'
+  },
+  ];
 export default class StarReview extends Component {
   constructor(props) {
     super(props)
@@ -21,15 +44,45 @@ export default class StarReview extends Component {
         data: [ 
             {
                 label: 'Join Now',
-                color: 'rgb(255,164,0)'
+                color: 'rgb(255,164,0)',
+                value:this.JoinNow(),
             },
             {
                 label: 'Join Later',
-                color: 'rgb(255,164,0)'
+                color: 'rgb(255,164,0)',
+                value:this.JoinLatter(),
             }, 
               ],
     }
  
+  }
+
+
+  JoinNow(){
+    this.setState({Join_now:true})
+   return (
+     <View>
+     </View>
+   )
+  }
+  JoinLatter(){
+    return(
+     <View style={{height:hp("12%")}}>
+       <Text style={[styles.text,{marginLeft:wp("3%"),color:"rgb(165,165,165)",marginVertical:hp("2%")}]}>Select Time Slot</Text>
+     <ScrollView horizontal="true">
+      <RadioGroupS radioGroupList={radioGroupList} 
+       buttonContainerActiveStyle = {{backgroundColor: "rgb(255,164,0)"}}
+       buttonTextActiveStyle = {{color: "white"}}
+       buttonContainerInactiveStyle = {{backgroundColor: "white"}}
+       buttonTextInactiveStyle = {{color: "rgb(255,164,0)"}}
+       buttonContainerStyle ={{borderColor:"transparent",height:hp("6%"),marginRight:wp("1%"), shadowColor: 'rgb(222,222,222)',
+       shadowOffset: { width: 0, height: hp("0.5%") },
+       shadowOpacity: 0.8,
+       shadowRadius: 4,}}
+     />
+     </ScrollView>
+     </View>
+    )
   }
   openDialog = (show) => {
     this.setState({ showDialog: show });
@@ -121,8 +174,8 @@ render() {
     var StylistName = [ "Pankaj", "Rita", "Mohan", "Amit", "Babulal", "Sakshi" ];
     var Time = [ "10", "20", "30", "40", "50", "60" ];
     let selectedButton = this.state.data.find(e => e.selected == true);
-        selectedButton = selectedButton ? selectedButton.value : this.state.data[0].label;
-    return (
+        selectedButton = selectedButton ? selectedButton.value : this.JoinNow()
+        return (
        <View style={{backgroundColor:"rgb(243,242,242)",alignItems:"center",flex:1}}>
        <View style={[styles.Header,{height:hp("8%"),flexDirection:"row",justifyContent:"center",alignItems:"center"}]}>
         <Text style={[styles.text,]}>BOOK SERVICE</Text>
@@ -260,10 +313,12 @@ render() {
                    </View>
                    </View>
         </Dialog>
-        <View style={{flexDirection:"row",marginVertical:hp("4%")}}>
-          <RadioGroup flexDirection='row' radioButtons={this.state.data} onPress={this.onPress} />
-          <Text style={{color:"white"}}>hhhhhmndjkjkjkjkjkjkkhj</Text>
-         </View>
+        <View style={{flexDirection:"row",marginRight:wp("30%"),marginTop:hp("2%")}}>
+          <RadioGroup style={color="red"} radioButtons={this.state.data} onPress={this.onPress} flexDirection='row' />
+          </View>    
+          <View style={{marginHorizontal:wp("5%"),marginVertical:hp("2%")}}>
+          {selectedButton}
+          </View>   
           <TouchableOpacity style={[styles.button]} >  
           <Text style={styles.buttonText}>Proceed for Queue</Text>
           </TouchableOpacity>
