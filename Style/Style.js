@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
       flex: 1,
       justifyContent: "space-between",
       alignItems: "center",
-      backgroundColor: "rgb(243,242,242)",
+      backgroundColor: "rgb(242,242,242)",
       paddingVertical:"5%"
     },
     
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     BookServiceBox:{
       alignItems:"center",
           width: wp('85%'),
-          height: hp('17%'),
+          height: hp('15%'),
           backgroundColor:"white",
           borderBottomRightRadius: 10,
           borderTopRightRadius: 10,
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     },
     BookServiceBoxYello:{
       alignItems:"center",
-      height: hp('17%'),
+      height: hp('15%'),
       width:"3%",
       backgroundColor: "rgb(255,164,0)",
       borderBottomLeftRadius: 10,
@@ -230,13 +230,21 @@ const styles = StyleSheet.create({
     },
   
     profile_Small_text:{
-      fontSize: RF(2),
+      fontSize: RF(1.8),
       justifyContent:"flex-start",
-      marginLeft:"5%",
-      marginTop:"5%",
+      marginTop:hp("1%"),
       color:"rgb(176,176,176)",
-      fontWeight:"bold",
-      // fontFamily:"Muli-Bold"
+      fontFamily:"Muli-Bold",
+      marginLeft:wp("8%")
+    },
+    profile_Small_text:{
+      fontSize: RF(1.8),
+      justifyContent:"flex-start",
+      marginLeft:wp("8%"),
+      marginTop:hp("2%"),
+      color:"rgb(176,176,176)",
+      fontFamily:"Muli-Bold",
+
     },
     
     Logo_style:{
@@ -295,7 +303,13 @@ const styles = StyleSheet.create({
       ,marginLeft:"5%",
       paddingVertical:"2.5%",
       // fontFamily:"Muli-Bold",
-    }
+    },
+    avatarMultiple: {
+      borderRadius: wp("2"),
+      width: wp('20%'),
+      height: hp('11%'),
+      marginHorizontal:"2%",
+    },
     
   });
   

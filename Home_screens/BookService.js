@@ -177,8 +177,14 @@ render() {
         selectedButton = selectedButton ? selectedButton.value : this.JoinNow()
         return (
        <View style={{backgroundColor:"rgb(243,242,242)",alignItems:"center",flex:1}}>
-       <View style={[styles.Header,{height:hp("8%"),flexDirection:"row",justifyContent:"center",alignItems:"center"}]}>
-        <Text style={[styles.text,]}>BOOK SERVICE</Text>
+       <View style={[styles.Header,{height:hp("8%"),flexDirection:"row",alignItems:"center",justifyContent:"center"}]}>
+       <TouchableOpacity style={{marginRight:wp("25%"),marginTop:hp("2%")}}  onPress={ () => { this.props.navigation.navigate('saloonDetails')}}>
+              <Image
+                source={require('../Image/icon/back_2x.png')}
+                style={styles.back_butt0n}
+              />
+              </TouchableOpacity>
+        <Text style={[styles.text,{marginRight:wp("35%")}]}>BOOK SERVICE</Text>
         </View>
         <Text style={styles.BookServiceText}>Select Service</Text>
         <TouchableOpacity style={{flexDirection:"row"}}

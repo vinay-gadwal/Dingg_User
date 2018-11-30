@@ -13,6 +13,7 @@ import Booking from '../Home_screens/BookService'
 import Alert_top from '../Component/Alert' 
 import ResponsiveImage from 'react-native-responsive-image'
 import Search from '../Home_screens/Search'
+import saloonDetails from '../Home_screens/SalonDetails'
 console.disableYellowBox = true;
 import { Card } from "react-native-elements";
 import PropTypes from 'prop-types'
@@ -508,6 +509,19 @@ export default createStackNavigator({
           screen:Booking,
           navigationOptions: ({ navigation }) => ({
             title: 'NOTIFICATION',
+              headerLeft:(
+                <TouchableOpacity  onPress={ () => { navigation.saloonDetails() }}>
+              <Image
+                source={require('../Image/icon/back_2x.png')}
+                style={styles.back_butt0n}
+              />
+              </TouchableOpacity>)
+          })
+        },
+        saloonDetails:{
+          screen:saloonDetails,
+          navigationOptions: ({ navigation }) => ({
+            title: 'SALON DETAIL',
               headerLeft:(
                 <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
               <Image
