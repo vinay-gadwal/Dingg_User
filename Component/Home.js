@@ -436,7 +436,7 @@ class StarReview extends Component {
            <TouchableOpacity onPress={() => this.openDialog(false)}>
                      <Image
                                 source={require('../Image/icon/cancel1.png')}
-                                style={[styles.setting_Image,{marginLeft:wp("25%")}]}
+                                style={[styles.setting_Image,{marginLeft:wp("18%")}]}
                     />
             </TouchableOpacity>
            </View>
@@ -502,7 +502,13 @@ export default createStackNavigator({
  Alert_top:{
           screen:Alert_top,
           navigationOptions: ({ navigation }) => ({
-            title: 'NOTIFICATION',
+            title: 'ALERTS',
+            headerLeft:null,
+            headerRight:(
+            <Image
+              source={require('../Image/new_images/activenotificationIcon3x_2.png')}
+              style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+            />)
           })
         },
   Booking:{

@@ -74,6 +74,14 @@ const styles = StyleSheet.create({
       shadowOpacity: 0.8,
       shadowRadius: 4,
     },
+    Search_b0x:{
+        width: wp('90%'),marginLeft:"5%",
+        height: hp('18%"'),
+        backgroundColor:"white",
+        marginVertical:hp('1%'),
+        borderRadius:10,
+       
+    },
     Custom:{
           width: wp('86%'),
           height: hp('43%'),

@@ -17,33 +17,27 @@ import CompleteFlatList from 'react-native-complete-flatlist';
 const data = [
   {
     imageUrl: "https://image.shutterstock.com/image-photo/beautiful-hairstyle-young-woman-after-450w-711308113.jpg",
-    title: "something",
-    name:"Dingg Beauty Salon & Spa",
+    title: "something"
   },
   {
     imageUrl: "https://image.shutterstock.com/image-photo/portrait-happy-woman-hair-salon-450w-136244417.jpg",
-    title: "something two",
-    name:"Rahul Beauty Salon & Spa",
+    title: "something two"
   },
   {
     imageUrl: "https://image.shutterstock.com/image-photo/hairdresser-trimming-brown-hair-scissors-450w-178947776.jpg",
-    title: "something three",
-    name:"Rabi Beauty Salon & Spa",
+    title: "something three"
   },
   {
     imageUrl: "https://image.shutterstock.com/image-photo/washing-hair-450w-544510243.jpg",
-    title: "something four",
-    name:"Methivs Beauty Salon & Spa",
+    title: "something four"
   },
   {
     imageUrl: "https://image.shutterstock.com/image-illustration/barber-shop-modern-loft-design-450w-509792062.jpg",
-    title: "something five",
-    name:"Herry Beauty Salon & Spa",
+    title: "something five"
   },
   {
     imageUrl: "https://image.shutterstock.com/image-photo/hairdresser-set-various-accessories-on-450w-387414154.jpg",
-    title: "something six",
-    name:"Peter Beauty Salon & Spa",
+    title: "something six"
   }
 ];
 
@@ -52,6 +46,40 @@ export default class StarReview extends Component {
     super(props)
     this.state = {
         data: data,
+        dataSource1 : [ 
+          {
+              name:"Bianca Beauty Salon & Spa",
+              imageUrl: "https://image.shutterstock.com/image-photo/washing-hair-450w-544510243.jpg",
+          },
+          {
+              name:"Devine Hair & Beauty Salon",
+              imageUrl: "https://image.shutterstock.com/image-photo/hairdresser-set-various-accessories-on-450w-387414154.jpg",
+          },
+          {
+            name:"Bianca Beauty Salon & Spa",
+            imageUrl: "https://image.shutterstock.com/image-photo/washing-hair-450w-544510243.jpg",
+        },
+        {
+            name:"Devine Hair & Beauty Salon",
+            imageUrl: "https://image.shutterstock.com/image-photo/hairdresser-set-various-accessories-on-450w-387414154.jpg",
+        },
+        {
+          name:"Bianca Beauty Salon & Spa",
+          imageUrl: "https://image.shutterstock.com/image-photo/washing-hair-450w-544510243.jpg",
+      },
+      {
+          name:"Devine Hair & Beauty Salon",
+          imageUrl: "https://image.shutterstock.com/image-photo/hairdresser-set-various-accessories-on-450w-387414154.jpg",
+      },
+      {
+        name:"Bianca Beauty Salon & Spa",
+        imageUrl: "https://image.shutterstock.com/image-photo/washing-hair-450w-544510243.jpg",
+    },
+    {
+        name:"Devine Hair & Beauty Salon",
+        imageUrl: "https://image.shutterstock.com/image-photo/hairdresser-set-various-accessories-on-450w-387414154.jpg",
+    },
+  ],
       };
       this.displayValue = props.display || props.value
       this.defaultRating = props.default || props.rating
@@ -62,42 +90,7 @@ export default class StarReview extends Component {
     
     cell = (data,index) => {
       const item = data.cleanData ? data.cleanData : data
-       return (        
-              <View style={styles.Search_b0x}>
-                  <View style={{flexDirection:"row",justifyContent:"space-evenly"}}>                          
-                       <View >
-                           <View style={[styles.button,{height:hp("5%"),width:wp("9.5%"),borderRadius:6}]}>
-                           <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>20%</Text>
-                           <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>off</Text>
-                           </View>
-                           {/* <Image style={{width:wp("25%"), height:hp("12%"),borderRadius:10,marginRight:wp("2%")}} source={{uri:data.imageUrl}} />                                  */}
-                      </View>           
-                      <View style={{flexDirection:"column",marginVertical:hp("2%"),width:wp("65%"),marginRight:wp("1%")}}>
-                            <Text style={[styles.text,{fontSize:RF(1.8),marginLeft:wp("45%"),color:"rgb(140,140,140)"}]}>2.5 km</Text>
-                            <Text style={[styles.text,{fontSize:RF(2),marginBottom:hp("1%"),marginLeft:wp("4%"),fontFamily:"Muli-ExtraBold"}]}>{data.name}</Text>
-                        <View style={{flexDirection:"row",marginLeft:wp("2%")}}>
-                            <View style={{marginTop:hp(".5%")}}>
-                            {/* {Star_Rating}  */}
-                            </View>
-                            <Text style={[styles.text,{fontSize:RF(1.8),marginLeft:wp("25%")}]}>255 Reviews</Text>
-                        </View>
-                        <View style={{flexDirection:"row",justifyContent:"space-evenly"}}>
-                            <View style={{flexDirection:"column",marginTop:hp(".5%")}}>
-                              <Text style={[styles.text,{fontSize:RF(1.8)}]}>Chowpatty</Text>
-                              <Text style={[styles.text,{fontSize:RF(1.8)}]}>Open till 10 pm</Text>
-                            </View>
-                          <ResponsiveImage style={{marginLeft:"1%",marginVertical:hp("1%")}} source={require('../Image/new_images/rectangle1_3x.png')} initWidth="3" initHeight="35"/>
-                              <View style={{flexDirection:"column",marginTop:hp(".5%")}}>
-                                <Text style={[styles.text,{fontSize:RF(1.8)}]}>Wait time 2h</Text>
-                                <TouchableOpacity>
-                                <Text style={[styles.text,{fontSize:RF(1.8),color:"rgb(255,164,0)"}]}>Join Queue</Text>
-                                </TouchableOpacity>
-                              </View>
-                        </View>
-                      </View>  
-                      </View>         
-                  </View> 
-       )
+       return <Text>{data.title}</Text>;
     }
   
     FlatListItemSeparator = () => {
@@ -308,41 +301,40 @@ export default class StarReview extends Component {
     return (
       <ScrollView style={{backgroundColor:"rgb(243,242,242)"}} horizontal={false}>
       
-      <View style={[styles.Header,{height:hp("8%"),justifyContent:"space-between",flexDirection:"row"}]}>
+      <View style={[styles.Header,{height:hp("8%")}]}>
+        <View style={{flexDirection:"row",marginTop:hp("2%")}}>
         
-        <View style={{flexDirection:"row",marginTop:hp("2%"),marginLeft:wp("5%")}}> 
-        <View style={{flexDirection:"column",marginBottom:hp("2%"),marginRight:wp("2%")}}>
-          <View style={{flexDirection:"row"}}>
-          <Text style={{fontFamily:"Muli-Bold",fontSize:RF(2.3),color:"black",marginLeft:wp("2%"),marginBottom:hp(".5%")}}>Salon</Text>
-          <ResponsiveImage source={require('../Image/new_images/downArrow2x.png')} style={{marginTop:hp("1%"),marginLeft:wp("12%")}} initWidth="10" initHeight="7"/> 
-          </View>
-          <ResponsiveImage style={{marginHorizontal:"5%",marginVertical:hp("1%")}} source={require('../Image/main/tableDivider2x.png')} initWidth="120" initHeight="2"/>
-        </View>     
-        </View>
-        
-        <View style={{flexDirection:"row",justifyContent:"flex-end",marginTop:hp("3%")}}>
-          <Text style={[styles.text,{marginRight:wp("3%"),fontSize:RF(1.8),color:"rgb(140,140,140)"}]}>FILTER</Text>
-          <ResponsiveImage source={require('../Image/new_images/filterIcon3x.png')} style={{marginVertical:hp(".5%"),marginRight:wp("5%")}} initWidth="15" initHeight="15"/> 
-      </View>
-     
-      </View>
-      
-      <View style={{marginBottom:hp("5%"),marginHorizontal:wp("0%"), width:wp("100%"),backgroundColor: "blue",}}>
+        <View style={{flexDirection:"column",marginBottom:hp("2%"),marginHorizontal:wp("5%")}}>
+        <View style={{width:wp("55%"),height:hp("5%")}}>
             <CompleteFlatList
                   searchKey={['name', 'status', 'time', 'date']}
                   highlightColor="yellow"
                   // pullToRefreshCallback={() => {
                   //   alert('refreshing');
                   // }}
-                  placeholder	="Search"
-                  isRefreshing={true}
-                  backgroundStyles={{backgroundColor:"rgb(242,242,242)"}}
                   data={data}
                   renderSeparator={null}
                   renderItem={this.cell}
                 />
+            </View>
         </View>
-      {/* <View style={{flexDirection:"row"}}>
+       
+        <View style={{flexDirection:"column",marginBottom:hp("2%"),marginRight:wp("5%")}}>
+          <View style={{flexDirection:"row"}}>
+          <Text style={{fontFamily:"Muli-Bold",fontSize:RF(2.3),color:"black",marginLeft:wp("2%"),marginBottom:hp(".5%")}}>Salon</Text>
+          <ResponsiveImage source={require('../Image/new_images/downArrow2x.png')} style={{marginTop:hp("1%"),marginLeft:wp("12%")}} initWidth="10" initHeight="7"/> 
+          </View>
+          <ResponsiveImage style={{marginHorizontal:"5%",marginVertical:hp("1%")}} source={require('../Image/main/tableDivider2x.png')} initWidth="120" initHeight="2"/>
+        </View>
+        
+        </View>
+      </View>
+      <View style={{flexDirection:"row",justifyContent:"flex-end",marginTop:hp("1%")}}>
+          <Text style={[styles.text,{marginRight:wp("3%"),fontSize:RF(1.8),color:"rgb(140,140,140)"}]}>FILTER</Text>
+          <ResponsiveImage source={require('../Image/new_images/filterIcon3x.png')} style={{marginVertical:hp(".5%"),marginRight:wp("5%")}} initWidth="15" initHeight="15"/> 
+      </View>
+
+      <View style={{flexDirection:"row"}}>
               <FlatList          
                     data={ this.state.dataSource1 }
                     renderItem={({item}) => 
@@ -381,7 +373,7 @@ export default class StarReview extends Component {
                             </View>         
                         </View>   }                       
                     />
-           </View> */}
+           </View>
       </ScrollView>
     );
   }

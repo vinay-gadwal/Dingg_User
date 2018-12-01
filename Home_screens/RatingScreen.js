@@ -12,11 +12,10 @@ import styles from '../Style/Style'
 export default class StarReview extends Component {
   constructor(props) {
     super(props)
-    // 'value' and 'rating' are deprecated and have become 'display' and 'default'
     this.displayValue = props.display || props.value
     this.defaultRating = props.default || props.rating
     this.state = {
-      rating: this.defaultRating
+      rating: this.defaultRating,Title:"",comment:""
     }
     this.isReactElement = React.isValidElement
   }
@@ -188,8 +187,8 @@ export default class StarReview extends Component {
                 {view}
         <View style={[styles.box_SignUp,{height: hp('6%'),marginTop:hp("10%"),paddingVertical:hp('1%'),}]}>
           <TextInput
-            value={this.state.username}
-            onChangeText={username => this.setState({ username })}
+            value={this.state.Title}
+            onChangeText={Title => this.setState({ Title })}
             style={[styles.input,{width: wp('52'), height: hp('5%'),marginRight:wp("25%")}]}
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="done"
@@ -204,8 +203,8 @@ export default class StarReview extends Component {
           </View>
           <View style={[styles.box_SignUp,{height: hp('30%'),marginTop:hp("2%"),paddingVertical:hp('2%'),}]}>
           <TextInput
-            value={this.state.username}
-            onChangeText={username => this.setState({ username })}
+            value={this.state.comment}
+            onChangeText={comment => this.setState({ comment })}
             style={[styles.input,{width: wp('80'), height: hp('5%'),marginHorizontal:wp("10%")}]}
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="done"

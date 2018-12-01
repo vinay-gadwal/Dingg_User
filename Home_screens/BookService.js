@@ -189,9 +189,9 @@ render() {
         <Text style={styles.BookServiceText}>Select Service</Text>
         <TouchableOpacity style={{flexDirection:"row"}}
                                            onPress={ () => this.openDialog(true) }>
-            <View style={styles.BookServiceBoxYello}>
+            <View style={[styles.BookServiceBoxYello,{height: hp('8%'),}]}>
             </View>
-            <View style={styles.BookServiceBox}>
+            <View style={[styles.BookServiceBox,{height: hp('8%'),}]}>
             <Text style={[styles.text,{width:wp("70"),justifyContent:"flex-start",marginLeft:wp("3%")}]}>{this.state.hair_styling}{this.state.shampoo}{this.state.Hair_oil}
                 {this.state.regular_cut}{this.state.premium_cut}{this.state.blow_dry}</Text>
             <ResponsiveImage source={require('../Image/new_images/downArrow2x.png')} style={{marginRight:wp("2%"),marginLeft:wp("3%")}} initWidth="13" initHeight="10"/>
@@ -201,9 +201,9 @@ render() {
         
         <TouchableOpacity style={{flexDirection:"row"}}
                                            onPress={ () => this.openDialogStylist(true) }>
-            <View style={styles.BookServiceBoxYello}>
+            <View style={[styles.BookServiceBoxYello,{height: hp('8%'),}]}>
             </View>
-            <View style={styles.BookServiceBox}>
+            <View style={[styles.BookServiceBox,{height: hp('8%'),}]}>
             <Text style={[styles.text,{width:wp("55"),justifyContent:"flex-start",marginLeft:wp("3%")}]}>{this.state.Stylist_name}</Text>
             <ResponsiveImage style={{marginRight:wp("3%")}} source={require('../Image/main/serveTimeIcon3x.png')} initWidth="20" initHeight="20"/>
             <Text></Text>

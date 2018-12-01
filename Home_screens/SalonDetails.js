@@ -11,10 +11,6 @@ import Swiper from 'react-native-swiper';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import RF from "react-native-responsive-fontsize"
 import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
-const dataSource = [
-  {
-    Offer_name: GLOBAL.Offer_name,Start_date:GLOBAL.Start_date,End_date:GLOBAL.end_date,offer_per:GLOBAL.Offer_percentage
-  },]
 const FirstRoute = () => (
   <View style={[styles.Profile_Container]}>
                  
@@ -113,52 +109,45 @@ const SecondRoute = () => (
 const ThirdRoute = () => (
   <View style={[styles.scene, { backgroundColor: '#ff4081' }]} />
 );
-const FourthRoute = () => (
+const FourthRoute = (dataSource1) => (
   <View style={{  flex: 1,
     justifyContent: "space-between",
     backgroundColor: "rgb(243,242,242)",
     paddingVertical:"0%"}}>
-
-    
-      <View style={{ 
-        width: wp('90%'),marginLeft:"5%",
-        height: hp('27%'),
-        backgroundColor:"white",
-        marginVertical:hp('5%'),
-        borderRadius:10,}}>
-             <View style={{flexDirection:"row"}}>
-
-                          <Image
-                                  source={require('../Image/icon/editIcon2x.png')}
-                                  style={[styles.setting_Image,{marginLeft:wp("70%"),marginBottom:hp("2%"),marginTop:hp("2%")}]}
-                              />
-                          <Image
-                                  source={require('../Image/icon/deleteIcon2x.png')}
-                                  style={[styles.setting_Image,{marginRight:wp("3%"),marginBottom:hp("2%"),marginTop:hp("2%")}]}
-                              />  
-            </View>          
-            <Text style={[styles.text,{marginHorizontal:wp("5%")}]}>text</Text>
-              <View style={{flexDirection:"row"}}>
-                          <Image
-                                      source={require('../Image/icon/serviceIcon3x.png')}
-                                      style={[styles.setting_Image,{marginLeft:wp("5%"),marginBottom:hp("2%"),marginTop:hp("2%")}]}
-                                  />
-                          <Text style={[styles.text,{marginHorizontal:wp("2%"),marginTop:hp("1%"),color:"rgb(173,173,173)"}]}>Text</Text>
-
-              </View>
-              <View style={{flexDirection:"row"}}>
-                          <Image
-                                      source={require('../Image/icon/calenderIcon2x.png')}
-                                      style={[styles.setting_Image,{marginLeft:wp("5%"),marginBottom:hp("2%"),marginTop:hp("2%")}]}
-                                  />
-                          <Text style={[styles.text,{marginHorizontal:wp("2%"),marginTop:hp("1%"),color:"rgb(173,173,173)"}]}>Date</Text>
-                          <Text style={[styles.text,{marginHorizontal:wp("2%"),marginTop:hp("1%"),color:"rgb(173,173,173)"}]}>end time</Text>
-              </View>
-              <View style={[styles.button,{borderRadius:40,height:hp("4%"),width:wp("30%"),marginHorizontal:wp("5%")}]} >
-                          <Text style={styles.buttonText}>20% Off</Text>
-              </View>
-          </View>
-   </View>
+        
+   <View style={{flexDirection:"row"}}>
+            <FlatList          
+                  data={ dataSource1 }
+                  renderItem={({item}) => 
+                  <View style={{ 
+                    width: wp('90%'),marginLeft:"5%",
+                    backgroundColor:"white",
+                    marginVertical:hp('2%'),
+                    borderRadius:10,}}>
+                      <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
+                           <View style={{flexDirection:"column",marginVertical:hp("2%"),marginLeft:wp("5%")}}>
+                              <View style={{flexDirection:"row"}}>
+                                  <ResponsiveImage source={require('../Image/main/calenderIcon3x.png')} initWidth="20" initHeight="20"/>
+                                  <Text style={[styles.text,{marginLeft:wp("3%")}]}>{item.name}</Text>
+                               </View>
+                               <View style={{marginVertical:hp("2%")}}>
+                               <Image style={styles.avatarMultiple} source={GLOBAL.Image} />
+                               </View>
+                               {view}
+                          </View>           
+                            <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("45%")}}>
+                               <Text style={[styles.text,{fontSize:RF(2.5),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
+                               <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),marginBottom:hp("1%")}]}>{item.name}</Text>
+                               <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Service</Text>
+                               <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5)}]}>{item.name}</Text>
+                               <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Stylist</Text>
+                               <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5)}]}>{item.name}</Text>
+                          </View>           
+                      </View> 
+                      </View>  }                       
+                  />
+         </View>
+</View>
 );
  
 export default class swiper extends Component {
@@ -170,6 +159,9 @@ export default class swiper extends Component {
       { key: 'Business_hour', title: 'Business Hour' },
       { key: 'review', title: 'Reviews' },
       { key: 'offer', title: 'Offers' },
+    ],
+    dataSource1: [
+      {name:"Saloon"}
     ],
     isLoading: true
   }
@@ -207,8 +199,8 @@ export default class swiper extends Component {
         </View>
       <View style={{height:"15%"}}>
       <Swiper showsButtons={true} showsPagination={true}
-         nextButton={<ResponsiveImage style={{marginLeft:"83%",marginBottom:hp("65%"),}} source={require('../Image/new_images/rightArrow3x.png')} initWidth="25" initHeight="25"/> }
-         prevButton={<ResponsiveImage style={{marginLeft:"10%",marginBottom:hp("65%")}} source={require('../Image/new_images/leftArrow3x.png')} initWidth="25" initHeight="25" /> }>
+         nextButton={<ResponsiveImage style={{marginLeft:"83%",marginBottom:hp("75%"),}} source={require('../Image/new_images/rightArrow3x.png')} initWidth="25" initHeight="25"/> }
+         prevButton={<ResponsiveImage style={{marginLeft:"10%",marginBottom:hp("75%")}} source={require('../Image/new_images/leftArrow3x.png')} initWidth="25" initHeight="25" /> }>
         <View style={[styles.slide1,]}>
         <ResponsiveImage source={require('../Image/new_images/haircutimage.jpg')} style={{marginVertical:hp(".5%"),marginRight:wp("5%")}} initWidth="410" initHeight="220"/> 
         </View>
