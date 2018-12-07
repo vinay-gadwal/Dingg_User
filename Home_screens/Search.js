@@ -89,7 +89,7 @@ export default class StarReview extends Component {
                           <ResponsiveImage style={{marginLeft:"1%",marginVertical:hp("1%")}} source={require('../Image/new_images/rectangle1_3x.png')} initWidth="3" initHeight="35"/>
                               <View style={{flexDirection:"column",marginTop:hp(".5%")}}>
                                 <Text style={[styles.text,{fontSize:RF(1.8)}]}>Wait time 2h</Text>
-                                <TouchableOpacity>
+                                <TouchableOpacity onPress={() =>{this.props.navigation.navigate('Booking')}}>
                                 <Text style={[styles.text,{fontSize:RF(1.8),color:"rgb(255,164,0)"}]}>Join Queue</Text>
                                 </TouchableOpacity>
                               </View>

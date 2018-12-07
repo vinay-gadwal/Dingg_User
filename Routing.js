@@ -20,6 +20,8 @@ import QR from './Component/QR'
 import ResponsiveImage from 'react-native-responsive-image'
 console.disableYellowBox = true;
 import StartScreen from './Home_screens/RatingScreen'
+import SignOtp from './Auth_Module/Sign_up_otp'
+import ForgotOtp from './Auth_Module/Forgot_otp'
 const AuthStack = createBottomTabNavigator({
   Home: {
     screen: Home,
@@ -150,10 +152,36 @@ const RootStack = createStackNavigator({
             headerBackTitle:null,
           })
         },
+ SignOtp: {
+          screen: SignOtp,
+          navigationOptions: ({ navigation }) => ({
+            title:'OTP VERIFICATION',
+            headerLeft:(
+              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+            <Image
+              source={require('./Image/icon/back_2x.png')}
+              style={[styles.back_butt0n,{marginBottom:hp("1%")}]}
+            />
+            </TouchableOpacity>)
+          })
+        },
   Forget_password: {
           screen: Forget_password,
           navigationOptions: ({ navigation }) => ({
             title:'FORGOT PASSWORD',
+            headerLeft:(
+              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+            <Image
+              source={require('./Image/icon/back_2x.png')}
+              style={[styles.back_butt0n,{marginBottom:hp("1%")}]}
+            />
+            </TouchableOpacity>)
+          })
+        },
+  ForgotOtp: {
+          screen: ForgotOtp,
+          navigationOptions: ({ navigation }) => ({
+            title:'OTP VERIFICATION',
             headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image

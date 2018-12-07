@@ -32,13 +32,49 @@ export default class App extends Component {
         Check_box:true,
       }
     }
+
+    handlePress = () =>{  
+      apis.Create_Pass(this.state.password,this.state.First_name,this.state.Last_name,ths.state.display_name,
+                        this.state.Email_id,this.state.Locality,this.state.Gender,GLOBAL.token)
+        .then((responseJson) => {
+          console.log(responseJson)
+          if(responseJson.success === true){
+            this.props.navigation.navigate('AddDetails');
+            console.log(responseJson)
+          }
+          else{
+            Alert.alert(responseJson.message)
+            console.log(responseJson)
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+    
+    Password_Validate = () =>
+    {
+      if(this.state.Uid == ""){
+        Alert.alert("Enter User ID")
+      }
+      else if(this.state.conf_pass === this.state.password){
+          {this.handlePress()}
+        }
+        else{
+          this.setState({conf_pass:""})
+          Alert.alert("Confirm Password is Different")
+        }
+    }
+  
     Select_unselect_mon = () =>
     {
       this.setState({ Check_box: !this.state.Check_box });
     }
-    onPress = data => this.setState({ data });
+    Gender = data => this.setState({ data });
+    
     handleOnChange(val) {
       this.setState({ checked: val })
+      console.log(checked)
     }
     openDialog = (show) => {
       this.setState({ showDialog: show });
@@ -126,7 +162,7 @@ export default class App extends Component {
                         />
                   </TextInputLayout>
                   <View style={{marginTop:hp("3%"),marginRight:wp("30%")}}>
-                  <RadioGroup style={{fontWeight:"bold"}} radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
+                  <RadioGroup style={{fontWeight:"bold"}} radioButtons={this.state.data} onPress={this.Gender}  flexDirection='row' />
                   <View style={{marginHorizontal:"4%",marginLeft:wp("32%"),marginTop:hp("2%")}}>
                    <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="290" initHeight="2"/>
                    </View>
@@ -168,7 +204,7 @@ export default class App extends Component {
                     </ScrollView>
                 </Dialog>
     </View>
-    <TouchableOpacity style={[styles.button,{marginTop:hp("0%"),marginHorizontal:wp("30%")}]} onPress={()=>{this.props.navigation.navigate('Setting')}} >
+    <TouchableOpacity onPress={this.handlePress} style={[styles.button,{marginTop:hp("0%"),marginHorizontal:wp("30%")}]} onPress={()=>{this.props.navigation.navigate('Setting')}} >
       <Text style={styles.buttonText}>Submit</Text>
       </TouchableOpacity>
    </KeyboardAwareScrollView>

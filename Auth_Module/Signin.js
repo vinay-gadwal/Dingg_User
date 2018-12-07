@@ -5,7 +5,7 @@ import {
   Image,
   Text,
   View,
-  TextInput,
+  TextInput,Alert,
   TouchableOpacity,KeyboardAvoidingView,Keyboard,ScrollView
 } from "react-native";
 import styles from '../Style/Style'
@@ -15,6 +15,7 @@ import {TextInputLayout} from 'rn-textinputlayout';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import RadioGroup from 'react-native-radio-buttons-group';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import apis from '../apis/index'
 
 export default class Login extends Component {
   constructor(props)
@@ -41,7 +42,23 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    this.props.navigation.navigate('AuthStack')
+    // this.props.navigation.navigate('AddDetails')
+  }
+  handlePress = () => {
+    this.setState({ processing: true });
+    apis.LOGIN_API(this.state.username, this.state.password)
+      .then((responseJson) => {
+        if(responseJson.success === true) {
+          this.props.navigation.navigate('AuthStack');
+          
+        } else {
+          Alert.alert(responseJson.message)
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        this.setState({ processing: false, loginText: 'Try Again' });
+      });
   }
   phone(){
     return(
@@ -139,6 +156,7 @@ export default class Login extends Component {
                   <TextInputLayout focusColor="rgb(255,164,0)"  labelFontSize={0.1}>
                       <TextInput 
                         placeholder="Enter Password"
+                        onChangeText={password => this.setState({ password })}
                         underlineColorAndroid = "transparent"
                         secureTextEntry ="true"
                          style = { styles.input }/>
@@ -151,13 +169,13 @@ export default class Login extends Component {
       
       </View>
       
-          <TouchableOpacity style={[styles.button,{marginTop:hp("3%")}]} >
+          <TouchableOpacity onPress={this.handlePress} style={[styles.button,{marginTop:hp("3%")}]} >
           <Text style={styles.buttonText}>Sign In</Text>
           </TouchableOpacity>
-      <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Forget_password')}}>
+      <TouchableOpacity onPress={()=>{this.props.navigation.navigate('AuthStack')}}>
           <Text style={{color:"rgb(255,163,0)",fontSize: RF(2),marginTop:hp("4%"),fontWeight:"bold"}}>Continue without Signing In</Text>
           </TouchableOpacity>
-      <View style={{flexDirection:"row",marginTop:hp("2%")}}>
+      <View style={{flexDirection:"row",marginVertical:hp("2%")}}>
         <Text style={styles.text}>Don't have an account? </Text>
         <View style={{flexDirection:"column"}}>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('SignUp')}>
@@ -174,7 +192,7 @@ export default class Login extends Component {
         </View>
         <Text style={styles.text}>here</Text>
       </View>
-      
+      <View style={{alignItems:"center",flexDirection:"column",marginVertical:hp("2%")}}>
       <View style={{flexDirection:"row"}}>
         <Image
           source={require('../Image/icon/copyright.png')}
@@ -182,8 +200,8 @@ export default class Login extends Component {
         />
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>
-          <Text style={[styles.copy_rigth,{marginVertical:hp("1%")}]}> Vrienden Tech Private Limited 2018 </Text>
-
+          <Text style={[styles.copy_rigth]}> Vrienden Tech Private Limited 2018 </Text>
+          </View>
 </KeyboardAwareScrollView>
     );
   }
