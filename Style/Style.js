@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
           alignItems:"center",
           width: wp('90%'),
           backgroundColor:"white",
-          paddingVertical:hp('5%'),
+          paddingVertical:hp('2%'),
           borderRadius:10,
     },
     text:{

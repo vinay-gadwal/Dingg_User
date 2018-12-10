@@ -17,6 +17,7 @@ import saloonDetails from '../Home_screens/SalonDetails'
 console.disableYellowBox = true;
 import { Card } from "react-native-elements";
 import PropTypes from 'prop-types'
+import ImageOverlay from "react-native-image-overlay";
 
 const data = [
   {
@@ -338,8 +339,8 @@ class StarReview extends Component {
           <ResponsiveImage source={require('../Image/new_images/filterIcon3x.png')} style={{marginVertical:hp(".5%"),marginRight:wp("5%")}} initWidth="15" initHeight="15"/> 
       </View>
 
-      <View style={[styles.box_SignUp,{height:hp("6%"),marginVertical:hp("2%"),marginHorizontal:wp("4%")}]}>
-        <Text style={[styles.text,{marginRight:wp("60%"),paddingVertical:hp('1.3%'),}]}>Top Picks</Text>
+      <View style={[styles.box_SignUp,{marginHorizontal:wp("4%")}]}>
+        <Text style={[styles.text,{marginRight:wp("60%")}]}>Top Picks</Text>
       </View>
       
       <View style={{marginVertical:hp("1%"),width:wp("100%")}}>
@@ -348,19 +349,25 @@ class StarReview extends Component {
         data={this.state.data}
         renderItem={({ item: rowData }) => {
           return (
-            <View style={{width:wp("60%"),borderRadius:20}}>
-             <View style={[styles.button,{height:hp("5%"),marginTop:hp("0%"),width:wp("9.5%"),borderRadius:6,marginLeft:wp("50%")}]}>
+            <View style={{width:wp("60%"),borderRadius:20,marginTop:hp("2%")}}>
+             {/* <View style={[styles.button,{height:hp("5%"),marginTop:hp("0%"),width:wp("9.5%"),borderRadius:6,marginLeft:wp("50%")}]}>
                                  <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>20%</Text>
                                  <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>off</Text>
-             </View>
+             </View> */}
               {/* <Card
                 // title={null}
                 image={{ uri: rowData.imageUrl }}
                 containerStyle={{height:hp("20%"),borderRadius:20,marginBottom:hp("3%")}}
               >
               </Card> */}
-              <Image style={{width:wp("55%"), height: hp("20%"),borderRadius:10,marginLeft:wp("5%")}} source={{uri:rowData.imageUrl}} />                                 
+              <ImageOverlay containerStyle={{height:hp("21%"),width:wp("53"),marginHorizontal:wp("5%")}} rounded={10}
+                       contentPosition="top" source={{uri:rowData.imageUrl}} >                                 
+                     <View style={[styles.button,{height:hp("5%"),marginTop:hp("0%"),width:wp("9.5%"),borderRadius:6,marginLeft:wp("43.5%")}]}>
+                                 <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>20%</Text>
+                                 <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>off</Text>
+             </View>
 
+             </ImageOverlay>
               <View style={{flexDirection:"row",marginLeft:wp("5%"),width:wp("45%"),justifyContent:"space-between",marginTop:hp("1%")}}>
                       <Text style={[styles.text,{fontSize:RF(2.7),marginBottom:hp("1%"),alignItems:"flex-start",fontFamily:"Muli-ExtraBold"}]}>{rowData.title}</Text>
                       <Text style={[styles.text,{fontSize:RF(1.8),marginTop:hp("1%")}]}>2.5 km</Text>
@@ -394,25 +401,25 @@ class StarReview extends Component {
               <FlatList          
                     data={ this.state.dataSource1 }
                     renderItem={({item}) => 
-                    <View style={[styles.list_box,{height:hp("22%")}]}>
-                        <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
-                             <View >
-                                 <View style={[styles.button,{height:hp("5%"),width:wp("9.5%"),borderRadius:6}]}>
+                    <View style={[styles.list_box,{height:hp("22%"),flexDirection:"row",justifyContent:"space-between"}]}>
+                             <View style={{marginHorizontal:wp("1%")}}>
+                                 <ImageOverlay contentPosition="top" containerStyle={{height:hp("15%"),width:wp("25"),marginHorizontal:wp("5%"),marginVertical:hp("4%")}} rounded={10} source={{uri:item.imageUrl}} >
+                                 <View style={[styles.button,{height:hp("5%"),marginTop:hp("0%"),width:wp("9.5%"),borderRadius:6,marginRight:wp("17%")}]}>
                                  <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>20%</Text>
                                  <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>off</Text>
-                                 </View>
-                                 <Image style={{width:wp("25%"), height:hp("15%"),borderRadius:10,marginLeft:wp("5%")}} source={{uri:item.imageUrl}} />                                 
+                                </View>
+                                 </ImageOverlay>                                 
                             </View>           
-                            <View style={{flexDirection:"column",marginVertical:hp("2%"),width:wp("60%")}}>
-                                  <Text style={[styles.text,{fontSize:RF(1.8),marginLeft:wp("45%"),color:"rgb(140,140,140)"}]}>2.5 km</Text>
-                                  <Text style={[styles.text,{fontSize:RF(2),marginBottom:hp("1%"),marginLeft:wp("4%"),fontFamily:"Muli-ExtraBold"}]}>{item.name}</Text>
-                              <View style={{flexDirection:"row",marginLeft:wp("2%")}}>
+                            <View style={{flexDirection:"column",marginRight:wp("5%"),marginVertical:hp("2%"),width:wp("60%")}}>
+                                  <Text style={[styles.text,{fontSize:RF(1.8),marginLeft:wp("38%"),color:"rgb(140,140,140)"}]}>2.5 km</Text>
+                                  <Text style={[styles.text,{fontSize:RF(2),marginBottom:hp("1%"),marginLeft:wp("1%"),fontFamily:"Muli-ExtraBold"}]}>{item.name}</Text>
+                              <View style={{flexDirection:"row",marginRight:wp("15%")}}>
                                   <View style={{marginTop:hp(".5%")}}>
                                   {Star_Rating} 
                                   </View>
                                   <Text style={[styles.text,{fontSize:RF(1.8),marginLeft:wp("25%")}]}>255 Reviews</Text>
                               </View>
-                              <View style={{flexDirection:"row",justifyContent:"space-evenly"}}>
+                              <View style={{flexDirection:"row",justifyContent:"space-evenly",marginRight:wp("10%")}}>
                                   <View style={{flexDirection:"column",marginTop:hp(".5%")}}>
                                     <Text style={[styles.text,{fontSize:RF(1.8)}]}>Chowpatty</Text>
                                     <Text style={[styles.text,{fontSize:RF(1.8)}]}>Open till 10 pm</Text>
@@ -427,7 +434,7 @@ class StarReview extends Component {
                               </View>
                             </View>  
                             </View>         
-                        </View>   }                       
+                     }                       
                     />
            </View>
            <View style={[styles.Header,{height:hp("10%")}]}>
@@ -478,7 +485,7 @@ StarReview.defaultProps = {
   rating: 0,
   Bottom_rating:5,
   default: 0,
-  starSize: 12,
+  starSize: 15,
   update: () => {},
   backingColor: 'rgb(204,204,204)',
   opacity: false,

@@ -17,12 +17,50 @@ export default class Password extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      new_pass:"",
-      password: "",
+      Old_pass:"",
+      new_pass: "",
       hidePassword:"true"
     };
-    
   }
+
+  handlePress(){  
+    fetch('http://18.217.123.119:3000/api/user_reset_password', {
+        method: 'POST',
+        headers: {
+          "content-type": "application/json",
+          "cache-control": "no-cache",
+          "postman-token": "272c8d92-9bf6-b32b-2e0f-c780530790bf"
+        },
+        body: JSON.stringify({
+          mobile : GLOBAL.Mobile1,
+          password : this.state.new_pass
+        })
+  })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        console.log(responseJson)
+        if(responseJson.success === true){
+          this.props.navigation.navigate('SignIn');
+        }
+        else{
+          Alert.alert(responseJson.message)
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+  
+  // Password_Validate = () =>
+  // {
+  //    if(this.state.password === this.state.new_pass){
+  //       {this.handlePress()}
+  //     }
+  //     else{
+  //       this.setState({new_pass:""})
+  //       Alert.alert("Confirm Password is Different")
+  //     }
+  // }
 
   managePasswordVisibility = () =>
   {
@@ -41,8 +79,8 @@ export default class Password extends Component {
                 <View style={[styles.box,{ height: hp('30%'),marginTop:"3%"}]}>
         <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
           <TextInput
-            value={this.state.password}
-            onChangeText={password => this.setState({ password })}
+            value={this.state.new_pass}
+            onChangeText={new_pass => this.setState({ new_pass })}
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
             style={styles.input}
@@ -55,12 +93,12 @@ export default class Password extends Component {
           <Text></Text>
           <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
            <TextInput
-            value={this.state.new_pass}
-            onChangeText={new_pass => this.setState({ new_pass })}
+            value={this.state.Old_pass}
+            onChangeText={Old_pass => this.setState({ Old_pass })}
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
             style={styles.input}
-            placeholder="Confirm Password"
+            placeholder="Enter Old Password"
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
              secureTextEntry
@@ -68,7 +106,7 @@ export default class Password extends Component {
         </TextInputLayout>
     </View>
     <View style={{marginBottom:"15%",marginTop:hp("5%")}}> 
-        <TouchableOpacity style={[styles.button,{width: wp('25%'),}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('SignIn')}}>
+        <TouchableOpacity onPress={this.handlePress.bind(this)} style={[styles.button,{width: wp('25%'),}]} >
         <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
         </View>

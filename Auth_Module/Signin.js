@@ -42,15 +42,15 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    // this.props.navigation.navigate('AddDetails')
+    this.props.navigation.navigate('Home')
   }
   handlePress = () => {
     this.setState({ processing: true });
     apis.LOGIN_API(this.state.username, this.state.password)
       .then((responseJson) => {
+        console.log(responseJson)
         if(responseJson.success === true) {
-          this.props.navigation.navigate('AuthStack');
-          
+          this.props.navigation.navigate('AuthStack');    
         } else {
           Alert.alert(responseJson.message)
         }

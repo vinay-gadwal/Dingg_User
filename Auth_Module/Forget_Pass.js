@@ -46,7 +46,12 @@ export default class example extends Component {
       .then((responseJson) => {
         console.log(responseJson)
    GLOBAL.Mobile1 =this.state.usermobile
+   if(responseJson.success === true){
    this.props.navigation.navigate('ForgotOtp');
+   }
+   else{
+     Alert.alert(responseJson.message)
+   }
       })
       .catch((error) => {
         console.error(error);

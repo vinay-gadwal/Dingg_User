@@ -17,12 +17,24 @@ class Queue extends Component {
                 valueArray: [], disabled: false ,hair_data:"",hair_data_time:"",
                 isLoading: true,MakeUp_data:"",makeup_data_time:"",
                     dataSource : [ 
-                        {
-                            name:"Hair cut"
-                        },
-                        {
-                            name:"Hair cut"
-                        },
+                      {
+                        name:"Hair cut",
+                        imageUrl: "https://image.shutterstock.com/image-photo/washing-hair-450w-544510243.jpg",
+                        Shop_name:"Binacca",
+                        token:"TK101"
+                      },
+                    {
+                        name:"Hair cut",
+                        imageUrl: "https://image.shutterstock.com/image-photo/washing-hair-450w-544510243.jpg",
+                        Shop_name:"Binacca",
+                        token:"TK102"
+                      },
+                    {
+                        name:"Hair cut",
+                        imageUrl: "https://image.shutterstock.com/image-photo/washing-hair-450w-544510243.jpg",
+                        Shop_name:"Binacca",
+                        token:"TK103"
+                      }
                 ], order: 1
        }
      this.index = 0;
@@ -64,20 +76,24 @@ return (
                         backgroundColor:"white",
                         marginVertical:hp('2%'),
                         borderRadius:10,}}>
-                        <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
-                             <View style={{flexDirection:"column",marginVertical:hp("2%"),marginLeft:wp("5%")}}>
-                                <View style={{flexDirection:"row"}}>
-                                    <ResponsiveImage source={require('../Image/main/serveTimeIcon3x.png')} initWidth="20" initHeight="20"/>
-                                    <Text style={[styles.text,{marginLeft:wp("3%")}]}>{item.name}</Text>
-                                 </View>
-                                 <View style={{marginVertical:hp("2%")}}>
-                                 <Image style={styles.avatarMultiple} source={GLOBAL.Image} />                                 
-                                 </View>
+                         <View style={[styles.button,{height:hp("5%"),width:wp("9.5%"),borderRadius:6,marginRight:wp("80%")}]}>
+                                 <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>20%</Text>
+                                 <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>off</Text>
+                        </View>
+                        <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:wp("4%")}}>
+                        <Image style={{width:wp("10%"), height:hp("6%"),borderRadius:10,marginRight:wp("4%"),marginVertical:hp("3%")}} source={{uri:item.imageUrl}} />
+                       <View style={{flexDirection:"column",width:wp("40%"),marginVertical:hp("2%")}}>
+                       <TouchableOpacity>
+                       <Text style={[styles.text,{fontSize:RF(1.7),fontFamily:"Muli-ExtraBold",color:"rgb(255,164,0)"}]}>{item.token}</Text>
+                       </TouchableOpacity>
+                       <Text style={[styles.text,{fontSize:RF(2.5)}]}>{item.Shop_name}</Text>
+                        </View>
+                        <View style={{flexDirection:"column",marginVertical:hp("2%"),marginLeft:wp("5%")}}>
                                 <PopoverTooltip 
                                                 // setBelow='true'
                                                 ref='tooltip1'
                                                 buttonComponent={
-                                                    <View style={[styles.button,{height:hp("7%"),width:wp("25%"),marginVertical:hp("2%"),backgroundColor:"white",shadowColor: 'rgb(217,217,217)',}]}>
+                                                    <View style={[styles.button,{height:hp("5.5%"),width:wp("20%"),marginVertical:hp("1%"),backgroundColor:"white",shadowColor: 'rgb(217,217,217)',}]}>
                                                     <Text style={[styles.buttonText,{color:"rgb(255,164,0)"}]}>
                                                         Action
                                                     </Text>
@@ -106,17 +122,34 @@ return (
                                                 // using the default timing animation
                                     />
 
-                            </View>           
-                              <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("45%")}}>
-                                 <Text style={[styles.text,{fontSize:RF(2.5),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),marginBottom:hp("1%")}]}>{item.name}</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1.5%")}]}>Service</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5)}]}>{item.name}</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1.5%")}]}>Stylist</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5)}]}>{item.name}</Text>
-                            </View>  
-                            </View>         
-                        </View>   }                       
+                            </View>   
+                        </View>
+                        <View style={{flexDirection:"row",marginTop:hp("1%"),}}>
+                          <ResponsiveImage source={require('../Image/new_images/locationIcon2x.png')} style={{marginHorizontal:hp("2%")}} initWidth="13" initHeight="15"/>                
+                          <Text style={[styles.text,{color:"rgb(153,153,153)",fontSize:RF(1.8)}]}>28 Citi Centre, S V Road, Goregaon(W)</Text>
+                        </View>
+                        <View style={{flexDirection:"row",marginVertical:hp("1%"),}}>
+                          <ResponsiveImage source={require('../Image/new_images/callIcon3x.png')} style={{marginHorizontal:hp("2%")}} initWidth="15" initHeight="15"/>                
+                          <Text style={[styles.text,{color:"rgb(153,153,153)",fontSize:RF(1.8)}]}>28 Citi Centre, S V Road, Goregaon(W)</Text>
+                        </View> 
+                        <View style={{flexDirection:"row",justifyContent:"space-evenly",marginVertical:hp("2%")}}>
+                          <View style={{flexDirection:"column"}}>
+                            <Text style={[styles.text,{fontSize:RF(3),fontFamily:"Muli-ExtraBold",color:"rgb(255,164,0)"}]}>{item.token}</Text>
+                            <Text style={[styles.text,{fontSize:RF(2),width:wp("20%")}]}>Currently Attending</Text>
+                          </View>
+                          <ResponsiveImage source={require('../Image/new_images/divider13x.png')} style={{marginHorizontal:hp("2%")}} initWidth="1" initHeight="60"/>                
+                          <View style={{flexDirection:"column"}}>
+                            <Text style={[styles.text,{fontSize:RF(3),fontFamily:"Muli-ExtraBold",color:"rgb(255,164,0)"}]}>{item.token}</Text>
+                            <Text style={[styles.text,{fontSize:RF(2),width:wp("20%")}]}>Currently Attending</Text>
+                          </View>
+                          <ResponsiveImage source={require('../Image/new_images/divider13x.png')} style={{marginHorizontal:hp("2%")}} initWidth="1" initHeight="60"/>                
+                          <View style={{flexDirection:"column"}}>
+                            <Text style={[styles.text,{fontSize:RF(3),fontFamily:"Muli-ExtraBold",color:"rgb(255,164,0)"}]}>{item.token}</Text>
+                            <Text style={[styles.text,{fontSize:RF(2),width:wp("20%")}]}>Currently Attending</Text>
+                          </View>
+                        </View>
+                        </View> 
+                          }                       
                     />
            </View>
   <Dialog

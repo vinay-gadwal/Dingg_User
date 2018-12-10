@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity,View,TextInput,Image,Text,Button,ScrollView
+import { TouchableOpacity,View,TextInput,Image,Text,Alert,ScrollView
         } from 'react-native';
 import styles from '../Style/Style'
 import RF from "react-native-responsive-fontsize"
@@ -10,6 +10,7 @@ import RadioGroup from 'react-native-radio-buttons-group';
 import ResponsiveImage from 'react-native-responsive-image'
 import CheckBox from 'react-native-checkbox-heaven'
 import { Dialog } from "react-native-simple-dialogs";
+import apis from '../apis/index'
 
 export default class App extends Component {
   constructor(){
@@ -34,13 +35,14 @@ export default class App extends Component {
     }
 
     handlePress = () =>{  
-      apis.Create_Pass(this.state.password,this.state.First_name,this.state.Last_name,ths.state.display_name,
-                        this.state.Email_id,this.state.Locality,this.state.Gender,GLOBAL.token)
+      if(this.state.Check_box == false){
+      apis.ADD_Details(GLOBAL.token,this.state.Enter_pass,this.state.First_name,this.state.Last_name,this.state.display_name,
+                        this.state.Email_id,this.state.Locality,GLOBAL.Gender)
         .then((responseJson) => {
           console.log(responseJson)
           if(responseJson.success === true){
-            this.props.navigation.navigate('AddDetails');
             console.log(responseJson)
+              this.props.navigation.navigate('AuthStack');
           }
           else{
             Alert.alert(responseJson.message)
@@ -50,6 +52,10 @@ export default class App extends Component {
         .catch((error) => {
           console.error(error);
         });
+      }
+      else{
+        Alert.alert("Agree")
+      }
     }
     
     Password_Validate = () =>
@@ -70,7 +76,8 @@ export default class App extends Component {
     {
       this.setState({ Check_box: !this.state.Check_box });
     }
-    Gender = data => this.setState({ data });
+
+    Gender_Button = data => this.setState({ data });
     
     handleOnChange(val) {
       this.setState({ checked: val })
@@ -95,6 +102,7 @@ export default class App extends Component {
   render() {
     let selectedButton = this.state.data.find(e => e.selected == true);
     selectedButton = selectedButton ? selectedButton.value : this.state.data[0].label;
+    GLOBAL.Gender = selectedButton
     return (
       <KeyboardAwareScrollView style={{backgroundColor:"rgb(243,242,242)"}}>
           <View style={[styles.boxDetails,{marginVertical:hp("5%")}]}>
@@ -153,7 +161,7 @@ export default class App extends Component {
                           value={this.state.Enter_pass}
                           onChangeText={Enter_pass => this.setState({ Enter_pass })}
                           ref={input => (this.passwordCInput = input)}
-                          secureTextEntry="true"                          
+                          secureTextEntry                         
                           style={styles.input}
                           placeholder="Enter Password"
                           placeholderTextColor="rgb(204,204,204)"
@@ -162,7 +170,7 @@ export default class App extends Component {
                         />
                   </TextInputLayout>
                   <View style={{marginTop:hp("3%"),marginRight:wp("30%")}}>
-                  <RadioGroup style={{fontWeight:"bold"}} radioButtons={this.state.data} onPress={this.Gender}  flexDirection='row' />
+                  <RadioGroup style={{fontWeight:"bold"}} radioButtons={this.state.data} onPress={this.Gender_Button}  flexDirection='row' />
                   <View style={{marginHorizontal:"4%",marginLeft:wp("32%"),marginTop:hp("2%")}}>
                    <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="290" initHeight="2"/>
                    </View>
@@ -204,7 +212,7 @@ export default class App extends Component {
                     </ScrollView>
                 </Dialog>
     </View>
-    <TouchableOpacity onPress={this.handlePress} style={[styles.button,{marginTop:hp("0%"),marginHorizontal:wp("30%")}]} onPress={()=>{this.props.navigation.navigate('Setting')}} >
+    <TouchableOpacity onPress={this.handlePress} style={[styles.button,{marginTop:hp("0%"),marginHorizontal:wp("30%")}]} >
       <Text style={styles.buttonText}>Submit</Text>
       </TouchableOpacity>
    </KeyboardAwareScrollView>

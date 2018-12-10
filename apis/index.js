@@ -78,7 +78,7 @@ const apis = {
     }
   },
 
-  Create_Pass: async (password,UID,token) => {
+  ADD_Details: async (token,Password,Fname,Lname,Display_name,Email,Locality,Gender) => {
     try {
       const response = await fetch(
         base_url + 'user_save_password',
@@ -88,11 +88,16 @@ const apis = {
             "content-type": "application/json",
             "authorization": token,
             "cache-control": "no-cache",
-            "postman-token": "d8d5eeac-2172-38f3-2441-1b3f2d8d715e"
+            "postman-token": "5332a84c-bcde-8948-01ed-da2279c90a26"
           },
           body: JSON.stringify({
-            password : password,
-            vendor_unique_id:UID
+            password :Password ,
+            fname : Fname,
+            lname : Lname,
+            display_name : Display_name,
+            email : Email,
+            locality : Locality,
+            gender : Gender
           }),
         },
       );
