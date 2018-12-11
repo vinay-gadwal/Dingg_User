@@ -76,137 +76,37 @@ class Ongoing extends React.Component {
   render() {
     return (
         <ScrollView>
-        <View style={{  flex: 1,
-              justifyContent: "space-between",
-              backgroundColor: "rgb(243,242,242)",
-              paddingVertical:"0%"}}>
+        <View style={styles.container}>
                 
              <View style={{flexDirection:"row"}}>
                       <FlatList          
                             data={ this.state.dataSource }
                             renderItem={({item}) => 
-                            <View style={{ 
-                              width: wp('90%'),marginLeft:"5%",
-                              backgroundColor:"white",
-                              marginVertical:hp('2%'),
-                              borderRadius:10,}}> 
+                            <View style={styles.Flex_main_box}> 
                                 <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
+                                     
                                      <View style={{flexDirection:"column",marginVertical:hp("2%"),marginLeft:wp("5%")}}>
                                         <View style={{flexDirection:"row"}}>
                                             <ResponsiveImage source={require('../Image/main/serveTimeIcon3x.png')} initWidth="20" initHeight="20"/>
-                                            <Text style={[styles.text,{marginLeft:wp("3%")}]}>{item.name}</Text>
+                                            <Text style={styles.grey_text}>{item.name}</Text>
                                          </View>
                                          <View style={{marginVertical:hp("2%")}}>
                                          <Image style={styles.avatarMultiple} source={GLOBAL.Image} />
                                          </View>
-                                         <View style={{flexDirection:"row"}}>
-                                           <TouchableOpacity onPress={() => {this.increase_time}}>
-                                           <ResponsiveImage source={require('../Image/main/plusIcon3x.png')} initWidth="40" initHeight="40"/>
-                                           </TouchableOpacity>
-                                           <Text style={[styles.text,{color:"rgb(255,164,0)",marginTop:hp(".5%")}]}>Time</Text>
-                                                                                                      {/* {this.state.time+" " + 'M'} */}
-                                           <TouchableOpacity>
-                                           <ResponsiveImage source={require('../Image/main/minusIcon3x.png')} initWidth="40" initHeight="40"/>
-                                           </TouchableOpacity>
-                                          </View>
-                                         <TouchableOpacity style={[styles.button,{height:hp("5%"),width:wp("30%"),marginVertical:hp("1%"),backgroundColor:"white",shadowColor: 'rgb(217,217,217)',}]}
-                                           onPress={ () => this.openDialog(true) }>
-                                          <Text style={[styles.buttonText,{color:"rgb(255,164,0)"}]}>Add Services</Text>
-                                          </TouchableOpacity>
                                     </View>           
-                                      <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("45%")}}>
+                                      
+                                    <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("45%")}}>
                                          <Text style={[styles.text,{fontSize:RF(2.5),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
                                          <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),marginBottom:hp("1%")}]}>{item.name}</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Service</Text>
+                                         <Text style={[styles.grey_text,{marginLeft:wp("3%"),fontSize:RF(2),}]}>Service</Text>
                                          <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),marginBottom:hp("1%")}]}>{item.name}</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Stylist</Text>
+                                         <Text style={[styles.grey_text,{marginLeft:wp("3%"),fontSize:RF(2),}]}>Stylist</Text>
                                          <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5)}]}>{item.name}</Text>
                                     </View>           
                                 </View>  
                                 </View> }                       
                             />
                    </View>
-          <Dialog
-                    animationType="fade"
-                    contentStyle={
-                        {
-                            alignItems: "center",
-                            justifyContent: "center",
-                        }
-                    }
-                    onTouchOutside={ () => this.openDialog(false) }
-                    onTouchInside={ () => this.openDialog(false) }
-                    visible={ this.state.showDialog }
-                >   
-                 <TouchableOpacity onPress={() => this.openDialog(false)}>
-                      <Image
-                                  source={require('../Image/icon/cancel1.png')}
-                                  style={[styles.setting_Image,{marginLeft:wp("80%"),marginBottom:hp("0%"),marginTop:hp("0%")}]}
-                      />
-                  </TouchableOpacity>
-
-                  <Text style={[styles.text,{fontSize: RF(3),}]}>Add Services</Text>
-                  <Text></Text>
-
-                 <View style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
-                        <Text style={styles.History_Action}>Hair Oil Massage</Text>
-                  <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility }>
-                        <Image source = { ( this.state.Select_unselect ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")}} />
-                  </TouchableOpacity>
-                  </View>
-                  <View style={{marginHorizontal:"5%"}}>
-                        <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="320" initHeight="2"/>
-                  </View>
-
-                  <View style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
-                        <Text style={styles.History_Action}>Shampoo</Text>
-                  <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_1 }>
-                        <Image source = { ( this.state.Select_unselect_1 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")}} />
-                  </TouchableOpacity>
-                  </View>
-                  <View style={{marginHorizontal:"5%"}}>
-                        <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="320" initHeight="2"/>
-                  </View>
-
-                  <View style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
-                        <Text style={styles.History_Action}>Regular Hair Cut</Text>
-                  <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_2 }>
-                        <Image source = { ( this.state.Select_unselect_2 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")}} />
-                  </TouchableOpacity>
-                  </View>
-                  <View style={{marginHorizontal:"5%"}}>
-                        <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="320" initHeight="2"/>
-                  </View>
-
-                  <View style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
-                        <Text style={styles.History_Action}>Premium Haircut</Text>
-                  <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_3 }>
-                        <Image source = { ( this.state.Select_unselect_3 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")}} />
-                  </TouchableOpacity>
-                  </View>
-                  <View style={{marginHorizontal:"5%"}}>
-                        <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="320" initHeight="2"/>
-                  </View>
-
-                  <View style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
-                        <Text style={styles.History_Action}>Blow Dry</Text>
-                  <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_4 }>
-                        <Image source = { ( this.state.Select_unselect_4 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")}} />
-                  </TouchableOpacity>
-                  </View>
-                  <View style={{marginHorizontal:"5%"}}>
-                        <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="320" initHeight="2"/>
-                  </View>
-
-                    <View style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
-                        <Text style={styles.History_Action}>Hair Styling</Text>
-                  <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_5 }>
-                        <Image source = { ( this.state.Select_unselect_5 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")}} />
-                  </TouchableOpacity>
-                  </View>
-                  
-   </Dialog>
-
          </View>
         </ScrollView>
     );
@@ -407,25 +307,18 @@ class StarReview extends React.Component {
     this.displayMode()
     return (
         <ScrollView>
-        <View style={{  flex: 1,
-              justifyContent: "space-between",
-              backgroundColor: "rgb(243,242,242)",
-              paddingVertical:"0%"}}>
+        <View style={styles.container}>
                   
              <View style={{flexDirection:"row"}}>
                       <FlatList          
                             data={ this.state.dataSource1 }
                             renderItem={({item}) => 
-                            <View style={{ 
-                              width: wp('90%'),marginLeft:"5%",
-                              backgroundColor:"white",
-                              marginVertical:hp('2%'),
-                              borderRadius:10,}}>
+                            <View style={styles.Flex_main_box}>
                                 <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
                                      <View style={{flexDirection:"column",marginVertical:hp("2%"),marginLeft:wp("5%")}}>
                                         <View style={{flexDirection:"row"}}>
-                                            <ResponsiveImage source={require('../Image/main/calenderIcon3x.png')} initWidth="20" initHeight="20"/>
-                                            <Text style={[styles.text,{marginLeft:wp("3%")}]}>{item.name}</Text>
+                                            <ResponsiveImage source={require('../Image/main/dateIcongray3x.png')} initWidth="20" initHeight="20"/>
+                                            <Text style={[styles.text,{marginLeft:wp("3%"),color:"rgb(187,187,187)"}]}>{item.name}</Text>
                                          </View>
                                          <View style={{marginVertical:hp("2%")}}>
                                          <Image style={styles.avatarMultiple} source={GLOBAL.Image} />
@@ -435,9 +328,9 @@ class StarReview extends React.Component {
                                       <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("45%")}}>
                                          <Text style={[styles.text,{fontSize:RF(2.5),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
                                          <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),marginBottom:hp("1%")}]}>{item.name}</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Service</Text>
+                                         <Text style={[styles.grey_text,{marginLeft:wp("3%"),fontSize:RF(2),}]}>Service</Text>
                                          <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5)}]}>{item.name}</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Stylist</Text>
+                                         <Text style={[styles.grey_text,{marginLeft:wp("3%"),fontSize:RF(2),}]}>Stylist</Text>
                                          <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5)}]}>{item.name}</Text>
                                     </View>           
                                 </View> 
@@ -477,12 +370,12 @@ StarReview.defaultProps = {
   count: 5,
   rating: 0,
   default: 0,
-  starSize: 20,
+  starSize: 12,
   update: () => {},
   backingColor: 'white',
   opacity: false,
   half: false,
-  spacing: 0
+  spacing: 8
 }
 
 const AuthStack = createMaterialTopTabNavigator({

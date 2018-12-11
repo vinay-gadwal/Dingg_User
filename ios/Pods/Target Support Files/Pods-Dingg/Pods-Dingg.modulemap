@@ -1,6 +1,0 @@
-framework module Pods_Dingg {
-  umbrella header "Pods-Dingg-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -62,8 +62,8 @@ return (
                                 <Image style={{width:wp("17%"), height:hp("9%"),borderRadius:10,marginRight:wp("4%"),marginVertical:hp("3%")}} source={{uri:item.imageUrl}} />                                 
                             </View>           
                               <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("60%")}}>
-                                 <Text style={[styles.text,{fontSize:RF(1.8),marginLeft:wp("2.5%"),color:"rgb(255,164,0)"}]}>Token ID : TK102</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2),marginTop:hp("1%")}]}>SpaZ Salon & Spa</Text>
+                                 <Text style={styles.yello_text}>Token ID : TK102</Text>
+                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2)}]}>SpaZ Salon & Spa</Text>
                                  <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),marginTop:hp("1%")}]}>Are you still available?</Text>
                                  <View style={{flexDirection:"row",marginVertical:hp("2%")}}>
                                  <TouchableOpacity style={{marginLeft:wp("3%")}}>

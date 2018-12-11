@@ -59,36 +59,26 @@ class Queue extends Component {
 render() {
 return (
     
-<View style={{  flex: 1,
-      justifyContent: "space-between",
-      backgroundColor: "rgb(243,242,242)",
-      paddingVertical:"0%"}}>
-        
-  
-          
+<View style={styles.container}>
+
      <View style={{flexDirection:"row"}}>
               <FlatList      
             //   horizontal="true"    
                     data={ this.state.dataSource }
                     renderItem={({item}) => 
-                    <View style={{ 
-                        width: wp('90%'),marginLeft:"5%",
-                        backgroundColor:"white",
-                        marginVertical:hp('2%'),
-                        borderRadius:10,}}>
-                         <View style={[styles.button,{height:hp("5%"),width:wp("9.5%"),borderRadius:6,marginRight:wp("80%")}]}>
+                    <View style={styles.Flex_main_box}>
+                        
+                        <View style={{flexDirection:"row",justifyContent:"space-between"}}>
+                        <View style={[styles.button,{height:hp("5%"),width:wp("9.5%"),borderRadius:6}]}>
                                  <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>20%</Text>
                                  <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>off</Text>
                         </View>
-                        <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:wp("4%")}}>
                         <Image style={{width:wp("10%"), height:hp("6%"),borderRadius:10,marginRight:wp("4%"),marginVertical:hp("3%")}} source={{uri:item.imageUrl}} />
-                       <View style={{flexDirection:"column",width:wp("40%"),marginVertical:hp("2%")}}>
-                       <TouchableOpacity>
-                       <Text style={[styles.text,{fontSize:RF(1.7),fontFamily:"Muli-ExtraBold",color:"rgb(255,164,0)"}]}>{item.token}</Text>
-                       </TouchableOpacity>
+                       <View style={{flexDirection:"column",width:wp("40%"),marginVertical:hp("1%")}}>
+                       <Text style={styles.yello_text}>{item.token}</Text>
                        <Text style={[styles.text,{fontSize:RF(2.5)}]}>{item.Shop_name}</Text>
                         </View>
-                        <View style={{flexDirection:"column",marginVertical:hp("2%"),marginLeft:wp("5%")}}>
+                        <View style={{flexDirection:"column",marginVertical:hp("2%"),marginRight:wp("10%")}}>
                                 <PopoverTooltip 
                                                 // setBelow='true'
                                                 ref='tooltip1'
@@ -124,27 +114,27 @@ return (
 
                             </View>   
                         </View>
-                        <View style={{flexDirection:"row",marginTop:hp("1%"),}}>
+                        <View style={{flexDirection:"row",}}>
                           <ResponsiveImage source={require('../Image/new_images/locationIcon2x.png')} style={{marginHorizontal:hp("2%")}} initWidth="13" initHeight="15"/>                
-                          <Text style={[styles.text,{color:"rgb(153,153,153)",fontSize:RF(1.8)}]}>28 Citi Centre, S V Road, Goregaon(W)</Text>
+                          <Text style={[styles.grey_text,{fontSize:RF(1.8)}]}>28 Citi Centre, S V Road, Goregaon(W)</Text>
                         </View>
                         <View style={{flexDirection:"row",marginVertical:hp("1%"),}}>
                           <ResponsiveImage source={require('../Image/new_images/callIcon3x.png')} style={{marginHorizontal:hp("2%")}} initWidth="15" initHeight="15"/>                
-                          <Text style={[styles.text,{color:"rgb(153,153,153)",fontSize:RF(1.8)}]}>28 Citi Centre, S V Road, Goregaon(W)</Text>
+                          <Text style={[styles.grey_text,{fontSize:RF(1.8)}]}>28 Citi Centre, S V Road, Goregaon(W)</Text>
                         </View> 
                         <View style={{flexDirection:"row",justifyContent:"space-evenly",marginVertical:hp("2%")}}>
                           <View style={{flexDirection:"column"}}>
-                            <Text style={[styles.text,{fontSize:RF(3),fontFamily:"Muli-ExtraBold",color:"rgb(255,164,0)"}]}>{item.token}</Text>
+                            <Text style={[styles.yello_text,{fontSize:RF(3)}]}>{item.token}</Text>
                             <Text style={[styles.text,{fontSize:RF(2),width:wp("20%")}]}>Currently Attending</Text>
                           </View>
                           <ResponsiveImage source={require('../Image/new_images/divider13x.png')} style={{marginHorizontal:hp("2%")}} initWidth="1" initHeight="60"/>                
                           <View style={{flexDirection:"column"}}>
-                            <Text style={[styles.text,{fontSize:RF(3),fontFamily:"Muli-ExtraBold",color:"rgb(255,164,0)"}]}>{item.token}</Text>
+                            <Text style={[styles.yello_text,{fontSize:RF(3)}]}>{item.token}</Text>
                             <Text style={[styles.text,{fontSize:RF(2),width:wp("20%")}]}>Currently Attending</Text>
                           </View>
                           <ResponsiveImage source={require('../Image/new_images/divider13x.png')} style={{marginHorizontal:hp("2%")}} initWidth="1" initHeight="60"/>                
                           <View style={{flexDirection:"column"}}>
-                            <Text style={[styles.text,{fontSize:RF(3),fontFamily:"Muli-ExtraBold",color:"rgb(255,164,0)"}]}>{item.token}</Text>
+                            <Text style={[styles.yello_text,{fontSize:RF(3)}]}>{item.token}</Text>
                             <Text style={[styles.text,{fontSize:RF(2),width:wp("20%")}]}>Currently Attending</Text>
                           </View>
                         </View>

@@ -11,14 +11,19 @@ const styles = StyleSheet.create({
       backgroundColor: "rgb(242,242,242)",
       paddingVertical:"5%"
     },
-    
+    Flex_main_box:{
+      width: wp('90%'),marginLeft:"5%",
+      backgroundColor:"white",
+      marginVertical:hp('2%'),
+      borderRadius:10,
+    },
     copy_rigth:{
       fontSize: RF("1.8"),color:"rgb(153,153,153)",
       fontWeight: 'bold',
     },
     copy_rigth_image:{
-      width: wp("2.2%"),
-      height: hp("1.1%"),marginTop:hp(".5%"),
+      width: wp("2%"),
+      height: hp("2.2%"),marginTop:hp(".5%"),
     },    
     input: {
       width: wp('70%'),
@@ -47,7 +52,7 @@ const styles = StyleSheet.create({
         height: hp('7.2%'),
         backgroundColor: "rgb(255,164,0)",
         justifyContent: "center",
-        paddingVertical: hp('1%'),
+        // paddingVertical: hp('1%'),
         borderRadius:10,
         shadowColor: 'rgb(255,164,0)',
         shadowOffset: { width: 0, height: hp("0.5%") },
@@ -134,7 +139,26 @@ const styles = StyleSheet.create({
           fontFamily:'Muli-Bold',
           // fontWeight: 'bold',
         },
-   
+   grey_text:{
+    fontFamily:"Muli-Bold",
+    fontSize:RF(2.3),
+    color:"rgb(187,187,187)",
+    marginLeft:wp("2%"),
+    marginBottom:hp(".5%")
+   },
+   grey_text_PROFILE_EDIT:{
+    fontFamily:"Muli-Bold",
+    fontSize:RF(2),
+    color:"rgb(187,187,187)",
+    marginBottom:hp(".5%")
+   },
+   yello_text:{
+    fontFamily:"Muli-Bold",
+    fontSize:RF(2.3),
+    color:"rgb(255,164,0)",
+    marginLeft:wp("2%"),
+    marginBottom:hp(".5%")
+   },
     countryPicker: {
         alignItems: 'center',
         justifyContent: 'center',

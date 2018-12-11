@@ -311,7 +311,7 @@ class StarReview extends Component {
           {/* {this.state.location} */}
           <ResponsiveImage source={require('../Image/new_images/editAddressIcon2x.png')} style={{marginVertical:hp("1%"),marginLeft:wp("2%")}} initWidth="14" initHeight="15"/>                
           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Alert_top')}}>
-          <ResponsiveImage source={require('../Image/new_images/notificationIcon3x.png')} style={{marginVertical:hp(".5%"),marginLeft:wp("15%")}} initWidth="21" initHeight="23"/>
+          <ResponsiveImage source={require('../Image/new_images/notificationIcon3x.png')} style={{marginVertical:hp(".5%"),marginLeft:wp("22%")}} initWidth="21" initHeight="23"/>
           </TouchableOpacity>
         </View>
         <View style={{flexDirection:"row"}}>
@@ -319,14 +319,14 @@ class StarReview extends Component {
         <View style={{flexDirection:"column",marginBottom:hp("2%"),marginHorizontal:wp("5%")}}>
           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Search')}} style={{marginLeft:wp("3%"),flexDirection:"row"}}>
           <ResponsiveImage source={require('../Image/new_images/searchIcon2x.png')} style={{marginTop:hp("1%")}} initWidth="15" initHeight="15"/> 
-          <Text style={{fontFamily:"Muli-Bold",fontSize:RF(2.3),color:"rgb(221,221,221)",marginLeft:wp("2%"),marginBottom:hp(".5%")}}>Search</Text>
+          <Text style={styles.grey_text}>Search</Text>
           </TouchableOpacity>
           <ResponsiveImage style={{marginLeft:"1%",marginVertical:hp("1%")}} source={require('../Image/main/tableDivider2x.png')} initWidth="200" initHeight="2"/>
         </View>
        
         <View style={{flexDirection:"column",marginBottom:hp("2%"),marginHorizontal:wp("5%")}}>
           <View style={{flexDirection:"row"}}>
-          <Text style={{fontFamily:"Muli-Bold",fontSize:RF(2.3),color:"black",marginLeft:wp("2%"),marginBottom:hp(".5%")}}>Salon</Text>
+          <Text style={[styles.text,{marginLeft:wp("2%")}]}>Salon</Text>
           <ResponsiveImage source={require('../Image/new_images/downArrow2x.png')} style={{marginTop:hp("1%"),marginLeft:wp("12%")}} initWidth="10" initHeight="7"/> 
           </View>
           <ResponsiveImage style={{marginHorizontal:"5%",marginVertical:hp("1%")}} source={require('../Image/main/tableDivider2x.png')} initWidth="120" initHeight="2"/>
@@ -335,7 +335,7 @@ class StarReview extends Component {
         </View>
       </View>
       <View style={{flexDirection:"row",justifyContent:"flex-end",marginTop:hp("1%")}}>
-          <Text style={[styles.text,{marginRight:wp("3%"),fontSize:RF(1.8),color:"rgb(140,140,140)"}]}>FILTER</Text>
+          <Text style={[styles.grey_text,{fontSize:RF(1.8),marginHorizontal:wp("2%")}]}>FILTER</Text>
           <ResponsiveImage source={require('../Image/new_images/filterIcon3x.png')} style={{marginVertical:hp(".5%"),marginRight:wp("5%")}} initWidth="15" initHeight="15"/> 
       </View>
 
@@ -350,10 +350,6 @@ class StarReview extends Component {
         renderItem={({ item: rowData }) => {
           return (
             <View style={{width:wp("60%"),borderRadius:20,marginTop:hp("2%")}}>
-             {/* <View style={[styles.button,{height:hp("5%"),marginTop:hp("0%"),width:wp("9.5%"),borderRadius:6,marginLeft:wp("50%")}]}>
-                                 <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>20%</Text>
-                                 <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>off</Text>
-             </View> */}
               {/* <Card
                 // title={null}
                 image={{ uri: rowData.imageUrl }}
@@ -369,25 +365,25 @@ class StarReview extends Component {
 
              </ImageOverlay>
               <View style={{flexDirection:"row",marginLeft:wp("5%"),width:wp("45%"),justifyContent:"space-between",marginTop:hp("1%")}}>
-                      <Text style={[styles.text,{fontSize:RF(2.7),marginBottom:hp("1%"),alignItems:"flex-start",fontFamily:"Muli-ExtraBold"}]}>{rowData.title}</Text>
+                      <Text style={[styles.text,{fontSize:RF(2.5),marginBottom:hp("1%"),alignItems:"flex-start",fontFamily:"Muli-ExtraBold"}]}>{rowData.title}</Text>
                       <Text style={[styles.text,{fontSize:RF(1.8),marginTop:hp("1%")}]}>2.5 km</Text>
               </View> 
               <View style={{marginLeft:wp("3%"),flexDirection:"row"}}>
                 <View style={{marginTop:hp(".5%")}}>
                 {Star_Rating} 
                 </View>
-                <Text style={[styles.text,{fontSize:RF(1.8),marginLeft:wp("25%"),color:"rgb(140,140,140)"}]}>255 Reviews</Text>
+                <Text style={[styles.grey_text,{marginLeft:wp("25%"),fontSize:RF(1.8)}]}>255 Reviews</Text>
               </View>
               <View style={{marginLeft:wp("3%"),flexDirection:"row",justifyContent:"space-evenly"}}>
                 <View style={{flexDirection:"column",marginTop:hp(".5%")}}>
-                  <Text style={[styles.text,{fontSize:RF(1.8),color:"rgb(140,140,140)"}]}>Chowpatty</Text>
-                  <Text style={[styles.text,{fontSize:RF(1.8),color:"rgb(140,140,140)"}]}>Open till 10 pm</Text>
+                  <Text style={[styles.grey_text,{fontSize:RF(1.8)}]}>Chowpatty</Text>
+                  <Text style={[styles.grey_text,{fontSize:RF(1.8)}]}>Open till 10 pm</Text>
                 </View>
                   <ResponsiveImage style={{marginLeft:"1%",marginVertical:hp("1%")}} source={require('../Image/new_images/rectangle1_3x.png')} initWidth="3" initHeight="35"/>
                 <View style={{flexDirection:"column",marginTop:hp(".5%")}}>
-                  <Text style={[styles.text,{fontSize:RF(1.8),color:"rgb(140,140,140)"}]}>Wait time 2h</Text>
+                  <Text style={[styles.grey_text,{fontSize:RF(1.8)}]}>Wait time 2h</Text>
                   <TouchableOpacity onPress={() =>{this.props.navigation.navigate('Booking')}}>
-                  <Text style={[styles.text,{fontSize:RF(1.8),color:"rgb(255,164,0)"}]}>Join Queue</Text>
+                  <Text style={[styles.yello_text,{fontSize:RF(1.8)}]}>Join Queue</Text>
                   </TouchableOpacity>
                 </View>
               </View>
@@ -403,23 +399,23 @@ class StarReview extends Component {
                     renderItem={({item}) => 
                     <View style={[styles.list_box,{height:hp("22%"),flexDirection:"row",justifyContent:"space-between"}]}>
                              <View style={{marginHorizontal:wp("1%")}}>
-                                 <ImageOverlay contentPosition="top" containerStyle={{height:hp("15%"),width:wp("25"),marginHorizontal:wp("5%"),marginVertical:hp("4%")}} rounded={10} source={{uri:item.imageUrl}} >
+                                 <ImageOverlay contentPosition="top" containerStyle={{height:hp("15%"),width:wp("25"),marginHorizontal:wp("2%"),marginVertical:hp("4%")}} rounded={10} source={{uri:item.imageUrl}} >
                                  <View style={[styles.button,{height:hp("5%"),marginTop:hp("0%"),width:wp("9.5%"),borderRadius:6,marginRight:wp("17%")}]}>
                                  <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>20%</Text>
                                  <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>off</Text>
                                 </View>
                                  </ImageOverlay>                                 
                             </View>           
-                            <View style={{flexDirection:"column",marginRight:wp("5%"),marginVertical:hp("2%"),width:wp("60%")}}>
-                                  <Text style={[styles.text,{fontSize:RF(1.8),marginLeft:wp("38%"),color:"rgb(140,140,140)"}]}>2.5 km</Text>
-                                  <Text style={[styles.text,{fontSize:RF(2),marginBottom:hp("1%"),marginLeft:wp("1%"),fontFamily:"Muli-ExtraBold"}]}>{item.name}</Text>
+                            <View style={{flexDirection:"column",marginRight:wp("5%"),marginVertical:hp("2%"),width:wp("61%")}}>
+                                  <Text style={[styles.grey_text,{marginLeft:wp("42%"),fontSize:RF(1.8)}]}>2.5 km</Text>
+                                  <Text style={[styles.text,{fontSize:RF(2.5),marginLeft:wp("1%"),fontFamily:"Muli-ExtraBold"}]}>{item.name}</Text>
                               <View style={{flexDirection:"row",marginRight:wp("15%")}}>
                                   <View style={{marginTop:hp(".5%")}}>
                                   {Star_Rating} 
                                   </View>
                                   <Text style={[styles.text,{fontSize:RF(1.8),marginLeft:wp("25%")}]}>255 Reviews</Text>
                               </View>
-                              <View style={{flexDirection:"row",justifyContent:"space-evenly",marginRight:wp("10%")}}>
+                              <View style={{flexDirection:"row",justifyContent:"space-around",marginRight:wp("5%")}}>
                                   <View style={{flexDirection:"column",marginTop:hp(".5%")}}>
                                     <Text style={[styles.text,{fontSize:RF(1.8)}]}>Chowpatty</Text>
                                     <Text style={[styles.text,{fontSize:RF(1.8)}]}>Open till 10 pm</Text>
@@ -428,7 +424,7 @@ class StarReview extends Component {
                                     <View style={{flexDirection:"column",marginTop:hp(".5%")}}>
                                       <Text style={[styles.text,{fontSize:RF(1.8)}]}>Wait time 2h</Text>
                                       <TouchableOpacity onPress={() =>{this.props.navigation.navigate('Booking')}}>
-                                      <Text style={[styles.text,{fontSize:RF(1.8),color:"rgb(255,164,0)"}]}>Join Queue</Text>
+                                      <Text style={[styles.yello_text,{fontSize:RF(1.8)}]}>Join Queue</Text>
                                       </TouchableOpacity>
                                     </View>
                               </View>
@@ -443,7 +439,7 @@ class StarReview extends Component {
            <TouchableOpacity onPress={() => this.openDialog(false)}>
                      <Image
                                 source={require('../Image/icon/cancel1.png')}
-                                style={[styles.setting_Image,{marginLeft:wp("18%")}]}
+                                style={[styles.setting_Image,{marginLeft:wp("28%")}]}
                     />
             </TouchableOpacity>
            </View>
@@ -485,7 +481,7 @@ StarReview.defaultProps = {
   rating: 0,
   Bottom_rating:5,
   default: 0,
-  starSize: 15,
+  starSize: 12,
   update: () => {},
   backingColor: 'rgb(204,204,204)',
   opacity: false,
