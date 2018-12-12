@@ -42,7 +42,7 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    this.props.navigation.navigate('Home')
+    // this.props.navigation.navigate('Home')
   }
   handlePress = () => {
     this.setState({ processing: true });
@@ -142,13 +142,13 @@ export default class Login extends Component {
         <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="94" initHeight="65"/>
         </View>
         
-         <View style={[styles.box,{marginTop:"2%",height: hp('36%'),}]}>
+         <View style={[styles.box,{marginTop:"2%",}]}>
          <Text style={[styles.text,{alignItems:"flex-start",marginRight:wp("42.5%")}]}>Sign In Using</Text>
          <Text></Text>
          
          <View style={{flexDirection:"row"}}>
          <RadioGroup style={{fontWeight:"bold"}} radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
-         <Text style={{color:"white"}}>hhhhhm</Text>
+         <Text style={{color:"white"}}>hm</Text>
          </View>
          {selectedButton}
           
@@ -173,7 +173,7 @@ export default class Login extends Component {
           <Text style={styles.buttonText}>Sign In</Text>
           </TouchableOpacity>
       <TouchableOpacity onPress={()=>{this.props.navigation.navigate('AuthStack')}}>
-          <Text style={{color:"rgb(255,163,0)",fontSize: RF(2),marginTop:hp("4%"),fontWeight:"bold"}}>Continue without Signing In</Text>
+          <Text style={{color:"rgb(255,163,0)",fontSize: RF(2),marginTop:hp("2%"),fontWeight:"bold"}}>Continue without Signing In</Text>
           </TouchableOpacity>
       <View style={{flexDirection:"row",marginVertical:hp("2%")}}>
         <Text style={styles.text}>Don't have an account? </Text>
@@ -200,7 +200,7 @@ export default class Login extends Component {
         />
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>
-          <Text style={[styles.copy_rigth]}> Vrienden Tech Private Limited 2018 </Text>
+          <Text style={[styles.copy_rigth,{marginVertical:hp(".5%")}]}> Vrienden Tech Private Limited 2018 </Text>
           </View>
 </KeyboardAwareScrollView>
     );

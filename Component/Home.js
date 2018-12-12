@@ -305,19 +305,19 @@ class StarReview extends Component {
       <View style={styles.Header}>
         <View style={{flexDirection:"row",marginVertical:hp("2%"),marginHorizontal:wp("5%")}}>
         <TouchableOpacity onPress={this.findCoordinates}>
-          <ResponsiveImage source={require('../Image/new_images/locationIcon2x.png')} style={{marginVertical:hp(".5%")}} initWidth="20" initHeight="23"/>                
+          <ResponsiveImage source={require('../Image/new_images/locationIcon2x.png')} style={{marginVertical:hp(".5%")}} initWidth="18" initHeight="20"/>                
           </TouchableOpacity>
-          <Text style={{fontFamily:"Muli-ExtraBold",fontSize:RF(2.3),marginLeft:wp("2%"),marginTop:hp(".5%")}}>Sahyog Mandir Rd, Thane</Text>
+          <Text style={[styles.text,{fontSize:RF(2.2),marginHorizontal:wp("1%")}]}>Sahyog Mandir Rd, Thane</Text>
           {/* {this.state.location} */}
-          <ResponsiveImage source={require('../Image/new_images/editAddressIcon2x.png')} style={{marginVertical:hp("1%"),marginLeft:wp("2%")}} initWidth="14" initHeight="15"/>                
+          <ResponsiveImage source={require('../Image/new_images/editAddressIcon2x.png')} style={{marginVertical:hp("1%"),}} initWidth="14" initHeight="15"/>                
           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Alert_top')}}>
           <ResponsiveImage source={require('../Image/new_images/notificationIcon3x.png')} style={{marginVertical:hp(".5%"),marginLeft:wp("22%")}} initWidth="21" initHeight="23"/>
           </TouchableOpacity>
         </View>
         <View style={{flexDirection:"row"}}>
         
-        <View style={{flexDirection:"column",marginBottom:hp("2%"),marginHorizontal:wp("5%")}}>
-          <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Search')}} style={{marginLeft:wp("3%"),flexDirection:"row"}}>
+        <View style={{flexDirection:"column",marginBottom:hp("2.2%"),marginHorizontal:wp("5%")}}>
+          <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Search')}} style={{marginLeft:wp("1%"),flexDirection:"row"}}>
           <ResponsiveImage source={require('../Image/new_images/searchIcon2x.png')} style={{marginTop:hp("1%")}} initWidth="15" initHeight="15"/> 
           <Text style={styles.grey_text}>Search</Text>
           </TouchableOpacity>
@@ -325,21 +325,21 @@ class StarReview extends Component {
         </View>
        
         <View style={{flexDirection:"column",marginBottom:hp("2%"),marginHorizontal:wp("5%")}}>
-          <View style={{flexDirection:"row"}}>
+          <View style={{flexDirection:"row",marginBottom:hp(".5%")}}>
           <Text style={[styles.text,{marginLeft:wp("2%")}]}>Salon</Text>
-          <ResponsiveImage source={require('../Image/new_images/downArrow2x.png')} style={{marginTop:hp("1%"),marginLeft:wp("12%")}} initWidth="10" initHeight="7"/> 
+          <ResponsiveImage source={require('../Image/new_images/downArrow2x.png')} style={{marginTop:hp("1.5%"),marginLeft:wp("12%")}} initWidth="8" initHeight="5"/> 
           </View>
           <ResponsiveImage style={{marginHorizontal:"5%",marginVertical:hp("1%")}} source={require('../Image/main/tableDivider2x.png')} initWidth="120" initHeight="2"/>
         </View>
         
         </View>
       </View>
-      <View style={{flexDirection:"row",justifyContent:"flex-end",marginTop:hp("1%")}}>
+      <View style={{flexDirection:"row",justifyContent:"flex-end",marginVertical:hp("1.5%")}}>
           <Text style={[styles.grey_text,{fontSize:RF(1.8),marginHorizontal:wp("2%")}]}>FILTER</Text>
           <ResponsiveImage source={require('../Image/new_images/filterIcon3x.png')} style={{marginVertical:hp(".5%"),marginRight:wp("5%")}} initWidth="15" initHeight="15"/> 
       </View>
 
-      <View style={[styles.box_SignUp,{marginHorizontal:wp("4%")}]}>
+      <View style={[styles.box_SignUp,{marginHorizontal:wp("4%"),paddingVertical:hp("1.3%")}]}>
         <Text style={[styles.text,{marginRight:wp("60%")}]}>Top Picks</Text>
       </View>
       

@@ -23,23 +23,28 @@ export default class example extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      code: '',switchThreeValue: true,time:500
+      code: '',time:500
     };
   }
   
   handlePress(code) {
     if(code == ""){
       return null;
-    }
-    else{
+    }else{
       apis.OTP_SignUP(GLOBAL.mobile,code)
       .then((responseJson) => {
         if(responseJson.success === false){
-          Alert.alert(responseJson.message)
-        }
-        else{
+          GLOBAL.token = responseJson.token;
+          GLOBAL.Auth_token = responseJson.data[0].auth_tokan
+          if(!responseJson.data[0].is_password)
+          {
+            this.props.navigation.navigate('AddDetails');
+          }else{
+            this.props.navigation.navigate('SignIn');
+            Alert.alert("Mobile Number already registered")
+          }
+        }else{
           this.props.navigation.navigate('AddDetails');
-          Alert.alert(responseJson.message)
           GLOBAL.token = responseJson.token;
           console.log(responseJson)
         }
@@ -53,7 +58,6 @@ export default class example extends Component {
 
 _resend_OTP = async () =>{
   apis.Resend_OTP(GLOBAL.mobile)
-  .then((response) => response.json())
   .then((responseJson) => {
    console.log(GLOBAL.mobile)
    this.setState({ time : 500 })
@@ -63,38 +67,14 @@ _resend_OTP = async () =>{
     Alert.alert(error)
   });
 }
- _onFulfill(code) {
-  // TODO: call API to check code here
-  // If code does not match, clear input with: this.refs.codeInputRef1.clear()
-  // if (code == "1234") {
-  //   Alert.alert(
-  //     'Confirmation Code',
-  //     'Successful!',
-  //     [{text: 'OK'}],
-  //     { cancelable: false }
-  //   );
-  // } else {
-  //   Alert.alert(
-  //     'Confirmation Code',
-  //     'Code not match!',
-  //     [{text: 'OK'}],
-  //     { cancelable: false }
-  //   );
-    
-  //   this.refs.codeInputRef1.clear();
-  // }
-}
   render() {
-    const {
-      switchThreeValue
-    } = this.state;
     return (
     <KeyboardAwareScrollView  contentContainerStyle={styles.container}
       keyboardShouldPersistTaps='handled'
     >      
         <Text style={[styles.text,{fontSize:RF(3.5),fontFamily:'Muli-ExtraBold',marginVertical:hp("5%"),marginRight:wp("35%")}]}>Verify to continue</Text>
         <View style={[styles.box_SignUp,{marginVertical:hp("2%"),height:hp("20%")}]}>
-          <Text style={styles.text}>Enter OTP sent to +91-{this.state.user}</Text>
+          <Text style={styles.text}>Enter OTP sent to +91-{GLOBAL.mobile}</Text>
           <View style={{alignItems:"flex-start",flexDirection:"row",justifyContent:"space-between"}}>
           <View style={{marginHorizontal:wp("15%"),marginTop:hp("2%")}}> 
             <CodeInput
@@ -104,11 +84,11 @@ _resend_OTP = async () =>{
               space={10}
               size={30}
               inputPosition='left'
-              // onFulfill={(code) => this._onFulfill(code)}
               onFulfill={(code) => this.handlePress(code)}
               codeLength={4}
               activeColor="rgb(255,164,0)"
               inactiveColor="rgb(176,176,176)"
+              keyboardType="numeric"
             />
             </View>
             <View style={{marginRight:wp("15%"),marginTop:hp("2%")}}>

@@ -39,7 +39,7 @@ export default class example extends Component {
             GLOBAL.token = responseJson.token;
             Alert.alert(responseJson.message)
             console.log(GLOBAL.Mobile1)
-            console.log(responseJson)
+            console.log(GLOBAL.token)
         }
         else{
           Alert.alert(responseJson.message)
@@ -54,9 +54,8 @@ export default class example extends Component {
 
 _resend_OTP = async () =>{
   apis.Resend_OTP(GLOBAL.Mobile1)
-  .then((response) => response.json())
   .then((responseJson) => {
-   console.log(GLOBAL.Mobile1)
+   console.log(responseJson)
    this.setState({ time : 500 })
   })
   .catch((error) => {
@@ -95,7 +94,7 @@ _resend_OTP = async () =>{
     >      
         <Text style={[styles.text,{fontSize:RF(3.5),fontFamily:'Muli-ExtraBold',marginVertical:hp("5%"),marginRight:wp("10%")}]}>Verify your mobile Number</Text>
         <View style={[styles.box_SignUp,{marginVertical:hp("2%"),height:hp("20%")}]}>
-          <Text style={styles.text}>Enter OTP sent to +91-{this.state.user}</Text>
+          <Text style={styles.text}>Enter OTP sent to +91-{GLOBAL.Mobile1}</Text>
           <View style={{alignItems:"flex-start",flexDirection:"row",justifyContent:"space-between"}}>
           <View style={{marginHorizontal:wp("15%"),marginTop:hp("2%")}}> 
             <CodeInput
@@ -110,6 +109,7 @@ _resend_OTP = async () =>{
               codeLength={4}
               activeColor="rgb(255,164,0)"
               inactiveColor="rgb(176,176,176)"
+              keyboardType="numeric"
             />
             </View>
             <View style={{marginRight:wp("15%"),marginTop:hp("2%")}}>

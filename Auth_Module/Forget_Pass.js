@@ -68,12 +68,12 @@ export default class example extends Component {
 <View style={{paddingVertical:hp("2%")}}>
         <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
         </View>
-        <View style={[styles.box_SignUp,{marginTop:hp("3%")}]}>
+        <View style={[styles.box_SignUp,{marginTop:hp("3%"),paddingVertical:hp("5%")}]}>
           <Text style={styles.text}>Enter the registered mobile number</Text>
           <View style={{flexDirection:"row",justifyContent:"space-between"}}>
               <TextInputLayout focusColor="rgb(255,164,0)">
 
-              <Text style={{marginTop:hp("1%"),fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
+              <Text style={{marginTop:hp(".8%"),fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
               </TextInputLayout>
               <Text>   </Text>
           <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
@@ -124,7 +124,7 @@ export default class example extends Component {
         />
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>
-          <Text style={[styles.copy_rigth]}> Vrienden Tech Private Limited 2018 </Text>
+          <Text style={[styles.copy_rigth,{paddingVertical:hp(".5%")}]}> Vrienden Tech Private Limited 2018 </Text>
           </View>
         {/* <Spinner
           visible={this.state.spinner}

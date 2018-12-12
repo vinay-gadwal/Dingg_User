@@ -34,20 +34,15 @@ export default class example extends Component {
     if(this.state.usermobile.length == 0)
     {
       Alert.alert("Enter Mobile Number")
-    }
-    else if(this.state.usermobile.length >= 11 || this.state.usermobile.length <= 9){
+    }else if(this.state.usermobile.length >= 11 || this.state.usermobile.length <= 9){
         Alert.alert("Size of Mobile Number Should be 10")
-    }
-    else{
+    }else{
       apis.SIGN_UP(this.state.usermobile)
       .then((responseJson) => {
         if(responseJson.success === true) {
           GLOBAL.mobile = this.state.usermobile
           this.props.navigation.navigate('SignOtp');
-          Alert.alert(responseJson.message)
-          console.log(responseJson)
-          console.log(GLOBAL.mobile)
-        } else {
+        }else {
           Alert.alert(responseJson.message)
         }
       })
@@ -66,12 +61,11 @@ export default class example extends Component {
 <View style={{paddingVertical:hp("2%")}}>
         <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
         </View>
-        <View style={[styles.box_SignUp,{marginTop:hp("3%")}]}>
-          <Text style={styles.text}>Enter the registered mobile number</Text>
-          <View style={{flexDirection:"row",justifyContent:"space-between"}}>
+        <View style={[styles.box_SignUp,{marginTop:hp("3%"),}]}>
+          <View style={{flexDirection:"row",justifyContent:"space-between",marginBottom:wp("7%")}}>
               <TextInputLayout focusColor="rgb(255,164,0)">
 
-              <Text style={{marginTop:hp("1%"),fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
+              <Text style={{marginTop:hp(".8%"),fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
               </TextInputLayout>
               <Text>   </Text>
           <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
@@ -92,7 +86,7 @@ export default class example extends Component {
          </TextInputLayout>
           </View>
         </View>
-        <TouchableOpacity onPress={this.handlePress.bind(this)} style={[styles.button,{width: wp('40'),marginVertical:hp("3%")}]}>
+        <TouchableOpacity onPress={this.handlePress.bind(this)} style={[styles.button,{width: wp('40'),marginVertical:hp("3%"),marginBottom:hp("8%")}]}>
             <Text style={styles.buttonText}>Submit for OTP</Text>
           </TouchableOpacity>
 
@@ -120,7 +114,7 @@ export default class example extends Component {
         />
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>
-          <Text style={[styles.copy_rigth]}> Vrienden Tech Private Limited 2018 </Text>
+          <Text style={[styles.copy_rigth,{paddingVertical:hp(".5%")}]}> Vrienden Tech Private Limited 2018 </Text>
           </View>
         <Spinner
           visible={this.state.spinner}

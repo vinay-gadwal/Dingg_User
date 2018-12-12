@@ -22,8 +22,8 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
     },
     copy_rigth_image:{
-      width: wp("2%"),
-      height: hp("2.2%"),marginTop:hp(".5%"),
+      width: wp("2.5%"),
+      height: hp("1.5%"),marginTop:hp(".5%"),
     },    
     input: {
       width: wp('70%'),

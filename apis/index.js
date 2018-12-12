@@ -61,11 +61,11 @@ const apis = {
           headers: {
             "content-type": "application/json",
             "cache-control": "no-cache",
-            "postman-token": "1d546500-20bd-02d9-403c-68dab1907fbb"
+            "postman-token": "8fc8f45f-e1d3-0dd0-7bbd-32a0820d0e98"
           },
           body: JSON.stringify({
             mobile       :Mobile,
-            OTP          : code,
+            otp          : code,
             device_type  :"ios",
             device_token :"fiodfpisdfposidfpoisdfposdifsodfiskdfpsdfiosdfpdskfposdi"
           }),
@@ -79,6 +79,27 @@ const apis = {
   },
 
   ADD_Details: async (token,Password,Fname,Lname,Display_name,Email,Locality,Gender) => {
+   var object = {};
+   if (Email == "" || Email == null) {
+      object =  {
+        password :Password ,
+        fname : Fname,
+        lname : Lname,
+        display_name : Display_name,
+        locality : Locality,
+        gender : Gender
+      }
+   }else{
+    object =   {
+      password :Password ,
+      fname : Fname,
+      lname : Lname,
+      display_name : Display_name,
+      email : Email,
+      locality : Locality,
+      gender : Gender
+     }
+   }
     try {
       const response = await fetch(
         base_url + 'user_save_password',
@@ -90,15 +111,7 @@ const apis = {
             "cache-control": "no-cache",
             "postman-token": "5332a84c-bcde-8948-01ed-da2279c90a26"
           },
-          body: JSON.stringify({
-            password :Password ,
-            fname : Fname,
-            lname : Lname,
-            display_name : Display_name,
-            email : Email,
-            locality : Locality,
-            gender : Gender
-          }),
+          body: JSON.stringify(object),
         },
       );
       const responseJson = await response.json();
@@ -158,11 +171,14 @@ const apis = {
   Resend_OTP: async (Mobile) => {
     try {
       const response = await fetch(
-        base_url + 'vandor_verify_mobile',
+        base_url + 'user_resend_otp',
         {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
+            "content-type": "application/json",
+            "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZW5kb3JfaWQiOjMsImlhdCI6MTU0MzI5NjcwOH0.D_8831a6S3xoFaz_kS_VyeImRmsJx3DJ7Y_GdcnnQwE",
+            "cache-control": "no-cache",
+            "postman-token": "ab4df6af-894a-2d01-498e-ceeac5aa0bc3"
           },
           body: JSON.stringify({
             mobile:Mobile

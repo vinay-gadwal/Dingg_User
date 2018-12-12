@@ -5,7 +5,7 @@ import {
   Text,
   View,
   TextInput,
-  TouchableOpacity,ScrollView
+  TouchableOpacity,Alert
 } from "react-native";
 import styles from '../Style/Style'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -39,28 +39,28 @@ export default class Password extends Component {
       .then((response) => response.json())
       .then((responseJson) => {
         console.log(responseJson)
-        if(responseJson.success === true){
-          this.props.navigation.navigate('SignIn');
-        }
-        else{
-          Alert.alert(responseJson.message)
-        }
+        // if(responseJson.success === true){
+        //   this.props.navigation.navigate('SignIn');
+        // }
+        // else{
+        //   Alert.alert(responseJson.message)
+        // }
       })
       .catch((error) => {
         console.error(error);
       });
   }
   
-  // Password_Validate = () =>
-  // {
-  //    if(this.state.password === this.state.new_pass){
-  //       {this.handlePress()}
-  //     }
-  //     else{
-  //       this.setState({new_pass:""})
-  //       Alert.alert("Confirm Password is Different")
-  //     }
-  // }
+  Password_Validate = () =>
+  {
+     if(this.state.Old_pass === this.state.new_pass){
+        {this.handlePress()}
+      }
+      else{
+        this.setState({new_pass:""})
+        Alert.alert("Confirm Password is Different")
+      }
+  }
 
   managePasswordVisibility = () =>
   {
@@ -98,7 +98,7 @@ export default class Password extends Component {
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
             style={styles.input}
-            placeholder="Enter Old Password"
+            placeholder="Confirm Password"
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
              secureTextEntry
@@ -106,7 +106,7 @@ export default class Password extends Component {
         </TextInputLayout>
     </View>
     <View style={{marginBottom:"15%",marginTop:hp("5%")}}> 
-        <TouchableOpacity onPress={this.handlePress.bind(this)} style={[styles.button,{width: wp('25%'),}]} >
+        <TouchableOpacity onPress={this.Password_Validate} style={[styles.button,{width: wp('25%'),}]} >
         <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
         </View>
