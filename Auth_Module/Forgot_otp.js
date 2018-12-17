@@ -17,6 +17,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import CodeInput from 'react-native-confirmation-code-input';
 import TimerCountdown from 'react-native-timer-countdown';
 import apis from '../apis/index'
+const GLOBAL = require('../Component/Color');
 
 export default class example extends Component {
 
@@ -92,11 +93,11 @@ _resend_OTP = async () =>{
     <KeyboardAwareScrollView  contentContainerStyle={styles.container}
       keyboardShouldPersistTaps='handled'
     >      
-        <Text style={[styles.text,{fontSize:RF(3.5),fontFamily:'Muli-ExtraBold',marginVertical:hp("5%"),marginRight:wp("10%")}]}>Verify your mobile Number</Text>
-        <View style={[styles.box_SignUp,{marginVertical:hp("2%"),height:hp("20%")}]}>
+        <Text style={styles.verify_big_text}>Verify to continue</Text>
+        <View style={[styles.box_SignUp]}>
           <Text style={styles.text}>Enter OTP sent to +91-{GLOBAL.Mobile1}</Text>
-          <View style={{alignItems:"flex-start",flexDirection:"row",justifyContent:"space-between"}}>
-          <View style={{marginHorizontal:wp("15%"),marginTop:hp("2%")}}> 
+          <View style={styles.Row}>
+          <View style={styles.Otp}>
             <CodeInput
               ref="codeInputRef1"
               // secureTextEntry
@@ -107,29 +108,27 @@ _resend_OTP = async () =>{
               onFulfill={(code) => this._onFulfill(code)}
               onFulfill={(code) => this.handlePress(code)}
               codeLength={4}
-              activeColor="rgb(255,164,0)"
-              inactiveColor="rgb(176,176,176)"
+              activeColor={GLOBAL.COLOR.ORANGE}
+              inactiveColor={GLOBAL.COLOR.GRAY}
               keyboardType="numeric"
             />
             </View>
-            <View style={{marginRight:wp("15%"),marginTop:hp("2%")}}>
+            <View style={styles.otp_timer}>
             <TimerCountdown
                         initialSecondsRemaining={(this.state.time)*60}
                         allowFontScaling={true}
                         style={{ fontSize:RF(2),marginTop:hp("2%"),color:"rgb(176,176,176)"}}
                     />
                   <TouchableOpacity onPress={this._resend_OTP.bind(this)}>
-                  <Text style={[styles.text,{color:"rgb(255,164,0)",fontSize:RF(1.9)}]}>Resend OTP</Text>
-                  </TouchableOpacity>
+        <Text style={[styles.orange_text]}>Resend OTP</Text>               
+    </TouchableOpacity>
               </View>
           </View>
         </View>
         {/* onPress={() => {this.props.navigation.navigate('Crea_pass')}} */}
-        <View style={{marginBottom:hp("25%")}}>
-          <TouchableOpacity style={styles.button} onPress={this.handlePress(this.state.code)}>
+          <TouchableOpacity style={[styles.button,{marginBottom:hp("25%")}]} onPress={this.handlePress(this.state.code)}>
           <Text style={styles.buttonText}>Next</Text>
           </TouchableOpacity>
-      </View>
 </KeyboardAwareScrollView>    );
   }
 }

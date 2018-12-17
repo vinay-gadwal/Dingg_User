@@ -1,8 +1,10 @@
 import {StyleSheet} from 'react-native';
 import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-  
-
+const GLOBAL = require('../Component/Color');
+// Black: 444444
+// Gray: 999999
+// Orange: ffa400
 const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -10,6 +12,34 @@ const styles = StyleSheet.create({
       alignItems: "center",
       backgroundColor: "rgb(242,242,242)",
       paddingVertical:"5%"
+    },
+    ///Row//
+    Row:{
+      flexDirection:"row",justifyContent:"space-between"
+    },
+    column:{
+      flexDirection:"column"
+    },
+    Line_style:{
+      width: wp('13.5'),
+      height: hp('.3%'),marginBottom:hp("1%"),marginTop:hp("0.5%")
+    },
+    ///Mobilr//
+    Mobile_no:{
+      marginTop:"17%",fontSize: RF(2.2),fontFamily:'Muli-Bold',
+    },
+    input_mobile:{
+      width: wp('52'),
+      height: hp('6%'),
+      fontSize: RF(2.2),
+      textAlign:'left',  
+      fontFamily:'Muli-ExtraBold',
+    },
+    Padding_verticele:{
+      paddingVertical:hp("2%")
+    },
+    Padding_verticele_signup:{
+      paddingVertical:hp("2%"),marginTop:hp(".5%")
     },
     Flex_main_box:{
       width: wp('90%'),marginLeft:"5%",
@@ -24,7 +54,13 @@ const styles = StyleSheet.create({
     copy_rigth_image:{
       width: wp("2.5%"),
       height: hp("1.5%"),marginTop:hp(".5%"),
-    },    
+    }, 
+    copy_right_column:{
+      alignItems:"center",flexDirection:"column",marginBottom:hp("2%")
+  }  ,
+  copy_right_column_signup:{
+    alignItems:"center",flexDirection:"column",marginTop:hp("25%")
+}  ,
     input: {
       width: wp('70%'),
       height: hp('6%'),
@@ -32,7 +68,7 @@ const styles = StyleSheet.create({
       fontSize: RF(2.2),
       marginTop:"0%",
       textAlign:'left',  
-      fontFamily:'Muli-Bold',
+      fontFamily:'Muli-ExtraBold',
       // fontWeight: 'bold',
       },
     
@@ -52,7 +88,6 @@ const styles = StyleSheet.create({
         height: hp('7.2%'),
         backgroundColor: "rgb(255,164,0)",
         justifyContent: "center",
-        // paddingVertical: hp('1%'),
         borderRadius:10,
         shadowColor: 'rgb(255,164,0)',
         shadowOffset: { width: 0, height: hp("0.5%") },
@@ -65,8 +100,8 @@ const styles = StyleSheet.create({
         textAlign: "center",
         color: "white",
         fontWeight: "700",
-        // fontFamily:'Muli-Bold',
-        fontWeight: 'bold',
+        fontFamily:'Muli-Bold',
+        // fontWeight: 'bold',
     },
     list_box:{
       width: wp('90%'),marginLeft:"5%",
@@ -94,14 +129,15 @@ const styles = StyleSheet.create({
           marginBottom:30,
           marginLeft:10
     },
-    
     box:{
-        alignItems:"center",
-        width: wp('90%'),
-        backgroundColor:"white",
-        paddingVertical:hp('3%'),
-        borderRadius:10,
-    },
+      alignItems:"center",
+      width: wp('90%'),
+      backgroundColor:"white",
+      paddingVertical:hp('3%'),
+      borderRadius:10,
+      marginVertical:hp("2%"),
+      marginHorizontal:wp("5%")
+  },
     BookServiceBox:{
       alignItems:"center",
           width: wp('85%'),
@@ -132,6 +168,7 @@ const styles = StyleSheet.create({
           backgroundColor:"white",
           paddingVertical:hp('2%'),
           borderRadius:10,
+          paddingBottom:hp("10%")
     },
     text:{
           fontSize: RF(2.2), 
@@ -139,17 +176,38 @@ const styles = StyleSheet.create({
           fontFamily:'Muli-Bold',
           // fontWeight: 'bold',
         },
-   grey_text:{
-    fontFamily:"Muli-Bold",
-    fontSize:RF(2.3),
-    color:"rgb(187,187,187)",
-    marginLeft:wp("2%"),
-    marginBottom:hp(".5%")
-   },
+    verify_big_text:{
+      fontSize:RF(3.5),
+      fontFamily:'Muli-ExtraBold',
+      marginVertical:hp("5%"),
+      marginRight:wp("35%"),
+      color: "rgb(68,68,68)",
+    },
+    Otp:{
+      marginHorizontal:wp("15%"),marginTop:hp("2%")
+    },
+    otp_timer:{
+      marginRight:wp("15%"),marginTop:hp("2%")
+    },
+  Big_text:{
+          fontSize: RF(2.2), 
+          color: "rgb(68,68,68)",
+          fontFamily:'Muli-Bold',
+          marginRight:wp("42.5%")
+        },
+  orange_text:{
+          color:"rgb(255,163,0)",fontSize: RF(2),marginVertical:hp("1%"),fontWeight:"bold"
+        },
+    text:{
+          fontSize: RF(2.2), 
+          color:GLOBAL.COLOR.GREY,
+          fontFamily:'Muli-Bold',
+          // fontWeight: 'bold',
+        },
    grey_text_PROFILE_EDIT:{
     fontFamily:"Muli-Bold",
     fontSize:RF(2),
-    color:"rgb(187,187,187)",
+    color:"#999999",
     marginBottom:hp(".5%")
    },
    yello_text:{
@@ -205,31 +263,27 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       paddingRight: 10
     },
-    boxDetails:{
-      alignItems:"center",
-      width: wp('90%'),
-      backgroundColor:"white",
-      borderRadius:10,
-      justifyContent: 'space-between',
-      marginHorizontal:"5%",
-      paddingVertical:hp('3%')
+    // boxDetails:{
+    //   alignItems:"center",
+    //   width: wp('90%'),
+    //   backgroundColor:"white",
+    //   borderRadius:10,
+    //   justifyContent: 'space-between',
+    //   marginHorizontal:"5%",
+    //   paddingVertical:hp('3%')
+    // },
+    radio_button:{
+      marginTop:hp("3%"),marginRight:wp("28%")
     },
-    
+    Checked_button:{
+      width:wp(3.8),height:hp(2.2),marginTop:hp("1%"),marginRight:wp("3%")
+    },
     Setting_lineSetting:{
       width: "90%",
       borderColor:"rgb(201,201,201)",
       borderBottomWidth:1,
       marginLeft:"5%"
     },
-    
-    setting_compo:{
-      width: wp('90%'),
-      backgroundColor:"white",
-      borderRadius:10,
-      justifyContent: 'space-between',
-      marginHorizontal:"5%"
-    },
-    
     setting_Row:{
         flexDirection:"row",
         justifyContent:"space-between",
@@ -274,45 +328,18 @@ const styles = StyleSheet.create({
       marginTop:hp("2%"),
       color:"rgb(176,176,176)",
       fontFamily:"Muli-Bold",
-
     },
-    
-    Logo_style:{
-      width: wp('23%'),
-        height: hp('9%'),
-     marginVertical:wp("4%")
-    },
-    
+ 
     back_butt0n:{
         marginLeft:wp("4%"),
         width: wp('6%'),
         height: hp('2.8%'),
         marginBottom:hp("1.4%")
     },
-    tab_button:{
-      marginLeft:wp("5%"),
-      width: wp('4.6%'),
-      height: hp('2.8%'),
-  },
-    
     textBoxBtnHolder:{
           position: "relative",
           alignSelf: "center",
           justifyContent: 'center'
-        },
-
-  visibilityBtn:{
-        position: 'absolute',
-        right: "3%",
-        height:"70%",
-        width: "8%",
-        marginTop:"10%",marginBottom:"0%"
-      },
-
-  btnImage:{
-          resizeMode: 'contain',
-          height: hp('2%'),
-          width: wp('2%'),marginTop:hp("6%"),paddingLeft:wp("14%")
         },
 
   Profile_Container:{
@@ -321,18 +348,13 @@ const styles = StyleSheet.create({
       borderRadius:10,
       justifyContent: 'space-between',marginHorizontal:"5%"
     },
-    Header:{
-     height:hp("15%"),width:wp("100%"),
-      backgroundColor:"white"
-    },
-   
     History_Action:{
       justifyContent:"flex-start",marginLeft:wp("5%"),marginBottom:hp("1%"),width:wp("65%"),
       fontSize: RF(2.5),
       justifyContent:"flex-start"
       ,marginLeft:"5%",
       paddingVertical:"2.5%",
-      // fontFamily:"Muli-Bold",
+      fontFamily:"Muli-Bold",
     },
     avatarMultiple: {
       borderRadius: wp("2"),
@@ -340,8 +362,13 @@ const styles = StyleSheet.create({
       height: hp('11%'),
       marginHorizontal:"2%",
     },
+    avatarContainer: {
+      borderColor: '#9B9B9B',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor:"white",
+       },
     
   });
-  
   export default styles
   

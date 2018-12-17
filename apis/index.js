@@ -168,6 +168,30 @@ const apis = {
     }
   },
 
+  Reset_Pass: async (Mobile,Password) => {
+    try {
+      const response = await fetch(
+        base_url + 'user_reset_password',
+        {
+          method: 'POST',
+          headers: {
+            "content-type": "application/json",
+            "cache-control": "no-cache",
+            "postman-token": "1d546500-20bd-02d9-403c-68dab1907fbb"
+          },
+          body: JSON.stringify({
+            mobile : Mobile,
+          password : Password
+          }),
+        },
+      );
+      const responseJson = await response.json();
+      return responseJson;
+    } catch (error) {
+      console.error(error);
+    }
+  },
+
   Resend_OTP: async (Mobile) => {
     try {
       const response = await fetch(

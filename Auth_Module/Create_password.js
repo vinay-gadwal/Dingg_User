@@ -86,14 +86,16 @@ export default class Password extends Component {
         <Text style={styles.buttonText}>Complete Signup</Text>
         </TouchableOpacity>
         </View>
-        <View style={{flexDirection:"row",marginTop:hp("5%")}}>
+        <View style={{flexDirection:"column",alignItems:"center",marginBottom:hp("3%")}}>
+        <View style={{flexDirection:"row"}}>
         <Image
           source={require('../Image/icon/copyright.png')}
           style={styles.copy_rigth_image}
         />
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>
-          <Text style={[styles.copy_rigth]}> Vrienden Tech Private Limited 2018 </Text>
+          <Text style={[styles.copy_rigth,{paddingVertical:hp(".5%")}]}> Vrienden Tech Private Limited 2018 </Text>
+          </View>
 
 </KeyboardAwareScrollView>
     );

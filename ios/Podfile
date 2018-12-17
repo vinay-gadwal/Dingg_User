@@ -1,0 +1,19 @@
+# Created by react-native-pod
+target 'Dingg' do
+  # We uncomment because we like dynamic frameworks witn working with swift projects
+  use_frameworks!
+  # Add new pods below this line
+  target 'DinggTests' do
+    inherit! :search_paths
+    # Pods for testing
+    # Add new pods below this line
+  end
+end
+target 'Dingg-tvOS' do
+  # We uncomment because we like dynamic frameworks witn working with swift projects
+  use_frameworks!
+  target 'Dingg-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+end

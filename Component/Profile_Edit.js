@@ -8,6 +8,7 @@ import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {TextInputLayout} from 'rn-textinputlayout';
 import ResponsiveImage from 'react-native-responsive-image'
+import RadioGroup from 'react-native-radio-buttons-group';
 
 export default class App extends Component {
   constructor(){
@@ -16,7 +17,19 @@ export default class App extends Component {
     this.state = {
         avatarSource: null,avatarSource1:null,
         first_name:"",last_name:"",display_name:"",mobile_no:"",email:"",
-        dob:"",anniversary:""
+        dob:"",anniversary:"",
+        data: [
+          {
+              label: 'Male',
+              color: 'rgb(255,164,0)',
+              fontFamily:'Muli-ExtraBold',
+          },
+          {
+              label: 'Female',
+              color: 'rgb(255,164,0)',
+              fontFamily:'Muli-ExtraBold',
+          },
+        ],
       }
     }
     Fun_Phot_save(){
@@ -65,8 +78,13 @@ export default class App extends Component {
           }
         });
       }
-     
+
+  Gender_Button = data => this.setState({ data });
+
   render() {
+    let selectedButton = this.state.data.find(e => e.selected == true);
+    selectedButton = selectedButton ? selectedButton.value : this.state.data[0].label;
+    GLOBAL.Gender = selectedButton
     return (
       <ScrollView style={{backgroundColor:"rgb(243,242,242)"}}>
           <View style={{paddingVertical:"5%"}}>
@@ -194,7 +212,10 @@ export default class App extends Component {
                       />
                   </TextInputLayout>  
                     </View>
-                  </View>      
+                  </View>     
+                  <View style={{marginTop:hp("3%"),marginRight:wp("35%")}}>
+                  <RadioGroup style={{fontWeight:"bold",}} radioButtons={this.state.data} onPress={this.Gender_Button}  flexDirection='row' />
+                  </View>
           </View>
         <TouchableOpacity style={[styles.button,{marginLeft:wp("30.5%"),marginTop:hp("3%")}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('Welcome'),this.Fun_Phot_save()}}>
                   <Text style={styles.buttonText}>Save Changes</Text>

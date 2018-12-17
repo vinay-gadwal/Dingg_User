@@ -15,7 +15,6 @@ import ResponsiveImage from 'react-native-responsive-image'
 import Search from '../Home_screens/Search'
 import saloonDetails from '../Home_screens/SalonDetails'
 console.disableYellowBox = true;
-import { Card } from "react-native-elements";
 import PropTypes from 'prop-types'
 import ImageOverlay from "react-native-image-overlay";
 
@@ -311,7 +310,7 @@ class StarReview extends Component {
           {/* {this.state.location} */}
           <ResponsiveImage source={require('../Image/new_images/editAddressIcon2x.png')} style={{marginVertical:hp("1%"),}} initWidth="14" initHeight="15"/>                
           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Alert_top')}}>
-          <ResponsiveImage source={require('../Image/new_images/notificationIcon3x.png')} style={{marginVertical:hp(".5%"),marginLeft:wp("22%")}} initWidth="21" initHeight="23"/>
+          <ResponsiveImage source={require('../Image/new_images/notificationIcon3x.png')} style={[styles.back_butt0n,{width:wp("4%"),marginLeft:wp("25%")}]}/>
           </TouchableOpacity>
         </View>
         <View style={{flexDirection:"row"}}>
@@ -323,11 +322,11 @@ class StarReview extends Component {
           </TouchableOpacity>
           <ResponsiveImage style={{marginLeft:"1%",marginVertical:hp("1%")}} source={require('../Image/main/tableDivider2x.png')} initWidth="200" initHeight="2"/>
         </View>
-       
+        
         <View style={{flexDirection:"column",marginBottom:hp("2%"),marginHorizontal:wp("5%")}}>
           <View style={{flexDirection:"row",marginBottom:hp(".5%")}}>
           <Text style={[styles.text,{marginLeft:wp("2%")}]}>Salon</Text>
-          <ResponsiveImage source={require('../Image/new_images/downArrow2x.png')} style={{marginTop:hp("1.5%"),marginLeft:wp("12%")}} initWidth="8" initHeight="5"/> 
+          <ResponsiveImage source={require('../Image/new_images/downArrow2x.png')} style={{marginTop:hp("1.5%"),marginLeft:wp("15%")}} initWidth="8" initHeight="5"/> 
           </View>
           <ResponsiveImage style={{marginHorizontal:"5%",marginVertical:hp("1%")}} source={require('../Image/main/tableDivider2x.png')} initWidth="120" initHeight="2"/>
         </View>
@@ -356,7 +355,7 @@ class StarReview extends Component {
                 containerStyle={{height:hp("20%"),borderRadius:20,marginBottom:hp("3%")}}
               >
               </Card> */}
-              <ImageOverlay containerStyle={{height:hp("21%"),width:wp("53"),marginHorizontal:wp("5%")}} rounded={10}
+              <ImageOverlay containerStyle={{height:hp("20%"),width:wp("53"),marginHorizontal:wp("5%")}} rounded={10}
                        contentPosition="top" source={{uri:rowData.imageUrl}} >                                 
                      <View style={[styles.button,{height:hp("5%"),marginTop:hp("0%"),width:wp("9.5%"),borderRadius:6,marginLeft:wp("43.5%")}]}>
                                  <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>20%</Text>
@@ -366,7 +365,7 @@ class StarReview extends Component {
              </ImageOverlay>
               <View style={{flexDirection:"row",marginLeft:wp("5%"),width:wp("45%"),justifyContent:"space-between",marginTop:hp("1%")}}>
                       <Text style={[styles.text,{fontSize:RF(2.5),marginBottom:hp("1%"),alignItems:"flex-start",fontFamily:"Muli-ExtraBold"}]}>{rowData.title}</Text>
-                      <Text style={[styles.text,{fontSize:RF(1.8),marginTop:hp("1%")}]}>2.5 km</Text>
+                      <Text style={[styles.text,{fontSize:RF(1.8),marginTop:hp(".5%")}]}>2.5 km</Text>
               </View> 
               <View style={{marginLeft:wp("3%"),flexDirection:"row"}}>
                 <View style={{marginTop:hp(".5%")}}>
@@ -374,7 +373,7 @@ class StarReview extends Component {
                 </View>
                 <Text style={[styles.grey_text,{marginLeft:wp("25%"),fontSize:RF(1.8)}]}>255 Reviews</Text>
               </View>
-              <View style={{marginLeft:wp("3%"),flexDirection:"row",justifyContent:"space-evenly"}}>
+              <View style={{marginLeft:wp("1%"),flexDirection:"row",justifyContent:"space-evenly"}}>
                 <View style={{flexDirection:"column",marginTop:hp(".5%")}}>
                   <Text style={[styles.grey_text,{fontSize:RF(1.8)}]}>Chowpatty</Text>
                   <Text style={[styles.grey_text,{fontSize:RF(1.8)}]}>Open till 10 pm</Text>
@@ -399,7 +398,7 @@ class StarReview extends Component {
                     renderItem={({item}) => 
                     <View style={[styles.list_box,{height:hp("22%"),flexDirection:"row",justifyContent:"space-between"}]}>
                              <View style={{marginHorizontal:wp("1%")}}>
-                                 <ImageOverlay contentPosition="top" containerStyle={{height:hp("15%"),width:wp("25"),marginHorizontal:wp("2%"),marginVertical:hp("4%")}} rounded={10} source={{uri:item.imageUrl}} >
+                                 <ImageOverlay contentPosition="top" containerStyle={{height:hp("13%"),width:wp("26"),marginHorizontal:wp("2%"),marginTop:hp("5%")}} rounded={10} source={{uri:item.imageUrl}} >
                                  <View style={[styles.button,{height:hp("5%"),marginTop:hp("0%"),width:wp("9.5%"),borderRadius:6,marginRight:wp("17%")}]}>
                                  <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>20%</Text>
                                  <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>off</Text>
@@ -408,8 +407,8 @@ class StarReview extends Component {
                             </View>           
                             <View style={{flexDirection:"column",marginRight:wp("5%"),marginVertical:hp("2%"),width:wp("61%")}}>
                                   <Text style={[styles.grey_text,{marginLeft:wp("42%"),fontSize:RF(1.8)}]}>2.5 km</Text>
-                                  <Text style={[styles.text,{fontSize:RF(2.5),marginLeft:wp("1%"),fontFamily:"Muli-ExtraBold"}]}>{item.name}</Text>
-                              <View style={{flexDirection:"row",marginRight:wp("15%")}}>
+                                  <Text style={[styles.text,{fontSize:RF(2.3),marginLeft:wp("1%"),fontFamily:"Muli-ExtraBold"}]}>{item.name}</Text>
+                              <View style={{flexDirection:"row",marginRight:wp("5%")}}>
                                   <View style={{marginTop:hp(".5%")}}>
                                   {Star_Rating} 
                                   </View>

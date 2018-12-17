@@ -16,6 +16,7 @@ import {TextInputLayout} from 'rn-textinputlayout';
 import RF from "react-native-responsive-fontsize"
 import ResponsiveImage from 'react-native-responsive-image'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+const GLOBAL = require('../Component/Color');
 
 export default class example extends Component {
 
@@ -58,22 +59,21 @@ export default class example extends Component {
 <KeyboardAwareScrollView  contentContainerStyle={styles.container}
   keyboardShouldPersistTaps='handled'
 >      
-<View style={{paddingVertical:hp("2%")}}>
-        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
+      <View style={styles.Padding_verticele_signup}>
+        <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
         </View>
-        <View style={[styles.box_SignUp,{marginTop:hp("3%"),}]}>
-          <View style={{flexDirection:"row",justifyContent:"space-between",marginBottom:wp("7%")}}>
-              <TextInputLayout focusColor="rgb(255,164,0)">
+        <View style={[styles.box_SignUp,]}>
+          <View style={styles.Row}>
+              <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}>
 
-              <Text style={{marginTop:hp(".8%"),fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
+              <Text style={styles.Mobile_no}>+91     </Text>
               </TextInputLayout>
               <Text>   </Text>
-          <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+          <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
           <TextInput
             value={this.state.usermobile}
             onChangeText={usermobile => this.setState({ usermobile })}
-            style={[styles.input,{width: wp('52'), height: hp('5%')}]}
-            placeholderTextColor="rgb(204,204,204)"
+            style={styles.input_mobile}
             returnKeyType="done"
             underlineColorAndroid='transparent'
             ref={input => (this.emailInput = input)}
@@ -86,43 +86,34 @@ export default class example extends Component {
          </TextInputLayout>
           </View>
         </View>
-        <TouchableOpacity onPress={this.handlePress.bind(this)} style={[styles.button,{width: wp('40'),marginVertical:hp("3%"),marginBottom:hp("8%")}]}>
+        <TouchableOpacity onPress={this.handlePress.bind(this)} style={[styles.button,{marginBottom:hp("10%")}]}>
             <Text style={styles.buttonText}>Submit for OTP</Text>
           </TouchableOpacity>
 
-        <View style={{flexDirection:"row",marginVertical:hp("9.5%")}}>
+        <View style={[styles.Row,styles.paddingVertical]}>
         <Text style={styles.text}>Already have an account? </Text>
-        <View style={{flexDirection:"column"}}>
+        <View style={styles.column}>
         <TouchableOpacity onPress={() => this.props.navigation.navigate('SignIn')}>
         <Text style={styles.text}>Sign In </Text>
         <Image
-          source={require('../Image/icon/Line/rectangle1.png')}
-          style={{
-            width: wp('12.5'),
-                height: hp('.3%'),marginBottom:hp("1%"),marginTop:hp("0.5%")
-          }}
+          source={GLOBAL.rectangle_image}
+          style={styles.Line_style}
         />
         </TouchableOpacity>
         </View>
         <Text style={styles.text}>here</Text>
         </View>
-        <View style={{flexDirection:"column",alignItems:"center",marginVertical:hp("2%")}}>
-        <View style={{flexDirection:"row"}}>
+        <View style={styles.copy_right_column}>
+      <View style={styles.Row}>
         <Image
-          source={require('../Image/icon/copyright.png')}
+          source={GLOBAL.Copy_right}
           style={styles.copy_rigth_image}
         />
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>
-          <Text style={[styles.copy_rigth,{paddingVertical:hp(".5%")}]}> Vrienden Tech Private Limited 2018 </Text>
+          <Text style={[styles.copy_rigth,]}> Vrienden Tech Private Limited 2018 </Text>
           </View>
-        <Spinner
-          visible={this.state.spinner}
-          textContent={'One moment...'}
-          textStyle={{ color: '#fff' }} />
 
 </KeyboardAwareScrollView>    );
   }
 }
-
-AppRegistry.registerComponent('example', () => example);

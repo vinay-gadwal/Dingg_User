@@ -12,6 +12,8 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import {TextInputLayout} from 'rn-textinputlayout';
 import ResponsiveImage from 'react-native-responsive-image'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import apis from '../apis/index'
+const GLOBAL = require('../Component/Color');
 
 export default class Password extends Component {
   constructor(props) {
@@ -24,27 +26,15 @@ export default class Password extends Component {
   }
 
   handlePress(){  
-    fetch('http://18.217.123.119:3000/api/user_reset_password', {
-        method: 'POST',
-        headers: {
-          "content-type": "application/json",
-          "cache-control": "no-cache",
-          "postman-token": "272c8d92-9bf6-b32b-2e0f-c780530790bf"
-        },
-        body: JSON.stringify({
-          mobile : GLOBAL.Mobile1,
-          password : this.state.new_pass
-        })
-  })
-      .then((response) => response.json())
+    apis.Reset_Pass(GLOBAL.Mobile1, this.state.new_pass)
       .then((responseJson) => {
         console.log(responseJson)
-        // if(responseJson.success === true){
-        //   this.props.navigation.navigate('SignIn');
-        // }
-        // else{
-        //   Alert.alert(responseJson.message)
-        // }
+        if(responseJson.success === true){
+          this.props.navigation.navigate('SignIn');
+        }
+        else{
+          Alert.alert(responseJson.message)
+        }
       })
       .catch((error) => {
         console.error(error);
@@ -72,12 +62,11 @@ export default class Password extends Component {
 <KeyboardAwareScrollView  contentContainerStyle={styles.container}
   keyboardShouldPersistTaps='handled'
 >
-<View style={{paddingVertical:hp("2%")}}>
-        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
-        
+    <View style={styles.Padding_verticele}>
+        <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
         </View>
-                <View style={[styles.box,{ height: hp('30%'),marginTop:"3%"}]}>
-        <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+                <View style={[styles.box]}>
+        <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
           <TextInput
             value={this.state.new_pass}
             onChangeText={new_pass => this.setState({ new_pass })}
@@ -85,13 +74,12 @@ export default class Password extends Component {
             // onSubmitEditing={() => this.passwordInput.focus()}
             style={styles.input}
             placeholder="Enter New Password"
-            placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
              secureTextEntry
           />
           </TextInputLayout>
           <Text></Text>
-          <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+          <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
            <TextInput
             value={this.state.Old_pass}
             onChangeText={Old_pass => this.setState({ Old_pass })}
@@ -99,28 +87,25 @@ export default class Password extends Component {
             // onSubmitEditing={() => this.passwordInput.focus()}
             style={styles.input}
             placeholder="Confirm Password"
-            placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
              secureTextEntry
           />
         </TextInputLayout>
     </View>
-    <View style={{marginBottom:"15%",marginTop:hp("5%")}}> 
-        <TouchableOpacity onPress={this.Password_Validate} style={[styles.button,{width: wp('25%'),}]} >
+        <TouchableOpacity onPress={this.Password_Validate} style={[styles.button,{width: wp('25%'),marginTop:hp("4%")}]} >
         <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
-        </View>
-        <View style={{flexDirection:"row",marginTop:hp("5%")}}>
+        <View style={styles.copy_right_column_signup}>
+        <View style={styles.Row}>
         <Image
-          source={require('../Image/icon/copyright.png')}
-          style={styles.copy_rigth_image}
+           source={GLOBAL.Copy_right}
+           style={styles.copy_rigth_image}
         />
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>
           <Text style={[styles.copy_rigth]}> Vrienden Tech Private Limited 2018 </Text>
+          </View>
 </KeyboardAwareScrollView>
     );
   }
 }
-
-AppRegistry.registerComponent("Login", () => Login);

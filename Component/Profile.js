@@ -8,8 +8,10 @@ import styles from '../Style/Style'
 import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import ResponsiveImage from 'react-native-responsive-image'
+import Alert_top from '../Component/Alert' 
+import {createBottomTabNavigator,createStackNavigator,} from 'react-navigation';
 
-export default class App extends Component {
+class Profile extends Component {
   
     state = {
         
@@ -78,8 +80,7 @@ export default class App extends Component {
                    </View>
                     <Text style={styles.profile_Small_text}>Anniversary</Text>
                     <Text style={styles.setting_text}>{GLOBAL.Primary_No}</Text>
-            </View>
-         
+            </View>        
             <TouchableOpacity style={{  width:"90%",flexDirection:"row",
                           backgroundColor:"white",marginVertical:hp("2%"),
                           borderRadius:10,paddingVertical:hp("1%"),
@@ -92,10 +93,47 @@ export default class App extends Component {
                                 style={[styles.setting_Image,{marginRight:wp("3%"),marginTop:hp("3%")}]}
                     />
             </TouchableOpacity>
-           
         </View>
       </ScrollView>
     );
   }
 }
+export default createStackNavigator({
+  Profile:{
+    screen:Profile,
+    navigationOptions: ({ navigation }) => ({
+      title: 'PROFILE',
+     
+      headerRight:(
+        <TouchableOpacity onPress={() => {navigation.navigate('Alert_top')}}>
+         <Image
+        source={require('../Image/new_images/notificationIcon3x.png')}
+        style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+      />
+        </TouchableOpacity>)
+      })
+  },
+ Alert_top:{
+          screen:Alert_top,
+          navigationOptions: ({ navigation }) => ({
+            title: 'ALERTS',
+            headerLeft:null,
+            headerRight:(
+            <Image
+              source={require('../Image/new_images/activenotificationIcon3x_2.png')}
+              style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+            />)
+          })
+        },
+},
 
+{
+  initialRouteName:"Profile",
+  // headerMode: "none",
+  navigationOptions: {
+    headerTitleStyle: {
+      fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
+    },
+      },
+
+});

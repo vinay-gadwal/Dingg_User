@@ -16,6 +16,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import RadioGroup from 'react-native-radio-buttons-group';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import apis from '../apis/index'
+const GLOBAL = require('../Component/Color');
 
 export default class Login extends Component {
   constructor(props)
@@ -29,20 +30,20 @@ export default class Login extends Component {
         {
             label: 'Mobile Number',
             value:this.phone(),
-            color: 'rgb(255,164,0)',
+            color: GLOBAL.COLOR.ORANGE,
             fontWeight:"bold"
         },
         {
             label: 'Email ID',
             value:this.email(),
-            color: 'rgb(255,164,0)'
+            color: GLOBAL.COLOR.ORANGE,
         }, 
            
             ],
     };  
   }
   componentDidMount(){
-    // this.props.navigation.navigate('Home')
+    this.props.navigation.navigate('ForgotOtp')
   }
   handlePress = () => {
     this.setState({ processing: true });
@@ -62,17 +63,16 @@ export default class Login extends Component {
   }
   phone(){
     return(
-      <View style={{flexDirection:"row",justifyContent:"space-between"}}>
-      <TextInputLayout focusColor="rgb(255,164,0)">
-      <Text style={{marginTop:"17%",fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
+      <View style={styles.Row}>
+      <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}>
+      <Text style={styles.Mobile_no}>+91     </Text>
       </TextInputLayout>
        <Text>   </Text>
-       <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+       <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
        <TextInput
         //  value={this.state.username}
          onChangeText={username => this.setState({ username })}
-         style={[styles.input,{width: wp('52')}]}
-         placeholderTextColor="rgb(204,204,204)"
+         style={[styles.input_mobile]}
          returnKeyType='done'
          underlineColorAndroid='transparent'
          ref={input => (this.emailInput = input)}
@@ -88,12 +88,11 @@ export default class Login extends Component {
   }
   email(){
     return(
-      <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+      <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
        <TextInput
         //  value={this.state.username}
          onChangeText={username => this.setState({ username })}
          style={[styles.input]}
-         placeholderTextColor="rgb(204,204,204)"
          returnKeyType='next'
          underlineColorAndroid='transparent'
          ref={input => (this.emailInput = input)}
@@ -106,26 +105,7 @@ export default class Login extends Component {
       </TextInputLayout>
     )
   }
-  uid(){
-    return(
-      <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
-      <TextInput
-       //  value={this.state.username}
-        onChangeText={username => this.setState({ username })}
-        style={[styles.input,{width: wp('70')}]}
-        placeholderTextColor="rgb(204,204,204)"
-        returnKeyType='next'
-        underlineColorAndroid='transparent'
-        ref={input => (this.emailInput = input)}
-        // onSubmitEditing={() => this.passwordCInput.focus()}
-        keyboardType="email-address"
-        autoCapitalize="none"
-        autoCorrect={false}
-        placeholder="User ID"
-      />
-     </TextInputLayout>
-    )
-  }
+
   onPress = data => this.setState({ data });
   managePasswordVisibility = () =>
   {
@@ -138,22 +118,22 @@ export default class Login extends Component {
     return (
     <KeyboardAwareScrollView  contentContainerStyle={styles.container}
                  keyboardShouldPersistTaps='handled'>
-        <View style={{paddingVertical:hp("2%")}}>
-        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="94" initHeight="65"/>
+        <View style={styles.Padding_verticele}>
+        <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
         </View>
         
-         <View style={[styles.box,{marginTop:"2%",}]}>
-         <Text style={[styles.text,{alignItems:"flex-start",marginRight:wp("42.5%")}]}>Sign In Using</Text>
+         <View style={[styles.box]}>
+         <Text style={[styles.Big_text]}>Sign In Using</Text>
          <Text></Text>
          
-         <View style={{flexDirection:"row"}}>
-         <RadioGroup style={{fontWeight:"bold"}} radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
+         <View style={styles.Row}>
+         <RadioGroup  radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
          <Text style={{color:"white"}}>hm</Text>
          </View>
          {selectedButton}
           
           <View style = { styles.textBoxBtnHolder } > 
-                  <TextInputLayout focusColor="rgb(255,164,0)"  labelFontSize={0.1}>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}  labelFontSize={0.1}>
                       <TextInput 
                         placeholder="Enter Password"
                         onChangeText={password => this.setState({ password })}
@@ -162,45 +142,39 @@ export default class Login extends Component {
                          style = { styles.input }/>
                   </TextInputLayout>
           </View>
-          
           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Forget_password')}}>
-          <Text style={{color:"rgb(255,163,0)",marginLeft:wp('40%'),fontSize: RF(2),marginVertical:hp("1%"),fontWeight:"bold"}}>Forgot Password?</Text>
+          <Text style={[styles.yello_text,{marginLeft:wp("40%")}]}>Forgot Password?</Text>
           </TouchableOpacity>
-      
       </View>
       
           <TouchableOpacity onPress={this.handlePress} style={[styles.button,{marginTop:hp("3%")}]} >
           <Text style={styles.buttonText}>Sign In</Text>
           </TouchableOpacity>
       <TouchableOpacity onPress={()=>{this.props.navigation.navigate('AuthStack')}}>
-          <Text style={{color:"rgb(255,163,0)",fontSize: RF(2),marginTop:hp("2%"),fontWeight:"bold"}}>Continue without Signing In</Text>
+          <Text style={styles.orange_text}>Continue without Signing In</Text>
           </TouchableOpacity>
-      <View style={{flexDirection:"row",marginVertical:hp("2%")}}>
+      <View style={[styles.Row,styles.Padding_verticele]}>
         <Text style={styles.text}>Don't have an account? </Text>
-        <View style={{flexDirection:"column"}}>
+        <View style={styles.column}>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('SignUp')}>
             <Text style={styles.text}>Sign Up </Text>
             <Image
-              source={require('../Image/icon/Line/rectangle1.png')}
-              style={{
-                width: wp('13.5'),
-                height: hp('.3%'),marginBottom:hp("1%"),marginTop:hp("0.5%")
-                // left: 20
-              }}
+              source={GLOBAL.rectangle_image}
+              style={styles.Line_style}
             />
             </TouchableOpacity>
         </View>
         <Text style={styles.text}>here</Text>
       </View>
-      <View style={{alignItems:"center",flexDirection:"column",marginVertical:hp("2%")}}>
-      <View style={{flexDirection:"row"}}>
+      <View style={styles.copy_right_column}>
+      <View style={styles.Row}>
         <Image
-          source={require('../Image/icon/copyright.png')}
+          source={GLOBAL.Copy_right}
           style={styles.copy_rigth_image}
         />
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>
-          <Text style={[styles.copy_rigth,{marginVertical:hp(".5%")}]}> Vrienden Tech Private Limited 2018 </Text>
+          <Text style={[styles.copy_rigth]}> Vrienden Tech Private Limited 2018 </Text>
           </View>
 </KeyboardAwareScrollView>
     );
