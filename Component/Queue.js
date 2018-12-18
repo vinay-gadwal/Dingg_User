@@ -8,6 +8,7 @@ import { Dialog } from "react-native-simple-dialogs";
 import PopoverTooltip from 'react-native-popover-tooltip';
 import Alert_top from '../Component/Alert' 
 import {createBottomTabNavigator,createStackNavigator,} from 'react-navigation';
+const GLOBAL = require('../Component/Color');
 
 class Queue extends Component {
  
@@ -57,34 +58,32 @@ class Queue extends Component {
 }
 
 render() {
-return (
-    
+return (    
 <View style={styles.container}>
-
-     <View style={{flexDirection:"row"}}>
+     <View style={styles.Row}>
               <FlatList      
             //   horizontal="true"    
                     data={ this.state.dataSource }
                     renderItem={({item}) => 
                     <View style={styles.Flex_main_box}>
                         
-                        <View style={{flexDirection:"row",justifyContent:"space-between"}}>
-                        <View style={[styles.button,{height:hp("5%"),width:wp("9.5%"),borderRadius:6}]}>
-                                 <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>20%</Text>
-                                 <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>off</Text>
+                        <View style={styles.Row}>
+                        <View style={styles.Action_button}>
+                                 <Text style={styles.offer_button_text}>20%</Text>
+                                 <Text style={styles.offer_button_text}>off</Text>
                         </View>
-                        <Image style={{width:wp("10%"), height:hp("6%"),borderRadius:10,marginRight:wp("4%"),marginVertical:hp("3%")}} source={{uri:item.imageUrl}} />
-                       <View style={{flexDirection:"column",width:wp("40%"),marginVertical:hp("1%")}}>
+                        <Image style={styles.Queue_imae} source={{uri:item.imageUrl}} />
+                       <View style={styles.Queue_column}>
                        <Text style={styles.yello_text}>{item.token}</Text>
-                       <Text style={[styles.text,{fontSize:RF(2.5)}]}>{item.Shop_name}</Text>
+                       <Text style={[styles.text]}>{item.Shop_name}</Text>
                         </View>
-                        <View style={{flexDirection:"column",marginVertical:hp("2%"),marginRight:wp("10%")}}>
+                        <View style={styles.Action_queue}>
                                 <PopoverTooltip 
                                                 // setBelow='true'
                                                 ref='tooltip1'
                                                 buttonComponent={
-                                                    <View style={[styles.button,{height:hp("5.5%"),width:wp("20%"),marginVertical:hp("1%"),backgroundColor:"white",shadowColor: 'rgb(217,217,217)',}]}>
-                                                    <Text style={[styles.buttonText,{color:"rgb(255,164,0)"}]}>
+                                                    <View style={[styles.button,styles.Action_Touch_button]}>
+                                                    <Text style={[styles.buttonText,{color:GLOBAL.COLOR.ORANGE}]}>
                                                         Action
                                                     </Text>
                                                     </View>
@@ -114,28 +113,28 @@ return (
 
                             </View>   
                         </View>
-                        <View style={{flexDirection:"row",}}>
-                          <ResponsiveImage source={require('../Image/new_images/locationIcon2x.png')} style={{marginHorizontal:hp("2%")}} initWidth="13" initHeight="15"/>                
-                          <Text style={[styles.grey_text,{fontSize:RF(1.8)}]}>28 Citi Centre, S V Road, Goregaon(W)</Text>
+                        <View style={styles.Queue_row}>
+                          <ResponsiveImage source={GLOBAL.Location_icon} style={{marginHorizontal:hp("2%")}} initWidth={GLOBAL.COLOR.Size_14} initHeight={GLOBAL.COLOR.Size_15}/>                
+                          <Text style={[styles.grey_text]}>28 Citi Centre, S V Road, Goregaon(W)</Text>
                         </View>
-                        <View style={{flexDirection:"row",marginVertical:hp("1%"),}}>
-                          <ResponsiveImage source={require('../Image/new_images/callIcon3x.png')} style={{marginHorizontal:hp("2%")}} initWidth="15" initHeight="15"/>                
-                          <Text style={[styles.grey_text,{fontSize:RF(1.8)}]}>28 Citi Centre, S V Road, Goregaon(W)</Text>
+                        <View style={styles.Queue_row}>
+                          <ResponsiveImage source={GLOBAL.call_icon} style={{marginHorizontal:hp("2%")}} initWidth={GLOBAL.COLOR.Size_15} initHeight={GLOBAL.COLOR.Size_15}/>                
+                          <Text style={[styles.grey_text]}>28 Citi Centre, S V Road, Goregaon(W)</Text>
                         </View> 
-                        <View style={{flexDirection:"row",justifyContent:"space-evenly",marginVertical:hp("2%")}}>
-                          <View style={{flexDirection:"column"}}>
-                            <Text style={[styles.yello_text,{fontSize:RF(3)}]}>{item.token}</Text>
-                            <Text style={[styles.text,{fontSize:RF(2),width:wp("20%")}]}>Currently Attending</Text>
+                        <View style={[styles.Row,{marginHorizontal:wp("5%")}]}>
+                          <View style={styles.column}>
+                            <Text style={[styles.Yellow_big]}>{item.token}</Text>
+                            <Text style={[styles.Queue_text]}>Currently Attending</Text>
                           </View>
-                          <ResponsiveImage source={require('../Image/new_images/divider13x.png')} style={{marginHorizontal:hp("2%")}} initWidth="1" initHeight="60"/>                
-                          <View style={{flexDirection:"column"}}>
-                            <Text style={[styles.yello_text,{fontSize:RF(3)}]}>{item.token}</Text>
-                            <Text style={[styles.text,{fontSize:RF(2),width:wp("20%")}]}>Currently Attending</Text>
+                          <ResponsiveImage source={GLOBAL.Divider} style={styles.rectangle_image} initWidth={GLOBAL.COLOR._height} initHeight={GLOBAL.COLOR.Yellow_60}/>                
+                          <View style={styles.column}>
+                          <Text style={[styles.Yellow_big]}>{item.token}</Text>
+                          <Text style={[styles.Queue_text]}>Currently Attending</Text>
                           </View>
-                          <ResponsiveImage source={require('../Image/new_images/divider13x.png')} style={{marginHorizontal:hp("2%")}} initWidth="1" initHeight="60"/>                
-                          <View style={{flexDirection:"column"}}>
-                            <Text style={[styles.yello_text,{fontSize:RF(3)}]}>{item.token}</Text>
-                            <Text style={[styles.text,{fontSize:RF(2),width:wp("20%")}]}>Currently Attending</Text>
+                          <ResponsiveImage source={GLOBAL.Divider} style={styles.rectangle_image} initWidth={GLOBAL.COLOR._height} initHeight={GLOBAL.COLOR.Yellow_60}/>                
+                          <View style={styles.column}>
+                          <Text style={[styles.Yellow_big]}>{item.token}</Text>
+                            <Text style={[styles.Queue_text]}>Currently Attending</Text>
                           </View>
                         </View>
                         </View> 
@@ -149,39 +148,22 @@ return (
                         {
                             alignItems: "center",
                             justifyContent: "center",
-                            width:wp("40%")
                         }
                     }
                     onTouchOutside={ () => this.openDialog(false) }
                     onTouchInside={ () => this.openDialog(false) }
                     visible={ this.state.showDialog }
                 >   
-                 <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
                  <TouchableOpacity onPress={ () => this.openDialog1(true) }>
                     <Text style={styles.setting_text}>Start Serving</Text>
                     </TouchableOpacity>
-                   </View>
-                   <View style={{marginHorizontal:"5%"}}>
-              <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="280" initHeight="2"/>
-              </View>
-              <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
+              <ResponsiveImage source={GLOBAL.rectangle_image_black} />
                     <Text style={styles.setting_text}>Move Down</Text>
-                   </View>
-                   <View style={{marginHorizontal:"5%"}}>
-              <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="280" initHeight="2"/>
-              </View>
-              <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
+              <ResponsiveImage source={GLOBAL.rectangle_image_black} />
                     <Text style={styles.setting_text}>Drop</Text>
-                   </View>
-                   <View style={{marginHorizontal:"5%"}}>
-              <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="280" initHeight="2"/>
-              </View>
-              <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
+              <ResponsiveImage source={GLOBAL.rectangle_image_black}/>
                     <Text style={styles.setting_text}>Alert</Text>
-                   </View>
    </Dialog>
-
-  
  </View>
    );
  }
@@ -195,8 +177,8 @@ export default createStackNavigator({
         headerRight:(
           <TouchableOpacity onPress={() => {navigation.navigate('Alert_top')}}>
            <Image
-          source={require('../Image/new_images/notificationIcon3x.png')}
-          style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+           source={GLOBAL.Notification_yellow}
+           style={[styles.back_right]}
         />
           </TouchableOpacity>)
         })
@@ -208,20 +190,16 @@ export default createStackNavigator({
               headerLeft:null,
               headerRight:(
               <Image
-                source={require('../Image/new_images/activenotificationIcon3x_2.png')}
-                style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+              source={GLOBAL.Notification_Gray}
+              style={[styles.back_right]}
               />)
             })
           },
   },
-  
   {
     initialRouteName:"Queue",
     // headerMode: "none",
     navigationOptions: {
-      headerTitleStyle: {
-        fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
-      },
+      headerTitleStyle: styles.Header,
         },
-  
   });

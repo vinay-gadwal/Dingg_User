@@ -9,6 +9,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import {TextInputLayout} from 'rn-textinputlayout';
 import ResponsiveImage from 'react-native-responsive-image'
 import RadioGroup from 'react-native-radio-buttons-group';
+const GLOBAL = require('../Component/Color');
 
 export default class App extends Component {
   constructor(){
@@ -21,13 +22,13 @@ export default class App extends Component {
         data: [
           {
               label: 'Male',
-              color: 'rgb(255,164,0)',
-              fontFamily:'Muli-ExtraBold',
+              color: GLOBAL.COLOR.ORANGE,
+              fontFamily:GLOBAL.COLOR.Font_bold,
           },
           {
               label: 'Female',
-              color: 'rgb(255,164,0)',
-              fontFamily:'Muli-ExtraBold',
+              color: GLOBAL.COLOR.ORANGE,
+              fontFamily:GLOBAL.COLOR.Font_bold,
           },
         ],
       }
@@ -86,135 +87,123 @@ export default class App extends Component {
     selectedButton = selectedButton ? selectedButton.value : this.state.data[0].label;
     GLOBAL.Gender = selectedButton
     return (
-      <ScrollView style={{backgroundColor:"rgb(243,242,242)"}}>
-          <View style={{paddingVertical:"5%"}}>
+      <ScrollView style={{backgroundColor:GLOBAL.COLOR.rootBAckgroundColor}}>
+          <View style={styles.Padding_verticele}>
 
         <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
                 <View style={[styles.avatarMultiple, styles.avatarContainer,{marginHorizontal:wp("40%")}]}>
                       { this.state.avatarSource === null ? <Image
-                                          source={require('../Image/icon/plus.png')}
-                                          style={{
-                                            width: wp('3%'),
-                                            height: hp('2%'),
-                                            // left: 20
-                      }}
+                                          source={GLOBAL.plus_icon}
+                                         style={styles.Plus_image}
                       /> :
                         <Image style={styles.avatarMultiple} source={this.state.avatarSource} />
                       }
                 </View>
-                <View style={{height:"1%",justifyContent:"center",alignItems:"center",marginLeft:wp("18%")}}>
+                <View style={styles.edit_camera_}>
                   <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
-                  <ResponsiveImage source={require('../Image/main/editButton3x.png')}  initWidth="60" initHeight="60"/>
+                  <ResponsiveImage source={GLOBAL.edit_icon}  initWidth={GLOBAL.COLOR.Size_60} initHeight={GLOBAL.COLOR.Size_60}/>
                   </TouchableOpacity>
                   </View>
           </TouchableOpacity>
                       <Text></Text>
-                      <Text></Text>
-          <View style={[styles.boxDetails,{alignItems:"flex-start",paddingLeft:wp("10%")}]}>
+          <View style={[styles.box_profile]}>
           <Text style={styles.grey_text_PROFILE_EDIT}>First Name</Text>
-                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                       <TextInput
                         value={this.state.first_name}
                         onChangeText={first_name => this.setState({ first_name })}
                         ref={input => (this.passwordCInput = input)}
                         // onSubmitEditing={() => this.passwordInput.focus()}
-                        style={[styles.input,{marginBottom:"3%",height: hp('3%'),}]}
+                        style={styles.input_profile_edit}                        // placeholder="Locality"
                         // placeholder="Salon Name"
-                        placeholderTextColor="rgb(204,204,204)"
                         returnKeyType="next"
                         
                       />
                   </TextInputLayout>              
-                <Text style={[styles.grey_text_PROFILE_EDIT,{marginTop:hp("2")}]}>Last Name</Text>
-                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+                <Text style={[styles.grey_text_PROFILE_EDIT]}>Last Name</Text>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                       <TextInput
                         value={this.state.last_name}
                         onChangeText={last_name => this.setState({ last_name })}
                         ref={input => (this.passwordCInput = input)}
                         // onSubmitEditing={() => this.passwordInput.focus()}
-                        style={[styles.input,{marginBottom:"3%",height: hp('3%'),}]}                        // placeholder="Locality"
-                        placeholderTextColor="rgb(204,204,204)"
+                        style={styles.input_profile_edit}                        // placeholder="Locality"
                         returnKeyType="next"
                         
                       />
                   </TextInputLayout>
-                  <Text style={[styles.grey_text_PROFILE_EDIT,{marginTop:hp("2")}]}>Display Name</Text>
-                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+                  <Text style={[styles.grey_text_PROFILE_EDIT]}>Display Name</Text>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                       <TextInput
                         value={this.state.display_name}
                         onChangeText={display_name => this.setState({ display_name })}
                         ref={input => (this.passwordCInput = input)}
                         // onSubmitEditing={() => this.passwordInput.focus()}
-                        style={[styles.input,{marginBottom:"3%",height: hp('3%'),}]}                        // placeholder="City"
-                        placeholderTextColor="rgb(204,204,204)"
+                        style={styles.input_profile_edit}                        // placeholder="Locality"
                         returnKeyType="next"
                         
                       />
                   </TextInputLayout>
-                  <Text style={[styles.grey_text_PROFILE_EDIT,{marginTop:hp("2")}]}>Mobile Number</Text>
-                  <View style={{flexDirection:"row",justifyContent:"space-between"}}>
-                  <TextInputLayout focusColor="rgb(255,164,0)">
+                  <Text style={[styles.grey_text_PROFILE_EDIT]}>Mobile Number</Text>
+                  <View style={styles.Row}>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}>
 
                       <Text style={{fontSize: RF(2.2)}}>+91     </Text>
                   </TextInputLayout>
                           <Text>   </Text>
-                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                   <TextInput
                         value={this.state.mobile_no}
                         onChangeText={mobile_no => this.setState({ mobile_no })}
                         ref={input => (this.passwordCInput = input)}
                         // onSubmitEditing={() => this.passwordInput.focus()}
                         style={[styles.input,{marginBottom:"3%",height: hp('3%'),width:wp("55%")}]}                        // placeholder="City"
-                        placeholderTextColor="rgb(204,204,204)"
                         returnKeyType="next"
                       />
                 </TextInputLayout>
                   </View>  
-                  <Text style={[styles.grey_text_PROFILE_EDIT,{marginTop:hp("2")}]}>Email</Text>
-                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+                  <Text style={[styles.grey_text_PROFILE_EDIT]}>Email</Text>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                       <TextInput
                         value={this.state.email}
                         onChangeText={email => this.setState({ email })}
                         ref={input => (this.passwordCInput = input)}
                         // onSubmitEditing={() => this.passwordInput.focus()}
-                        style={[styles.input,{marginBottom:"3%",height: hp('3%'),}]}                        // placeholder="City"
-                        placeholderTextColor="rgb(204,204,204)"
+                        style={styles.input_profile_edit}                        // placeholder="Locality"
                         returnKeyType="next" 
                       />
                   </TextInputLayout>  
                  
-                  <View style={{flexDirection:"row",justifyContent:"space-between"}}>
-                    <View style={{flexDirection:"column"}}>
-                    <Text style={[styles.grey_text_PROFILE_EDIT,{marginTop:hp("2")}]}>Date of Birth</Text>       
-                    <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+                  <View style={[styles.Row]}>
+                    <View style={styles.column}>
+                    <Text style={[styles.grey_text_PROFILE_EDIT]}>Date of Birth</Text>       
+                    <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                       <TextInput
                         value={this.state.email}
                         onChangeText={email => this.setState({ email })}
                         ref={input => (this.passwordCInput = input)}
                         // onSubmitEditing={() => this.passwordInput.focus()}
-                        style={[styles.input,{marginBottom:"3%",height: hp('3%'),width:wp("10%")}]}                        // placeholder="City"
-                        placeholderTextColor="rgb(204,204,204)"
+                        style={[styles.input_profile_edit,{width:wp("25%")}]}                        // placeholder="Locality"
                         returnKeyType="next" 
                       />
                   </TextInputLayout>  
                     </View>
-                    <View style={{flexDirection:"column",marginLeft:wp("10%")}}>
-                    <Text style={[styles.grey_text_PROFILE_EDIT,{marginTop:hp("2")}]}>Anniversary (Optional)</Text>       
-                    <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+                    <View style={[styles.column,{marginLeft:wp("7.5%")}]}>
+                    <Text style={[styles.grey_text_PROFILE_EDIT]}>Anniversary (Optional)</Text>       
+                    <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                       <TextInput
                         value={this.state.email}
                         onChangeText={email => this.setState({ email })}
                         ref={input => (this.passwordCInput = input)}
                         // onSubmitEditing={() => this.passwordInput.focus()}
-                        style={[styles.input,{marginBottom:"3%",height: hp('2.8%'),width:wp("10%")}]}                        // placeholder="City"
-                        placeholderTextColor="rgb(204,204,204)"
+                        style={[styles.input_profile_edit,{width:wp("25%")}]}                        // placeholder="Locality"
                         returnKeyType="next" 
                       />
                   </TextInputLayout>  
                     </View>
                   </View>     
-                  <View style={{marginTop:hp("3%"),marginRight:wp("35%")}}>
-                  <RadioGroup style={{fontWeight:"bold",}} radioButtons={this.state.data} onPress={this.Gender_Button}  flexDirection='row' />
+                  <View style={styles.radio_button}>
+                  <RadioGroup  radioButtons={this.state.data} onPress={this.Gender_Button}  flexDirection='row' />
                   </View>
           </View>
         <TouchableOpacity style={[styles.button,{marginLeft:wp("30.5%"),marginTop:hp("3%")}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('Welcome'),this.Fun_Phot_save()}}>

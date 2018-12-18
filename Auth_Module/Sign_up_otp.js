@@ -94,7 +94,7 @@ _resend_OTP = async () =>{
             <TimerCountdown
                         initialSecondsRemaining={(this.state.time)*60}
                         allowFontScaling={true}
-                        style={{ fontSize:RF(2),marginTop:hp("2%"),color:"rgb(176,176,176)"}}
+                        style={styles.Timer_countdown}
                     />
                   <TouchableOpacity onPress={this._resend_OTP.bind(this)}>
                   <Text style={[styles.orange_text]}>Resend OTP</Text>

@@ -13,6 +13,7 @@ import ResponsiveImage from 'react-native-responsive-image'
 console.disableYellowBox = true;
 import PropTypes from 'prop-types'
 import CompleteFlatList from 'react-native-complete-flatlist';
+const GLOBAL = require('../Component/Color');
 
 const data = [
   {

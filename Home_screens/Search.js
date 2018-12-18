@@ -13,6 +13,9 @@ import ResponsiveImage from 'react-native-responsive-image'
 console.disableYellowBox = true;
 import PropTypes from 'prop-types'
 import CompleteFlatList from 'react-native-complete-flatlist';
+import ImageOverlay from "react-native-image-overlay";
+
+const GLOBAL = require('../Component/Color');
 
 const data = [
   {
@@ -63,40 +66,37 @@ export default class StarReview extends Component {
     cell = (data,index) => {
       const item = data.cleanData ? data.cleanData : data
        return (        
-              <View style={styles.Search_b0x}>
-                  <View style={{flexDirection:"row",justifyContent:"space-evenly"}}>                          
-                       <View >
-                           <View style={[styles.button,{height:hp("5%"),width:wp("9.5%"),borderRadius:6}]}>
-                           <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>20%</Text>
-                           <Text style={[styles.buttonText,{fontSize:RF(1.8)}]}>off</Text>
-                           </View>
-                           {/* <Image style={{width:wp("25%"), height:hp("12%"),borderRadius:10,marginRight:wp("2%")}} source={{uri:data.imageUrl}} />                                  */}
-                      </View>           
-                      <View style={{flexDirection:"column",marginVertical:hp("2%"),width:wp("65%"),marginRight:wp("1%")}}>
-                            <Text style={[styles.text,{fontSize:RF(1.8),marginLeft:wp("45%"),color:"rgb(140,140,140)"}]}>2.5 km</Text>
-                            <Text style={[styles.text,{fontSize:RF(2),marginBottom:hp("1%"),marginLeft:wp("4%"),fontFamily:"Muli-ExtraBold"}]}>{data.name}</Text>
-                        <View style={{flexDirection:"row",marginLeft:wp("2%")}}>
-                            <View style={{marginTop:hp(".5%")}}>
-                            {/* {Star_Rating}  */}
-                            </View>
-                            <Text style={[styles.text,{fontSize:RF(1.8),marginLeft:wp("25%")}]}>255 Reviews</Text>
-                        </View>
-                        <View style={{flexDirection:"row",justifyContent:"space-evenly"}}>
-                            <View style={{flexDirection:"column",marginTop:hp(".5%")}}>
-                              <Text style={[styles.text,{fontSize:RF(1.8)}]}>Chowpatty</Text>
-                              <Text style={[styles.text,{fontSize:RF(1.8)}]}>Open till 10 pm</Text>
-                            </View>
-                          <ResponsiveImage style={{marginLeft:"1%",marginVertical:hp("1%")}} source={require('../Image/new_images/rectangle1_3x.png')} initWidth="3" initHeight="35"/>
-                              <View style={{flexDirection:"column",marginTop:hp(".5%")}}>
-                                <Text style={[styles.text,{fontSize:RF(1.8)}]}>Wait time 2h</Text>
-                                <TouchableOpacity onPress={() =>{this.props.navigation.navigate('Booking')}}>
-                                <Text style={[styles.text,{fontSize:RF(1.8),color:"rgb(255,164,0)"}]}>Join Queue</Text>
-                                </TouchableOpacity>
-                              </View>
-                        </View>
-                      </View>  
+        <View style={[styles.box,styles.Row]}>
+                                 <ImageOverlay contentPosition="top" containerStyle={styles.HOme_flex_bottom} rounded={10} source={{uri:item.imageUrl}} >
+                                 <View style={[styles.Button_offer_home_bottom]}>
+                                 <Text style={[styles.offer_button_text]}>20%</Text>
+                                 <Text style={[styles.offer_button_text]}>off</Text>
+                                </View>
+                                 </ImageOverlay>                                 
+                                 <View style={[styles.column,{width:wp("60%")}]}>
+                                  <Text style={[styles.Titile_small_text,{marginLeft:wp("45%")}]}>2.5 km</Text>
+                                  <Text style={[styles.text,{fontFamily:GLOBAL.COLOR.Font_bold}]}>{item.name}</Text>
+                                  <View style={[styles.Row]}>
+                                    <View style={styles.margin_5}>
+                                    {/* {Star_Rating}  */}
+                                    </View>
+                                    <Text style={[styles.copy_rigth,{marginRight:wp("15%")}]}>255 Reviews</Text>
+                                  </View>
+                                  <View style={[styles.Row,{justifyContent:"flex-start"}]}>
+                                  <View style={[styles.column]}>
+                                    <Text style={[styles.grey_text]}>Chowpatty</Text>
+                                    <Text style={[styles.grey_text]}>Open till 10 pm</Text>
+                                  </View>
+                                    <ResponsiveImage style={styles.rectangle_image} source={GLOBAL.rectangle_image} initWidth={GLOBAL.COLOR.Icon_divider_width} initHeight={GLOBAL.COLOR.Size_35}/>
+                                    <View style={[styles.column]}>
+                                    <Text style={[styles.review_text,{marginLeft:wp("0%")}]}>Wait time 2h</Text>
+                                    <TouchableOpacity onPress={() =>{this.props.navigation.navigate('Booking')}}>
+                                    <Text style={[styles.offer_button_text,{color:GLOBAL.COLOR.ORANGE}]}>Join Queue</Text>
+                                    </TouchableOpacity>
+                                  </View>
+                                </View>
+                            </View>  
                       </View>         
-                  </View> 
        )
     }
   
@@ -306,28 +306,27 @@ export default class StarReview extends Component {
     this.displayMode()
     const { navigation } = this.props;
     return (
-      <ScrollView style={{backgroundColor:"rgb(243,242,242)"}} horizontal={false}>
+      <ScrollView style={{backgroundColor:GLOBAL.COLOR.rootBAckgroundColor}} horizontal={false}>
       
-      <View style={[styles.Header,{height:hp("8%"),justifyContent:"space-between",flexDirection:"row"}]}>
+      <View style={[styles.Home_header,styles.Row,styles]}>
         
-        <View style={{flexDirection:"row",marginTop:hp("2%"),marginLeft:wp("5%")}}> 
-        <View style={{flexDirection:"column",marginBottom:hp("2%"),marginRight:wp("2%")}}>
-          <View style={{flexDirection:"row"}}>
-          <Text style={{fontFamily:"Muli-Bold",fontSize:RF(2.3),color:"black",marginLeft:wp("2%"),marginBottom:hp(".5%")}}>Salon</Text>
-          <ResponsiveImage source={require('../Image/new_images/downArrow2x.png')} style={{marginTop:hp("1%"),marginLeft:wp("12%")}} initWidth="10" initHeight="7"/> 
+        <View style={styles.Row}> 
+        <View style={[styles.column,styles.Padding_verticele]}>
+          <View style={[styles.Row,styles.Category_line]}>
+          <Text style={styles.text}>Salon & Spa</Text>
+          <ResponsiveImage source={GLOBAL.Down_Arrow} style={styles.Search_line} initWidth={GLOBAL.COLOR.size_10} initHeight={GLOBAL.COLOR.size_7}/> 
           </View>
-          <ResponsiveImage style={{marginHorizontal:"5%",marginVertical:hp("1%")}} source={require('../Image/main/tableDivider2x.png')} initWidth="120" initHeight="2"/>
+          <ResponsiveImage style={styles.Search_line} source={GLOBAL.rectangle_image_black} initWidth={GLOBAL.COLOR.size_160} initHeight={GLOBAL.COLOR._height}/>
         </View>     
         </View>
         
-        <View style={{flexDirection:"row",justifyContent:"flex-end",marginTop:hp("3%")}}>
-          <Text style={[styles.text,{marginRight:wp("3%"),fontSize:RF(1.8),color:"rgb(140,140,140)"}]}>FILTER</Text>
-          <ResponsiveImage source={require('../Image/new_images/filterIcon3x.png')} style={{marginVertical:hp(".5%"),marginRight:wp("5%")}} initWidth="15" initHeight="15"/> 
+        <View style={styles.Row}>
+          <Text style={styles.grey_text_PROFILE_EDIT}>FILTER</Text>
+          <ResponsiveImage source={GLOBAL.Filter_Icon} style={{marginTop:hp("2.5%"),marginRight:wp("4%")}} initWidth={GLOBAL.COLOR.Size_15} initHeight={GLOBAL.COLOR.Size_15}/> 
       </View>
      
       </View>
-      
-      <View style={{marginBottom:hp("5%"),marginHorizontal:wp("0%"), width:wp("100%"),backgroundColor: "blue",}}>
+            {/* <View style={{width:wp("96%")}}> */}
             <CompleteFlatList
                   searchKey={['name', 'status', 'time', 'date']}
                   highlightColor="yellow"
@@ -341,7 +340,7 @@ export default class StarReview extends Component {
                   renderSeparator={null}
                   renderItem={this.cell}
                 />
-        </View>
+                {/* </View> */}
       {/* <View style={{flexDirection:"row"}}>
               <FlatList          
                     data={ this.state.dataSource1 }

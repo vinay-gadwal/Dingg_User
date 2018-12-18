@@ -5,6 +5,8 @@ import { TouchableOpacity, ScrollView, View, Animated, FlatList, Text, Image, Al
 import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import ResponsiveImage from 'react-native-responsive-image'
+const GLOBAL = require('../Component/Color');
+
 export default class Queue_request extends Component {
  
  constructor(props) {
@@ -47,30 +49,27 @@ render() {
 return (
  <ScrollView>
    
-<View style={{  flex: 1,
-      justifyContent: "space-between",
-      backgroundColor: "rgb(243,242,242)",
-      paddingVertical:"0%"}}>
+<View style={styles.container}>
         
-     <View style={{flexDirection:"row"}}>
+     <View style={styles.Row}>
               <FlatList          
                     data={ this.state.dataSource }
                     renderItem={({item}) => 
                     <View style={styles.list_box}>
-                        <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
-                             <View style={{flexDirection:"column",marginVertical:hp("2%"),marginLeft:wp("5%")}}>
-                                <Image style={{width:wp("17%"), height:hp("9%"),borderRadius:10,marginRight:wp("4%"),marginVertical:hp("3%")}} source={{uri:item.imageUrl}} />                                 
+                        <View style={styles.Row}>                          
+                             <View style={[styles.column,styles.Padding_verticele,styles.Image_margin]}>
+                                <Image style={styles.avatarMultiple} source={{uri:item.imageUrl}} />                                 
                             </View>           
-                              <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("60%")}}>
+                              <View style={[styles.column,styles.Padding_verticele,{width:wp("58%")}]}>
                                  <Text style={styles.yello_text}>Token ID : TK102</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2)}]}>SpaZ Salon & Spa</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),marginTop:hp("1%")}]}>Are you still available?</Text>
-                                 <View style={{flexDirection:"row",marginVertical:hp("2%")}}>
-                                 <TouchableOpacity style={{marginLeft:wp("3%")}}>
-                                    <ResponsiveImage source={require('../Image/main/acceptIcon3x.png')} initWidth="25" initHeight="25"/>
+                                 <Text style={[styles.text,{fontFamily:GLOBAL.COLOR.Font_bold}]}>SpaZ Salon & Spa</Text>
+                                 <Text style={[styles.text]}>Are you still available?</Text>
+                                 <View style={[styles.Row,styles.Padding_verticele]}>
+                                 <TouchableOpacity >
+                                    <ResponsiveImage source={GLOBAL.Accept} initWidth={GLOBAL.COLOR.Icon_width} initHeight={GLOBAL.COLOR.Icon_width}/>
                                     </TouchableOpacity>
                                     <TouchableOpacity style={{marginLeft:wp("8%")}}>
-                                    <ResponsiveImage source={require('../Image/main/rejectIcon3x.png')} initWidth="25" initHeight="25"/>
+                                    <ResponsiveImage source={GLOBAL.Reject} initWidth={GLOBAL.COLOR.Icon_width} initHeight={GLOBAL.COLOR.Icon_width}/>
                                     </TouchableOpacity>
                                  </View>
                             </View>           

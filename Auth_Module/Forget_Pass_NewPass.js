@@ -24,7 +24,6 @@ export default class Password extends Component {
       hidePassword:"true"
     };
   }
-
   handlePress(){  
     apis.Reset_Pass(GLOBAL.Mobile1, this.state.new_pass)
       .then((responseJson) => {
@@ -39,8 +38,7 @@ export default class Password extends Component {
       .catch((error) => {
         console.error(error);
       });
-  }
-  
+  } 
   Password_Validate = () =>
   {
      if(this.state.Old_pass === this.state.new_pass){

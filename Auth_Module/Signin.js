@@ -43,7 +43,7 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    this.props.navigation.navigate('ForgotOtp')
+    this.props.navigation.navigate('AuthStack')
   }
   handlePress = () => {
     this.setState({ processing: true });
@@ -151,9 +151,9 @@ export default class Login extends Component {
           <Text style={styles.buttonText}>Sign In</Text>
           </TouchableOpacity>
       <TouchableOpacity onPress={()=>{this.props.navigation.navigate('AuthStack')}}>
-          <Text style={styles.orange_text}>Continue without Signing In</Text>
+          <Text style={[styles.orange_text,styles.Padding_verticele]}>Continue without Signing In</Text>
           </TouchableOpacity>
-      <View style={[styles.Row,styles.Padding_verticele]}>
+      <View style={[styles.Row,styles]}>
         <Text style={styles.text}>Don't have an account? </Text>
         <View style={styles.column}>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('SignUp')}>

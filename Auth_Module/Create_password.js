@@ -101,5 +101,3 @@ export default class Password extends Component {
     );
   }
 }
-
-AppRegistry.registerComponent("Login", () => Login);

@@ -10,6 +10,8 @@ import ResponsiveImage from 'react-native-responsive-image'
 import { Dialog } from "react-native-simple-dialogs";
 import RadioGroup from 'react-native-radio-buttons-group';
 import RadioGroupS from 'react-native-custom-radio-group';
+const GLOBAL = require('../Component/Color');
+
 const radioGroupList = [{
     label: '4 pm',
     value: 'transport_car'
@@ -67,14 +69,14 @@ export default class StarReview extends Component {
   }
   JoinLatter(){
     return(
-     <View style={{height:hp("12%")}}>
-       <Text style={[styles.text,{marginLeft:wp("3%"),color:"rgb(165,165,165)",marginVertical:hp("2%")}]}>Select Time Slot</Text>
+     <View style={styles.Padding_verticele}>
+       <Text style={[styles.Big_text,styles.Padding_verticele]}>Select Time Slot</Text>
      <ScrollView horizontal="true">
       <RadioGroupS radioGroupList={radioGroupList} 
-       buttonContainerActiveStyle = {{backgroundColor: "rgb(255,164,0)"}}
-       buttonTextActiveStyle = {{color: "white"}}
-       buttonContainerInactiveStyle = {{backgroundColor: "white"}}
-       buttonTextInactiveStyle = {{color: "rgb(255,164,0)"}}
+       buttonContainerActiveStyle = {{backgroundColor:GLOBAL.COLOR.ORANGE}}
+       buttonTextActiveStyle = {{color:GLOBAL.COLOR.White_color}}
+       buttonContainerInactiveStyle = {{backgroundColor: GLOBAL.COLOR.White_color}}
+       buttonTextInactiveStyle = {{color: GLOBAL.COLOR.ORANGE}}
        buttonContainerStyle ={{borderColor:"transparent",height:hp("6%"),marginRight:wp("1%"), shadowColor: 'rgb(222,222,222)',
        shadowOffset: { width: 0, height: hp("0.5%") },
        shadowOpacity: 0.8,
@@ -176,38 +178,38 @@ render() {
     let selectedButton = this.state.data.find(e => e.selected == true);
         selectedButton = selectedButton ? selectedButton.value : this.JoinNow()
         return (
-       <View style={{backgroundColor:"rgb(243,242,242)",alignItems:"center",flex:1}}>
-       <View style={[styles.Header,{height:hp("8%"),flexDirection:"row",alignItems:"center",justifyContent:"center"}]}>
-       <TouchableOpacity style={{marginRight:wp("25%"),marginTop:hp("2%")}}  onPress={ () => { this.props.navigation.navigate('saloonDetails')}}>
+       <View style={{backgroundColor:GLOBAL.COLOR.rootBAckgroundColor,flex:1}}>
+       <View style={[styles.Home_header,styles.Row]}>
+       <TouchableOpacity style={styles.Padding_verticele} onPress={ () => { this.props.navigation.navigate('saloonDetails')}}>
               <Image
-                source={require('../Image/icon/back_2x.png')}
+                source={GLOBAL.back_icon}
                 style={styles.back_butt0n}
               />
               </TouchableOpacity>
-        <Text style={[styles.text,{marginRight:wp("35%")}]}>BOOK SERVICE</Text>
+        <Text style={[styles.text,styles.Padding_verticele,{marginRight:wp("35%")}]}>BOOK SERVICE</Text>
         </View>
         <Text style={styles.BookServiceText}>Select Service</Text>
-        <TouchableOpacity style={{flexDirection:"row"}}
+        <TouchableOpacity style={styles.star_row}
                                            onPress={ () => this.openDialog(true) }>
-            <View style={[styles.BookServiceBoxYello,{height: hp('8%'),}]}>
+            <View style={[styles.BookServiceBoxYello]}>
             </View>
-            <View style={[styles.BookServiceBox,{height: hp('8%'),}]}>
-            <Text style={[styles.text,{width:wp("70"),justifyContent:"flex-start",marginLeft:wp("3%")}]}>{this.state.hair_styling}{this.state.shampoo}{this.state.Hair_oil}
+            <View style={[styles.BookServiceBox]}>
+            <Text style={[styles.text,]}>{this.state.hair_styling}{this.state.shampoo}{this.state.Hair_oil}
                 {this.state.regular_cut}{this.state.premium_cut}{this.state.blow_dry}</Text>
-            <ResponsiveImage source={require('../Image/new_images/downArrow2x.png')} style={{marginRight:wp("2%"),marginLeft:wp("3%")}} initWidth="13" initHeight="10"/>
+            <ResponsiveImage source={GLOBAL.Down_Arrow} style={styles.Home_icon} initWidth={GLOBAL.COLOR.Size_13} initHeight={GLOBAL.COLOR.Size_8}/>
             </View>
         </TouchableOpacity>
         <Text style={styles.BookServiceText}>Select Stylist</Text>
         
-        <TouchableOpacity style={{flexDirection:"row"}}
+        <TouchableOpacity style={styles.star_row}
                                            onPress={ () => this.openDialogStylist(true) }>
-            <View style={[styles.BookServiceBoxYello,{height: hp('8%'),}]}>
+            <View style={[styles.BookServiceBoxYello]}>
             </View>
-            <View style={[styles.BookServiceBox,{height: hp('8%'),}]}>
+            <View style={[styles.BookServiceBox]}>
             <Text style={[styles.text,{width:wp("55"),justifyContent:"flex-start",marginLeft:wp("3%")}]}>{this.state.Stylist_name}</Text>
-            <ResponsiveImage style={{marginRight:wp("3%")}} source={require('../Image/main/serveTimeIcon3x.png')} initWidth="20" initHeight="20"/>
+            <ResponsiveImage source={GLOBAL.Serve_time} initWidth={GLOBAL.COLOR.Size_20} initHeight={GLOBAL.COLOR.Size_20}/>
             <Text></Text>
-            <ResponsiveImage source={require('../Image/new_images/downArrow2x.png')} style={{marginRight:wp("3%"),marginLeft:wp("2%")}} initWidth="13" initHeight="10"/>
+            <ResponsiveImage source={GLOBAL.Down_Arrow} style={styles.Home_icon} initWidth={GLOBAL.COLOR.Size_13} initHeight={GLOBAL.COLOR.Size_8}/>
             </View>
         </TouchableOpacity>
 
@@ -225,57 +227,57 @@ render() {
                 >   
                  <TouchableOpacity onPress={() => this.openDialog(false)}>
                       <Image
-                                  source={require('../Image/icon/cancel1.png')}
-                                  style={[styles.setting_Image,{marginLeft:wp("80%"),marginBottom:hp("0%"),marginTop:hp("0%")}]}
+                                  source={GLOBAL.Cancel_Button}
+                                  style={[styles.setting_Image,{marginLeft:wp("80%")}]}
                       />
                   </TouchableOpacity>
 
-                  <Text style={[styles.text,{fontSize: RF(3),}]}>Add Services</Text>
+                  <Text style={styles.catogory}>Add Services</Text>
                   <Text></Text>
 
-                  <TouchableOpacity style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]} activeOpacity = { 0.8 }   onPress = { this.managePasswordVisibility }>
+                  <TouchableOpacity style={[styles.setting_Row,]} activeOpacity = { 0.8 }   onPress = { this.managePasswordVisibility }>
                        <Text style={styles.History_Action}>Hair Oil Massage</Text>
-                       <Image source = { ( this.state.Select_unselect ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")}} />
+                       <Image source = { ( this.state.Select_unselect ) ? GLOBAL.Unselect_Icon : GLOBAL.Select_Icon } style = {styles.Select_unselect_icon} />
                   </TouchableOpacity>
-                  <View style={{marginHorizontal:"5%"}}>
-                        <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="320" initHeight="2"/>
+                  <View style={styles.Category_line}>
+                        <ResponsiveImage source={GLOBAL.rectangle_image_black} initWidth={GLOBAL.COLOR._width} initHeight={GLOBAL.COLOR._height}/>
                   </View>
 
                   <TouchableOpacity style={styles.setting_Row} activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_1 }>
                        <Text style={styles.History_Action}>Shampoo</Text>
-                        <Image source = { ( this.state.Select_unselect_1 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")}} />
+                        <Image source = { ( this.state.Select_unselect_1 ) ? GLOBAL.Unselect_Icon : GLOBAL.Select_Icon } style = {styles.Select_unselect_icon} />
                   </TouchableOpacity>
-                  <View style={{marginHorizontal:"5%"}}>
-                        <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="320" initHeight="2"/>
+                  <View style={styles.Category_line}>
+                  <ResponsiveImage source={GLOBAL.rectangle_image_black} initWidth={GLOBAL.COLOR._width} initHeight={GLOBAL.COLOR._height}/>
                   </View>
 
                   <TouchableOpacity style={styles.setting_Row} activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_2 }>
                         <Text style={styles.History_Action}>Regular Hair Cut</Text> 
-                        <Image source = { ( this.state.Select_unselect_2 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")}} />
+                        <Image source = { ( this.state.Select_unselect_2 ) ? GLOBAL.Unselect_Icon : GLOBAL.Select_Icon } style = {styles.Select_unselect_icon} />
                   </TouchableOpacity>
-                  <View style={{marginHorizontal:"5%"}}>
-                        <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="320" initHeight="2"/>
+                  <View style={styles.Category_line}>
+                  <ResponsiveImage source={GLOBAL.rectangle_image_black} initWidth={GLOBAL.COLOR._width} initHeight={GLOBAL.COLOR._height}/>
                   </View>
 
                   <TouchableOpacity style={styles.setting_Row} activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_3 }>
                         <Text style={styles.History_Action}>Premium Haircut</Text>
-                        <Image source = { ( this.state.Select_unselect_3 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")}} />
+                        <Image source = { ( this.state.Select_unselect_3 ) ? GLOBAL.Unselect_Icon : GLOBAL.Select_Icon } style = {styles.Select_unselect_icon} />
                   </TouchableOpacity>
-                  <View style={{marginHorizontal:"5%"}}>
-                        <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="320" initHeight="2"/>
+                  <View style={styles.Category_line}>
+                  <ResponsiveImage source={GLOBAL.rectangle_image_black} initWidth={GLOBAL.COLOR._width} initHeight={GLOBAL.COLOR._height}/>
                   </View>
 
                   <TouchableOpacity style={styles.setting_Row} activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_4 }>
                         <Text style={styles.History_Action}>Blow Dry</Text>
-                        <Image source = { ( this.state.Select_unselect_4 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")}} />
+                        <Image source = { ( this.state.Select_unselect_4 ) ? GLOBAL.Unselect_Icon : GLOBAL.Select_Icon } style = {styles.Select_unselect_icon} />
                   </TouchableOpacity>
-                  <View style={{marginHorizontal:"5%"}}>
-                        <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="320" initHeight="2"/>
+                  <View style={styles.Category_line}>
+                  <ResponsiveImage source={GLOBAL.rectangle_image_black} initWidth={GLOBAL.COLOR._width} initHeight={GLOBAL.COLOR._height}/>
                   </View>
 
                   <TouchableOpacity style={styles.setting_Row} activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_5 }>
                         <Text style={styles.History_Action}>Hair Styling</Text>
-                        <Image source = { ( this.state.Select_unselect_5 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")}} />
+                        <Image source = { ( this.state.Select_unselect_5 ) ? GLOBAL.Unselect_Icon : GLOBAL.Select_Icon } style = {styles.Select_unselect_icon} />
                   </TouchableOpacity>                 
    </Dialog>
 
@@ -293,22 +295,21 @@ render() {
                 >   
                  <TouchableOpacity onPress={() => this.openDialogStylist(false)}>
                       <Image
-                                  source={require('../Image/icon/cancel1.png')}
-                                  style={[styles.setting_Image,{marginLeft:wp("80%"),marginBottom:hp("0%"),marginTop:hp("0%")}]}
+                                  source={GLOBAL.Cancel_Button}
+                                  style={[styles.setting_Image,{marginLeft:wp("80%")}]}
                       />
                   </TouchableOpacity>
 
-                  <Text style={[styles.text,{fontSize: RF(3),}]}>Select Stylist</Text>
-                <View style={{flexDirection:"row",marginTop:hp("3%")}}>
+                  <Text style={styles.catogory}>Select Stylist</Text>
+                <View style={styles.Row}>
                 <View>
                   { StylistName.map((item, key)=>(
                       <TouchableOpacity onPress={ this.Stylist_list.bind(this, item)}>
-                   <Text key={key} style={[styles.History_Action,{width:wp("50%")}]} > { item } </Text>
+                   <Text key={key} style={[styles.History_Action]} > { item } </Text>
                    </TouchableOpacity>
                    )
                    )}
                    </View>
-                   
                    <View>
                    { Time.map((item, key)=>(
                       <TouchableOpacity onPress={ this.Stylist_time.bind(this, item)}>
@@ -319,13 +320,13 @@ render() {
                    </View>
                    </View>
         </Dialog>
-        <View style={{flexDirection:"row",marginRight:wp("30%"),marginTop:hp("2%")}}>
-          <RadioGroup style={color="red"} radioButtons={this.state.data} onPress={this.onPress} flexDirection='row' />
+        <View style={styles.radio_button}>
+          <RadioGroup radioButtons={this.state.data} onPress={this.onPress} flexDirection='row' />
           </View>    
-          <View style={{marginHorizontal:wp("5%"),marginVertical:hp("2%")}}>
+          <View style={styles.Category_line}>
           {selectedButton}
           </View>   
-          <TouchableOpacity style={[styles.button]} >  
+          <TouchableOpacity style={[styles.button,{marginHorizontal:wp("30%"),marginVertical:hp("3%")}]} >  
           <Text style={styles.buttonText}>Proceed for Queue</Text>
           </TouchableOpacity>
        </View>

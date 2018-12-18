@@ -23,12 +23,12 @@ export default class App extends Component {
           {
               label: 'Male',
               color: GLOBAL.COLOR.ORANGE,
-              fontFamily:'Muli-ExtraBold',
+              fontFamily:GLOBAL.COLOR.Font_bold,
           },
           {
               label: 'Female',
               color: GLOBAL.COLOR.ORANGE,
-              fontFamily:'Muli-ExtraBold',
+              fontFamily:GLOBAL.COLOR.Font_bold,
           },
         ],
         Check_box:true,
@@ -92,7 +92,7 @@ export default class App extends Component {
   }
   submit_button(){
     if(this.state.Check_box == true){
-      <TouchableOpacity style={[styles.button,{marginTop:hp("0%"),marginHorizontal:wp("30%")}]} >
+      <TouchableOpacity style={[styles.button]} >
       <Text style={styles.buttonText}>Submit</Text>
       </TouchableOpacity>
     }
@@ -181,8 +181,7 @@ export default class App extends Component {
                 <TouchableOpacity onPress={ () => this.openDialog(true) }>
                 <Text style={[styles.orange_text,{marginTop:hp("1%")}]}> Terms & Conditions</Text>
                 </TouchableOpacity>
-                  </View>  
-                   
+                  </View>                   
                   <Dialog
                     animationType="fade"
                     contentStyle={

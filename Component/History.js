@@ -9,6 +9,7 @@ import PropTypes from 'prop-types'
 import { Dialog } from "react-native-simple-dialogs";
 import Alert_top from '../Component/Alert' 
 import {createStackNavigator,} from 'react-navigation';
+const GLOBAL = require('../Component/Color');
 
 class Ongoing extends React.Component {
     
@@ -76,32 +77,31 @@ class Ongoing extends React.Component {
   render() {
     return (
         <ScrollView>
-        <View style={styles.container}>
-                
-             <View style={{flexDirection:"row"}}>
+        <View style={styles.container}>      
+             <View style={styles.Row}>
                       <FlatList          
                             data={ this.state.dataSource }
                             renderItem={({item}) => 
                             <View style={styles.Flex_main_box}> 
-                                <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
+                                <View style={styles.Row}>                          
                                      
-                                     <View style={{flexDirection:"column",marginVertical:hp("2%"),marginLeft:wp("5%"),width:wp("30%")}}>
-                                        <View style={{flexDirection:"row"}}>
-                                            <ResponsiveImage source={require('../Image/main/serveTimeIcon3x.png')} style={{marginTop:hp(".6%")}} initWidth="16" initHeight="16"/>
+                                     <View style={styles.Flat_box_column}>
+                                        <View style={styles.Row}>
+                                            <ResponsiveImage source={GLOBAL.Serve_time}  initWidth={GLOBAL.COLOR.Size_16} initHeight={GLOBAL.COLOR.Size_16}/>
                                             <Text style={styles.grey_text}>{item.name}</Text>
                                          </View>
-                                         <View style={{marginVertical:hp("2%")}}>
+                                         <View style={styles.Padding_verticele}>
                                          <Image style={styles.avatarMultiple} source={GLOBAL.Image} />
                                          </View>
                                     </View>           
                                       
-                                    <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("50%")}}>
-                                         <Text style={[styles.text,{fontSize:RF(2.3),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.3),marginBottom:hp("1%")}]}>{item.name}</Text>
-                                         <Text style={[styles.grey_text,{marginLeft:wp("3%"),fontSize:RF(2),}]}>Service</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.3),marginBottom:hp("1%")}]}>{item.name}</Text>
-                                         <Text style={[styles.grey_text,{marginLeft:wp("3%"),fontSize:RF(2),}]}>Stylist</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.3)}]}>{item.name}</Text>
+                                    <View style={styles.Flex_box_right}>
+                                         <Text style={[styles.text]}>Token ID : TK102</Text>
+                                         <Text style={[styles.text]}>{item.name}</Text>
+                                         <Text style={[styles.grey_text]}>Service</Text>
+                                         <Text style={[styles.text]}>{item.name}</Text>
+                                         <Text style={[styles.grey_text]}>Stylist</Text>
+                                         <Text style={[styles.text]}>{item.name}</Text>
                                     </View>           
                                 </View>  
                                 </View> }                       
@@ -109,10 +109,8 @@ class Ongoing extends React.Component {
                    </View>
          </View>
         </ScrollView>
-    );
-  }
+    );}
 }
-
 class StarReview extends React.Component {
   constructor(props){
     super(props)
@@ -308,29 +306,29 @@ class StarReview extends React.Component {
     return (
         <ScrollView>
         <View style={styles.container}>
-             <View style={{flexDirection:"row"}}>
+             <View style={styles.Row}>
                       <FlatList          
                             data={ this.state.dataSource1 }
                             renderItem={({item}) => 
                             <View style={styles.Flex_main_box}>
-                                <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
-                                     <View style={{flexDirection:"column",marginVertical:hp("2%"),marginLeft:wp("5%"),width:wp("30%")}}>
-                                        <View style={{flexDirection:"row"}}>
-                                            <ResponsiveImage source={require('../Image/main/dateIcongray3x.png')} style={{marginTop:hp(".6%")}} initWidth="16" initHeight="16"/>
-                                            <Text style={[styles.text,{marginLeft:wp("3%"),color:"rgb(187,187,187)"}]}>{item.name}</Text>
+                                <View style={styles.Row}>                          
+                                     <View style={styles.Flat_box_column}>
+                                        <View style={styles.Row}>
+                                            <ResponsiveImage source={GLOBAL.Date_icon} initWidth={GLOBAL.COLOR.Size_16} initHeight={GLOBAL.COLOR.Size_16}/>
+                                            <Text style={styles.grey_text}>{item.name}</Text>
                                          </View>
-                                         <View style={{marginVertical:hp("2%")}}>
+                                         <View style={styles.Padding_verticele}>
                                          <Image style={styles.avatarMultiple} source={GLOBAL.Image} />
                                          </View>
                                          {view}
                                     </View>           
-                                      <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("50%")}}>
-                                         <Text style={[styles.text,{fontSize:RF(2.3),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.3),marginBottom:hp("1%")}]}>{item.name}</Text>
-                                         <Text style={[styles.grey_text,{marginLeft:wp("3%"),fontSize:RF(2),}]}>Service</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.3)}]}>{item.name}</Text>
-                                         <Text style={[styles.grey_text,{marginLeft:wp("3%"),fontSize:RF(2),}]}>Stylist</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.3)}]}>{item.name}</Text>
+                                      <View style={styles.Flex_box_right}>
+                                         <Text style={[styles.text]}>Token ID : TK102</Text>
+                                         <Text style={[styles.text]}>{item.name}</Text>
+                                         <Text style={[styles.grey_text]}>Service</Text>
+                                         <Text style={[styles.text]}>{item.name}</Text>
+                                         <Text style={[styles.grey_text]}>Stylist</Text>
+                                         <Text style={[styles.text]}>{item.name}</Text>
                                     </View>           
                                 </View> 
                                 </View>  }                       
@@ -381,11 +379,11 @@ const AuthStack = createMaterialTopTabNavigator({
   Ongoing:{ screen :Ongoing,
     navigationOptions: () => ({
       tabBarIcon: ({ focused }) => {
-        const line = focused ? require('../Image/main/highlight3x.png') : require('../Image/main/line-transparent-vertical-2.png')
+        const line = focused ? GLOBAL.TAb_image_yellow : GLOBAL.TAb_image_transparent
         return (
-          <View style={{flexDirection:"column",}}>
-          <Text style={[styles.text,{width:wp("30%"),marginLeft:wp("10%"),marginTop:hp(".5%")}]}>Ongoing</Text>
-          <ResponsiveImage source={line} style={{marginTop:hp("2%"),marginLeft:wp("6%")}} initWidth="100" initHeight="3"/>
+          <View style={styles.column}>
+          <Text style={[styles.Tab_text]}>Ongoing</Text>
+          <ResponsiveImage source={line} style={styles.Tab_line} initWidth={GLOBAL.COLOR.Size_100} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
           </View>
         )
     }
@@ -394,23 +392,17 @@ const AuthStack = createMaterialTopTabNavigator({
     navigationOptions: () => ({
       title:"Completed",
       tabBarIcon: ({ focused }) => {
-        const line = focused ? require('../Image/main/highlight3x.png') : require('../Image/main/line-transparent-vertical-2.png')
+        const line = focused ? GLOBAL.TAb_image_yellow : GLOBAL.TAb_image_transparent
         return (
-          <View style={{flexDirection:"column"}}>
-         <Text style={[styles.text,{width:wp("30%"),marginLeft:wp("4%"),marginTop:hp(".5%")}]}>Completed</Text>
-          <ResponsiveImage source={line} style={{marginTop:hp("2%"),marginLeft:wp("2%")}} initWidth="110" initHeight="3"/>
+          <View style={styles.column}>
+         <Text style={[styles.Tab_text]}>Completed</Text>
+          <ResponsiveImage source={line} style={[styles.Tab_line,{marginLeft:wp("9%")}]} initWidth={GLOBAL.COLOR.Size_100} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
           </View>
         )
     }
     })}, 
 } ,{
   initialRouteName: 'Ongoing',
-  navigationOptions: {
-    headerStyle: {
-      backgroundColor: "rgb(255,164,0)",
-    },
-  },
- 
   tabBarOptions: 
    {
     labelStyles:{ fontSize:RF(5),
@@ -441,8 +433,8 @@ const AuthStack = createMaterialTopTabNavigator({
         headerRight:(
           <TouchableOpacity onPress={() => {navigation.navigate('Alert_top')}}>
            <Image
-          source={require('../Image/new_images/notificationIcon3x.png')}
-          style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+          source={GLOBAL.Notification_yellow}
+          style={[styles.back_right]}
         />
           </TouchableOpacity>)
         })
@@ -454,18 +446,15 @@ const AuthStack = createMaterialTopTabNavigator({
               headerLeft:null,
               headerRight:(
               <Image
-                source={require('../Image/new_images/activenotificationIcon3x_2.png')}
-                style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+                source={GLOBAL.Notification_Gray}
+                style={[styles.back_right]}
               />)
             })
           },
   },
   {
     initialRouteName:"AuthStack",
-    // headerMode: "none",
     navigationOptions: {
-      headerTitleStyle: {
-        fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
-      },
+      headerTitleStyle: styles.Header
         },
   });

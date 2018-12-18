@@ -9,6 +9,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import RF from "react-native-responsive-fontsize"
 import ResponsiveImage from 'react-native-responsive-image'
 import Switch from 'react-native-customisable-switch';
+const GLOBAL = require('../Component/Color');
 
 export default class App extends Component {
     state = {
@@ -20,49 +21,45 @@ export default class App extends Component {
   render() {
    
     return (
-      <ScrollView style={{backgroundColor:"rgb(243,242,242)"}} horizontal={false}>
-          <Text style={{marginTop:hp("8%"),fontSize:RF(3),marginHorizontal:wp("10%"),fontWeight:"bold"}}>Select a category to continue</Text>
-          <View style={[styles.Profile_Container,{paddingVertical:hp("1%"),marginTop:hp("8%")}]}>
+      <ScrollView style={GLOBAL.COLOR.rootBAckgroundColor} horizontal={false}>
+          <Text style={[styles.Yellow_big,styles.catogory]}>Select a category to continue</Text>
+          <View style={[styles.Profile_Container]}>
             <TouchableOpacity onPress={() => {this.props.navigation.navigate('AuthStack')}}>
              <View style={{justifyContent:"space-between"}}>
-                   <View style={[styles.setting_Row,{marginBottom:hp("1%")}]}>
+                   <View style={styles.setting_Row}>
                    <Image
-                                source={require('../Image/new_images/salonIcon3x.png')}
-                                style={[styles.Details_image,{marginLeft:wp("5%"),marginRight:wp("0%"),height:hp("2.9%")}]}
+                                source={GLOBAL.salon_icon}
+                                style={styles.Category_image}
                     />
-                    <Text style={[styles.setting_text,{marginRight:wp("50%"),marginTop:hp(".7%")}]}>Salon</Text>
+                    <Text style={[styles.Category_text,]}>Salon</Text>
                     <Image
-                                source={require('../Image/icon/arrow_right.png')}
-                                style={[styles.setting_Image]}
+                                 source={GLOBAL.Arro}
+                                 style={[styles.setting_Image]}
                     />
                     </View>
-                    <View style={{marginHorizontal:"5%"}}>
-                   <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
-                   </View>
+                    <ResponsiveImage  style={styles.Category_line} source={GLOBAL.rectangle_image_black} initWidth={GLOBAL.COLOR._width} initHeight={GLOBAL.COLOR._height}/>
              </View>  
             </TouchableOpacity>
-            <View style={[styles.setting_Row,{marginBottom:hp("1%")}]}>
+            <View style={styles.setting_Row}>
                    <Image
-                                source={require('../Image/new_images/doctorIcon3x.png')}
-                                style={[styles.Details_image,{marginLeft:wp("5%"),marginRight:wp("0%"),height:hp("2.9%")}]}
+                                source={GLOBAL.Doctor}
+                                style={styles.Category_image}
                     />
-                    <Text style={[styles.setting_text,{marginRight:wp("48%"),marginTop:hp(".7%")}]}>Doctor</Text>
+                    <Text style={styles.Category_text}>Doctor</Text>
                     <Image
-                                source={require('../Image/icon/arrow_right.png')}
+                                source={GLOBAL.Arro}
                                 style={[styles.setting_Image]}
                     />
                     </View>
-                    <View style={{marginHorizontal:"5%"}}>
-              <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
-              </View>
-              <View style={[styles.setting_Row,{marginBottom:hp("1%")}]}>
+              <ResponsiveImage  style={styles.Category_line} source={GLOBAL.rectangle_image_black} initWidth={GLOBAL.COLOR._width} initHeight={GLOBAL.COLOR._height}/>
+              <View style={styles.setting_Row}>
                    <Image
-                                source={require('../Image/new_images/restaurantIcon3x.png')}
-                                style={[styles.Details_image,{marginLeft:wp("5%"),marginRight:wp("0%"),height:hp("2.7%")}]}
+                                source={GLOBAL.Restaurent}
+                                style={styles.Category_image}
                     />
-                    <Text style={[styles.setting_text,{marginRight:wp("40%"),marginTop:hp(".7%")}]}>Restaurant</Text>
+                    <Text style={styles.Category_text}>Restaurant</Text>
                     <Image
-                                source={require('../Image/icon/arrow_right.png')}
+                                source={GLOBAL.Arro}
                                 style={[styles.setting_Image]}
                     />
                     </View>   
