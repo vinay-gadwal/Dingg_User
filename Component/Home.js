@@ -445,9 +445,9 @@ class StarReview extends Component {
                     />
             </TouchableOpacity>
            </View>
-           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('StartScreen')}} style={{marginLeft:wp("3%"),marginVertical:hp("1%")}}>
-           {this.Bottom_star()}
-           </TouchableOpacity>
+           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Rating_Screen')}} style={{marginLeft:wp("3%"),marginVertical:hp("1%")}}>
+<Text>hello</Text>           
+</TouchableOpacity>
            </View>
       </ScrollView>
     );

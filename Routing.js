@@ -18,7 +18,7 @@ import Home from './Component/Home'
 import QR from './Component/QR'
 import ResponsiveImage from 'react-native-responsive-image'
 console.disableYellowBox = true;
-import StartScreen from './Home_screens/RatingScreen'
+import Rating_Screen from './Home_screens/RatingScreen'
 import SignOtp from './Auth_Module/Sign_up_otp'
 import ForgotOtp from './Auth_Module/Forgot_otp'
 const AuthStack = createBottomTabNavigator({
@@ -261,8 +261,8 @@ const RootStack = createStackNavigator({
             </TouchableOpacity>)
           })
         },
-        StartScreen:{
-          screen:StartScreen,
+        Rating_Screen:{
+          screen:Rating_Screen,
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
             title: 'REVIEW',

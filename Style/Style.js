@@ -54,16 +54,26 @@ const styles = StyleSheet.create({
       fontSize: RF("1.8"),color:GLOBAL.COLOR.GRAY,
       fontFamily: GLOBAL.COLOR.Font_bold,marginVertical:hp(".5%")
     },
+    Copy_right_text:{
+paddingVertical:hp("0%"), fontSize: RF("1.8"),color:GLOBAL.COLOR.GRAY,
+fontFamily: GLOBAL.COLOR.Font_bold
+    },
     copy_rigth_image:{
       width: wp("2.5%"),
-      height: hp("1.5%"),marginTop:hp(".5%"),
+      height: hp("1.5%"),marginTop:hp("1%"),
     }, 
     copy_right_column:{
-      alignItems:"center",flexDirection:"column",marginBottom:hp("2%")
+      alignItems:"center",flexDirection:"column",marginBottom:hp("1%")
   }  ,
   copy_right_column_signup:{
     alignItems:"center",flexDirection:"column",marginTop:hp("25%")
 }  ,
+copy_right_column_Forgot:{
+  alignItems:"center",flexDirection:"column",marginTop:hp("5%")
+}  ,
+margin_3:{
+marginTop:hp("3%")
+},
     input: {
       width: wp('70%'),
       height: hp('6%'),
@@ -278,7 +288,7 @@ const styles = StyleSheet.create({
           backgroundColor:GLOBAL.COLOR.White_color,
           paddingVertical:hp('2%'),
           borderRadius:10,
-          paddingBottom:hp("10%")
+          paddingBottom:hp("8%")
     },
     text:{
           fontSize: RF(2.2), 
@@ -522,6 +532,9 @@ Search_line:{
     },
     Profile_line:{
       marginHorizontal:wp("5%"),marginVertical:hp("2%")
+    },
+    Add_details_line:{
+      marginHorizontal:"4%",marginLeft:wp("32%"),marginTop:hp("1%")
     },
     box_profile:{
       alignItems:"center",

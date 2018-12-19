@@ -167,10 +167,10 @@ export default class App extends Component {
                   </TextInputLayout>
                   <View style={styles.radio_button}>
                   <RadioGroup radioButtons={this.state.data} onPress={this.Gender_Button}  flexDirection='row' />
-                  {/* <View style={{marginHorizontal:"4%",marginLeft:wp("32%"),marginTop:hp("2%")}}>
-                   <ResponsiveImage source={GLOBAL.rectangle_image_black} initWidth={GLOBAL.size_290} initHeight={GLOBAL._height}/>
+                  <View style={styles.Add_details_line}>
+                  <ResponsiveImage style={styles.Profile_line} source={GLOBAL.rectangle_image_black} initWidth={GLOBAL.COLOR.width} initHeight={GLOBAL.COLOR._height}/>
                    </View>
-                   */}
+                  
                   </View>
                  
                   <View style={[styles.Row,{marginRight:wp("1%")}]}>

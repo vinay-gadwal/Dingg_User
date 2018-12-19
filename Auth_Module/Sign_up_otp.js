@@ -71,7 +71,7 @@ _resend_OTP = async () =>{
     <KeyboardAwareScrollView  contentContainerStyle={styles.container}
       keyboardShouldPersistTaps='handled'
     >      
-        <Text style={styles.verify_big_text}>Verify to continue</Text>
+        <Text style={styles.verify_big_text}>Verify your mobile Number</Text>
         <View style={[styles.box_SignUp]}>
           <Text style={styles.text}>Enter OTP sent to +91-{GLOBAL.mobile}</Text>
           <View style={styles.Row}>

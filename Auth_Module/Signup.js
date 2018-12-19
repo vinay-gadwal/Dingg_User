@@ -62,7 +62,7 @@ export default class example extends Component {
       <View style={styles.Padding_verticele_signup}>
         <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
         </View>
-        <View style={[styles.box_SignUp,]}>
+        <View style={[styles.box_SignUp,styles.margin_3]}>
           <View style={styles.Row}>
               <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}>
 
@@ -86,32 +86,32 @@ export default class example extends Component {
          </TextInputLayout>
           </View>
         </View>
-        <TouchableOpacity onPress={this.handlePress.bind(this)} style={[styles.button,{marginBottom:hp("10%")}]}>
+        <TouchableOpacity onPress={this.handlePress.bind(this)} style={[styles.button,{marginTop:hp("5%")}]}>
             <Text style={styles.buttonText}>Submit for OTP</Text>
           </TouchableOpacity>
 
-        <View style={[styles.Row,styles.Padding_verticele_signup]}>
+        <View style={[styles.Row,styles.Padding_verticele_signup,{marginTop:hp("15%")}]}>
         <Text style={styles.text}>Already have an account? </Text>
         <View style={styles.column}>
         <TouchableOpacity onPress={() => this.props.navigation.navigate('SignIn')}>
         <Text style={styles.text}>Sign In </Text>
         <Image
-          source={GLOBAL.rectangle_image}
+          source={GLOBAL.TAb_image_yellow}
           style={styles.Line_style}
         />
         </TouchableOpacity>
         </View>
         <Text style={styles.text}>here</Text>
         </View>
-        <View style={[styles.copy_right_column]}>
-      <View style={styles.Row}>
+        <View style={styles.copy_right_column_Forgot}>
+        <View style={styles.Row}>
         <Image
-          source={GLOBAL.Copy_right}
-          style={styles.copy_rigth_image}
+           source={GLOBAL.Copy_right}
+           style={styles.copy_rigth_image}
         />
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>
-          <Text style={[styles.copy_rigth,]}> Vrienden Tech Private Limited 2018 </Text>
+          <Text style={[styles.Copy_right_text]}> Vrienden Tech Private Limited 2018 </Text>
           </View>
 </KeyboardAwareScrollView>    );
   }

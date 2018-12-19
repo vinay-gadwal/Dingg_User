@@ -69,7 +69,7 @@ export default class example extends Component {
 <View style={styles.Padding_verticele_signup}>
 <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
         </View>
-        <View style={[styles.box]}>
+        <View style={[styles.box_SignUp,styles.Image_margin]}>
           <Text style={styles.text}>Enter the registered mobile number</Text>
           <View style={styles.Row}>
               <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}>
@@ -106,7 +106,7 @@ export default class example extends Component {
         />
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>
-          <Text style={[styles.copy_rigth]}> Vrienden Tech Private Limited 2018 </Text>
+          <Text style={[styles.Copy_right_text]}> Vrienden Tech Private Limited 2018 </Text>
           </View>
 
 </KeyboardAwareScrollView>   

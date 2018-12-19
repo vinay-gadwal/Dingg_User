@@ -63,7 +63,7 @@ export default class Password extends Component {
     <View style={styles.Padding_verticele}>
         <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
         </View>
-                <View style={[styles.box]}>
+                <View style={[styles.box,styles.Padding_verticele]}>
         <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
           <TextInput
             value={this.state.new_pass}
@@ -101,7 +101,7 @@ export default class Password extends Component {
         />
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>
-          <Text style={[styles.copy_rigth]}> Vrienden Tech Private Limited 2018 </Text>
+          <Text style={[styles.Copy_right_text]}> Vrienden Tech Private Limited 2018 </Text>
           </View>
 </KeyboardAwareScrollView>
     );

@@ -15,6 +15,7 @@ module.exports = {
       White_color:"white",
       Font_bold:"Muli-ExtraBold",
       Font:"Muli-Bold",
+      width:290,
       _width : 330,
        _height : 2,
        Logo_width:94,

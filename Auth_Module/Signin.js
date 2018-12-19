@@ -43,7 +43,7 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    this.props.navigation.navigate('AuthStack')
+    // this.props.navigation.navigate('AuthStack')
   }
   handlePress = () => {
     this.setState({ processing: true });
@@ -122,7 +122,7 @@ export default class Login extends Component {
         <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
         </View>
         
-         <View style={[styles.box]}>
+         <View style={[styles.box,styles.Padding_verticele]}>
          <Text style={[styles.Big_text]}>Sign In Using</Text>
          <Text></Text>
          
@@ -143,11 +143,11 @@ export default class Login extends Component {
                   </TextInputLayout>
           </View>
           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Forget_password')}}>
-          <Text style={[styles.yello_text,{marginLeft:wp("40%")}]}>Forgot Password?</Text>
+          <Text style={[styles.yello_text,styles.Padding_verticele,{marginLeft:wp("40%")}]}>Forgot Password?</Text>
           </TouchableOpacity>
       </View>
       
-          <TouchableOpacity onPress={this.handlePress} style={[styles.button,{marginTop:hp("3%")}]} >
+          <TouchableOpacity onPress={this.handlePress} style={[styles.button]} >
           <Text style={styles.buttonText}>Sign In</Text>
           </TouchableOpacity>
       <TouchableOpacity onPress={()=>{this.props.navigation.navigate('AuthStack')}}>
@@ -159,14 +159,14 @@ export default class Login extends Component {
             <TouchableOpacity onPress={() => this.props.navigation.navigate('SignUp')}>
             <Text style={styles.text}>Sign Up </Text>
             <Image
-              source={GLOBAL.rectangle_image}
+              source={GLOBAL.TAb_image_yellow}
               style={styles.Line_style}
             />
             </TouchableOpacity>
         </View>
         <Text style={styles.text}>here</Text>
       </View>
-      <View style={styles.copy_right_column}>
+      <View style={[styles.copy_right_column,styles.copy_right_padding]}>
       <View style={styles.Row}>
         <Image
           source={GLOBAL.Copy_right}
@@ -174,7 +174,7 @@ export default class Login extends Component {
         />
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>
-          <Text style={[styles.copy_rigth]}> Vrienden Tech Private Limited 2018 </Text>
+          <Text style={[styles.Copy_right_text]}> Vrienden Tech Private Limited 2018 </Text>
           </View>
 </KeyboardAwareScrollView>
     );
