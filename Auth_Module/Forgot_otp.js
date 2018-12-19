@@ -27,7 +27,11 @@ export default class example extends Component {
       code: '',switchThreeValue: true,time:500
     };
   }
-
+otp_verified = () =>{
+  if(this.state.code == ''){
+    Alert.alert("Please Enter Valid OTP")
+  }
+}
   handlePress(code) {
     if(code == ""){
       return null;
@@ -39,8 +43,6 @@ export default class example extends Component {
             this.props.navigation.navigate('For_New_Pass');
             GLOBAL.token = responseJson.token;
             Alert.alert(responseJson.message)
-            console.log(GLOBAL.Mobile1)
-            console.log(GLOBAL.token)
         }
         else{
           Alert.alert(responseJson.message)
@@ -126,7 +128,7 @@ _resend_OTP = async () =>{
           </View>
         </View>
         {/* onPress={() => {this.props.navigation.navigate('Crea_pass')}} */}
-          <TouchableOpacity style={[styles.button,{marginBottom:hp("25%")}]} onPress={this.handlePress(this.state.code)}>
+          <TouchableOpacity style={[styles.button,{marginBottom:hp("25%")}]} onPress={this.otp_verified}>
           <Text style={styles.buttonText}>Next</Text>
           </TouchableOpacity>
 </KeyboardAwareScrollView>    );

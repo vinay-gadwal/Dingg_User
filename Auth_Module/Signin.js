@@ -62,7 +62,9 @@ export default class Login extends Component {
       });
   }
   phone(){
+    this.setState({password:"",username:""})
     return(
+      <View style={styles.column}>
       <View style={styles.Row}>
       <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}>
       <Text style={styles.Mobile_no}>+91     </Text>
@@ -84,10 +86,33 @@ export default class Login extends Component {
        />
       </TextInputLayout>
       </View>
+       <View style = { styles.textBoxBtnHolder } > 
+       <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}  labelFontSize={0.1}>
+           <TextInput 
+             placeholder="Enter Password"
+             onChangeText={password => this.setState({ password })}
+             underlineColorAndroid = "transparent"
+             secureTextEntry ="true"
+              style = { styles.input }/>
+       </TextInputLayout>
+</View>
+</View>
     )
   }
   email(){
+    this.setState({password:"",username:""})
     return(
+      <View style={styles.Column_reverse}>
+       <View style = { styles.textBoxBtnHolder } > 
+        <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}  labelFontSize={0.1}>
+            <TextInput 
+              placeholder="Enter Password"
+              onChangeText={password => this.setState({ password })}
+              underlineColorAndroid = "transparent"
+              secureTextEntry ="true"
+               style = { styles.input }/>
+        </TextInputLayout>
+</View>
       <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
        <TextInput
         //  value={this.state.username}
@@ -103,6 +128,7 @@ export default class Login extends Component {
          placeholder="Enter Email ID"
        />
       </TextInputLayout>
+</View>
     )
   }
 
@@ -131,19 +157,8 @@ export default class Login extends Component {
          <Text style={{color:"white"}}>hm</Text>
          </View>
          {selectedButton}
-          
-          <View style = { styles.textBoxBtnHolder } > 
-                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}  labelFontSize={0.1}>
-                      <TextInput 
-                        placeholder="Enter Password"
-                        onChangeText={password => this.setState({ password })}
-                        underlineColorAndroid = "transparent"
-                        secureTextEntry ="true"
-                         style = { styles.input }/>
-                  </TextInputLayout>
-          </View>
           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Forget_password')}}>
-          <Text style={[styles.yello_text,styles.Padding_verticele,{marginLeft:wp("40%")}]}>Forgot Password?</Text>
+          <Text style={[styles.yello_text,{marginLeft:wp("40%")}]}>Forgot Password?</Text>
           </TouchableOpacity>
       </View>
       

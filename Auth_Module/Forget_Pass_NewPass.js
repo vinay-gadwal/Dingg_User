@@ -40,13 +40,16 @@ export default class Password extends Component {
       });
   } 
   Password_Validate = () =>
-  {
-     if(this.state.Old_pass === this.state.new_pass){
+  { 
+    if(this.state.Old_pass === "" && this.state.new_pass === ""){
+      Alert.alert("Please enter new password")
+  }
+    else if(this.state.Old_pass === this.state.new_pass){
         {this.handlePress()}
       }
-      else{
+     else{ 
         this.setState({new_pass:""})
-        Alert.alert("Confirm Password is Different")
+        Alert.alert("New Password and ConfirmPassword should be same")
       }
   }
 

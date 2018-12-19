@@ -41,8 +41,10 @@ export default class App extends Component {
                         this.state.Email_id,this.state.Locality,GLOBAL.Gender)
         .then((responseJson) => {
           console.log(responseJson)
+          console.log(this.state.Enter_pass)
+          console.log(GLOBAL.token)
           if(responseJson.success === true){
-            console.log(responseJson)
+            // console.log(responseJson)
               this.props.navigation.navigate('AuthStack');
           }
           else{
@@ -55,7 +57,7 @@ export default class App extends Component {
         });
       }
       else{
-        Alert.alert("Please accept the Terms and Conditions")
+        Alert.alert("Accept the Terms & Conditions")
       }
     }
     
@@ -69,7 +71,7 @@ export default class App extends Component {
         }
         else{
           this.setState({conf_pass:""})
-          Alert.alert("Confirm Password is Different")
+          Alert.alert("Password and ConfirmPassword should be same")
         }
     }
   
@@ -158,7 +160,7 @@ export default class App extends Component {
                           value={this.state.Enter_pass}
                           onChangeText={Enter_pass => this.setState({ Enter_pass })}
                           ref={input => (this.passwordCInput = input)}
-                          secureTextEntry                         
+                          secureTextEntry={true}                     
                           style={styles.input}
                           placeholder="Enter Password"
                           returnKeyType="next"

@@ -90,7 +90,7 @@ export default class example extends Component {
             <Text style={styles.buttonText}>Submit for OTP</Text>
           </TouchableOpacity>
 
-        <View style={[styles.Row,styles.Padding_verticele_signup,{marginTop:hp("15%")}]}>
+        <View style={[styles.Row,styles.Padding_verticele_signup,{marginTop:hp("13%")}]}>
         <Text style={styles.text}>Already have an account? </Text>
         <View style={styles.column}>
         <TouchableOpacity onPress={() => this.props.navigation.navigate('SignIn')}>

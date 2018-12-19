@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     column:{
       flexDirection:"column",
     },
+    Column_reverse:{flexDirection:"column-reverse"},
     Image_margin:{
       marginHorizontal:wp("3%"),marginVertical:hp("3%")
     },
@@ -59,17 +60,17 @@ paddingVertical:hp("0%"), fontSize: RF("1.8"),color:GLOBAL.COLOR.GRAY,
 fontFamily: GLOBAL.COLOR.Font_bold
     },
     copy_rigth_image:{
-      width: wp("2.5%"),
+      width: wp("3%"),
       height: hp("1.5%"),marginTop:hp("1%"),
     }, 
     copy_right_column:{
       alignItems:"center",flexDirection:"column",marginBottom:hp("1%")
   }  ,
   copy_right_column_signup:{
-    alignItems:"center",flexDirection:"column",marginTop:hp("25%")
+    alignItems:"center",flexDirection:"column",marginTop:hp("20%"),marginBottom:hp("5%")
 }  ,
 copy_right_column_Forgot:{
-  alignItems:"center",flexDirection:"column",marginTop:hp("5%")
+  alignItems:"center",flexDirection:"column",marginTop:hp("3%"),marginBottom:hp("2")
 }  ,
 margin_3:{
 marginTop:hp("3%")
@@ -306,10 +307,10 @@ marginTop:hp("3%")
       marginTop:hp("2%"),marginLeft:wp("6%")
     },
     verify_big_text:{
-      fontSize:RF(3.5),
+      fontSize:RF(3.2),
       fontFamily:GLOBAL.COLOR.Font_bold,
       marginVertical:hp("5%"),
-      marginRight:wp("35%"),
+      marginRight:wp("15%"),
       color: GLOBAL.COLOR.BLACK,
     },
     Otp:{
@@ -328,7 +329,7 @@ marginTop:hp("3%")
           marginRight:wp("42.5%")
         },
   orange_text:{
-          color:GLOBAL.COLOR.ORANGE,fontSize: RF(2),marginVertical:hp("1%"),fontWeight:"bold"
+          color:GLOBAL.COLOR.ORANGE,fontSize: RF(2),marginVertical:hp("2%"),fontWeight:"bold"
         },
     Home_icon:{
       marginTop:hp("1%"),marginRight:wp("2%")

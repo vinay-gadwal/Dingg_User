@@ -22,10 +22,14 @@ export default class example extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      code: '',time:500
+      code:'',time:500
     };
   }
-  
+  otp_verified = () =>{
+    if(this.state.code == ''){
+      Alert.alert("Please Enter Valid OTP")
+    }
+  }
   handlePress(code) {
     if(code == ""){
       return null;
@@ -33,14 +37,14 @@ export default class example extends Component {
       apis.OTP_SignUP(GLOBAL.mobile,code)
       .then((responseJson) => {
         if(responseJson.success === false){
-          GLOBAL.token = responseJson.token;
-          GLOBAL.Auth_token = responseJson.data[0].auth_tokan
+          GLOBAL.token = responseJson.data[0].auth_tokan
+          console.log(responseJson.data[0].auth_tokan)
           if(!responseJson.data[0].is_password)
           {
             this.props.navigation.navigate('AddDetails');
           }else{
             this.props.navigation.navigate('SignIn');
-            Alert.alert("Mobile Number already registered")
+            Alert.alert("Mobile Number Already Registered")
           }
         }else{
           this.props.navigation.navigate('AddDetails');
@@ -103,7 +107,7 @@ _resend_OTP = async () =>{
           </View>
         </View>
         {/* onPress={() => {this.props.navigation.navigate('Crea_pass')}} */}
-        <TouchableOpacity style={[styles.button,{marginBottom:hp("25%")}]} onPress={this.handlePress(this.state.code)}>
+        <TouchableOpacity style={[styles.button,{marginBottom:hp("25%")}]} onPress={this.otp_verified}>
           <Text style={styles.buttonText}>Next</Text>
           </TouchableOpacity>
 </KeyboardAwareScrollView>    );
