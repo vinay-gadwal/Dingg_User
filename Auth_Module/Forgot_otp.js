@@ -24,7 +24,7 @@ export default class example extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      code: '',switchThreeValue: true,time:500
+      code: '',switchThreeValue: true,time:500,processing: false,
     };
   }
 otp_verified = () =>{
@@ -33,12 +33,14 @@ otp_verified = () =>{
   }
 }
   handlePress(code) {
+    this.setState({ processing: true });
     if(code == ""){
       return null;
     }
     else{
       apis.OTP_FORGOT(GLOBAL.Mobile1,code)
       .then((responseJson) => {
+        this.setState({ processing: false, loginText: 'Successful!' });
         if(responseJson.success === true){
             this.props.navigation.navigate('For_New_Pass');
             GLOBAL.token = responseJson.token;
@@ -51,6 +53,7 @@ otp_verified = () =>{
       .catch((error) => {
         console.error(error);
         Alert.alert(error)
+        this.setState({ processing: false, loginText: 'Try Again' });
       });
     }
   }
@@ -129,7 +132,7 @@ _resend_OTP = async () =>{
         </View>
         {/* onPress={() => {this.props.navigation.navigate('Crea_pass')}} */}
           <TouchableOpacity style={[styles.button,{marginBottom:hp("25%")}]} onPress={this.otp_verified}>
-          <Text style={styles.buttonText}>Next</Text>
+          <Text style={styles.buttonText}>{!this.state.processing ? 'Next' : 'Processing...'}</Text>
           </TouchableOpacity>
 </KeyboardAwareScrollView>    );
   }

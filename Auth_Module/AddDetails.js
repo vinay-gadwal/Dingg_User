@@ -63,7 +63,10 @@ export default class App extends Component {
     
     Password_Validate = () =>
     {
-      if(this.state.Uid == ""){
+      if(this.state.conf_pass === "" && this.state.password === ""){
+        Alert.alert("Please enter new password")
+    }
+     else if(this.state.Uid == ""){
         Alert.alert("Enter User ID")
       }
       else if(this.state.conf_pass === this.state.password){

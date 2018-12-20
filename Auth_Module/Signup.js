@@ -32,14 +32,18 @@ export default class example extends Component {
     };
   }
   handlePress = async () => {
+    this.setState({ processing: true });
     if(this.state.usermobile.length == 0)
     {
       Alert.alert("Enter Mobile Number")
+      this.setState({ processing: false, loginText: 'Successful!' });
     }else if(this.state.usermobile.length >= 11 || this.state.usermobile.length <= 9){
         Alert.alert("Size of Mobile Number Should be 10")
+        this.setState({ processing: false, loginText: 'Successful!' });
     }else{
       apis.SIGN_UP(this.state.usermobile)
       .then((responseJson) => {
+        this.setState({ processing: false, loginText: 'Successful!' });
         if(responseJson.success === true) {
           GLOBAL.mobile = this.state.usermobile
           this.props.navigation.navigate('SignOtp');
@@ -49,6 +53,7 @@ export default class example extends Component {
       })
       .catch((error) => {
         console.error(error);
+        this.setState({ processing: false, loginText: 'Try Again' });
       });
     }
   }
@@ -87,7 +92,7 @@ export default class example extends Component {
           </View>
         </View>
         <TouchableOpacity onPress={this.handlePress.bind(this)} style={[styles.button,{marginTop:hp("5%")}]}>
-            <Text style={styles.buttonText}>Submit for OTP</Text>
+            <Text style={styles.buttonText}>{!this.state.processing ? 'Submit for OTP' : 'Processing...'}</Text>
           </TouchableOpacity>
 
         <View style={[styles.Row,styles.Padding_verticele_signup,{marginTop:hp("13%")}]}>

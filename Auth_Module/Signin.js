@@ -16,6 +16,8 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import RadioGroup from 'react-native-radio-buttons-group';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import apis from '../apis/index'
+import SpinnerButton from 'react-native-spinner-button';
+
 const GLOBAL = require('../Component/Color');
 
 export default class Login extends Component {
@@ -26,6 +28,7 @@ export default class Login extends Component {
       username: "",
       password: '',
       hidePassword:"true",
+      loading: false,processing :false,
       data: [ 
         {
             label: 'Mobile Number',
@@ -49,12 +52,16 @@ export default class Login extends Component {
     this.setState({ processing: true });
     apis.LOGIN_API(this.state.username, this.state.password)
       .then((responseJson) => {
+        this.setState({ processing: false, loginText: 'Successful!' });
         console.log(responseJson)
         if(responseJson.success === true) {
           this.props.navigation.navigate('AuthStack');    
         } else {
           Alert.alert(responseJson.message)
         }
+        this.setState({
+          loading: false
+        });
       })
       .catch((error) => {
         console.error(error);
@@ -147,7 +154,6 @@ export default class Login extends Component {
         <View style={styles.Padding_verticele}>
         <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
         </View>
-        
          <View style={[styles.box,styles.Padding_verticele]}>
          <Text style={[styles.Big_text]}>Sign In Using</Text>
          <Text></Text>
@@ -163,7 +169,7 @@ export default class Login extends Component {
       </View>
       
           <TouchableOpacity onPress={this.handlePress} style={[styles.button]} >
-          <Text style={styles.buttonText}>Sign In</Text>
+          <Text style={styles.buttonText}>{!this.state.processing ? 'Sign In' : 'Processing...'}</Text>
           </TouchableOpacity>
       <TouchableOpacity onPress={()=>{this.props.navigation.navigate('AuthStack')}}>
           <Text style={[styles.orange_text,styles.Padding_verticele]}>Continue without Signing In</Text>
@@ -181,7 +187,7 @@ export default class Login extends Component {
         </View>
         <Text style={styles.text}>here</Text>
       </View>
-      <View style={[styles.copy_right_column,styles.copy_right_padding]}>
+      <View style={[styles.copy_right_column]}>
       <View style={styles.Row}>
         <Image
           source={GLOBAL.Copy_right}

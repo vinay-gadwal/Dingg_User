@@ -35,16 +35,20 @@ export default class example extends Component {
     };
   }
   handlePress = async () => {
+    this.setState({ processing: true });
     if(this.state.usermobile.length == 0)
     {
       Alert.alert("Enter Mobile Number")
+      this.setState({ processing: false, loginText: 'Successful!' });
     }
     else if(this.state.usermobile.length >= 11 || this.state.usermobile.length <= 9){
         Alert.alert("Size of Mobile Number Should be 10")
+        this.setState({ processing: false, loginText: 'Successful!' });
     }
     else{
       apis.FORGET_PASS(this.state.usermobile)
       .then((responseJson) => {
+        this.setState({ processing: false, loginText: 'Successful!' });
         console.log(responseJson)
    GLOBAL.Mobile1 =this.state.usermobile
    if(responseJson.success === true){
@@ -56,6 +60,7 @@ export default class example extends Component {
       })
       .catch((error) => {
         console.error(error);
+        this.setState({ processing: false, loginText: 'Try Again' });
       });
     }
   }
@@ -96,7 +101,7 @@ export default class example extends Component {
         </View>
         {/* onPress={() => {this.props.navigation.navigate('Crea_pass')}} */}
         <TouchableOpacity onPress={this.handlePress.bind(this)} style={[styles.button,{marginTop:hp("3%")}]}>
-            <Text style={styles.buttonText}>Submit for OTP</Text>
+            <Text style={styles.buttonText}>{!this.state.processing ? 'Submit for OTP' : 'Processing...'}</Text>
           </TouchableOpacity>
         <View style={styles.copy_right_column_signup}>
         <View style={styles.Row}>

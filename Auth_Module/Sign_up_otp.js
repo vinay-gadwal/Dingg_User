@@ -22,7 +22,7 @@ export default class example extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      code:'',time:500
+      code:'',time:500,processing: false,
     };
   }
   otp_verified = () =>{
@@ -31,11 +31,13 @@ export default class example extends Component {
     }
   }
   handlePress(code) {
+    this.setState({ processing: true });
     if(code == ""){
       return null;
     }else{
       apis.OTP_SignUP(GLOBAL.mobile,code)
       .then((responseJson) => {
+        this.setState({ processing: false, loginText: 'Successful!' });
         if(responseJson.success === false){
           GLOBAL.token = responseJson.data[0].auth_tokan
           console.log(responseJson.data[0].auth_tokan)
@@ -55,6 +57,7 @@ export default class example extends Component {
       .catch((error) => {
         console.error(error);
         Alert.alert(error)
+        this.setState({ processing: false, loginText: 'Try Again' });
       });
     }
   }
@@ -108,7 +111,7 @@ _resend_OTP = async () =>{
         </View>
         {/* onPress={() => {this.props.navigation.navigate('Crea_pass')}} */}
         <TouchableOpacity style={[styles.button,{marginBottom:hp("25%")}]} onPress={this.otp_verified}>
-          <Text style={styles.buttonText}>Next</Text>
+          <Text style={styles.buttonText}>{!this.state.processing ? 'Next' : 'Processing...'}</Text>
           </TouchableOpacity>
 </KeyboardAwareScrollView>    );
   }

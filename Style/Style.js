@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
       justifyContent: "space-between",
       alignItems: "center",
       backgroundColor: GLOBAL.COLOR.rootBAckgroundColor,
-      paddingVertical:"5%"
+      paddingVertical:"3%"
     },
     ///Row//
     Row:{
@@ -61,16 +61,16 @@ fontFamily: GLOBAL.COLOR.Font_bold
     },
     copy_rigth_image:{
       width: wp("3%"),
-      height: hp("1.5%"),marginTop:hp("1%"),
+      height: hp("1.7%"),marginTop:hp("1%"),
     }, 
     copy_right_column:{
       alignItems:"center",flexDirection:"column",marginBottom:hp("1%")
   }  ,
   copy_right_column_signup:{
-    alignItems:"center",flexDirection:"column",marginTop:hp("20%"),marginBottom:hp("5%")
+    alignItems:"center",flexDirection:"column",marginTop:hp("23%"),marginBottom:hp("2%")
 }  ,
 copy_right_column_Forgot:{
-  alignItems:"center",flexDirection:"column",marginTop:hp("3%"),marginBottom:hp("2")
+  alignItems:"center",flexDirection:"column",marginTop:hp("4%"),marginBottom:hp("1")
 }  ,
 margin_3:{
 marginTop:hp("3%")
@@ -108,12 +108,13 @@ marginTop:hp("3%")
     button: {
         width: wp('40%'),
         height: hp('7.2%'),
+        marginVertical:hp("1%"),
         backgroundColor: GLOBAL.COLOR.ORANGE,
         justifyContent: "center",
         borderRadius:10,
         shadowColor: GLOBAL.COLOR.ORANGE,
-        shadowOffset: { width: 0, height: hp("1%") },
-        shadowOpacity: 2,
+        shadowOffset: { width: 0, height: hp(".5%") },
+        shadowOpacity: .8,
         shadowRadius: 4,
     }, 
     Action_Touch_button:{
@@ -124,8 +125,8 @@ marginTop:hp("3%")
       backgroundColor: GLOBAL.COLOR.ORANGE,
       justifyContent: "center",
       shadowColor: GLOBAL.COLOR.ORANGE,
-      shadowOffset: { width: 0, height: hp("1%") },
-      shadowOpacity: 2,
+      shadowOffset: { width: 0, height: hp(".5%") },
+      shadowOpacity: .8,
       shadowRadius: 4,
     },
     Action_queue:{
@@ -185,8 +186,8 @@ marginTop:hp("3%")
       marginRight:wp("17%"),
       backgroundColor: GLOBAL.COLOR.ORANGE,
       justifyContent: "center",
-      shadowOffset: { width: 0, height: hp("1%") },
-      shadowOpacity: 2,
+      shadowOffset: { width: 0, height: hp(".5%") },
+      shadowOpacity: .8,
       shadowRadius: 4,
     },
     Salon_name:{
@@ -221,8 +222,8 @@ marginTop:hp("3%")
       marginVertical:hp('2%'),
       borderRadius:10,
       shadowColor: 'rgb(243,242,242)',
-      shadowOffset: { width: 0, height: hp("1%") },
-      shadowOpacity: 2,
+      shadowOffset: { width: 0, height: hp(".5%") },
+      shadowOpacity: .8,
       shadowRadius: 4,
     },
     Search_b0x:{
@@ -248,8 +249,8 @@ marginTop:hp("3%")
       marginVertical:hp("2%"),
       marginHorizontal:wp("5%"),
       shadowColor: 'rgb(232,232,232)',
-      shadowOffset: { width: 0, height: hp("1%") },
-      shadowOpacity: 2,
+      shadowOffset: { width: 0, height: hp(".5%") },
+      shadowOpacity: .8,
       shadowRadius: 4,
   },
   BookServiceBox:{
