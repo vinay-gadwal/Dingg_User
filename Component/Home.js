@@ -306,7 +306,7 @@ class StarReview extends Component {
       <ScrollView horizontal={false}>
       <View style={{backgroundColor:GLOBAL.COLOR.rootBAckgroundColor}}>
       <View style={styles.Home_header}>
-        <View style={[styles.Row,styles.Padding_verticele,{marginHorizontal:wp("5%")}]}>
+        <View style={[styles.Row,styles.Padding_verticele,styles.Category_line]}>
         <View style={styles.Row}>
         <TouchableOpacity onPress={this.findCoordinates}>
           <ResponsiveImage source={GLOBAL.Location_icon}  initWidth={GLOBAL.COLOR.Size_16} initHeight={GLOBAL.COLOR.Size_20}/>                
@@ -341,7 +341,7 @@ class StarReview extends Component {
       </View>
       <View style={styles.Home_filter}>
           <Text style={styles.grey_text}>FILTER</Text>
-          <ResponsiveImage source={GLOBAL.Filter_Icon} style={styles.Home_icon} initWidth={GLOBAL.COLOR.Size_15} initHeight={GLOBAL.COLOR.Size_15}/> 
+          <ResponsiveImage source={GLOBAL.Filter_Icon} style={[styles.Home_icon,{marginHorizontal:wp("2%")}]} initWidth={GLOBAL.COLOR.Size_15} initHeight={GLOBAL.COLOR.Size_15}/> 
       </View>
 
       <View style={[styles.box,styles.Padding_verticele]}>
@@ -521,8 +521,8 @@ export default createStackNavigator({
             headerLeft:null,
             headerRight:(
             <Image
-              source={require('../Image/new_images/activenotificationIcon3x_2.png')}
-              style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+            source={GLOBAL.Notification_Gray}
+              style={[styles.back_right]}
             />)
           })
         },
@@ -534,7 +534,7 @@ export default createStackNavigator({
                 <TouchableOpacity  onPress={ () => { navigation.saloonDetails() }}>
               <Image
                 source={GLOBAL.back_icon}
-                style={styles.back_butt0n}
+                style={[styles.back_right]}
               />
               </TouchableOpacity>)
           })
@@ -547,7 +547,7 @@ export default createStackNavigator({
                 <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
               <Image
                 source={GLOBAL.back_icon}
-                style={styles.back_butt0n}
+                style={[styles.back_right]}
               />
               </TouchableOpacity>)
           })

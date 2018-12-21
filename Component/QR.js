@@ -19,7 +19,7 @@ export default class ScanScreen extends Component {
       <NavigatorIOS
         initialRoute={{
           component: QRCodeScanner,
-          title: 'Scan Code',
+          title: 'SCAN QR CODE',
           passProps: {
             onRead: this.onSuccess.bind(this),
             cameraStyle: styles.cameraContainer,

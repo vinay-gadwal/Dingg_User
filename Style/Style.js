@@ -10,7 +10,7 @@ container: {
       backgroundColor: GLOBAL.COLOR.rootBAckgroundColor,
       paddingVertical:"3%"
     },
-Home_filter:{marginTop:hp(".5%"),marginRight:wp("2%"),marginLeft:wp("1%"),justifyContent:"flex-end",flexDirection:"row"},
+Home_filter:{marginTop:hp("1%"),marginRight:wp("2%"),marginLeft:wp("1%"),justifyContent:"flex-end",flexDirection:"row"},
 MArgin_bottom:{marginBottom:hp("4%")},
 Row:{flexDirection:"row",justifyContent:"space-between"},
 column:{flexDirection:"column",},
@@ -53,7 +53,7 @@ copy_rigth_image:{
       width: wp("3%"),
       height: hp("1.7%"),marginTop:hp("1%"),
     }, 
-opy_right_column:{
+copy_right_column:{
       alignItems:"center",flexDirection:"column",marginBottom:hp("1%")
   }  ,
 copy_right_column_signup:{
@@ -160,8 +160,8 @@ Button_offer_home:{
       shadowOpacity: .5,
       shadowRadius: 2,
     },
-Home_offer_overlay:{marginRight:wp("124%")},
-Queue_offer:{marginRight:wp("124%"),marginTop:hp("6%")},
+Home_offer_overlay:{marginRight:wp("122%")},
+Queue_offer:{marginRight:wp("122%"),marginTop:hp("6%")},
 offer_button_text:{
       fontSize: RF(1.8),
       alignSelf: "center",

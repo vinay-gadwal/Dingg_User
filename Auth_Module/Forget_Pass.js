@@ -104,8 +104,8 @@ export default class example extends Component {
         {!this.state.processing ? <View style={styles.button}>
             <Text style={[styles.buttonText]}>Submit for OTP</Text>
             </View>: <ResponsiveImage
-                source={require('../Image/new_images/Double_Ring.gif')}
-                initWidth={GLOBAL.COLOR.Size_35} initHeight={GLOBAL.COLOR.Size_35}/> 
+               source={GLOBAL.Loader}
+               initWidth={GLOBAL.COLOR.Size_75} initHeight={GLOBAL.COLOR.Size_75}/> 
            }          
            </TouchableOpacity>
         <View style={styles.copy_right_column_signup}>

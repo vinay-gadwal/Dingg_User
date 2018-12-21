@@ -312,10 +312,10 @@ export default class StarReview extends Component {
     return (
       <ScrollView style={{backgroundColor:GLOBAL.COLOR.rootBAckgroundColor}} horizontal={false}>
       
-      <View style={[styles.Home_header,styles.Row,styles]}>
+      <View style={[styles.Home_header,styles.Row,styles.margin_3]}>
         
         <View style={styles.Row}> 
-        <View style={[styles.column,styles.Padding_verticele]}>
+        <View style={[styles.column]}>
           <View style={[styles.Row,styles.Category_line]}>
           <Text style={styles.text}>Salon & Spa</Text>
           <ResponsiveImage source={GLOBAL.Down_Arrow} style={styles.Search_line} initWidth={GLOBAL.COLOR.size_10} initHeight={GLOBAL.COLOR.size_7}/> 
@@ -324,27 +324,26 @@ export default class StarReview extends Component {
         </View>     
         </View>
         
-        <View style={styles.Home_filter}>
+        <View style={[styles.Home_filter]}>
           <Text style={styles.grey_text_PROFILE_EDIT}>FILTER</Text>
           <ResponsiveImage source={GLOBAL.Filter_Icon} style={[styles.Home_icon,{marginTop:hp("2.5%"),marginHorizontal:wp("2%")}]} initWidth={GLOBAL.COLOR.Size_15} initHeight={GLOBAL.COLOR.Size_15}/> 
       </View>
      
       </View>
-            {/* <View style={{width:wp("96%")}}> */}
             <CompleteFlatList
                   searchKey={['name', 'status', 'time', 'date']}
-                  highlightColor="yellow"
+                  highlightColor={GLOBAL.COLOR.rootBAckgroundColor}
                   // pullToRefreshCallback={() => {
                   //   alert('refreshing');
                   // }}
                   placeholder	="Search"
                   isRefreshing={true}
-                  backgroundStyles={{backgroundColor:"rgb(242,242,242)"}}
+                  backgroundStyles={{backgroundColor:GLOBAL.COLOR.rootBAckgroundColor}}
                   data={data}
                   renderSeparator={null}
                   renderItem={this.cell}
+                  width="80%"
                 />
-                {/* </View> */}
       {/* <View style={{flexDirection:"row"}}>
               <FlatList          
                     data={ this.state.dataSource1 }

@@ -114,8 +114,8 @@ _resend_OTP = async () =>{
       {!this.state.processing ? <View style={styles.button}>
       <Text style={[styles.buttonText]}>Next</Text>
       </View>: <ResponsiveImage
-          source={require('../Image/new_images/Double_Ring.gif')}
-          initWidth={GLOBAL.COLOR.Size_35} initHeight={GLOBAL.COLOR.Size_35}/> 
+        source={GLOBAL.Loader}
+        initWidth={GLOBAL.COLOR.Size_75} initHeight={GLOBAL.COLOR.Size_75}/>   
       }            
       </TouchableOpacity>
       </KeyboardAwareScrollView>    );

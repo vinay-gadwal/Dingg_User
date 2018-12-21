@@ -46,7 +46,7 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    this.props.navigation.navigate('AuthStack')
+    // this.props.navigation.navigate('AuthStack')
   }
   handlePress = () => {
     this.setState({ processing: true });
@@ -172,8 +172,8 @@ export default class Login extends Component {
           {!this.state.processing ? <View style={styles.button}>
             <Text style={[styles.buttonText]}>Sign In</Text>
             </View>: <ResponsiveImage
-                source={require('../Image/new_images/Double_Ring.gif')}
-                initWidth={GLOBAL.COLOR.Size_35} initHeight={GLOBAL.COLOR.Size_35}/> 
+                source={GLOBAL.Loader}
+                initWidth={GLOBAL.COLOR.Size_75} initHeight={GLOBAL.COLOR.Size_75}/> 
            }
           </TouchableOpacity>
       <TouchableOpacity onPress={()=>{this.props.navigation.navigate('AuthStack')}}>
@@ -193,10 +193,10 @@ export default class Login extends Component {
         <Text style={styles.text}>here</Text>
       </View>
       <View style={[styles.copy_right_column]}>
-      <View style={styles.Row}>
+        <View style={styles.Row}>
         <Image
-          source={GLOBAL.Copy_right}
-          style={styles.copy_rigth_image}
+           source={GLOBAL.Copy_right}
+           style={styles.copy_rigth_image}
         />
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>

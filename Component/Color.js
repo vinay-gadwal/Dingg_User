@@ -67,4 +67,5 @@ module.exports = {
     Unselect_Icon : require('../Image/main/unselectedIcon3x.png'),
     Select_Icon : require('../Image/main/selectedIcon3x.png'),
     Edit_Icon : require('../Image/main/editButtonmain3x.png'),
+    Loader : require('../Image/new_images/Ellipsis.gif'),
   };
