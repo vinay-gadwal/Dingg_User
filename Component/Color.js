@@ -22,7 +22,7 @@ module.exports = {
        Logo_height:65,
        Icon_divider_width:3,
        Icon_divider_height:23,
-       Icon_width:23,
+       Icon_width:25,
        Yellow_60:60,
        Size_75 :75,size_10:10,size_7:7,
        Size_15:15,Size_14:14,

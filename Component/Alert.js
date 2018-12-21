@@ -68,7 +68,7 @@ return (
                                  <TouchableOpacity >
                                     <ResponsiveImage source={GLOBAL.Accept} initWidth={GLOBAL.COLOR.Icon_width} initHeight={GLOBAL.COLOR.Icon_width}/>
                                     </TouchableOpacity>
-                                    <TouchableOpacity style={{marginLeft:wp("8%")}}>
+                                    <TouchableOpacity style={{marginRight:wp("40%")}}>
                                     <ResponsiveImage source={GLOBAL.Reject} initWidth={GLOBAL.COLOR.Icon_width} initHeight={GLOBAL.COLOR.Icon_width}/>
                                     </TouchableOpacity>
                                  </View>
