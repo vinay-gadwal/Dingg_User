@@ -65,13 +65,10 @@ return (
             //   horizontal="true"    
                     data={ this.state.dataSource }
                     renderItem={({item}) => 
+                    <View style={styles.Column_reverse}>
                     <View style={styles.Flex_main_box}>
                         
                         <View style={styles.Row}>
-                        <View style={styles.Action_button}>
-                                 <Text style={styles.offer_button_text}>20%</Text>
-                                 <Text style={styles.offer_button_text}>off</Text>
-                        </View>
                         <Image style={styles.Queue_imae} source={{uri:item.imageUrl}} />
                        <View style={styles.Queue_column}>
                        <Text style={styles.yello_text}>{item.token}</Text>
@@ -138,6 +135,13 @@ return (
                           </View>
                         </View>
                         </View> 
+                        <View style={[styles.Edit_button]}>
+                            <View style={[styles.Button_offer_home,styles.Queue_offer]}>
+                              <Text style={[styles.offer_button_text]}>20%</Text>
+                              <Text style={[styles.offer_button_text]}>off</Text>
+                            </View>
+                          </View>
+                        </View>
                           }                       
                     />
            </View>

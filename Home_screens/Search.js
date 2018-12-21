@@ -66,36 +66,40 @@ export default class StarReview extends Component {
     cell = (data,index) => {
       const item = data.cleanData ? data.cleanData : data
        return (        
-        <View style={[styles.box,styles.Row]}>
+        <View style={[styles.Profile_Container,styles.Column_reverse]}>
+                                 <View style={styles.Row}>
                                  <ImageOverlay contentPosition="top" containerStyle={styles.HOme_flex_bottom} rounded={10} source={{uri:item.imageUrl}} >
-                                 <View style={[styles.Button_offer_home_bottom]}>
-                                 <Text style={[styles.offer_button_text]}>20%</Text>
-                                 <Text style={[styles.offer_button_text]}>off</Text>
-                                </View>
                                  </ImageOverlay>                                 
-                                 <View style={[styles.column,{width:wp("60%")}]}>
-                                  <Text style={[styles.Titile_small_text,{marginLeft:wp("45%")}]}>2.5 km</Text>
-                                  <Text style={[styles.text,{fontFamily:GLOBAL.COLOR.Font_bold}]}>{item.name}</Text>
-                                  <View style={[styles.Row]}>
+                                 <View style={[styles.column,{width:wp("55%")}]}>
+                                  <Text style={[styles.Titile_small_text,styles.Queue_row,{marginLeft:wp("40%")}]}>2.5 km</Text>
+                                  <Text style={[styles.text,styles.Queue_row,{fontFamily:GLOBAL.COLOR.Font_bold}]}>{item.name}</Text>
+                                  <View style={styles.Row}>
                                     <View style={styles.margin_5}>
                                     {/* {Star_Rating}  */}
                                     </View>
-                                    <Text style={[styles.copy_rigth,{marginRight:wp("15%")}]}>255 Reviews</Text>
+                                    <Text style={[styles.copy_rigth,styles.Queue_row,{marginRight:wp("15%")}]}>255 Reviews</Text>
                                   </View>
                                   <View style={[styles.Row,{justifyContent:"flex-start"}]}>
-                                  <View style={[styles.column]}>
-                                    <Text style={[styles.grey_text]}>Chowpatty</Text>
-                                    <Text style={[styles.grey_text]}>Open till 10 pm</Text>
+                                  <View style={styles.column}>
+                                    <Text style={[styles.grey_text,styles.Queue_row]}>Chowpatty</Text>
+                                    <Text style={[styles.grey_text,styles.Queue_row]}>Open till 10 pm</Text>
                                   </View>
                                     <ResponsiveImage style={styles.rectangle_image} source={GLOBAL.rectangle_image} initWidth={GLOBAL.COLOR.Icon_divider_width} initHeight={GLOBAL.COLOR.Size_35}/>
-                                    <View style={[styles.column]}>
-                                    <Text style={[styles.review_text,{marginLeft:wp("0%")}]}>Wait time 2h</Text>
+                                    <View style={styles.column}>
+                                    <Text style={[styles.review_text,styles.Queue_row,{marginLeft:wp("0%")}]}>Wait time 2h</Text>
                                     <TouchableOpacity onPress={() =>{this.props.navigation.navigate('Booking')}}>
-                                    <Text style={[styles.offer_button_text,{color:GLOBAL.COLOR.ORANGE}]}>Join Queue</Text>
+                                    <Text style={[styles.offer_button_text,styles.Queue_row,{color:GLOBAL.COLOR.ORANGE}]}>Join Queue</Text>
                                     </TouchableOpacity>
                                   </View>
                                 </View>
                             </View>  
+                            </View>
+                            <View style={styles.Edit_button}>
+                            <View style={[styles.Button_offer_home,styles.Home_offer_overlay]}>
+                              <Text style={styles.offer_button_text}>20%</Text>
+                              <Text style={styles.offer_button_text}>off</Text>
+                            </View>
+                          </View>
                       </View>         
        )
     }
@@ -320,9 +324,9 @@ export default class StarReview extends Component {
         </View>     
         </View>
         
-        <View style={styles.Row}>
+        <View style={styles.Home_filter}>
           <Text style={styles.grey_text_PROFILE_EDIT}>FILTER</Text>
-          <ResponsiveImage source={GLOBAL.Filter_Icon} style={{marginTop:hp("2.5%"),marginRight:wp("4%")}} initWidth={GLOBAL.COLOR.Size_15} initHeight={GLOBAL.COLOR.Size_15}/> 
+          <ResponsiveImage source={GLOBAL.Filter_Icon} style={[styles.Home_icon,{marginTop:hp("2.5%"),marginHorizontal:wp("2%")}]} initWidth={GLOBAL.COLOR.Size_15} initHeight={GLOBAL.COLOR.Size_15}/> 
       </View>
      
       </View>

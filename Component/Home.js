@@ -52,7 +52,7 @@ class StarReview extends Component {
         avatarSource: null,avatarSource1:null,
         videoSource: null,isOnDefaultToggleSwitch: false,
         isOnLargeToggleSwitch_user: true,
-        isOnBlueToggleSwitch: false,location: null,
+        isOnBlueToggleSwitch: false,location: null,Rating_view:true,
         data: data,
         dataSource1 : [ 
           {
@@ -276,6 +276,9 @@ class StarReview extends Component {
     openDialog = (show) => {
         this.setState({ showDialog: show });
     }
+    Star_Rating_view = () =>{
+      this.setState({ Rating_view: false });
+    }
 
     onToggle(isOn){
       // alert('Changed to ' + isOn)
@@ -300,8 +303,8 @@ class StarReview extends Component {
     :
     this.displayMode()
     return (
-      <ScrollView style={GLOBAL.COLOR.rootBAckgroundColor} horizontal={false}>
-      
+      <ScrollView horizontal={false}>
+      <View style={{backgroundColor:GLOBAL.COLOR.rootBAckgroundColor}}>
       <View style={styles.Home_header}>
         <View style={[styles.Row,styles.Padding_verticele,{marginHorizontal:wp("5%")}]}>
         <View style={styles.Row}>
@@ -336,118 +339,125 @@ class StarReview extends Component {
         
         </View>
       </View>
-      <View style={[styles.Row,{justifyContent:"flex-end"}]}>
-          <Text style={[styles.grey_text,]}>FILTER</Text>
+      <View style={styles.Home_filter}>
+          <Text style={styles.grey_text}>FILTER</Text>
           <ResponsiveImage source={GLOBAL.Filter_Icon} style={styles.Home_icon} initWidth={GLOBAL.COLOR.Size_15} initHeight={GLOBAL.COLOR.Size_15}/> 
       </View>
 
-      <View style={styles.box}>
-        <Text style={styles.Big_text}>Top Picks</Text>
+      <View style={[styles.box,styles.Padding_verticele]}>
+        <Text style={[styles.Big_text,{marginRight:wp("60%")}]}>Top Picks</Text>
       </View>
       
-      <View style={styles.Padding_verticele}>
       <FlatList
         horizontal
         data={this.state.data}
         renderItem={({ item: rowData }) => {
           return (
-            <View style={{width:wp("60%")}}>
-              {/* <Card
-                // title={null}
-                image={{ uri: rowData.imageUrl }}
-                containerStyle={{height:hp("20%"),borderRadius:20,marginBottom:hp("3%")}}
-              >
-              </Card> */}
+              // {/* <Card
+              //   // title={null}
+              //   image={{ uri: rowData.imageUrl }}
+              //   containerStyle={{height:hp("20%"),borderRadius:20,marginBottom:hp("3%")}}
+              // >
+              // </Card> */}
+              <View style={[styles.Column_reverse,styles.MArgin_bottom]}>
+              <View >
               <ImageOverlay containerStyle={styles.HOme_flex_top} rounded={10}
-                       contentPosition="top" source={{uri:rowData.imageUrl}} >                                 
-                     <View style={[styles.Button_offer_home]}>
-                                 <Text style={[styles.offer_button_text]}>20%</Text>
-                                 <Text style={[styles.offer_button_text]}>off</Text>
-             </View>
-
+                       contentPosition="top" source={{uri:rowData.imageUrl}} >                                
              </ImageOverlay>
               <View style={styles.Salon_name}>
-                      <Text style={[styles.text,{fontFamily:GLOBAL.COLOR.Font_bold}]}>{rowData.title}</Text>
-                      <Text style={styles.Titile_small_text}>2.5 km</Text>
+                      <Text style={[styles.text,styles.Queue_row,{fontFamily:GLOBAL.COLOR.Font_bold}]}>{rowData.title}</Text>
+                      <Text style={[styles.Titile_small_text,styles.Queue_row,]}>2.5 km</Text>
               </View> 
-              <View style={styles.star_row}>
+              <View style={[styles.star_row,styles.Queue_row]}>
                 <View style={styles.margin_5}>
                 {Star_Rating} 
                 </View>
                 <Text style={[styles.review_text]}>255 Reviews</Text>
               </View>
-              <View style={[styles.Row,{justifyContent:"space-evenly",marginLeft:wp("1.5%")}]}>
-                <View style={[styles.column]}>
-                  <Text style={[styles.grey_text]}>Chowpatty</Text>
-                  <Text style={[styles.grey_text]}>Open till 10 pm</Text>
+              <View style={[styles.Row,{marginLeft:wp("5%"),width:wp("53%")}]}>
+                <View style={styles.column}>
+                  <Text style={[styles.grey_text,styles.Queue_row]}>Chowpatty</Text>
+                  <Text style={[styles.grey_text,styles.Queue_row]}>Open till 10 pm</Text>
                 </View>
                   <ResponsiveImage style={styles.margin_5} source={GLOBAL.rectangle_image} initWidth={GLOBAL.COLOR.Icon_divider_width} initHeight={GLOBAL.COLOR.Size_35}/>
                   <View style={[styles.column]}>
-                  <Text style={[styles.review_text,{marginLeft:wp("0%")}]}>Wait time 2h</Text>
+                  <Text style={[styles.review_text,styles.Queue_row,{marginLeft:wp("0%")}]}>Wait time 2h</Text>
                   <TouchableOpacity onPress={() =>{this.props.navigation.navigate('Booking')}}>
-                  <Text style={[styles.offer_button_text,{color:GLOBAL.COLOR.ORANGE}]}>Join Queue</Text>
+                  <Text style={[styles.offer_button_text,styles.Queue_row,{color:GLOBAL.COLOR.ORANGE}]}>Join Queue</Text>
                   </TouchableOpacity>
                 </View>
               </View>
+            </View>
+                          <View style={styles.Edit_button}>
+                            <View style={[styles.Button_offer_home,{marginTop:hp("3%")}]}>
+                              <Text style={styles.offer_button_text}>20%</Text>
+                              <Text style={styles.offer_button_text}>off</Text>
+                            </View>
+                          </View>
             </View>
           );
         }}
         keyExtractor={(item, index) => index}
       />
-      </View>
-      <View style={styles.Row}>
+      <View style={[styles.Row]}>
               <FlatList          
                     data={ this.state.dataSource1 }
                     renderItem={({item}) => 
-                    <View style={[styles.box,styles.Row]}>
-                             <View style={{marginHorizontal:wp("1%")}}>
+            <View style={[styles.Profile_Container,styles.Column_reverse]}>
+        
+                          <View style={styles.Row}>
                                  <ImageOverlay contentPosition="top" containerStyle={styles.HOme_flex_bottom} rounded={10} source={{uri:item.imageUrl}} >
-                                 <View style={[styles.Button_offer_home_bottom]}>
-                                 <Text style={[styles.offer_button_text]}>20%</Text>
-                                 <Text style={[styles.offer_button_text]}>off</Text>
-                                </View>
                                  </ImageOverlay>                                 
-                            </View>           
-                            <View style={[styles.column,{width:wp("60%")}]}>
-                                  <Text style={[styles.Titile_small_text,{marginLeft:wp("45%")}]}>2.5 km</Text>
-                                  <Text style={[styles.text,{fontFamily:GLOBAL.COLOR.Font_bold}]}>{item.name}</Text>
-                                  <View style={[styles.Row]}>
+                              <View style={styles.column}>
+                                  <Text style={[styles.grey_text,styles.Queue_row,{marginLeft:wp("40%")}]}>2.5 km</Text>
+                                  <Text style={[styles.text,styles.Queue_row,{fontFamily:GLOBAL.COLOR.Font_bold}]}>{item.name}</Text>
+                                  <View style={styles.Row}>
                                     <View style={styles.margin_5}>
                                     {Star_Rating} 
                                     </View>
-                                    <Text style={[styles.Titile_small_text,{marginRight:wp("15%")}]}>255 Reviews</Text>
+                                    <Text style={[styles.Titile_small_text,styles.Queue_row,{marginRight:wp("8%")}]}>255 Reviews</Text>
                                   </View>
-                                  <View style={[styles.Row,{justifyContent:"flex-start"}]}>
-                                  <View style={[styles.column]}>
-                                    <Text style={[styles.grey_text]}>Chowpatty</Text>
-                                    <Text style={[styles.grey_text]}>Open till 10 pm</Text>
+                                  <View style={[styles.Row,styles.Home_icon]}>
+                                  <View style={styles.column}>
+                                    <Text style={[styles.Titile_small_text,styles.Queue_row]}>Chowpatty</Text>
+                                    <Text style={[styles.Titile_small_text,styles.Queue_row]}>Open till 10 pm</Text>
                                   </View>
                                     <ResponsiveImage style={styles.rectangle_image} source={GLOBAL.rectangle_image} initWidth={GLOBAL.COLOR.Icon_divider_width} initHeight={GLOBAL.COLOR.Size_35}/>
                                     <View style={[styles.column]}>
-                                    <Text style={[styles.review_text,{marginLeft:wp("0%")}]}>Wait time 2h</Text>
+                                    <Text style={[styles.Titile_small_text,styles.Queue_row,{marginLeft:wp("0%")}]}>Wait time 2h</Text>
                                     <TouchableOpacity onPress={() =>{this.props.navigation.navigate('Booking')}}>
-                                    <Text style={[styles.offer_button_text,{color:GLOBAL.COLOR.ORANGE}]}>Join Queue</Text>
+                                    <Text style={[styles.offer_button_text,styles.Queue_row,{color:GLOBAL.COLOR.ORANGE}]}>Join Queue</Text>
                                     </TouchableOpacity>
                                   </View>
                                 </View>
-                            </View>  
-                            </View>         
+                            </View>   
+                          </View>
+                          <View style={styles.Edit_button}>
+                            <View style={[styles.Button_offer_home,styles.Home_offer_overlay]}>
+                              <Text style={styles.offer_button_text}>20%</Text>
+                              <Text style={styles.offer_button_text}>off</Text>
+                            </View>
+                          </View>
+            </View>       
                      }                       
                     />
            </View>
-           <View style={[styles.Home_header]}>
-           <View style={styles.Row}>
-           <Text style={styles.text}>Rate your service by Bianca Beauty</Text>
-           <TouchableOpacity onPress={() => this.openDialog(false)}>
-                     <Image
-                                source={GLOBAL.Cancel_Button}
-                                style={[styles.Home_cancel_icon]}
-                    />
-            </TouchableOpacity>
-           </View>
-           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Rating_Screen')}} style={{marginLeft:wp("3%"),marginVertical:hp("1%")}}>
-<Text>hello</Text>           
-</TouchableOpacity>
+          {!this.state.Rating_view ? <View></View> : 
+          <View style={[styles.Home_header,{height:hp("10%")}]}>
+          <View style={styles.Row}>
+          <Text style={styles.text}>Rate your service by Bianca Beauty</Text>
+          <TouchableOpacity onPress={this.Star_Rating_view}>
+                    <Image
+                               source={GLOBAL.Cancel_Button}
+                               style={[styles.Home_cancel_icon]}
+                   />
+           </TouchableOpacity>
+          </View>
+          <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Rating_Screen')}}>
+               <Text>hello</Text>           
+               </TouchableOpacity>
+          </View>}
+          
            </View>
       </ScrollView>
     );

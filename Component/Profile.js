@@ -37,7 +37,7 @@ class Profile extends Component {
           <View style={[styles.Profile_Container]}>
                   <View style={styles.Edit_button}>
                   <TouchableOpacity onPress={() => {this.props.navigation.navigate('Profile_edit')}}>
-                  <ResponsiveImage source={GLOBAL.edit_iconcamera}  initWidth={GLOBAL.COLOR.Size_75} initHeight={GLOBAL.COLOR.Size_75}/>
+                  <ResponsiveImage source={GLOBAL.Edit_Icon}  initWidth={GLOBAL.COLOR.Size_75} initHeight={GLOBAL.COLOR.Size_75}/>
                   </TouchableOpacity>
                   </View>
                     <Text style={styles.profile_Small_text}>Display Name</Text>
