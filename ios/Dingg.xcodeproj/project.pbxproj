@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
@@ -16,6 +15,7 @@
 		044C39FA21771B0500FE662D /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044C39F921771B0400FE662D /* Social.framework */; };
 		044C39FC21771B1A00FE662D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044C39FB21771B1A00FE662D /* MessageUI.framework */; };
 		04883FA921AC02EF00973677 /* dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04883FA821AC02EF00973677 /* dummy.swift */; };
+		048E5E9A21CD07D5008997DB /* libReactNativePermissions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0457F5D221C389410092E2AF /* libReactNativePermissions.a */; };
 		04E34222218716FB00C68E2C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E34221218716FB00C68E2C /* Launch Screen.storyboard */; };
 		0EDAA89A954F43F68368966D /* libRNCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDBB10713734E65B390216C /* libRNCamera.a */; };
 		0F06169762704D38880801CC /* Muli-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 327EFF3672D348838DF98281 /* Muli-SemiBold.ttf */; };
@@ -567,6 +567,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				048E5E9A21CD07D5008997DB /* libReactNativePermissions.a in Frameworks */,
 				044811BA21A679D6005042BB /* libRCTImage.a in Frameworks */,
 				044811B921A67869005042BB /* libRCTGeolocation.a in Frameworks */,
 				044C39FC21771B1A00FE662D /* MessageUI.framework in Frameworks */,

@@ -23,7 +23,7 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSApplicationCategoryType</key>
-	<string/>
+	<string></string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>whatsapp</string>
@@ -49,9 +49,9 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Need Camera to Capture Image</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string>location</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Your message to user when the microsphone is accessed for the first time</string>
+	<string>Uses Microphone</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>$(PRODUCT_NAME) wants to save photos</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -112,6 +112,6 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>priva</key>
-	<string/>
+	<string></string>
 </dict>
 </plist>
