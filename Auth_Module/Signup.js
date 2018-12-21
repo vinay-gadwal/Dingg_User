@@ -91,8 +91,13 @@ export default class example extends Component {
          </TextInputLayout>
           </View>
         </View>
-        <TouchableOpacity onPress={this.handlePress.bind(this)} style={[styles.button,{marginTop:hp("5%")}]}>
-            <Text style={styles.buttonText}>{!this.state.processing ? 'Submit for OTP' : 'Processing...'}</Text>
+        <TouchableOpacity onPress={this.handlePress.bind(this)} >
+        {!this.state.processing ? <View style={styles.button}>
+            <Text style={[styles.buttonText]}>Submit for OTP</Text>
+            </View>: <ResponsiveImage
+                source={require('../Image/new_images/Double_Ring.gif')}
+                initWidth={GLOBAL.COLOR.Size_35} initHeight={GLOBAL.COLOR.Size_35}/> 
+           }
           </TouchableOpacity>
 
         <View style={[styles.Row,styles.Padding_verticele_signup,{marginTop:hp("13%")}]}>

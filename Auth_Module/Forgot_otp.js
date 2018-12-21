@@ -131,8 +131,13 @@ _resend_OTP = async () =>{
           </View>
         </View>
         {/* onPress={() => {this.props.navigation.navigate('Crea_pass')}} */}
-          <TouchableOpacity style={[styles.button,{marginBottom:hp("25%")}]} onPress={this.otp_verified}>
-          <Text style={styles.buttonText}>{!this.state.processing ? 'Next' : 'Processing...'}</Text>
+          <TouchableOpacity onPress={this.otp_verified}>
+          {!this.state.processing ? <View style={styles.button}>
+          <Text style={[styles.buttonText]}>Next</Text>
+          </View>: <ResponsiveImage
+              source={require('../Image/new_images/Double_Ring.gif')}
+              initWidth={GLOBAL.COLOR.Size_35} initHeight={GLOBAL.COLOR.Size_35}/> 
+          }           
           </TouchableOpacity>
 </KeyboardAwareScrollView>    );
   }

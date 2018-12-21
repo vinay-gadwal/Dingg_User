@@ -46,7 +46,7 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    // this.props.navigation.navigate('AuthStack')
+    // this.props.navigation.navigate('AddDetails')
   }
   handlePress = () => {
     this.setState({ processing: true });
@@ -168,8 +168,13 @@ export default class Login extends Component {
           </TouchableOpacity>
       </View>
       
-          <TouchableOpacity onPress={this.handlePress} style={[styles.button]} >
-          <Text style={styles.buttonText}>{!this.state.processing ? 'Sign In' : 'Processing...'}</Text>
+          <TouchableOpacity onPress={this.handlePress}  >
+          {!this.state.processing ? <View style={styles.button}>
+            <Text style={[styles.buttonText]}>Sign In</Text>
+            </View>: <ResponsiveImage
+                source={require('../Image/new_images/Double_Ring.gif')}
+                initWidth={GLOBAL.COLOR.Size_35} initHeight={GLOBAL.COLOR.Size_35}/> 
+           }
           </TouchableOpacity>
       <TouchableOpacity onPress={()=>{this.props.navigation.navigate('AuthStack')}}>
           <Text style={[styles.orange_text,styles.Padding_verticele]}>Continue without Signing In</Text>

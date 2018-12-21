@@ -21,22 +21,27 @@ export default class Password extends Component {
     this.state = {
       Old_pass:"",
       new_pass: "",
-      hidePassword:"true"
+      hidePassword:"true",processing: false,
     };
   }
   handlePress(){  
+    this.setState({ processing: true });
     apis.Reset_Pass(GLOBAL.Mobile1, this.state.new_pass)
       .then((responseJson) => {
+        this.setState({ processing: false, loginText: 'Successful!' });
         console.log(responseJson)
         if(responseJson.success === true){
+          Alert.alert(responseJson.message)
           this.props.navigation.navigate('SignIn');
         }
         else{
           Alert.alert(responseJson.message)
+          this.setState({ processing: false, loginText: 'Successful!' });
         }
       })
       .catch((error) => {
         console.error(error);
+        this.setState({ processing: false, loginText: 'Try Again' });
       });
   } 
   Password_Validate = () =>
@@ -93,9 +98,14 @@ export default class Password extends Component {
           />
         </TextInputLayout>
     </View>
-        <TouchableOpacity onPress={this.Password_Validate} style={[styles.button,{width: wp('25%'),marginTop:hp("4%")}]} >
-        <Text style={styles.buttonText}>Submit</Text>
-        </TouchableOpacity>
+        <TouchableOpacity onPress={this.Password_Validate} >
+        {!this.state.processing ? <View style={styles.button}>
+      <Text style={[styles.buttonText]}>Submit</Text>
+      </View>: <ResponsiveImage
+          source={require('../Image/new_images/Double_Ring.gif')}
+          initWidth={GLOBAL.COLOR.Size_35} initHeight={GLOBAL.COLOR.Size_35}/> 
+      }        
+       </TouchableOpacity>
         <View style={styles.copy_right_column_signup}>
         <View style={styles.Row}>
         <Image

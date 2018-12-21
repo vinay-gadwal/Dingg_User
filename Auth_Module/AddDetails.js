@@ -31,15 +31,17 @@ export default class App extends Component {
               fontFamily:GLOBAL.COLOR.Font_bold,
           },
         ],
-        Check_box:true,
+        Check_box:true,processing: false,
       }
     }
  
     handlePress = () =>{  
+      this.setState({ processing: true });
       if(this.state.Check_box == false){
       apis.ADD_Details(GLOBAL.token,this.state.Enter_pass,this.state.First_name,this.state.Last_name,this.state.display_name,
                         this.state.Email_id,this.state.Locality,GLOBAL.Gender)
         .then((responseJson) => {
+          this.setState({ processing: false, loginText: 'Successful!' });
           console.log(responseJson)
           console.log(this.state.Enter_pass)
           console.log(GLOBAL.token)
@@ -50,10 +52,12 @@ export default class App extends Component {
           else{
             Alert.alert(responseJson.message)
             console.log(responseJson.message)
+            this.setState({ processing: false, loginText: 'Successful!' });
           }
         })
         .catch((error) => {
           console.error(error);
+          this.setState({ processing: false, loginText: 'Try Again' });
         });
       }
       else{
@@ -211,11 +215,16 @@ export default class App extends Component {
                     </Text>
                     </ScrollView>
                 </Dialog>
-    </View>
-    <TouchableOpacity onPress={this.handlePress} style={[styles.button,{marginVertical:hp("2%"),marginHorizontal:wp("30%")}]} >
-      <Text style={styles.buttonText}>Submit</Text>
-      </TouchableOpacity>
-   </KeyboardAwareScrollView>
+              </View>
+              <TouchableOpacity onPress={this.handlePress} >
+              {!this.state.processing ? <View style={styles.button}>
+                <Text style={[styles.buttonText]}>Submit</Text>
+                </View>: <ResponsiveImage
+                    source={require('../Image/new_images/Double_Ring.gif')}
+                    initWidth={GLOBAL.COLOR.Size_35} initHeight={GLOBAL.COLOR.Size_35}/> 
+                }        
+                </TouchableOpacity>
+            </KeyboardAwareScrollView>
     );
   }
 }
