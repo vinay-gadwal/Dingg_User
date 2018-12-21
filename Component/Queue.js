@@ -69,8 +69,8 @@ return (
                     <View style={styles.Flex_main_box}>
                         
                         <View style={styles.Row}>
-                        <Image style={styles.Queue_imae} source={{uri:item.imageUrl}} />
-                       <View style={styles.Queue_column}>
+                        <Image style={[styles.Queue_imae,styles.margin_4]} source={{uri:item.imageUrl}} />
+                       <View style={[styles.Queue_column,styles.margin_3]}>
                        <Text style={styles.yello_text}>{item.token}</Text>
                        <Text style={[styles.text]}>{item.Shop_name}</Text>
                         </View>

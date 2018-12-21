@@ -344,7 +344,7 @@ class StarReview extends Component {
           <ResponsiveImage source={GLOBAL.Filter_Icon} style={[styles.Home_icon,{marginHorizontal:wp("2%")}]} initWidth={GLOBAL.COLOR.Size_15} initHeight={GLOBAL.COLOR.Size_15}/> 
       </View>
 
-      <View style={[styles.box,styles.Padding_verticele]}>
+      <View style={[styles.box]}>
         <Text style={[styles.Big_text,{marginRight:wp("60%")}]}>Top Picks</Text>
       </View>
       

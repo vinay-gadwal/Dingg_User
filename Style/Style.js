@@ -38,7 +38,7 @@ Padding_verticele_signup:{
 Flex_main_box:{
       width: wp('90%'),marginLeft:"5%",
       backgroundColor:GLOBAL.COLOR.White_color,
-      marginVertical:hp('2%'),
+      marginVertical:hp('1%'),
       borderRadius:10,
     },
 copy_rigth:{
@@ -62,7 +62,7 @@ copy_right_column_signup:{
 copy_right_column_Forgot:{
   alignItems:"center",flexDirection:"column",marginTop:hp("4%"),marginBottom:hp("1")
 }  ,
-margin_3:{marginTop:hp("3%")},
+margin_3:{marginTop:hp("3%")},margin_4:{marginTop:hp("4%"),marginLeft:wp("5%")},
 input: {
       width: wp('70%'),
       height: hp('6%'),
@@ -123,7 +123,7 @@ Queue_imae:{
       width:wp("10%"), height:hp("6%"),borderRadius:10,marginHorizontal:wp("4%"),marginVertical:hp("3%")
     },
 Queue_column:{
-      flexDirection:"column",width:wp("40%"),marginVertical:hp("1%")
+      flexDirection:"column",width:wp("47%"),marginVertical:hp("1%")
     },
 Queue_row:{
       flexDirection:"row",marginBottom:hp(".5%")
@@ -152,7 +152,7 @@ catogory:{
         marginVertical:hp("6%"),marginBottom:hp("3%"), fontSize:RF(3),marginHorizontal:wp("10%"),color:GLOBAL.COLOR.BLACK
       },
 Button_offer_home:{
-      height:hp("6%"),width:wp("10.5%"),borderRadius:4,marginLeft:wp("43%"),
+      height:hp("5.5%"),width:wp("10.5%"),borderRadius:4,marginLeft:wp("43%"),
       backgroundColor: GLOBAL.COLOR.ORANGE,
       borderRadius:10,
       shadowColor: GLOBAL.COLOR.ORANGE,
@@ -468,7 +468,7 @@ textBoxBtnHolder:{
         },
 Search_line:{marginLeft:"10%",marginVertical:hp("1%")},
 Profile_Container:{
-      width:"90%",paddingVertical:hp("1%"),marginVertical:hp("2%"),
+      width:"90%",paddingVertical:hp("1%"),marginVertical:hp(".5%"),
       backgroundColor:GLOBAL.COLOR.White_color,
       borderRadius:10,
       justifyContent: 'space-between',marginHorizontal:"5%"
