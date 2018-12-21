@@ -86,7 +86,7 @@ class Ongoing extends React.Component {
                                 <View style={styles.Row}>                          
                                      
                                      <View style={styles.Flat_box_column}>
-                                        <View style={styles.Row}>
+                                        <View style={[styles.Row,styles.margin_3]}>
                                             <ResponsiveImage source={GLOBAL.Serve_time}  initWidth={GLOBAL.COLOR.Size_16} initHeight={GLOBAL.COLOR.Size_16}/>
                                             <Text style={styles.grey_text}>{item.name}</Text>
                                          </View>
@@ -313,7 +313,7 @@ class StarReview extends React.Component {
                             <View style={styles.Flex_main_box}>
                                 <View style={styles.Row}>                          
                                      <View style={styles.Flat_box_column}>
-                                        <View style={styles.Row}>
+                                     <View style={[styles.Row,styles.margin_3]}>
                                             <ResponsiveImage source={GLOBAL.Date_icon} initWidth={GLOBAL.COLOR.Size_16} initHeight={GLOBAL.COLOR.Size_16}/>
                                             <Text style={styles.grey_text}>{item.name}</Text>
                                          </View>

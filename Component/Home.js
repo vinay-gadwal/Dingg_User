@@ -303,8 +303,7 @@ class StarReview extends Component {
     :
     this.displayMode()
     return (
-      <ScrollView horizontal={false}>
-      <View style={{backgroundColor:GLOBAL.COLOR.rootBAckgroundColor}}>
+      <ScrollView style={{backgroundColor:GLOBAL.COLOR.rootBAckgroundColor}} horizontal={false}>
       <View style={styles.Home_header}>
         <View style={[styles.Row,styles.Padding_verticele,styles.Category_line]}>
         <View style={styles.Row}>
@@ -458,7 +457,6 @@ class StarReview extends Component {
                </TouchableOpacity>
           </View>}
           
-           </View>
       </ScrollView>
     );
   }

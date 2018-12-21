@@ -62,7 +62,7 @@ copy_right_column_signup:{
 copy_right_column_Forgot:{
   alignItems:"center",flexDirection:"column",marginTop:hp("4%"),marginBottom:hp("1")
 }  ,
-margin_3:{marginTop:hp("3%")},margin_4:{marginTop:hp("4%"),marginLeft:wp("5%")},
+margin_3:{marginTop:hp("2.5%")},margin_4:{marginTop:hp("4%"),marginLeft:wp("5%")},
 input: {
       width: wp('70%'),
       height: hp('6%'),
@@ -284,7 +284,7 @@ Tab_text:{
       color: GLOBAL.COLOR.BLACK,
       fontFamily:GLOBAL.COLOR.Font,
     },
-Tab_line:{marginTop:hp("2%"),marginLeft:wp("6%")},
+Tab_line:{marginTop:hp("2.3%"),marginLeft:wp("6%")},
 verify_big_text:{
       fontSize:RF(3.2),
       fontFamily:GLOBAL.COLOR.Font_bold,
@@ -468,7 +468,7 @@ textBoxBtnHolder:{
         },
 Search_line:{marginLeft:"10%",marginVertical:hp("1%")},
 Profile_Container:{
-      width:"90%",paddingVertical:hp("1%"),marginVertical:hp(".5%"),
+      width:"90%",paddingVertical:hp("1%"),marginVertical:hp("1.5%"),
       backgroundColor:GLOBAL.COLOR.White_color,
       borderRadius:10,
       justifyContent: 'space-between',marginHorizontal:"5%"
