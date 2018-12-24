@@ -114,7 +114,7 @@ export default class App extends Component {
     selectedButton = selectedButton ? selectedButton.value : this.state.data[0].label;
     GLOBAL.Gender = selectedButton
     return (
-      <KeyboardAwareScrollView style={GLOBAL.COLOR.rootBAckgroundColor}>
+      <KeyboardAwareScrollView style={{backgroundColor:GLOBAL.COLOR.rootBAckgroundColor}}>
           <View style={styles.box}>
                   <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                       <TextInput
@@ -216,8 +216,8 @@ export default class App extends Component {
                     </ScrollView>
                 </Dialog>
               </View>
-              <TouchableOpacity onPress={this.handlePress} >
-              {!this.state.processing ? <View style={styles.button}>
+              <TouchableOpacity style={{alignItems:"center"}} onPress={this.handlePress} >
+              {!this.state.processing ? <View style={[styles.button]}>
                 <Text style={[styles.buttonText]}>Submit</Text>
                 </View>: <ResponsiveImage
                      source={GLOBAL.Loader}

@@ -3,13 +3,11 @@ package com.dingg;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import org.reactnative.camera.RNCameraPackage;
-import com.arttitude360.reactnative.rngoogleplaces.RNGooglePlacesPackage;
-import com.reactlibrary.RNNavybitsDateTimePickerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import cl.json.RNSharePackage;
-import cl.json.ShareApplication;
+import com.reactlibrary.RNNavybitsDateTimePickerPackage;
 import com.imagepicker.ImagePickerPackage;
+import org.reactnative.camera.RNCameraPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -21,7 +19,6 @@ import java.util.List;
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
-
     @Override
     public boolean getUseDeveloperSupport() {
       return BuildConfig.DEBUG;
@@ -31,12 +28,11 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNCameraPackage(),
-            new RNGooglePlacesPackage(),
-            new RNNavybitsDateTimePickerPackage(),
             new VectorIconsPackage(),
             new RNSharePackage(),
-            new ImagePickerPackage()
+            new RNNavybitsDateTimePickerPackage(),
+            new ImagePickerPackage(),
+            new RNCameraPackage()
       );
     }
 

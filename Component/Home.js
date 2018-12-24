@@ -303,7 +303,7 @@ class StarReview extends Component {
     :
     this.displayMode()
     return (
-      <ScrollView style={{backgroundColor:GLOBAL.COLOR.rootBAckgroundColor}} horizontal={false}>
+      <ScrollView style={{backgroundColor:GLOBAL.COLOR.rootBAckgroundColor,flex:1}} horizontal={false}>
       <View style={styles.Home_header}>
         <View style={[styles.Row,styles.Padding_verticele,styles.Category_line]}>
         <View style={styles.Row}>
@@ -312,7 +312,7 @@ class StarReview extends Component {
           </TouchableOpacity>
           <Text style={[styles.text,{fontFamily:GLOBAL.COLOR.Font_bold,marginHorizontal:wp("2%")}]}>Sahyog Mandir Rd, Thane</Text>
           {/* {this.state.location} */}
-          <ResponsiveImage source={GLOBAL.Edit_icon} style={{marginVertical:hp("1%")}} initWidth={GLOBAL.COLOR.Size_14} initHeight={GLOBAL.COLOR.Size_15}/>                
+          <ResponsiveImage source={GLOBAL.Edit_icon} initWidth={GLOBAL.COLOR.Size_14} initHeight={GLOBAL.COLOR.Size_15}/>                
           </View>
           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Alert_top')}}>
           <ResponsiveImage source={GLOBAL.Notification_yellow} style={styles.back_right}/>
@@ -358,7 +358,7 @@ class StarReview extends Component {
               //   containerStyle={{height:hp("20%"),borderRadius:20,marginBottom:hp("3%")}}
               // >
               // </Card> */}
-              <View style={[styles.Column_reverse,styles.MArgin_bottom]}>
+              <View style={[styles.Column_reverse,styles.MArgin_bottom,{marginTop:hp("0%")}]}>
               <View >
               <ImageOverlay containerStyle={styles.HOme_flex_top} rounded={10}
                        contentPosition="top" source={{uri:rowData.imageUrl}} >                                
@@ -373,7 +373,7 @@ class StarReview extends Component {
                 </View>
                 <Text style={[styles.review_text]}>255 Reviews</Text>
               </View>
-              <View style={[styles.Row,{marginLeft:wp("5%"),width:wp("53%")}]}>
+              <View style={styles.Home_row}>
                 <View style={styles.column}>
                   <Text style={[styles.grey_text,styles.Queue_row]}>Chowpatty</Text>
                   <Text style={[styles.grey_text,styles.Queue_row]}>Open till 10 pm</Text>
@@ -387,8 +387,8 @@ class StarReview extends Component {
                 </View>
               </View>
             </View>
-                          <View style={styles.Edit_button}>
-                            <View style={[styles.Button_offer_home,{marginTop:hp("3%")}]}>
+                          <View style={[styles.Edit_button]}>
+                            <View style={[styles.Button_offer_home]}>
                               <Text style={styles.offer_button_text}>20%</Text>
                               <Text style={styles.offer_button_text}>off</Text>
                             </View>

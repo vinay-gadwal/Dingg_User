@@ -13,6 +13,7 @@ container: {
 Home_filter:{marginTop:hp("1%"),marginRight:wp("2%"),marginLeft:wp("1%"),justifyContent:"flex-end",flexDirection:"row"},
 MArgin_bottom:{marginBottom:hp("4%")},
 Row:{flexDirection:"row",justifyContent:"space-between"},
+Home_row:{flexDirection:"row",justifyContent:"space-between",marginLeft:wp("5%"),width:wp("53%")},
 column:{flexDirection:"column",},
 Column_reverse:{flexDirection:"column-reverse"},
 Image_margin:{marginHorizontal:wp("3%"),marginVertical:hp("3%")},
@@ -132,27 +133,20 @@ Titile_small_text:{
         fontSize: RF(1.8), 
         color: GLOBAL.COLOR.BLACK,
         fontFamily:GLOBAL.COLOR.Font,
-        // marginTop:hp("1%")   
  },
-star_row:{
-          marginLeft:wp("3%"),flexDirection:"row"
-        },
+star_row:{marginLeft:wp("3%"),flexDirection:"row"},
 review_text:{
         marginLeft:wp("25%"),fontSize:RF(1.8),  fontSize: RF(1.8), 
         color: GLOBAL.COLOR.GRAY,
         fontFamily:GLOBAL.COLOR.Font,
       },
-margin_5:{
-        marginTop:hp(".5%"),
-      },
-rectangle_image:{
-        marginTop:hp("1%"),marginHorizontal:wp("4%")
-      },
+margin_5:{marginTop:hp(".5%"),},
+rectangle_image:{marginTop:hp("1%"),marginHorizontal:wp("4%")},
 catogory:{
         marginVertical:hp("6%"),marginBottom:hp("3%"), fontSize:RF(3),marginHorizontal:wp("10%"),color:GLOBAL.COLOR.BLACK
       },
 Button_offer_home:{
-      height:hp("5.5%"),width:wp("10.5%"),borderRadius:4,marginLeft:wp("43%"),
+      height:hp("5.5%"),width:wp("10%"),borderRadius:4,marginLeft:wp("43%"),
       backgroundColor: GLOBAL.COLOR.ORANGE,
       borderRadius:10,
       shadowColor: GLOBAL.COLOR.ORANGE,
@@ -160,8 +154,8 @@ Button_offer_home:{
       shadowOpacity: .5,
       shadowRadius: 2,
     },
-Home_offer_overlay:{marginRight:wp("122%")},
-Queue_offer:{marginRight:wp("122%"),marginTop:hp("6%")},
+Home_offer_overlay:{marginRight:wp("123%")},
+Queue_offer:{marginRight:wp("123%"),marginTop:hp("6%")},
 offer_button_text:{
       fontSize: RF(1.8),
       alignSelf: "center",

@@ -46,7 +46,7 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    this.props.navigation.navigate('AuthStack')
+    // this.props.navigation.navigate('Home')
   }
   handlePress = () => {
     this.setState({ processing: true });
@@ -99,7 +99,7 @@ export default class Login extends Component {
              placeholder="Enter Password"
              onChangeText={password => this.setState({ password })}
              underlineColorAndroid = "transparent"
-             secureTextEntry ="true"
+             secureTextEntry
               style = { styles.input }/>
        </TextInputLayout>
 </View>
@@ -116,7 +116,7 @@ export default class Login extends Component {
               placeholder="Enter Password"
               onChangeText={password => this.setState({ password })}
               underlineColorAndroid = "transparent"
-              secureTextEntry ="true"
+              secureTextEntry
                style = { styles.input }/>
         </TextInputLayout>
 </View>
