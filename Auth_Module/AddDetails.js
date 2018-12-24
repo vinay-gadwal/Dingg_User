@@ -35,7 +35,7 @@ export default class App extends Component {
       }
     }
  
-    handlePress = () =>{  
+    handlePress(){  
       this.setState({ processing: true });
       if(this.state.Check_box == false){
       apis.ADD_Details(GLOBAL.token,this.state.Enter_pass,this.state.First_name,this.state.Last_name,this.state.display_name,
@@ -67,18 +67,24 @@ export default class App extends Component {
     
     Password_Validate = () =>
     {
-      if(this.state.conf_pass === "" && this.state.password === ""){
-        Alert.alert("Please enter new password")
+      if(this.state.First_name === "" ){
+        Alert.alert("Please enter First Name")
     }
-     else if(this.state.Uid == ""){
-        Alert.alert("Enter User ID")
-      }
-      else if(this.state.conf_pass === this.state.password){
-          {this.handlePress()}
+     else if(this.state.Last_name === ""){
+      Alert.alert("Please enter Last Name")
+    }
+      else if(this.state.Email_id === ""){
+        Alert.alert("Please enter Email")
+    }
+        else if(this.state.Locality === ""){
+          Alert.alert("Please enter Lacality")
+        }
+        else if(this.state.Enter_pass === "")
+        {
+                  Alert.alert("Please enter First Name")
         }
         else{
-          this.setState({conf_pass:""})
-          Alert.alert("Password and ConfirmPassword should be same")
+          {this.handlePress()}
         }
     }
   
@@ -216,13 +222,16 @@ export default class App extends Component {
                     </ScrollView>
                 </Dialog>
               </View>
-              <TouchableOpacity style={{alignItems:"center"}} onPress={this.handlePress} >
+              {/* <TouchableOpacity style={{alignItems:"center"}} onPress={this.handlePress} >
               {!this.state.processing ? <View style={[styles.button]}>
                 <Text style={[styles.buttonText]}>Submit</Text>
                 </View>: <ResponsiveImage
                      source={GLOBAL.Loader}
                      initWidth={GLOBAL.COLOR.Size_75} initHeight={GLOBAL.COLOR.Size_75}/> 
                 }        
+                </TouchableOpacity> */}
+                   <TouchableOpacity style={[styles.button,{marginLeft:wp("30%")}]} onPress={this.Password_Validate} >
+                <Text style={[styles.buttonText]}>Submit</Text>     
                 </TouchableOpacity>
             </KeyboardAwareScrollView>
     );

@@ -168,13 +168,16 @@ export default class Login extends Component {
           </TouchableOpacity>
       </View>
       
-          <TouchableOpacity onPress={this.handlePress}  >
+          {/* <TouchableOpacity onPress={this.handlePress}  >
           {!this.state.processing ? <View style={styles.button}>
             <Text style={[styles.buttonText]}>Sign In</Text>
             </View>: <ResponsiveImage
                 source={GLOBAL.Loader}
                 initWidth={GLOBAL.COLOR.Size_75} initHeight={GLOBAL.COLOR.Size_75}/> 
            }
+          </TouchableOpacity> */}
+            <TouchableOpacity style={styles.button} onPress={this.handlePress}  >
+            <Text style={[styles.buttonText]}>Sign In</Text>
           </TouchableOpacity>
       <TouchableOpacity onPress={()=>{this.props.navigation.navigate('AuthStack')}}>
           <Text style={[styles.orange_text,styles.Padding_verticele]}>Continue without Signing In</Text>

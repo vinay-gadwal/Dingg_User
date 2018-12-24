@@ -100,14 +100,18 @@ export default class example extends Component {
           </View>
         </View>
         {/* onPress={() => {this.props.navigation.navigate('Crea_pass')}} */}
-        <TouchableOpacity onPress={this.handlePress.bind(this)} >
+        {/* <TouchableOpacity onPress={this.handlePress.bind(this)} >
         {!this.state.processing ? <View style={styles.button}>
             <Text style={[styles.buttonText]}>Submit for OTP</Text>
             </View>: <ResponsiveImage
                source={GLOBAL.Loader}
                initWidth={GLOBAL.COLOR.Size_75} initHeight={GLOBAL.COLOR.Size_75}/> 
            }          
-           </TouchableOpacity>
+           </TouchableOpacity> */}
+            <TouchableOpacity style={styles.button} onPress={this.handlePress.bind(this)}  >
+            <Text style={[styles.buttonText]}>Submit for OTP</Text>
+          </TouchableOpacity>
+
         <View style={styles.copy_right_column_signup}>
         <View style={styles.Row}>
         <Image

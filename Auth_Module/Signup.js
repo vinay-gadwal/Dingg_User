@@ -91,13 +91,16 @@ export default class example extends Component {
          </TextInputLayout>
           </View>
         </View>
-        <TouchableOpacity onPress={this.handlePress.bind(this)} >
+        {/* <TouchableOpacity onPress={this.handlePress.bind(this)} >
         {!this.state.processing ? <View style={styles.button}>
             <Text style={[styles.buttonText]}>Submit for OTP</Text>
             </View>: <ResponsiveImage
                 source={GLOBAL.Loader}
                 initWidth={GLOBAL.COLOR.Size_75} initHeight={GLOBAL.COLOR.Size_75}/>   
            }
+          </TouchableOpacity> */}
+            <TouchableOpacity style={styles.button} onPress={this.handlePress.bind(this)} >
+            <Text style={[styles.buttonText]}>Submit for OTP</Text>
           </TouchableOpacity>
 
         <View style={[styles.Row,styles.Padding_verticele_signup,{marginTop:hp("13%")}]}>

@@ -1,4 +1,4 @@
-package com.dingg;
+package app.dingg.customer;
 
 import android.app.Application;
 

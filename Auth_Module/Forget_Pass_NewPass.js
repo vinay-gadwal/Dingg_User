@@ -98,13 +98,16 @@ export default class Password extends Component {
           />
         </TextInputLayout>
     </View>
-        <TouchableOpacity onPress={this.Password_Validate} >
+        {/* <TouchableOpacity onPress={this.Password_Validate} >
         {!this.state.processing ? <View style={styles.button}>
       <Text style={[styles.buttonText]}>Submit</Text>
       </View>: <ResponsiveImage
            source={GLOBAL.Loader}
            initWidth={GLOBAL.COLOR.Size_75} initHeight={GLOBAL.COLOR.Size_75}/>  
       }        
+       </TouchableOpacity> */}
+       <TouchableOpacity style={styles.button} onPress={this.Password_Validate} >
+      <Text style={[styles.buttonText]}>Submit</Text>     
        </TouchableOpacity>
         <View style={styles.copy_right_column_signup}>
         <View style={styles.Row}>
