@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity,View,TextInput,Image,Text,Alert,ScrollView
+import { TouchableOpacity,View,TextInput,Image,Text,Alert,ScrollView,AsyncStorage
         } from 'react-native';
 import styles from '../Style/Style'
 import RF from "react-native-responsive-fontsize"
@@ -34,7 +34,9 @@ export default class App extends Component {
         Check_box:true,processing: false,
       }
     }
- 
+ DeleteTicket=()=>{
+  apis.LOCAL_Delete_DATA('OTPticket')
+ }
     handlePress(){  
       this.setState({ processing: true });
       if(this.state.Check_box == false){
@@ -43,11 +45,10 @@ export default class App extends Component {
         .then((responseJson) => {
           this.setState({ processing: false, loginText: 'Successful!' });
           console.log(responseJson)
-          console.log(this.state.Enter_pass)
-          console.log(GLOBAL.token)
           if(responseJson.success === true){
-            // console.log(responseJson)
               this.props.navigation.navigate('AuthStack');
+              AsyncStorage.removeItem('OTPticket');
+              {this.DeleteTicket}
           }
           else{
             Alert.alert(responseJson.message)
@@ -61,29 +62,29 @@ export default class App extends Component {
         });
       }
       else{
-        Alert.alert("Accept the Terms & Conditions")
+        Alert.alert("Please Accept Terms and Conditions")
       }
     }
     
     Password_Validate = () =>
     {
-      if(this.state.First_name === "" ){
+      if(this.state.First_name.trim() === "" ){
         Alert.alert("Please enter First Name")
     }
-     else if(this.state.Last_name === ""){
+     else if(this.state.Last_name.trim() === ""){
       Alert.alert("Please enter Last Name")
     }
-      else if(this.state.Email_id === ""){
+      else if(this.state.Email_id.trim() === ""){
         Alert.alert("Please enter Email")
     }
-        else if(this.state.Locality === ""){
-          Alert.alert("Please enter Lacality")
+      else if(this.state.Locality.trim() === ""){
+          Alert.alert("Please enter Locality")
         }
-        else if(this.state.Enter_pass === "")
+      else if(this.state.Enter_pass.trim() === "")
         {
-                  Alert.alert("Please enter First Name")
+          Alert.alert("Please enter Password")
         }
-        else{
+      else{
           {this.handlePress()}
         }
     }
@@ -121,7 +122,7 @@ export default class App extends Component {
     GLOBAL.Gender = selectedButton
     return (
       <KeyboardAwareScrollView style={{backgroundColor:GLOBAL.COLOR.rootBAckgroundColor}}>
-          <View style={styles.box}>
+          <View style={[styles.box,styles.margin_top]}>
                   <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                       <TextInput
                         value={this.state.First_name}
@@ -180,21 +181,18 @@ export default class App extends Component {
                           keyboardType="email-address"
                         />
                   </TextInputLayout>
-                  <View style={styles.radio_button}>
+                  <View style={styles.radio_button_addDeat}>
                   <RadioGroup radioButtons={this.state.data} onPress={this.Gender_Button}  flexDirection='row' />
-                  <View style={styles.Add_details_line}>
-                  <ResponsiveImage style={styles.Profile_line} source={GLOBAL.rectangle_image_black} initWidth={GLOBAL.COLOR.width} initHeight={GLOBAL.COLOR._height}/>
-                   </View>
-                  
                   </View>
-                 
+                  <ResponsiveImage style={styles.Profile_line} source={GLOBAL.rectangle_image_black} initWidth={GLOBAL.COLOR.width} initHeight={GLOBAL.COLOR._height}/>
+
                   <View style={[styles.Row,{marginRight:wp("1%")}]}>
                   <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.Select_unselect_mon }>
                         <Image source = { ( this.state.Check_box ) ? GLOBAL.Unchecked : GLOBAL.Checked } style = {styles.Checked_button} />
                   </TouchableOpacity>
-                <Text style={[styles.copy_rigth,{marginTop:hp("1%")}]}>I agree to Dingg's</Text>
+                <Text style={styles.copy_rigth}>I agree to Dingg's</Text>
                 <TouchableOpacity onPress={ () => this.openDialog(true) }>
-                <Text style={[styles.orange_text,{marginTop:hp("1%")}]}> Terms & Conditions</Text>
+                <Text style={[styles.orange_text,styles.copy_rigth_image]}> Terms & Conditions</Text>
                 </TouchableOpacity>
                   </View>                   
                   <Dialog
@@ -209,9 +207,9 @@ export default class App extends Component {
                     visible={ this.state.showDialog }
                 >
                      <TouchableOpacity onPress={() => this.openDialog(false)}>
-                     <Image
+                     <ResponsiveImage
                                 source={GLOBAL.Cancel_Button}
-                                style={[styles.setting_Image,{marginLeft:wp("75%")}]}
+                                initWidth={GLOBAL.COLOR.Size_12} initHeight={GLOBAL.COLOR.Size_12}
                     />
                     </TouchableOpacity>
                     <Text style={styles.text}>Terms & Conditions</Text>
@@ -222,6 +220,9 @@ export default class App extends Component {
                     </ScrollView>
                 </Dialog>
               </View>
+              <TouchableOpacity style={[styles.button,{marginLeft:wp("30%")}]} onPress={this.Password_Validate} >
+                <Text style={[styles.buttonText]}>Submit</Text>     
+                </TouchableOpacity>
               {/* <TouchableOpacity style={{alignItems:"center"}} onPress={this.handlePress} >
               {!this.state.processing ? <View style={[styles.button]}>
                 <Text style={[styles.buttonText]}>Submit</Text>
@@ -230,9 +231,6 @@ export default class App extends Component {
                      initWidth={GLOBAL.COLOR.Size_75} initHeight={GLOBAL.COLOR.Size_75}/> 
                 }        
                 </TouchableOpacity> */}
-                   <TouchableOpacity style={[styles.button,{marginLeft:wp("30%")}]} onPress={this.Password_Validate} >
-                <Text style={[styles.buttonText]}>Submit</Text>     
-                </TouchableOpacity>
             </KeyboardAwareScrollView>
     );
   }

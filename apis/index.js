@@ -215,6 +215,56 @@ const apis = {
       console.error(error);
     }
   },
+  LOCAL_SET_DATA: async (key, value) => {
+    try {
+      await AsyncStorage.setItem(key, value);
+    } catch (error) {
+      console.error(error);
+    }
+  },
+
+  LOCAL_GET_DATA: async (key) => {
+    try {
+      const value = await AsyncStorage.getItem(key);
+      if (value !== null) {
+        console.log(value);
+        return value;
+      }
+      return null;
+    } catch (error) {
+      // Error retrieving data
+      console.error(error);
+      return null;
+    }
+  },
+  Sign_LOCAL_SET_DATA: async (key, value) => {
+    try {
+      await AsyncStorage.setItem(key, value);
+    } catch (error) {
+      console.error(error);
+    }
+  },
+  OTP_LOCAL_GET_DATA: async (key) => {
+    try {
+      const value = await AsyncStorage.getItem(key);
+      if (value !== null) {
+        console.log(value);
+        return value;
+      }
+      return null;
+    } catch (error) {
+      // Error retrieving data
+      console.error(error);
+      return null;
+    }
+  },
+  LOCAL_Delete_DATA: async (key) => {
+    try {
+      await AsyncStorage.removeItem(key);
+    } catch (error) {
+      console.error(error);
+    }
+  },
 
 }
 export default apis;

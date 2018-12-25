@@ -114,9 +114,9 @@ export default class example extends Component {
 
         <View style={styles.copy_right_column_signup}>
         <View style={styles.Row}>
-        <Image
+        <ResponsiveImage style={styles.copy_rigth_image}
            source={GLOBAL.Copy_right}
-           style={styles.copy_rigth_image}
+           initWidth={GLOBAL.COLOR.Size_12} initHeight={GLOBAL.COLOR.Size_12}
         />
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>

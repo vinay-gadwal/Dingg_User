@@ -44,15 +44,14 @@ Flex_main_box:{
     },
 copy_rigth:{
       fontSize: RF("1.8"),color:GLOBAL.COLOR.GRAY,
-      fontFamily: GLOBAL.COLOR.Font_bold,marginVertical:hp(".5%")
+      fontFamily: GLOBAL.COLOR.Font,marginVertical:hp(".5%")
     },
 Copy_right_text:{
       paddingVertical:hp("0%"), fontSize: RF("1.8"),color:GLOBAL.COLOR.GRAY,
-      fontFamily: GLOBAL.COLOR.Font_bold
+      fontFamily: GLOBAL.COLOR.Font
     },
 copy_rigth_image:{
-      width: wp("3%"),
-      height: hp("1.7%"),marginTop:hp("1%"),
+  marginTop:hp("1.3%")
     }, 
 copy_right_column:{
       alignItems:"center",flexDirection:"column",marginBottom:hp("1%")
@@ -267,6 +266,7 @@ box_SignUp:{
           borderRadius:10,
           paddingBottom:hp("8%")
     },
+padding_bottom_4:{paddingBottom:hp("4%")},
 text:{
           fontSize: RF(2.2), 
           color: GLOBAL.COLOR.BLACK,
@@ -289,6 +289,7 @@ verify_big_text:{
 Otp:{
       marginHorizontal:wp("15%"),marginTop:hp("2%")
     },
+    margin_top:{marginTop:hp("5%")},
 otp_timer:{
       marginRight:wp("15%"),marginTop:hp("2%")
     },
@@ -373,7 +374,8 @@ callingCodeText: {
       fontWeight: 'bold',
       paddingRight: 10
     },
-radio_button:{marginTop:hp("3%"),marginRight:wp("28%")},
+radio_button:{marginRight:wp("7%")},
+radio_button_addDeat:{marginRight:wp("26%"),marginTop:hp("2.5%")},
 Checked_button:{
       width:wp(3.8),height:hp(2.2),marginTop:hp("1%"),marginRight:wp("3%")
     },
@@ -416,6 +418,7 @@ profile_Small_text:{
       fontFamily:GLOBAL.COLOR.Font,
       marginLeft:wp("8%")
     },
+    margin_left:wp("23%"),
 profile_Small_text:{
       fontSize: RF(1.8),
       justifyContent:"flex-start",

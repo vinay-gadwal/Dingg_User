@@ -11,11 +11,21 @@ import ResponsiveImage from 'react-native-responsive-image'
 import Alert_top from '../Component/Alert' 
 import {createStackNavigator,} from 'react-navigation';
 const GLOBAL = require('../Component/Color');
+import apis from '../apis/index'
+import sing_in from '../Auth_Module/Signin'
 
 class Profile extends Component {
     state = {
         
       }; 
+  logout=()=>{
+    apis.LOCAL_Delete_DATA('OTPticket').then(() => {
+      this.props.navigation.navigate('login');    
+      })
+        apis.LOCAL_Delete_DATA('ticket').then(() => {
+          this.props.navigation.navigate('login');    
+          })
+  }
   render() {
     return (
       <ScrollView style={GLOBAL.COLOR.rootBAckgroundColor}>
@@ -73,12 +83,15 @@ class Profile extends Component {
                           onPress={() => {this.props.navigation.navigate('QR_Code')}}>
                   
                   <Text style={[styles.setting_text]}>App Setting</Text>
-                    <Image
-                                source={GLOBAL.Arrow_right}
-                                style={[styles.setting_Image,{marginTop:hp("1%")}]}
+                    <ResponsiveImage
+                                source={GLOBAL.Arro}
+                                initWidth={GLOBAL.COLOR.Icon_divider_height} initHeight={GLOBAL.COLOR.Icon_divider_height}
                     />
             </TouchableOpacity>
         </View>
+        <TouchableOpacity onPress={this.logout} style={[styles.button,{marginLeft:wp("30%")}]}>
+          <Text style={styles.buttonText}>Log Out</Text>
+        </TouchableOpacity>
       </ScrollView>
     );
   }

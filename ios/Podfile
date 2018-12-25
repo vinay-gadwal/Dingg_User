@@ -3,10 +3,14 @@ target 'Dingg' do
   # We uncomment because we like dynamic frameworks witn working with swift projects
   use_frameworks!
   # Add new pods below this line
+  pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
+
   target 'DinggTests' do
     inherit! :search_paths
     # Pods for testing
     # Add new pods below this line
+    pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
+
   end
 end
 target 'Dingg-tvOS' do

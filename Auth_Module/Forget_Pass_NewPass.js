@@ -46,15 +46,16 @@ export default class Password extends Component {
   } 
   Password_Validate = () =>
   { 
-    if(this.state.Old_pass === "" && this.state.new_pass === ""){
-      Alert.alert("Please enter new password")
+    if(this.state.Old_pass.trim() === "" && this.state.new_pass.trim() === ""){
+      Alert.alert("Enter the new password and confirm password")
+  }  else if(this.state.Old_pass.trim() === ""){ 
+    Alert.alert("Enter the confirm password")
   }
-    else if(this.state.Old_pass === this.state.new_pass){
+  else if(this.state.Old_pass.trim() !== this.state.new_pass.trim()){
+    Alert.alert("Password and ConfirmPassword Should be same")
+  }
+  else if(this.state.Old_pass.trim() === this.state.new_pass.trim()){
         {this.handlePress()}
-      }
-     else{ 
-        this.setState({new_pass:""})
-        Alert.alert("New Password and ConfirmPassword should be same")
       }
   }
 
@@ -111,9 +112,9 @@ export default class Password extends Component {
        </TouchableOpacity>
         <View style={styles.copy_right_column_signup}>
         <View style={styles.Row}>
-        <Image
+        <ResponsiveImage style={styles.copy_rigth_image}
            source={GLOBAL.Copy_right}
-           style={styles.copy_rigth_image}
+           initWidth={GLOBAL.COLOR.Size_12} initHeight={GLOBAL.COLOR.Size_12}
         />
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>

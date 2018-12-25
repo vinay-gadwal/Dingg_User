@@ -21,6 +21,8 @@ console.disableYellowBox = true;
 import Rating_Screen from './Home_screens/RatingScreen'
 import SignOtp from './Auth_Module/Sign_up_otp'
 import ForgotOtp from './Auth_Module/Forgot_otp'
+import apis from './apis/index'
+
 const AuthStack = createBottomTabNavigator({
   Home: {
     screen: Home,
@@ -107,7 +109,12 @@ const AuthStack = createBottomTabNavigator({
         )
     }
     })
-  }
+  },
+  login: { screen: sing_in,
+  navigationOptions: ()=>({
+    visible: false
+  }),
+  },
 },
 {
   initialRouteName: 'Home',
@@ -194,13 +201,8 @@ const RootStack = createStackNavigator({
       screen:For_New_Pass,
       navigationOptions: ({ navigation }) => ({
         title:'CREATE NEW PASSWORD',
-        headerLeft:(
-          <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
-        <Image
-          source={require('./Image/icon/back_2x.png')}
-          style={[styles.back_butt0n,{marginBottom:hp("1%")}]}
-        />
-        </TouchableOpacity>)
+        headerLeft: null,
+        headerBackTitle:null,
       })
   },
   AddDetails:{
@@ -261,7 +263,7 @@ const RootStack = createStackNavigator({
             </TouchableOpacity>)
           })
         },
-        Rating_Screen:{
+Rating_Screen:{
           screen:Rating_Screen,
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
@@ -279,7 +281,7 @@ const RootStack = createStackNavigator({
       },
 
       {
-        initialRouteName:"SignIn",
+        // initialRouteName:"SignIn",
         // headerMode: "none",
         navigationOptions: {
           headerTitleStyle: {
@@ -289,16 +291,28 @@ const RootStack = createStackNavigator({
 
 });
 
-
 export default class DinggApp extends React.Component {
   constructor(){
+    
     super();
   }
-
+function(){
+  // apis.LOCAL_GET_DATA('ticket').then((value) => {
+  //   if (value) {
+  //     return < RootStack />
+  //   }
+  //   else{
+  //    return <AuthStack/>
+  //   }
+  // }).catch((error) => {
+  //   Alert.alert(error);
+  // });
+  return <RootStack></RootStack>
+}
   render() {
     return (
       <SafeAreaView style={{flex: 1, backgroundColor: 'black'}}  forceInset={{top: 'always'}}>
-        <RootStack />
+        {this.function()}
       </SafeAreaView>
     );
   }

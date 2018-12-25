@@ -38,7 +38,7 @@ export default class example extends Component {
       Alert.alert("Enter Mobile Number")
       this.setState({ processing: false, loginText: 'Successful!' });
     }else if(this.state.usermobile.length >= 11 || this.state.usermobile.length <= 9){
-        Alert.alert("Size of Mobile Number Should be 10")
+        Alert.alert("Size of Mobile Digits Should be 10")
         this.setState({ processing: false, loginText: 'Successful!' });
     }else{
       apis.SIGN_UP(this.state.usermobile)
@@ -99,11 +99,11 @@ export default class example extends Component {
                 initWidth={GLOBAL.COLOR.Size_75} initHeight={GLOBAL.COLOR.Size_75}/>   
            }
           </TouchableOpacity> */}
-            <TouchableOpacity style={styles.button} onPress={this.handlePress.bind(this)} >
+            <TouchableOpacity style={[styles.button,styles.copy_rigth_image]} onPress={this.handlePress.bind(this)} >
             <Text style={[styles.buttonText]}>Submit for OTP</Text>
           </TouchableOpacity>
 
-        <View style={[styles.Row,styles.Padding_verticele_signup,{marginTop:hp("13%")}]}>
+        <View style={[styles.Row,styles.Padding_verticele_signup,{marginTop:hp("11%")}]}>
         <Text style={styles.text}>Already have an account? </Text>
         <View style={styles.column}>
         <TouchableOpacity onPress={() => this.props.navigation.navigate('SignIn')}>
@@ -118,9 +118,9 @@ export default class example extends Component {
         </View>
         <View style={styles.copy_right_column_Forgot}>
         <View style={styles.Row}>
-        <Image
+        <ResponsiveImage style={styles.copy_rigth_image}
            source={GLOBAL.Copy_right}
-           style={styles.copy_rigth_image}
+           initWidth={GLOBAL.COLOR.Size_12} initHeight={GLOBAL.COLOR.Size_12}
         />
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>

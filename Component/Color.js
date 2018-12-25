@@ -4,7 +4,7 @@ import RF from "react-native-responsive-fontsize"
 module.exports = {
     COLOR: {
       ORANGE:'#ffa400',
-      GRAY: '#999999',
+      GRAY: 'rgb(153,153,153)',
       BLACK:"#444444",
       ShadowColor: 'rgb(220,220,220)',
       input_color:"rgb(201,201,201)",
@@ -26,7 +26,7 @@ module.exports = {
        Yellow_60:60,
        Size_75 :75,size_10:10,size_7:7,
        Size_15:15,Size_14:14,
-       Size_60:60,Size_13:13,
+       Size_60:60,Size_13:13,Size_12:12,
        Size_35:35,Size_8:8,size_5:5,size_120:120,
        Size_100:100,Size_16:18,Size_27:27,size_200:200,Size_20:20,size_160:160,
     },

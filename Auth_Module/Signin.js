@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import {
-  AppRegistry,
-  Image,
   Text,
   View,
-  TextInput,Alert,
+  TextInput,Alert,AsyncStorage,
   TouchableOpacity,KeyboardAvoidingView,Keyboard,ScrollView
 } from "react-native";
 import styles from '../Style/Style'
@@ -17,6 +15,8 @@ import RadioGroup from 'react-native-radio-buttons-group';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import apis from '../apis/index'
 import SpinnerButton from 'react-native-spinner-button';
+import SplashScreen from 'react-native-splash-screen';
+
 
 const GLOBAL = require('../Component/Color');
 
@@ -27,7 +27,7 @@ export default class Login extends Component {
     this.state = {
       username: "",
       password: '',
-      hidePassword:"true",
+      hidePassword:"true",token_saved:"",
       loading: false,processing :false,
       data: [ 
         {
@@ -45,17 +45,42 @@ export default class Login extends Component {
             ],
     };  
   }
-  componentDidMount(){
-    // this.props.navigation.navigate('Home')
+  componentDidMount() {
+    apis.LOCAL_GET_DATA('ticket').then((value) => {
+      if (value) {
+        this.setState({ processing: false });
+        this.props.navigation.dangerouslyGetParent().navigate('AuthStack');
+      }
+    }).catch((error) => {
+      Alert.alert(error);
+      this.setState({ processing: false });
+    });
+    apis.OTP_LOCAL_GET_DATA('OTPticket').then((value) => {
+      GLOBAL.token = value;
+      console.log(GLOBAL.DetailsToken)
+      if (value) {
+        this.setState({ processing: false });
+        this.props.navigation.dangerouslyGetParent().navigate('AddDetails');
+      }
+    }).catch((error) => {
+      Alert.alert(error);
+      this.setState({ processing: false });
+    });
   }
+
   handlePress = () => {
     this.setState({ processing: true });
     apis.LOGIN_API(this.state.username, this.state.password)
       .then((responseJson) => {
-        this.setState({ processing: false, loginText: 'Successful!' });
         console.log(responseJson)
+        this.setState({ processing: false, loginText: 'Successful!' });
         if(responseJson.success === true) {
+          apis.LOCAL_SET_DATA('ticket',responseJson.token).then(() => {
           this.props.navigation.navigate('AuthStack');    
+          }).catch((error) => {
+            console.error(error);
+            this.setState({ processing: false });
+          });
         } else {
           Alert.alert(responseJson.message)
         }
@@ -64,8 +89,8 @@ export default class Login extends Component {
         });
       })
       .catch((error) => {
-        console.error(error);
-        this.setState({ processing: false, loginText: 'Try Again' });
+        Alert.alert(error)
+        this.setState({ processing: false });
       });
   }
   phone(){
@@ -138,7 +163,6 @@ export default class Login extends Component {
 </View>
     )
   }
-
   onPress = data => this.setState({ data });
   managePasswordVisibility = () =>
   {
@@ -155,16 +179,15 @@ export default class Login extends Component {
         <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
         </View>
          <View style={[styles.box,styles.Padding_verticele]}>
-         <Text style={[styles.Big_text]}>Sign In Using</Text>
+         <Text style={[styles.Big_text,styles.margin_left]}>Sign In Using</Text>
          <Text></Text>
          
-         <View style={styles.Row}>
+         <View style={styles.radio_button}>
          <RadioGroup  radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
-         <Text style={{color:"white"}}>hm</Text>
          </View>
          {selectedButton}
           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Forget_password')}}>
-          <Text style={[styles.yello_text,{marginLeft:wp("40%")}]}>Forgot Password?</Text>
+          <Text style={[styles.yello_text,{marginLeft:wp("42%")}]}>Forgot Password?</Text>
           </TouchableOpacity>
       </View>
       
@@ -187,7 +210,7 @@ export default class Login extends Component {
         <View style={styles.column}>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('SignUp')}>
             <Text style={styles.text}>Sign Up </Text>
-            <Image
+            <ResponsiveImage
               source={GLOBAL.TAb_image_yellow}
               style={styles.Line_style}
             />
@@ -196,10 +219,10 @@ export default class Login extends Component {
         <Text style={styles.text}>here</Text>
       </View>
       <View style={[styles.copy_right_column]}>
-        <View style={styles.Row}>
-        <Image
+        <View style={[styles.Row]}>
+        <ResponsiveImage style={styles.copy_rigth_image}
            source={GLOBAL.Copy_right}
-           style={styles.copy_rigth_image}
+           initWidth={GLOBAL.COLOR.Size_12} initHeight={GLOBAL.COLOR.Size_12}
         />
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>

@@ -4,7 +4,7 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  View,Alert
+  View,Alert,AsyncStorage
 } from 'react-native';
 import styles from '../Style/Style'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -22,42 +22,55 @@ export default class example extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      code:'',time:500,processing: false,
+      code:'',time:500,processing: false,getValue:""
     };
   }
   otp_verified = () =>{
     if(this.state.code == ''){
-      Alert.alert("Please Enter Valid OTP")
+      Alert.alert("Please Enter OTP")
     }
   }
   handlePress(code) {
     this.setState({ processing: true });
-    if(code == ""){
-      return null;
+    if(code === "" && code != "1234"){
+      Alert.alert("Please Enter OTP")
     }else{
       apis.OTP_SignUP(GLOBAL.mobile,code)
       .then((responseJson) => {
-        this.setState({ processing: false, loginText: 'Successful!' });
-        if(responseJson.success === false){
+        console.log(responseJson)
+        if(responseJson.success == false && responseJson.code === 409)
+        {
+          Alert.alert(responseJson.message)
+        }
+        // this.setState({ processing: false, loginText: 'Successful!' });
+       else if(responseJson.success === false){
           GLOBAL.token = responseJson.data[0].auth_tokan
-          console.log(responseJson.data[0].auth_tokan)
           if(!responseJson.data[0].is_password)
           {
+            apis.Sign_LOCAL_SET_DATA('OTPticket',responseJson.data[0].auth_tokan).then(() => {
             this.props.navigation.navigate('AddDetails');
+            }).catch((error) => {
+             Alert.alert(error);
+              this.setState({ loginText: 'Try Again' });
+            });
           }else{
             this.props.navigation.navigate('SignIn');
             Alert.alert("Mobile Number Already Registered")
           }
         }else{
-          this.props.navigation.navigate('AddDetails');
+          apis.Sign_LOCAL_SET_DATA('OTPticket',responseJson.token).then(() => {
+            this.props.navigation.navigate('AddDetails');
+            }).catch((error) => {
+             Alert.alert(error);
+              this.setState({ loginText: 'Try Again' });
+            });
           GLOBAL.token = responseJson.token;
           console.log(responseJson)
         }
       })
       .catch((error) => {
-        console.error(error);
         Alert.alert(error)
-        this.setState({ processing: false, loginText: 'Try Again' });
+        // this.setState({ processing: false, loginText: 'Try Again' });
       });
     }
   }
@@ -79,8 +92,8 @@ _resend_OTP = async () =>{
       keyboardShouldPersistTaps='handled'
     >      
         <Text style={styles.verify_big_text}>Verify your mobile Number</Text>
-        <View style={[styles.box_SignUp]}>
-          <Text style={styles.text}>Enter OTP sent to +91-{GLOBAL.mobile}</Text>
+        <View style={[styles.box_SignUp,styles.padding_bottom_4]}>
+          <Text style={[styles.text,{marginTop:hp("3%")}]}>Enter OTP sent to +91-{GLOBAL.mobile}</Text>
           <View style={styles.Row}>
           <View style={styles.Otp}> 
             <CodeInput
@@ -118,7 +131,7 @@ _resend_OTP = async () =>{
         initWidth={GLOBAL.COLOR.Size_75} initHeight={GLOBAL.COLOR.Size_75}/>   
       }            
       </TouchableOpacity> */}
-       <TouchableOpacity style={styles.button} onPress={this.otp_verified}>
+       <TouchableOpacity style={[styles.button,{marginBottom:hp("25%")}]} onPress={this.otp_verified}>
       <Text style={[styles.buttonText]}>Next</Text>          
       </TouchableOpacity>
       </KeyboardAwareScrollView>    );

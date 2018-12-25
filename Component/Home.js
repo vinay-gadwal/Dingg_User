@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   Text,
   View,Image,Animated,ImageBackground,
-  ScrollView,Alert,TouchableOpacity,FlatList
+  ScrollView,Alert,TouchableOpacity,FlatList,AsyncStorage
 } from 'react-native';
 import styles from '../Style/Style'
 // import Star from '../Home_screens/RatingScreen'
@@ -296,7 +296,9 @@ class StarReview extends Component {
       );
     };
 
-    
+    componentDidMount(){
+      AsyncStorage.removeItem('OTPticket');
+    }
   render() {
     const Star_Rating = this.displayValue == null ?
     (this.props.half ? this.halfRatingMode() : this.fullRatingMode())

@@ -29,7 +29,7 @@ export default class example extends Component {
   }
 otp_verified = () =>{
   if(this.state.code == ''){
-    Alert.alert("Please Enter Valid OTP")
+    Alert.alert("Please Enter OTP")
   }
 }
   handlePress(code) {
@@ -99,7 +99,7 @@ _resend_OTP = async () =>{
       keyboardShouldPersistTaps='handled'
     >      
         <Text style={styles.verify_big_text}>Verify to continue</Text>
-        <View style={[styles.box_SignUp]}>
+        <View style={[styles.box_SignUp,styles.padding_bottom_4]}>
           <Text style={styles.text}>Enter OTP sent to +91-{GLOBAL.Mobile1}</Text>
           <View style={styles.Row}>
           <View style={styles.Otp}>
@@ -139,7 +139,7 @@ _resend_OTP = async () =>{
                 initWidth={GLOBAL.COLOR.Size_75} initHeight={GLOBAL.COLOR.Size_75}/> 
           }           
           </TouchableOpacity> */}
-           <TouchableOpacity style={styles.button} onPress={this.otp_verified}>
+           <TouchableOpacity style={[styles.button,{marginBottom:hp("25%")}]} onPress={this.otp_verified}>
           <Text style={[styles.buttonText]}>Next</Text>      
           </TouchableOpacity>
 </KeyboardAwareScrollView>    );
