@@ -4,7 +4,7 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  View,Alert,AsyncStorage
+  View,Alert,AsyncStorage,NetInfo
 } from 'react-native';
 import styles from '../Style/Style'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -31,48 +31,50 @@ export default class example extends Component {
     }
   }
   handlePress(code) {
-    this.setState({ processing: true });
-    if(code === "" && code != "1234"){
-      Alert.alert("Please Enter OTP")
-    }else{
-      apis.OTP_SignUP(GLOBAL.mobile,code)
-      .then((responseJson) => {
-        console.log(responseJson)
-        if(responseJson.success == false && responseJson.code === 409)
-        {
-          Alert.alert(responseJson.message)
-        }
-        // this.setState({ processing: false, loginText: 'Successful!' });
-       else if(responseJson.success === false){
-          GLOBAL.token = responseJson.data[0].auth_tokan
-          if(!responseJson.data[0].is_password)
-          {
-            apis.Sign_LOCAL_SET_DATA('OTPticket',responseJson.data[0].auth_tokan).then(() => {
-            this.props.navigation.navigate('AddDetails');
-            }).catch((error) => {
-             Alert.alert(error);
-              this.setState({ loginText: 'Try Again' });
-            });
-          }else{
-            this.props.navigation.navigate('SignIn');
-            Alert.alert("Mobile Number Already Registered")
-          }
-        }else{
-          apis.Sign_LOCAL_SET_DATA('OTPticket',responseJson.token).then(() => {
-            this.props.navigation.navigate('AddDetails');
-            }).catch((error) => {
-             Alert.alert(error);
-              this.setState({ loginText: 'Try Again' });
-            });
-          GLOBAL.token = responseJson.token;
+    NetInfo.isConnected.fetch().done((isConnected) => {
+     if(isConnected){
+      this.setState({ processing: true });
+      if(code === "" && code != "1234"){
+        Alert.alert("Please Enter OTP")
+      }else{
+        apis.OTP_SignUP(GLOBAL.mobile,code)
+        .then((responseJson) => {
           console.log(responseJson)
-        }
-      })
-      .catch((error) => {
-        Alert.alert(error)
-        // this.setState({ processing: false, loginText: 'Try Again' });
-      });
-    }
+          if(responseJson.success == false && responseJson.code === 409)
+          {
+            Alert.alert(responseJson.message)
+          }
+         // // this.setState({ processing: false, loginText: 'Successful!' });
+         else if(responseJson.success === false){
+            GLOBAL.token = responseJson.data[0].auth_tokan
+            if(!responseJson.data[0].is_password)
+            {
+              this.props.navigation.navigate('AddDetails');  
+              this.setState({ usermobile:"" });      
+            }else{
+              this.props.navigation.navigate('SignIn');
+              Alert.alert("Mobile Number Already Registered")
+            }
+          }else{
+            apis.Sign_LOCAL_SET_DATA('OTPticket',responseJson.token).then(() => {
+              this.props.navigation.navigate('AddDetails');
+              }).catch((error) => {
+               Alert.alert(error);
+                this.setState({ loginText: 'Try Again' });
+              });
+            GLOBAL.token = responseJson.token;
+            console.log(responseJson)
+          }
+        })
+        .catch((error) => {
+          Alert.alert(error)
+          // this.setState({ processing: false, loginText: 'Try Again' });
+        });
+      }
+     }else{
+      Alert.alert("Please check your internet connection")
+     }
+    });
   }
 
 _resend_OTP = async () =>{

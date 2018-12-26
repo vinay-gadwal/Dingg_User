@@ -6,7 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  Image,ScrollView,Alert
+  Image,ScrollView,Alert,NetInfo
 } from 'react-native';
 import styles from '../Style/Style'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -33,29 +33,35 @@ otp_verified = () =>{
   }
 }
   handlePress(code) {
-    this.setState({ processing: true });
-    if(code == ""){
-      return null;
-    }
-    else{
-      apis.OTP_FORGOT(GLOBAL.Mobile1,code)
-      .then((responseJson) => {
-        this.setState({ processing: false, loginText: 'Successful!' });
-        if(responseJson.success === true){
-            this.props.navigation.navigate('For_New_Pass');
-            GLOBAL.token = responseJson.token;
+    NetInfo.isConnected.fetch().done((isConnected) => {
+     if(isConnected){
+      this.setState({ processing: true });
+      if(code == ""){
+        return null;
+      }
+      else{
+        apis.OTP_FORGOT(GLOBAL.Mobile1,code)
+        .then((responseJson) => {
+          this.setState({ processing: false, loginText: 'Successful!' });
+          if(responseJson.success === true){
+              this.props.navigation.navigate('For_New_Pass');
+              GLOBAL.token = responseJson.token;
+              Alert.alert(responseJson.message)
+          }
+          else{
             Alert.alert(responseJson.message)
-        }
-        else{
-          Alert.alert(responseJson.message)
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-        Alert.alert(error)
-        this.setState({ processing: false, loginText: 'Try Again' });
-      });
-    }
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+          Alert.alert(error)
+          this.setState({ processing: false, loginText: 'Try Again' });
+        });
+      }
+     }else{
+      Alert.alert("Please check your internet connection")
+     }
+    });
   }
 
 _resend_OTP = async () =>{

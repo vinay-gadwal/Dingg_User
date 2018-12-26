@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View,
   Platform,
-  Image,ScrollView,Alert
+  Image,ScrollView,Alert,NetInfo
 } from 'react-native';
 import styles from '../Style/Style'
 import apis from '../apis/index';
@@ -35,34 +35,41 @@ export default class example extends Component {
     };
   }
   handlePress = async () => {
-    this.setState({ processing: true });
-    if(this.state.usermobile.length == 0)
-    {
-      Alert.alert("Enter Mobile Number")
+    NetInfo.isConnected.fetch().done((isConnected) => {
+if(isConnected){
+  this.setState({ processing: true });
+  if(this.state.usermobile.trim().length == 0)
+  {
+    Alert.alert("Enter Mobile Number")
+    this.setState({ processing: false, loginText: 'Successful!' });
+  }
+  else if(this.state.usermobile.trim().length >= 11 || this.state.usermobile.trim().length <= 9){
+      Alert.alert("Size of Mobile Number Should be 10")
       this.setState({ processing: false, loginText: 'Successful!' });
-    }
-    else if(this.state.usermobile.length >= 11 || this.state.usermobile.length <= 9){
-        Alert.alert("Size of Mobile Number Should be 10")
-        this.setState({ processing: false, loginText: 'Successful!' });
-    }
-    else{
-      apis.FORGET_PASS(this.state.usermobile)
-      .then((responseJson) => {
-        this.setState({ processing: false, loginText: 'Successful!' });
-        console.log(responseJson)
-   GLOBAL.Mobile1 =this.state.usermobile
-   if(responseJson.success === true){
-   this.props.navigation.navigate('ForgotOtp');
-   }
-   else{
-     Alert.alert(responseJson.message)
-   }
-      })
-      .catch((error) => {
-        console.error(error);
-        this.setState({ processing: false, loginText: 'Try Again' });
-      });
-    }
+  }
+  else{
+    apis.FORGET_PASS(this.state.usermobile)
+    .then((responseJson) => {
+      this.setState({ processing: false, loginText: 'Successful!' });
+      console.log(responseJson)
+ GLOBAL.Mobile1 =this.state.usermobile
+ if(responseJson.success === true){
+ this.props.navigation.navigate('ForgotOtp');
+ this.setState({ usermobile:"" });
+ }
+ else{
+   Alert.alert(responseJson.message)
+ }
+    })
+    .catch((error) => {
+      console.error(error);
+      this.setState({ processing: false, loginText: 'Try Again' });
+    });
+  }
+}else{
+  Alert.alert("Please check your internet connection")
+}
+    });
   }
  
   render() {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { TouchableOpacity,View,TextInput,Image,Text,Alert,ScrollView,AsyncStorage
-        } from 'react-native';
+        ,NetInfo} from 'react-native';
 import styles from '../Style/Style'
 import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -16,7 +16,7 @@ const GLOBAL = require('../Component/Color');
 export default class App extends Component {
   constructor(){
     super()
-  
+    this._bootstrapAsync();
     this.state = {
         First_name:"",Last_name:"",Email_id:"",Locality:"",Enter_pass:"", checked: false,
         data: [
@@ -31,39 +31,57 @@ export default class App extends Component {
               fontFamily:GLOBAL.COLOR.Font_bold,
           },
         ],
-        Check_box:true,processing: false,
+        Check_box:true,processing: false,token_otp:""
       }
     }
  DeleteTicket=()=>{
   apis.LOCAL_Delete_DATA('OTPticket')
  }
-    handlePress(){  
-      this.setState({ processing: true });
-      if(this.state.Check_box == false){
-      apis.ADD_Details(GLOBAL.token,this.state.Enter_pass,this.state.First_name,this.state.Last_name,this.state.display_name,
-                        this.state.Email_id,this.state.Locality,GLOBAL.Gender)
-        .then((responseJson) => {
-          this.setState({ processing: false, loginText: 'Successful!' });
-          console.log(responseJson)
-          if(responseJson.success === true){
-              this.props.navigation.navigate('AuthStack');
-              AsyncStorage.removeItem('OTPticket');
-              {this.DeleteTicket}
+ _bootstrapAsync = async () => {
+  const userTokenOTP = await AsyncStorage.getItem('OTPticket');
+this.setState({token_otp:userTokenOTP})
+GLOBAL.token=this.state.token_otp
+};
+    handlePress(){ 
+      NetInfo.isConnected.fetch().done((isConnected) => {
+        if(isConnected){
+          console.log(GLOBAL.token) 
+          this.setState({ processing: true });
+          if(this.state.Check_box == false){
+          apis.ADD_Details(GLOBAL.token,this.state.Enter_pass,this.state.First_name,this.state.Last_name,this.state.display_name,
+                            this.state.Email_id,this.state.Locality,GLOBAL.Gender)
+            .then((responseJson) => {
+              this.setState({ processing: false, loginText: 'Successful!' });
+              console.log(responseJson)
+              if(responseJson.success === true){
+                this.setState({ First_name:"" });
+                this.setState({ Last_name:"" });
+                this.setState({ Email_id:"" });
+                this.setState({ Locality:"" });
+                this.setState({ Enter_pass:"" });
+                Alert.alert("Profile Updated Successfully")
+                apis.LOCAL_Delete_DATA('OTPticket')
+                  this.props.navigation.navigate('AuthStack');
+                  {this.DeleteTicket}
+              }
+              else{
+                Alert.alert(responseJson.message)
+                console.log(responseJson.message)
+                this.setState({ processing: false, loginText: 'Successful!' });
+              }
+            })
+            .catch((error) => {
+              console.error(error);
+              this.setState({ processing: false, loginText: 'Try Again' });
+            });
           }
           else{
-            Alert.alert(responseJson.message)
-            console.log(responseJson.message)
-            this.setState({ processing: false, loginText: 'Successful!' });
+            Alert.alert("Please Accept Terms and Conditions")
           }
-        })
-        .catch((error) => {
-          console.error(error);
-          this.setState({ processing: false, loginText: 'Try Again' });
-        });
-      }
-      else{
-        Alert.alert("Please Accept Terms and Conditions")
-      }
+        }else{
+          Alert.alert("Please check your internet connection")
+        }
+      });
     }
     
     Password_Validate = () =>
@@ -85,7 +103,7 @@ export default class App extends Component {
           Alert.alert("Please enter Password")
         }
       else{
-          {this.handlePress()}
+        {this.go()}
         }
     }
   
@@ -116,6 +134,15 @@ export default class App extends Component {
       <Text style={styles.buttonText}>Submit</Text>
     }
   }
+  go() {
+    const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (reg.test(this.state.Email_id) === true){
+      {this.handlePress()}
+    }
+    else{
+        alert("Please Enter Valid Email");
+    }
+}
   render() {
     let selectedButton = this.state.data.find(e => e.selected == true);
     selectedButton = selectedButton ? selectedButton.value : this.state.data[0].label;

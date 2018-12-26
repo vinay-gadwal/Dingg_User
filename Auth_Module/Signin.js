@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {
   Text,
   View,
-  TextInput,Alert,AsyncStorage,
+  TextInput,Alert,AsyncStorage,NetInfo,
   TouchableOpacity,KeyboardAvoidingView,Keyboard,ScrollView
 } from "react-native";
 import styles from '../Style/Style'
@@ -28,7 +28,7 @@ export default class Login extends Component {
       username: "",
       password: '',
       hidePassword:"true",token_saved:"",
-      loading: false,processing :false,
+      loading: false,processing :false,Mobile_no:"",
       data: [ 
         {
             label: 'Mobile Number',
@@ -46,53 +46,82 @@ export default class Login extends Component {
     };  
   }
   componentDidMount() {
-    apis.LOCAL_GET_DATA('ticket').then((value) => {
-      if (value) {
-        this.setState({ processing: false });
-        this.props.navigation.dangerouslyGetParent().navigate('AuthStack');
+    NetInfo.isConnected.fetch().done((isConnected) => {
+      if(isConnected){
+        apis.LOCAL_GET_DATA('ticket').then((value) => {
+          if (value) {
+            this.setState({ processing: true });
+            this.props.navigation.dangerouslyGetParent().navigate('AuthStack');
+          }
+        }).catch((error) => {
+          Alert.alert(error);
+          this.setState({ processing: false });
+        });
+        // apis.OTP_LOCAL_GET_DATA('OTPticket').then((value) => {
+        //   GLOBAL.token = value;
+        //   console.log(GLOBAL.DetailsToken)
+        //   if (this.state.processing != true) {
+        //     this.props.navigation.dangerouslyGetParent().navigate('AddDetails');
+        //   }
+        // }).catch((error) => {
+        //   Alert.alert(error);
+        //   this.setState({ processing: false });
+        // });
+      }else{
+Alert.alert("Please check your internet connection")
       }
-    }).catch((error) => {
-      Alert.alert(error);
-      this.setState({ processing: false });
-    });
-    apis.OTP_LOCAL_GET_DATA('OTPticket').then((value) => {
-      GLOBAL.token = value;
-      console.log(GLOBAL.DetailsToken)
-      if (value) {
-        this.setState({ processing: false });
-        this.props.navigation.dangerouslyGetParent().navigate('AddDetails');
-      }
-    }).catch((error) => {
-      Alert.alert(error);
-      this.setState({ processing: false });
     });
   }
 
   handlePress = () => {
-    this.setState({ processing: true });
-    apis.LOGIN_API(this.state.username, this.state.password)
-      .then((responseJson) => {
-        console.log(responseJson)
-        this.setState({ processing: false, loginText: 'Successful!' });
-        if(responseJson.success === true) {
-          apis.LOCAL_SET_DATA('ticket',responseJson.token).then(() => {
-          this.props.navigation.navigate('AuthStack');    
-          }).catch((error) => {
-            console.error(error);
+    NetInfo.isConnected.fetch().done((isConnected) => {
+      if(isConnected){
+        if(this.state.username.trim().length == 0){
+          Alert.alert("Please Enter Mobile Number")
+        }
+        else if(this.state.password.trim().length == 0){
+          Alert.alert("Please Enter Password")
+        }
+        else{
+        this.setState({ processing: true });
+        apis.LOGIN_API(this.state.username, this.state.password)
+          .then((responseJson) => {
+            console.log(responseJson)
+            this.setState({ processing: false, loginText: 'Successful!' });
+            if(responseJson.success === true) {
+              apis.LOCAL_SET_DATA('ticket',responseJson.token).then(() => {
+              this.props.navigation.navigate('AuthStack');  
+              this.setState({ username:"" });
+              this.setState({ password:"" });  
+              }).catch((error) => {
+                console.error(error);
+                this.setState({ processing: false });
+              });
+            } else {
+              Alert.alert(responseJson.message)
+            }
+            this.setState({
+              loading: false
+            });
+          })
+          .catch((error) => {
+            Alert.alert(error)
             this.setState({ processing: false });
           });
-        } else {
-          Alert.alert(responseJson.message)
-        }
-        this.setState({
-          loading: false
-        });
-      })
-      .catch((error) => {
-        Alert.alert(error)
-        this.setState({ processing: false });
-      });
-  }
+      }
+      }else{
+        Alert.alert("Please check your internet connection")
+      }
+    });
+    }
+  go = () => {
+    const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (reg.test(this.state.Mobile_no) === true){
+    }
+    else{
+        alert();
+    }
+}
   phone(){
     this.setState({password:"",username:""})
     return(
@@ -148,7 +177,7 @@ export default class Login extends Component {
       <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
        <TextInput
         //  value={this.state.username}
-         onChangeText={username => this.setState({ username })}
+         onChangeText={Mobile_no => this.setState({ Mobile_no })}
          style={[styles.input]}
          returnKeyType='next'
          underlineColorAndroid='transparent'

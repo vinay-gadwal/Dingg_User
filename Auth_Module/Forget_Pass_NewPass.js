@@ -5,7 +5,7 @@ import {
   Text,
   View,
   TextInput,
-  TouchableOpacity,Alert
+  TouchableOpacity,Alert,NetInfo
 } from "react-native";
 import styles from '../Style/Style'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -25,24 +25,32 @@ export default class Password extends Component {
     };
   }
   handlePress(){  
-    this.setState({ processing: true });
-    apis.Reset_Pass(GLOBAL.Mobile1, this.state.new_pass)
-      .then((responseJson) => {
-        this.setState({ processing: false, loginText: 'Successful!' });
-        console.log(responseJson)
-        if(responseJson.success === true){
-          Alert.alert(responseJson.message)
-          this.props.navigation.navigate('SignIn');
-        }
-        else{
-          Alert.alert(responseJson.message)
-          this.setState({ processing: false, loginText: 'Successful!' });
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-        this.setState({ processing: false, loginText: 'Try Again' });
-      });
+    NetInfo.isConnected.fetch().done((isConnected) => {
+      if(isConnected){
+        this.setState({ processing: true });
+        apis.Reset_Pass(GLOBAL.Mobile1, this.state.new_pass)
+          .then((responseJson) => {
+            this.setState({ processing: false, loginText: 'Successful!' });
+            console.log(responseJson)
+            if(responseJson.success === true){
+              Alert.alert(responseJson.message)
+              this.setState({ Old_pass:"" });
+              this.setState({ new_pass:"" });
+              this.props.navigation.navigate('SignIn');
+            }
+            else{
+              Alert.alert(responseJson.message)
+              this.setState({ processing: false, loginText: 'Successful!' });
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+            this.setState({ processing: false, loginText: 'Try Again' });
+          });
+      }else{
+Alert.alert("Please check your internet connection")
+      }
+    });
   } 
   Password_Validate = () =>
   { 
@@ -52,7 +60,7 @@ export default class Password extends Component {
     Alert.alert("Enter the confirm password")
   }
   else if(this.state.Old_pass.trim() !== this.state.new_pass.trim()){
-    Alert.alert("Password and ConfirmPassword Should be same")
+    Alert.alert("Password and Confirm Password Should be same")
   }
   else if(this.state.Old_pass.trim() === this.state.new_pass.trim()){
         {this.handlePress()}

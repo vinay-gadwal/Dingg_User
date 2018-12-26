@@ -4,7 +4,7 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  View,  Image,Alert
+  View,  Image,Alert,NetInfo
 } from 'react-native';
 import styles from '../Style/Style'
 import apis from '../apis/index';
@@ -32,30 +32,37 @@ export default class example extends Component {
     };
   }
   handlePress = async () => {
-    this.setState({ processing: true });
-    if(this.state.usermobile.length == 0)
-    {
-      Alert.alert("Enter Mobile Number")
-      this.setState({ processing: false, loginText: 'Successful!' });
-    }else if(this.state.usermobile.length >= 11 || this.state.usermobile.length <= 9){
-        Alert.alert("Size of Mobile Digits Should be 10")
-        this.setState({ processing: false, loginText: 'Successful!' });
-    }else{
-      apis.SIGN_UP(this.state.usermobile)
-      .then((responseJson) => {
-        this.setState({ processing: false, loginText: 'Successful!' });
-        if(responseJson.success === true) {
-          GLOBAL.mobile = this.state.usermobile
-          this.props.navigation.navigate('SignOtp');
-        }else {
-          Alert.alert(responseJson.message)
+    NetInfo.isConnected.fetch().done((isConnected) => {
+      if(isConnected){
+        this.setState({ processing: true });
+        if(this.state.usermobile.trim().length == 0)
+        {
+          Alert.alert("Enter Mobile Number")
+          this.setState({ processing: false, loginText: 'Successful!' });
+        }else if(this.state.usermobile.trim().length >= 11 || this.state.usermobile.trim().length <= 9){
+            Alert.alert("Size of Mobile Digits Should be 10")
+            this.setState({ processing: false, loginText: 'Successful!' });
+        }else{
+          apis.SIGN_UP(this.state.usermobile)
+          .then((responseJson) => {
+            this.setState({ processing: false, loginText: 'Successful!' });
+            if(responseJson.success === true) {
+              GLOBAL.mobile = this.state.usermobile
+              this.props.navigation.navigate('SignOtp');
+              this.setState({ usermobile:"" });
+            }else {
+              Alert.alert(responseJson.message)
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+            this.setState({ processing: false, loginText: 'Try Again' });
+          });
         }
-      })
-      .catch((error) => {
-        console.error(error);
-        this.setState({ processing: false, loginText: 'Try Again' });
-      });
-    }
+      }else{
+        Alert.alert("Please check your internet connection")
+      }
+    });
   }
  
   render() {

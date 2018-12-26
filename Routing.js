@@ -21,7 +21,9 @@ console.disableYellowBox = true;
 import Rating_Screen from './Home_screens/RatingScreen'
 import SignOtp from './Auth_Module/Sign_up_otp'
 import ForgotOtp from './Auth_Module/Forgot_otp'
+import AuthLoadingScreen from './Component/AuthLoadingScreen'
 import apis from './apis/index'
+const GLOBAL = require('./Component/Color');
 
 const AuthStack = createBottomTabNavigator({
   Home: {
@@ -111,10 +113,10 @@ const AuthStack = createBottomTabNavigator({
     })
   },
   login: { screen: sing_in,
-  navigationOptions: ()=>({
-    visible: false
-  }),
-  },
+    navigationOptions: () => ({
+     tabBarVisible:false
+    })
+  }
 },
 {
   initialRouteName: 'Home',
@@ -142,11 +144,14 @@ const AuthStack = createBottomTabNavigator({
 });
 
 const RootStack = createStackNavigator({
+  AuthLoadingScreen: AuthLoadingScreen,
   SignIn: {
           screen: sing_in,
           navigationOptions: ({ navigation }) => ({
             title: 'SIGN IN',
+            headerLeft: null,
             headerBackTitle:null,
+            tabBarVisible: false
 
           })
         },
@@ -281,7 +286,7 @@ Rating_Screen:{
       },
 
       {
-        // initialRouteName:"SignIn",
+        initialRouteName:"AuthLoadingScreen",
         // headerMode: "none",
         navigationOptions: {
           headerTitleStyle: {
@@ -311,7 +316,7 @@ function(){
 }
   render() {
     return (
-      <SafeAreaView style={{flex: 1, backgroundColor: 'black'}}  forceInset={{top: 'always'}}>
+      <SafeAreaView style={{flex: 1, backgroundColor: GLOBAL.COLOR.White_color}}  forceInset={{top: 'always'}}>
         {this.function()}
       </SafeAreaView>
     );
