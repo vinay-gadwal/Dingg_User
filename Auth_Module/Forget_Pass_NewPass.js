@@ -80,7 +80,7 @@ Alert.alert("Please check your internet connection")
     <View style={styles.Padding_verticele}>
         <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
         </View>
-                <View style={[styles.box,styles.Padding_verticele]}>
+                <View style={[styles.box,styles.Padding_verticele,{paddingBottom:hp("5%")}]}>
         <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
           <TextInput
             value={this.state.new_pass}

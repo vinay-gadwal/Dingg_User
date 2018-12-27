@@ -18,7 +18,7 @@ export default class App extends Component {
   render() {
    
     return (
-      <ScrollView style={GLOBAL.COLOR.rootBAckgroundColor} horizontal={false}>
+      <ScrollView style={{backgroundColor:"rgb(243,242,242)"}} horizontal={false}>
           <Text style={[styles.Yellow_big,styles.catogory]}>Select a category to continue</Text>
           <View style={[styles.Profile_Container]}>
             <TouchableOpacity onPress={() => {this.props.navigation.navigate('AuthStack')}}>

@@ -46,6 +46,7 @@ export default class Login extends Component {
     };  
   }
   componentDidMount() {
+    
     NetInfo.isConnected.fetch().done((isConnected) => {
       if(isConnected){
         apis.LOCAL_GET_DATA('ticket').then((value) => {
@@ -74,15 +75,9 @@ Alert.alert("Please check your internet connection")
   }
 
   handlePress = () => {
+    console.log(this.state.password)
     NetInfo.isConnected.fetch().done((isConnected) => {
       if(isConnected){
-        if(this.state.username.trim().length == 0){
-          Alert.alert("Please Enter Mobile Number")
-        }
-        else if(this.state.password.trim().length == 0){
-          Alert.alert("Please Enter Password")
-        }
-        else{
         this.setState({ processing: true });
         apis.LOGIN_API(this.state.username, this.state.password)
           .then((responseJson) => {
@@ -108,20 +103,27 @@ Alert.alert("Please check your internet connection")
             Alert.alert(error)
             this.setState({ processing: false });
           });
-      }
       }else{
         Alert.alert("Please check your internet connection")
       }
     });
     }
-  go = () => {
-    const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (reg.test(this.state.Mobile_no) === true){
+passwordHandle=(value)=>{
+    if (value === " "){
+      Alert.alert("Invalid Password")
     }
     else{
-        alert();
+     this.setState({password:value});
+     console.log(value)
     }
 }
+// passwordHandle(value){
+//   this.setState({
+//       password:removeWhiteSpace(value)
+//   })
+//   // console.log(removeWhiteSpace(value))
+//   Alert.alert(removeWhiteSpace(value))
+// }
   phone(){
     this.setState({password:"",username:""})
     return(
@@ -152,7 +154,9 @@ Alert.alert("Please check your internet connection")
            <TextInput 
              placeholder="Enter Password"
              onChangeText={password => this.setState({ password })}
+            // onChange={password => this.passwordHandle(password)}
              underlineColorAndroid = "transparent"
+             textContentType='password'
              secureTextEntry
               style = { styles.input }/>
        </TextInputLayout>
@@ -169,6 +173,7 @@ Alert.alert("Please check your internet connection")
             <TextInput 
               placeholder="Enter Password"
               onChangeText={password => this.setState({ password })}
+              // onChange={password => this.passwordHandle(password)}
               underlineColorAndroid = "transparent"
               secureTextEntry
                style = { styles.input }/>
@@ -196,6 +201,9 @@ Alert.alert("Please check your internet connection")
   managePasswordVisibility = () =>
   {
     this.setState({ hidePassword: !this.state.hidePassword });
+  }
+  forceUpdate(){
+    this.setState({username:""})
   }
 
   render() {

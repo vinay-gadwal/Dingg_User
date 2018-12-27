@@ -25,7 +25,7 @@ const apis = {
       const responseJson = await response.json();
       return responseJson;
     } catch (error) {
-      Alert.alert(error)
+      Alert.alert("Error!")
     }
   },
 
@@ -48,7 +48,7 @@ const apis = {
       const responseJson = await response.json();
       return responseJson;
     } catch (error) {
-      console.error(error);
+      Alert.alert("Error!")
     }
   },
 
@@ -74,7 +74,7 @@ const apis = {
       const responseJson = await response.json();
       return responseJson;
     } catch (error) {
-      console.error(error);
+      Alert.alert("Invalid OTP, Please enter a valid OTP.")
     }
   },
 
@@ -117,7 +117,7 @@ const apis = {
       const responseJson = await response.json();
       return responseJson;
     } catch (error) {
-      console.error(error);
+      Alert.alert("Error!")
     }
   },
 
@@ -140,7 +140,7 @@ const apis = {
       const responseJson = await response.json();
       return responseJson;
     } catch (error) {
-      console.error(error);
+      Alert.alert("Error!")
     }
   },
 
@@ -164,7 +164,7 @@ const apis = {
       const responseJson = await response.json();
       return responseJson;
     } catch (error) {
-      console.error(error);
+      Alert.alert("Invalid OTP, Please enter a valid OTP.")
     }
   },
 
@@ -188,7 +188,7 @@ const apis = {
       const responseJson = await response.json();
       return responseJson;
     } catch (error) {
-      console.error(error);
+      Alert.alert("Error!")
     }
   },
 
@@ -212,7 +212,7 @@ const apis = {
       const responseJson = await response.json();
       return responseJson;
     } catch (error) {
-      console.error(error);
+      Alert.alert("Error!")
     }
   },
   LOCAL_SET_DATA: async (key, value) => {

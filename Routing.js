@@ -24,7 +24,7 @@ import ForgotOtp from './Auth_Module/Forgot_otp'
 import AuthLoadingScreen from './Component/AuthLoadingScreen'
 import apis from './apis/index'
 const GLOBAL = require('./Component/Color');
-
+//
 const AuthStack = createBottomTabNavigator({
   Home: {
     screen: Home,

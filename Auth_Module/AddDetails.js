@@ -84,29 +84,6 @@ GLOBAL.token=this.state.token_otp
       });
     }
     
-    Password_Validate = () =>
-    {
-      if(this.state.First_name.trim() === "" ){
-        Alert.alert("Please enter First Name")
-    }
-     else if(this.state.Last_name.trim() === ""){
-      Alert.alert("Please enter Last Name")
-    }
-      else if(this.state.Email_id.trim() === ""){
-        Alert.alert("Please enter Email")
-    }
-      else if(this.state.Locality.trim() === ""){
-          Alert.alert("Please enter Locality")
-        }
-      else if(this.state.Enter_pass.trim() === "")
-        {
-          Alert.alert("Please enter Password")
-        }
-      else{
-        {this.go()}
-        }
-    }
-  
     Select_unselect_mon = () =>
     {
       this.setState({ Check_box: !this.state.Check_box });
@@ -134,6 +111,48 @@ GLOBAL.token=this.state.token_otp
       <Text style={styles.buttonText}>Submit</Text>
     }
   }
+  Password_Validate = () =>
+  {
+    if(this.state.First_name.trim() === "" ){
+      Alert.alert("Please enter First Name")
+  }
+   else if(this.state.Last_name.trim() === ""){
+    Alert.alert("Please enter Last Name")
+  }
+    else if(this.state.Email_id.trim() === ""){
+      Alert.alert("Please enter Email")
+  }
+    else if(this.state.Locality.trim() === ""){
+        Alert.alert("Please enter Locality")
+      }
+    else if(this.state.Enter_pass.trim() === "")
+      {
+        Alert.alert("Please enter Password")
+      }
+    else{
+      {this.nameValidate()}
+      }
+  }
+  nameValidate(){
+    const reg = /^[A-Za-z0-9_]{1,20}$/;
+    if (reg.test(this.state.First_name) === true){
+      {this.last_nameValidate()}
+    }
+    else{
+      alert("Please Enter Valid First Name");
+    }
+  }
+
+  last_nameValidate(){
+    const reg = /^[A-Za-z0-9_]{1,20}$/;
+    if (reg.test(this.state.Last_name) === true){
+      {this.go()}
+    }
+    else{
+      alert("Please Enter Valid Last Name");
+    }
+  }
+
   go() {
     const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (reg.test(this.state.Email_id) === true){

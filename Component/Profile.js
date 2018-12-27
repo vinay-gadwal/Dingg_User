@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   Text,
   View,
-  ScrollView,TouchableOpacity,Image
+  ScrollView,TouchableOpacity,Image,AsyncStorage
 } from 'react-native';
 import styles from '../Style/Style'
 import RF from "react-native-responsive-fontsize"
@@ -15,9 +15,18 @@ import apis from '../apis/index'
 import sing_in from '../Auth_Module/Signin'
 
 class Profile extends Component {
-    state = {
-        
+  constructor(){
+    super()
+    this._bootstrapAsync();
+    this.state = {
+      token_otp:""
       }; 
+    }
+    _bootstrapAsync = async () => {
+      const userTokenOTP = await AsyncStorage.getItem('ticket');
+    this.setState({token_otp:userTokenOTP})
+    console.log(this.state.token_otp)
+    };
   logout=()=>{
     apis.LOCAL_Delete_DATA('OTPticket').then(() => {
       this.props.navigation.navigate('login');    
@@ -26,9 +35,23 @@ class Profile extends Component {
           this.props.navigation.navigate('login');    
           })
   }
+  LogoutButton(){
+    if(this.state.token_otp != null){
+      return(
+        <TouchableOpacity onPress={this.logout} style={[styles.button,{marginLeft:wp("30%")}]}>
+        <Text style={styles.buttonText}>Log Out</Text>
+      </TouchableOpacity>
+      )
+    }
+    else{
+      return(
+        <View></View>
+      )
+    }
+  }
   render() {
     return (
-      <ScrollView style={GLOBAL.COLOR.rootBAckgroundColor}>
+      <ScrollView style={{backgroundColor:"rgb(243,242,242)"}}>
       <View style={{alignItems:"center"}}>
         <Text></Text>
         <Text></Text>
@@ -89,9 +112,7 @@ class Profile extends Component {
                     />
             </TouchableOpacity>
         </View>
-        <TouchableOpacity onPress={this.logout} style={[styles.button,{marginLeft:wp("30%")}]}>
-          <Text style={styles.buttonText}>Log Out</Text>
-        </TouchableOpacity>
+       {this.LogoutButton()}
       </ScrollView>
     );
   }
