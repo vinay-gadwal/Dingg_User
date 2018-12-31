@@ -71,8 +71,7 @@ _resend_OTP = async () =>{
    this.setState({ time : 500 })
   })
   .catch((error) => {
-    console.error(error);
-    Alert.alert(error)
+    Alert.alert("Please check your internet connection")
   });
 }
  _onFulfill(code) {
@@ -130,7 +129,7 @@ _resend_OTP = async () =>{
                         allowFontScaling={true}
                         style={styles.Timer_countdown}
                     />
-                  <TouchableOpacity onPress={this._resend_OTP.bind(this)}>
+      <TouchableOpacity >
         <Text style={[styles.orange_text]}>Resend OTP</Text>               
     </TouchableOpacity>
               </View>

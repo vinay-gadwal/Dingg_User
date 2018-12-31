@@ -34,9 +34,9 @@ export default class App extends Component {
         Check_box:true,processing: false,token_otp:""
       }
     }
- DeleteTicket=()=>{
-  apis.LOCAL_Delete_DATA('OTPticket')
- }
+//  DeleteTicket=()=>{
+//   apis.LOCAL_Delete_DATA('OTPticket')
+//  }
  _bootstrapAsync = async () => {
   const userTokenOTP = await AsyncStorage.getItem('OTPticket');
 this.setState({token_otp:userTokenOTP})
@@ -60,9 +60,9 @@ GLOBAL.token=this.state.token_otp
                 this.setState({ Locality:"" });
                 this.setState({ Enter_pass:"" });
                 Alert.alert("Profile Updated Successfully")
-                apis.LOCAL_Delete_DATA('OTPticket')
+                // apis.LOCAL_Delete_DATA('OTPticket')
                   this.props.navigation.navigate('AuthStack');
-                  {this.DeleteTicket}
+                  // {this.DeleteTicket}
               }
               else{
                 Alert.alert(responseJson.message)
@@ -134,7 +134,7 @@ GLOBAL.token=this.state.token_otp
       }
   }
   nameValidate(){
-    const reg = /^[A-Za-z0-9_]{1,20}$/;
+    const reg = /^[A-Za-z_]{1,20}$/;
     if (reg.test(this.state.First_name) === true){
       {this.last_nameValidate()}
     }
@@ -144,7 +144,7 @@ GLOBAL.token=this.state.token_otp
   }
 
   last_nameValidate(){
-    const reg = /^[A-Za-z0-9_]{1,20}$/;
+    const reg = /^[A-Za-z_]{1,20}$/;
     if (reg.test(this.state.Last_name) === true){
       {this.go()}
     }
@@ -199,7 +199,7 @@ GLOBAL.token=this.state.token_otp
                         // onSubmitEditing={() => this.passwordInput.focus()}
                         style={styles.input}
                         placeholder="Email ID"
-                        returnKeyType="next"
+                        keyboardType="email-address"
                         
                       />
                   </TextInputLayout>
@@ -212,7 +212,6 @@ GLOBAL.token=this.state.token_otp
                         style={styles.input}
                         placeholder="Locality"
                         returnKeyType="next"
-                        keyboardType="email-address"
                       />
                   </TextInputLayout>
                   <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>

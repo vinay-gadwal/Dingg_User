@@ -22,7 +22,8 @@ export default class AuthLoadingScreen extends React.Component {
     GLOBAL.token=userTokenOTP
     if(userTokenOTP != undefined){
         this.props.navigation.navigate(userTokenOTP ? 'AddDetails' : 'SignIn');
-    }
+          GLOBAL.Sign_Token=userTokenOTP
+      }
     else{
     this.props.navigation.navigate(userToken ? 'Home' : 'SignIn');
     }

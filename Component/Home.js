@@ -296,9 +296,6 @@ class StarReview extends Component {
       );
     };
 
-    componentDidMount(){
-      AsyncStorage.removeItem('OTPticket');
-    }
   render() {
     const Star_Rating = this.displayValue == null ?
     (this.props.half ? this.halfRatingMode() : this.fullRatingMode())

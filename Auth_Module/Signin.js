@@ -182,7 +182,7 @@ passwordHandle=(value)=>{
       <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
        <TextInput
         //  value={this.state.username}
-         onChangeText={Mobile_no => this.setState({ Mobile_no })}
+         onChangeText={username => this.setState({ username })}
          style={[styles.input]}
          returnKeyType='next'
          underlineColorAndroid='transparent'

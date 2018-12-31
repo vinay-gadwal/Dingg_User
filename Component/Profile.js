@@ -19,21 +19,31 @@ class Profile extends Component {
     super()
     this._bootstrapAsync();
     this.state = {
-      token_otp:""
+      token_otp:"",token:""
       }; 
     }
     _bootstrapAsync = async () => {
       const userTokenOTP = await AsyncStorage.getItem('ticket');
-    this.setState({token_otp:userTokenOTP})
+      const userToken = await AsyncStorage.getItem('OTPticket');
+      this.setState({token_otp:userTokenOTP})
+    this.setState({token:userToken})
     console.log(this.state.token_otp)
+    console.log(this.state.token)
     };
+    componentDidMount(){
+      apis.LOCAL_Delete_DATA('OTPticket').then(() => {
+        this.props.navigation.navigate('login');    
+        })
+          apis.LOCAL_Delete_DATA('ticket').then(() => {
+            this.props.navigation.navigate('login');    
+            })
+    }
   logout=()=>{
-    apis.LOCAL_Delete_DATA('OTPticket').then(() => {
-      this.props.navigation.navigate('login');    
-      })
-        apis.LOCAL_Delete_DATA('ticket').then(() => {
-          this.props.navigation.navigate('login');    
-          })
+    debugger
+    apis.LOCAL_Delete_DATA('OTPticket')
+    apis.LOCAL_Delete_DATA('ticket')
+    debugger
+    this.props.navigation.navigate('RootStack');    
   }
   LogoutButton(){
     if(this.state.token_otp != null){
@@ -41,6 +51,13 @@ class Profile extends Component {
         <TouchableOpacity onPress={this.logout} style={[styles.button,{marginLeft:wp("30%")}]}>
         <Text style={styles.buttonText}>Log Out</Text>
       </TouchableOpacity>
+      )
+    }
+    else if(this.state.token != null){
+      return(
+      <TouchableOpacity onPress={this.logout} style={[styles.button,{marginLeft:wp("30%")}]}>
+      <Text style={styles.buttonText}>Log Out</Text>
+    </TouchableOpacity>
       )
     }
     else{

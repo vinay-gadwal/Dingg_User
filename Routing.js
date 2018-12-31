@@ -112,11 +112,7 @@ const AuthStack = createBottomTabNavigator({
     }
     })
   },
-  login: { screen: sing_in,
-    navigationOptions: () => ({
-     tabBarVisible:false
-    })
-  }
+
 },
 {
   initialRouteName: 'Home',
