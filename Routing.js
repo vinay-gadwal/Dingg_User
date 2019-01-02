@@ -23,6 +23,7 @@ import SignOtp from './Auth_Module/Sign_up_otp'
 import ForgotOtp from './Auth_Module/Forgot_otp'
 import AuthLoadingScreen from './Component/AuthLoadingScreen'
 import apis from './apis/index'
+
 const GLOBAL = require('./Component/Color');
 //
 const AuthStack = createBottomTabNavigator({
@@ -291,7 +292,16 @@ Rating_Screen:{
             },
 
 });
-
+const FinalStack = createStackNavigator({
+  RootStack:RootStack,
+  AuthStack:AuthStack,
+  SignIn:sing_in,
+},
+{
+  initialRouteName:"RootStack",
+  headerMode: "none",
+}
+)
 export default class DinggApp extends React.Component {
   constructor(){
     
@@ -308,12 +318,12 @@ function(){
   // }).catch((error) => {
   //   Alert.alert(error);
   // });
-  return <RootStack></RootStack>
+  
 }
   render() {
     return (
       <SafeAreaView style={{flex: 1, backgroundColor: GLOBAL.COLOR.White_color}}  forceInset={{top: 'always'}}>
-        {this.function()}
+      <FinalStack />
       </SafeAreaView>
     );
   }

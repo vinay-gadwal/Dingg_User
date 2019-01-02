@@ -95,6 +95,9 @@ class StarReview extends Component {
     index = 0;
     this.animatedValue = new Animated.Value(0);
     }
+    componentDidMount(){
+      apis.LOCAL_Delete_DATA('OTPticket')
+    }
     FlatListItemSeparator = () => {
       return (
         <View

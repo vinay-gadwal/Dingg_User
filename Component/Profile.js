@@ -25,10 +25,12 @@ class Profile extends Component {
     _bootstrapAsync = async () => {
       const userTokenOTP = await AsyncStorage.getItem('ticket');
       const userToken = await AsyncStorage.getItem('OTPticket');
+      const Registered = await AsyncStorage.getItem('Registered');
       this.setState({token_otp:userTokenOTP})
-    this.setState({token:userToken})
+    this.setState({token:Registered})
     console.log(this.state.token_otp)
     console.log(this.state.token)
+    console.log(Registered)
     };
     componentDidMount(){
       apis.LOCAL_Delete_DATA('OTPticket').then(() => {
@@ -38,12 +40,13 @@ class Profile extends Component {
             this.props.navigation.navigate('login');    
             })
     }
+    //
   logout=()=>{
-    debugger
-    apis.LOCAL_Delete_DATA('OTPticket')
+    apis.LOCAL_Delete_DATA('Registered')
     apis.LOCAL_Delete_DATA('ticket')
-    debugger
-    this.props.navigation.navigate('RootStack');    
+    this.props.navigation.navigate('SignIn' ,{
+      onGoBack: () => console.log('Will go back from nextComponent'),
+    });    
   }
   LogoutButton(){
     if(this.state.token_otp != null){

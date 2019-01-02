@@ -26,7 +26,7 @@ export default class Login extends Component {
     super(props);
     this.state = {
       username: "",
-      password: '',
+      password: '',password_email:'',
       hidePassword:"true",token_saved:"",
       loading: false,processing :false,Mobile_no:"",
       data: [ 
@@ -45,8 +45,14 @@ export default class Login extends Component {
             ],
     };  
   }
-  componentDidMount() {
-    
+  componentWillReceiveProps(){
+    this.setState({username:""})
+    this.setState({password:""})
+  }
+  componentDidMount(){
+    {this.onPress}
+    this.setState({username:""})
+    this.setState({password:""})
     NetInfo.isConnected.fetch().done((isConnected) => {
       if(isConnected){
         apis.LOCAL_GET_DATA('ticket').then((value) => {
@@ -58,22 +64,12 @@ export default class Login extends Component {
           Alert.alert(error);
           this.setState({ processing: false });
         });
-        // apis.OTP_LOCAL_GET_DATA('OTPticket').then((value) => {
-        //   GLOBAL.token = value;
-        //   console.log(GLOBAL.DetailsToken)
-        //   if (this.state.processing != true) {
-        //     this.props.navigation.dangerouslyGetParent().navigate('AddDetails');
-        //   }
-        // }).catch((error) => {
-        //   Alert.alert(error);
-        //   this.setState({ processing: false });
-        // });
       }else{
 Alert.alert("Please check your internet connection")
       }
     });
   }
-
+  forceUpdate
   handlePress = () => {
     console.log(this.state.password)
     NetInfo.isConnected.fetch().done((isConnected) => {
@@ -125,7 +121,8 @@ passwordHandle=(value)=>{
 //   Alert.alert(removeWhiteSpace(value))
 // }
   phone(){
-    this.setState({password:"",username:""})
+    this.setState({username:""})
+    this.setState({password:""})
     return(
       <View style={styles.column}>
       <View style={styles.Row}>
@@ -149,6 +146,8 @@ passwordHandle=(value)=>{
        />
       </TextInputLayout>
       </View>
+      <View style={styles.Row}>
+      <View></View>
        <View style = { styles.textBoxBtnHolder } > 
        <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}  labelFontSize={0.1}>
            <TextInput 
@@ -162,23 +161,13 @@ passwordHandle=(value)=>{
        </TextInputLayout>
 </View>
 </View>
+</View>
     )
   }
   email(){
-    this.setState({password:"",username:""})
+    this.setState({password:""})
     return(
-      <View style={styles.Column_reverse}>
-       <View style = { styles.textBoxBtnHolder } > 
-        <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}  labelFontSize={0.1}>
-            <TextInput 
-              placeholder="Enter Password"
-              onChangeText={password => this.setState({ password })}
-              // onChange={password => this.passwordHandle(password)}
-              underlineColorAndroid = "transparent"
-              secureTextEntry
-               style = { styles.input }/>
-        </TextInputLayout>
-</View>
+      <View style={styles.column}>
       <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
        <TextInput
         //  value={this.state.username}
@@ -194,10 +183,21 @@ passwordHandle=(value)=>{
          placeholder="Enter Email ID"
        />
       </TextInputLayout>
+      <View style = { styles.textBoxBtnHolder } > 
+        <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}  labelFontSize={0.1}>
+            <TextInput 
+              placeholder="Enter Password"
+              onChangeText={password_email => this.setState({ password_email })}
+              // onChange={password => this.passwordHandle(password)}
+              underlineColorAndroid = "transparent"
+              secureTextEntry
+               style = { styles.input }/>
+        </TextInputLayout>
+</View>
 </View>
     )
   }
-  onPress = data => this.setState({ data });
+  onPress = data => {[this.setState({ data }),this.setState({username:""}),this.setState({password:""})]}
   managePasswordVisibility = () =>
   {
     this.setState({ hidePassword: !this.state.hidePassword });
@@ -208,7 +208,7 @@ passwordHandle=(value)=>{
 
   render() {
     let selectedButton = this.state.data.find(e => e.selected == true);
-        selectedButton = selectedButton ? selectedButton.value : this.phone()
+        selectedButton = selectedButton ? selectedButton.value : this.email()
     return (
     <KeyboardAwareScrollView  contentContainerStyle={styles.container}
                  keyboardShouldPersistTaps='handled'>

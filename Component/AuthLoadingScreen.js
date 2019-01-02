@@ -17,10 +17,14 @@ export default class AuthLoadingScreen extends React.Component {
   _bootstrapAsync = async () => {
     const userToken = await AsyncStorage.getItem('ticket');
     const userTokenOTP = await AsyncStorage.getItem('OTPticket');
+    const Registered = await AsyncStorage.getItem('Registered');
     // This will switch to the App screen or Auth screen and this loading
     // screen will be unmounted and thrown away.
+    console.log(Registered)
     GLOBAL.token=userTokenOTP
-    if(userTokenOTP != undefined){
+    if(Registered != null){
+      this.props.navigation.navigate('Home');
+    }else if(userTokenOTP != undefined){
         this.props.navigation.navigate(userTokenOTP ? 'AddDetails' : 'SignIn');
           GLOBAL.Sign_Token=userTokenOTP
       }

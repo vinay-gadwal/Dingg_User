@@ -370,7 +370,7 @@ callingCodeView: {alignItems: 'center',justifyContent: 'center'},
 callingCodeText: {
       fontSize: RF(3),
       color: "black",
-      fontFamily: 'Helvetica',
+      fontFamily: GLOBAL.COLOR.Font,
       fontWeight: 'bold',
       paddingRight: 10
     },

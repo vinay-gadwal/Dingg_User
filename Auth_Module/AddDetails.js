@@ -59,6 +59,7 @@ GLOBAL.token=this.state.token_otp
                 this.setState({ Email_id:"" });
                 this.setState({ Locality:"" });
                 this.setState({ Enter_pass:"" });
+              AsyncStorage.setItem('Registered', "true")
                 Alert.alert("Profile Updated Successfully")
                 // apis.LOCAL_Delete_DATA('OTPticket')
                   this.props.navigation.navigate('AuthStack');
