@@ -103,7 +103,7 @@ _resend_OTP = async () =>{
     <KeyboardAwareScrollView  contentContainerStyle={styles.container}
       keyboardShouldPersistTaps='handled'
     >      
-        <Text style={styles.verify_big_text}>Verify to continue</Text>
+        <Text style={[styles.verify_big_text,{marginRight:wp("40%")}]}>Verify to continue</Text>
         <View style={[styles.box_SignUp,styles.padding_bottom_4]}>
           <Text style={styles.text}>Enter OTP sent to +91-{GLOBAL.Mobile1}</Text>
           <View style={styles.Row}>
@@ -130,7 +130,7 @@ _resend_OTP = async () =>{
                         style={styles.Timer_countdown}
                     />
       <TouchableOpacity >
-        <Text style={[styles.orange_text]}>Resend OTP</Text>               
+        <Text style={[styles.orange_text,{marginVertical:hp("1%")}]}>Resend OTP</Text>               
     </TouchableOpacity>
               </View>
           </View>
@@ -144,7 +144,7 @@ _resend_OTP = async () =>{
                 initWidth={GLOBAL.COLOR.Size_75} initHeight={GLOBAL.COLOR.Size_75}/> 
           }           
           </TouchableOpacity> */}
-           <TouchableOpacity style={[styles.button,{marginBottom:hp("25%")}]} onPress={this.otp_verified}>
+           <TouchableOpacity style={[styles.button,{marginBottom:hp("35%")}]} onPress={this.otp_verified}>
           <Text style={[styles.buttonText]}>Next</Text>      
           </TouchableOpacity>
 </KeyboardAwareScrollView>    );

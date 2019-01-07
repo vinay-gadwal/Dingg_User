@@ -23,7 +23,7 @@ import SignOtp from './Auth_Module/Sign_up_otp'
 import ForgotOtp from './Auth_Module/Forgot_otp'
 import AuthLoadingScreen from './Component/AuthLoadingScreen'
 import apis from './apis/index'
-
+import Salon_details from './Home_screens/SalonDetails'
 const GLOBAL = require('./Component/Color');
 //
 const AuthStack = createBottomTabNavigator({
@@ -279,6 +279,7 @@ Rating_Screen:{
             </TouchableOpacity>)
           })
         },
+        Salon_details:Salon_details
 
       },
 

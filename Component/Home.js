@@ -340,12 +340,12 @@ class StarReview extends Component {
         
         </View>
       </View>
-      <View style={styles.Home_filter}>
+      <View style={[styles.Home_filter,{marginVertical:hp("1.3%")}]}>
           <Text style={styles.grey_text}>FILTER</Text>
           <ResponsiveImage source={GLOBAL.Filter_Icon} style={[styles.Home_icon,{marginHorizontal:wp("2%")}]} initWidth={GLOBAL.COLOR.Size_15} initHeight={GLOBAL.COLOR.Size_15}/> 
       </View>
-
-      <View style={[styles.box]}>
+      <View>
+      <View style={[styles.box,{paddingVertical:hp("1.2%"),}]}>
         <Text style={[styles.Big_text,{marginRight:wp("60%")}]}>Top Picks</Text>
       </View>
       
@@ -377,8 +377,8 @@ class StarReview extends Component {
               </View>
               <View style={styles.Home_row}>
                 <View style={styles.column}>
-                  <Text style={[styles.grey_text,styles.Queue_row]}>Chowpatty</Text>
-                  <Text style={[styles.grey_text,styles.Queue_row]}>Open till 10 pm</Text>
+                  <Text style={[styles.grey_text,styles.Queue_row,{marginTop:hp("0%")}]}>Chowpatty</Text>
+                  <Text style={[styles.grey_text,styles.Queue_row,{marginTop:hp("0%")}]}>Open till 10 pm</Text>
                 </View>
                   <ResponsiveImage style={styles.margin_5} source={GLOBAL.rectangle_image} initWidth={GLOBAL.COLOR.Icon_divider_width} initHeight={GLOBAL.COLOR.Size_35}/>
                   <View style={[styles.column]}>
@@ -390,7 +390,7 @@ class StarReview extends Component {
               </View>
             </View>
                           <View style={[styles.Edit_button]}>
-                            <View style={[styles.Button_offer_home]}>
+                            <View style={[styles.Button_offer_home,{marginTop:hp("2%")}]}>
                               <Text style={styles.offer_button_text}>20%</Text>
                               <Text style={styles.offer_button_text}>off</Text>
                             </View>
@@ -400,6 +400,7 @@ class StarReview extends Component {
         }}
         keyExtractor={(item, index) => index}
       />
+      </View>
       <View style={[styles.Row]}>
               <FlatList          
                     data={ this.state.dataSource1 }
@@ -504,20 +505,20 @@ StarReview.defaultProps = {
 export default createStackNavigator({
   StarReview:{
     screen:StarReview,
-    headerMode: null,
-    navigationOptions: ({ navigation }) => ({
-    })
+    navigationOptions: {
+      header: null //this will hide the header
+    },
   },
   Search:{
           screen:Search,
-          headerMode: null,
-    navigationOptions: ({ navigation }) => ({
-    })
+          navigationOptions: {
+            header: null //this will hide the header
+          },
         },
  Alert_top:{
           screen:Alert_top,
           navigationOptions: ({ navigation }) => ({
-            title: 'ALERTS',
+            title: 'NOTIFICATION',
             headerLeft:null,
             headerRight:(
             <Image
@@ -556,7 +557,7 @@ export default createStackNavigator({
 
 {
   initialRouteName:"StarReview",
-  headerMode: "none",
+  // headerMode: "none",
   navigationOptions: {
     headerTitleStyle: styles.Header
       },

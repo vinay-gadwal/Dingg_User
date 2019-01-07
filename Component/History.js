@@ -20,10 +20,10 @@ class Ongoing extends React.Component {
                      Select_unselect_3:"true",Select_unselect_4:"true",Select_unselect_5:"true",
                          dataSource : [ 
                              {
-                                 name:"Hair "
+                                 name:"1h 15m "
                              },
                              {
-                              name:"Hair cut"
+                              name:"1h 15m "
                           },
                      ],
                     
@@ -77,8 +77,8 @@ class Ongoing extends React.Component {
   render() {
     return (
         <ScrollView>
-        <View style={styles.container}>      
-             <View style={styles.Row}>
+        <View style={[styles.container]}>      
+        <View style={[styles.Row,{height:hp("100%"),marginTop:hp("2%")}]}>
                       <FlatList          
                             data={ this.state.dataSource }
                             renderItem={({item}) => 
@@ -86,22 +86,23 @@ class Ongoing extends React.Component {
                                 <View style={styles.Row}>                          
                                      
                                      <View style={styles.Flat_box_column}>
-                                        <View style={[styles.Row,styles.margin_3]}>
-                                            <ResponsiveImage source={GLOBAL.Serve_time}  initWidth={GLOBAL.COLOR.Size_16} initHeight={GLOBAL.COLOR.Size_16}/>
-                                            <Text style={styles.grey_text}>{item.name}</Text>
+                                        <View style={[styles.Row,styles.margin_3,{marginTop:hp("2.5%")}]}>
+                                            <ResponsiveImage source={GLOBAL.Serve_time} style={{marginTop:hp("1%")}} initWidth={GLOBAL.COLOR.Size_16} initHeight={GLOBAL.COLOR.Size_16}/>
+                                            <Text style={[styles.grey_text,{marginRight:wp("12%")}]}>{item.name}</Text>
                                          </View>
                                          <View style={styles.Padding_verticele}>
-                                         <Image style={styles.avatarMultiple} source={GLOBAL.Image} />
+                                         <Image style={[styles.FlatList_Image,{width: wp('25%'),height: hp('14.5%'),}]} 
+                                          source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}  />                                 
                                          </View>
                                     </View>           
                                       
                                     <View style={styles.Flex_box_right}>
-                                         <Text style={[styles.text]}>Token ID : TK102</Text>
-                                         <Text style={[styles.text]}>{item.name}</Text>
+                                         <Text style={[styles.Flat_box_text]}>Token ID : TK102</Text>
+                                         <Text style={[styles.Flat_box_text]}>{item.name}</Text>
                                          <Text style={[styles.grey_text]}>Service</Text>
-                                         <Text style={[styles.text]}>{item.name}</Text>
+                                         <Text style={[styles.Flat_box_text,{marginTop:hp("0%")}]}>ndcjkdasfdshafdsafjdsafdfjkdhjfdsjfdsfjkdsfjkndsjkfjkdsafjkdsahjadfs</Text>
                                          <Text style={[styles.grey_text]}>Stylist</Text>
-                                         <Text style={[styles.text]}>{item.name}</Text>
+                                         <Text style={[styles.Flat_box_text,{marginTop:hp("0%")}]}>{item.name}</Text>
                                     </View>           
                                 </View>  
                                 </View> }                       
@@ -120,7 +121,7 @@ class StarReview extends React.Component {
                      rating: this.defaultRating,
                          dataSource1 : [ 
                              {
-                                 name:"Hair cut"
+                                 name:"15oct2018"
                              },
                      ],
                     
@@ -306,29 +307,32 @@ class StarReview extends React.Component {
     return (
         <ScrollView>
         <View style={styles.container}>
-             <View style={styles.Row}>
+        <View style={[styles.Row,{height:hp("100%"),marginTop:hp("2%")}]}>
                       <FlatList          
                             data={ this.state.dataSource1 }
                             renderItem={({item}) => 
                             <View style={styles.Flex_main_box}>
                                 <View style={styles.Row}>                          
                                      <View style={styles.Flat_box_column}>
-                                     <View style={[styles.Row,styles.margin_3]}>
-                                            <ResponsiveImage source={GLOBAL.Date_icon} initWidth={GLOBAL.COLOR.Size_16} initHeight={GLOBAL.COLOR.Size_16}/>
-                                            <Text style={styles.grey_text}>{item.name}</Text>
+                                     <View style={[styles.Row,styles.margin_3,{marginTop:hp("2.5%")}]}>
+                                            <ResponsiveImage source={GLOBAL.Date_icon} style={{marginTop:hp("1%")}} initWidth={GLOBAL.COLOR.Size_16} initHeight={GLOBAL.COLOR.Size_16}/>
+                                            <Text style={[styles.grey_text,{marginRight:wp("6%")}]}>{item.name}</Text>
                                          </View>
                                          <View style={styles.Padding_verticele}>
-                                         <Image style={styles.avatarMultiple} source={GLOBAL.Image} />
+                                         <Image style={[styles.FlatList_Image]} 
+                                          source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}  />                                 
                                          </View>
+                                         <View style={{marginRight:wp("7%"),marginBottom:hp("2%")}}>
                                          {view}
+                                         </View>
                                     </View>           
                                       <View style={styles.Flex_box_right}>
-                                         <Text style={[styles.text]}>Token ID : TK102</Text>
-                                         <Text style={[styles.text]}>{item.name}</Text>
+                                         <Text style={[styles.Flat_box_text]}>Token ID : TK102</Text>
+                                         <Text style={[styles.Flat_box_text]}>{item.name}</Text>
                                          <Text style={[styles.grey_text]}>Service</Text>
-                                         <Text style={[styles.text]}>{item.name}</Text>
+                                         <Text style={[styles.Flat_box_text,{marginTop:hp("0%")}]}>{item.name}</Text>
                                          <Text style={[styles.grey_text]}>Stylist</Text>
-                                         <Text style={[styles.text]}>{item.name}</Text>
+                                         <Text style={[styles.Flat_box_text,{marginTop:hp("0%")}]}>{item.name}</Text>
                                     </View>           
                                 </View> 
                                 </View>  }                       
@@ -367,12 +371,12 @@ StarReview.defaultProps = {
   count: 5,
   rating: 0,
   default: 0,
-  starSize: 12,
+  starSize: 10,
   update: () => {},
   backingColor: 'white',
   opacity: false,
   half: false,
-  spacing: 8
+  spacing: 6
 }
 
 const AuthStack = createMaterialTopTabNavigator({
@@ -382,8 +386,8 @@ const AuthStack = createMaterialTopTabNavigator({
         const line = focused ? GLOBAL.TAb_image_yellow : GLOBAL.TAb_image_transparent
         return (
           <View style={styles.column}>
-          <Text style={[styles.Tab_text]}>Ongoing</Text>
-          <ResponsiveImage source={line} style={styles.Tab_line} initWidth={GLOBAL.COLOR.Size_100} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
+          <Text style={[styles.Tab_text,{marginTop:hp}]}>Ongoing</Text>
+          <ResponsiveImage source={line} style={[styles.Tab_line]} initWidth={GLOBAL.COLOR.Size_100} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
           </View>
         )
     }
@@ -408,10 +412,10 @@ const AuthStack = createMaterialTopTabNavigator({
     labelStyles:{ fontSize:RF(5),
      } ,
     style: {
-      height: hp("8%"),
-      marginTop:hp("3%"),
+      height: hp("7%"),
+      marginTop:hp("2%"),
       backgroundColor: "white",
-      borderRadius:10,
+      borderRadius:8,
       marginHorizontal:wp("5%"),
       justifyContent:"flex-end"
     },
@@ -442,7 +446,7 @@ const AuthStack = createMaterialTopTabNavigator({
    Alert_top:{
             screen:Alert_top,
             navigationOptions: ({ navigation }) => ({
-              title: 'ALERTS',
+              title: 'NOTIFICATION',
               headerLeft:null,
               headerRight:(
               <Image

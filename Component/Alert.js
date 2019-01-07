@@ -51,11 +51,11 @@ return (
    
 <View style={styles.container}>
         
-     <View style={styles.Row}>
+     <View style={[styles.Row,{height:hp("100%")}]}>
               <FlatList          
                     data={ this.state.dataSource }
                     renderItem={({item}) => 
-                    <View style={styles.list_box}>
+                    <View style={[styles.list_box]}>
                         <View style={styles.Row}>                          
                              <View style={[styles.column,styles.Padding_verticele,styles.Image_margin]}>
                                 <Image style={styles.avatarMultiple} source={{uri:item.imageUrl}} />                                 

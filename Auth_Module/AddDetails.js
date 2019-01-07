@@ -236,7 +236,7 @@ GLOBAL.token=this.state.token_otp
                   <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.Select_unselect_mon }>
                         <Image source = { ( this.state.Check_box ) ? GLOBAL.Unchecked : GLOBAL.Checked } style = {styles.Checked_button} />
                   </TouchableOpacity>
-                <Text style={styles.copy_rigth}>I agree to Dingg's</Text>
+                <Text style={[styles.copy_rigth,{marginTop:hp(".3%")}]}>I agree to Dingg's</Text>
                 <TouchableOpacity onPress={ () => this.openDialog(true) }>
                 <Text style={[styles.orange_text,styles.copy_rigth_image]}> Terms & Conditions</Text>
                 </TouchableOpacity>

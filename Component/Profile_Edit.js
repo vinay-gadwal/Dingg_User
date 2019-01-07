@@ -201,7 +201,7 @@ export default class App extends Component {
                   </TextInputLayout>  
                     </View>
                   </View>     
-                  <View style={styles.radio_button}>
+                  <View style={[styles.radio_button,{marginRight:wp("55"),marginTop:hp("2%")}]}>
                   <RadioGroup  radioButtons={this.state.data} onPress={this.Gender_Button}  flexDirection='row' />
                   </View>
           </View>

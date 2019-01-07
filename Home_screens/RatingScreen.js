@@ -181,15 +181,15 @@ export default class StarReview extends Component {
       this.displayMode()
     return (
        <View style={{backgroundColor:"rgb(243,242,242)",alignItems:"center",flex:1}}>
-        <Text style={{fontFamily:"Muli-ExtraBold",fontSize:RF(2.3),marginTop:hp("5%")}}>Hope you enjoyed our service</Text>
+        <Text style={{fontFamily:"Muli-ExtraBold",fontSize:RF(2.3),marginTop:hp("8%")}}>Hope you enjoyed our service</Text>
         <Text style={{fontFamily:"Muli-ExtraBold",fontSize:RF(2),marginBottom:hp("5%"),marginTop:wp("3%"),color:"rgb(140,140,140)"}}>How did you feel?</Text>
 
                 {view}
-        <View style={[styles.box_SignUp,{height: hp('6%'),marginTop:hp("10%"),paddingVertical:hp('1%'),}]}>
+        <View style={[styles.box_SignUp,{height: hp('5%'),marginTop:hp("8%"),paddingVertical:hp('1.3%'),paddingBottom:hp("0%")}]}>
           <TextInput
             value={this.state.Title}
             onChangeText={Title => this.setState({ Title })}
-            style={[styles.input,{width: wp('52'), height: hp('5%'),marginRight:wp("25%")}]}
+            style={[styles.input,{width: wp('52'), height: hp('3%'),marginRight:wp("25%")}]}
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="done"
             underlineColorAndroid='transparent'
@@ -201,7 +201,7 @@ export default class StarReview extends Component {
             autoCorrect={false}
           />
           </View>
-          <View style={[styles.box_SignUp,{height: hp('30%'),marginTop:hp("2%"),paddingVertical:hp('2%'),}]}>
+          <View style={[styles.box_SignUp,{height: hp('28%'),marginTop:hp("2%"),paddingVertical:hp('2%'),}]}>
           <TextInput
             value={this.state.comment}
             onChangeText={comment => this.setState({ comment })}
@@ -253,10 +253,10 @@ emptyStar: require('../Image/new_images/emptyStar3x.png'),
   count: 5,
   rating: 0,
   default: 0,
-  starSize: 35,
+  starSize: 30,
   update: () => {},
   backingColor: "rgb(243,242,242)",
   opacity: false,
   half: false,
-  spacing: 0
+  spacing: 2
 }

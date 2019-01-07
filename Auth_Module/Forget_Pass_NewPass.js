@@ -77,7 +77,7 @@ Alert.alert("Please check your internet connection")
 <KeyboardAwareScrollView  contentContainerStyle={styles.container}
   keyboardShouldPersistTaps='handled'
 >
-    <View style={styles.Padding_verticele}>
+    <View style={styles.padding_vertical_3}>
         <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
         </View>
                 <View style={[styles.box,styles.Padding_verticele,{paddingBottom:hp("5%")}]}>

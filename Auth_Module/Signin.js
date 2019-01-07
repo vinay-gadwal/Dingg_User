@@ -34,12 +34,14 @@ export default class Login extends Component {
             label: 'Mobile Number',
             value:this.phone(),
             color: GLOBAL.COLOR.ORANGE,
-            fontWeight:"bold"
+            fontWeight:"bold",
+            size: 18,
         },
         {
             label: 'Email ID',
             value:this.email(),
             color: GLOBAL.COLOR.ORANGE,
+            size: 18,
         }, 
            
             ],
@@ -212,10 +214,10 @@ passwordHandle=(value)=>{
     return (
     <KeyboardAwareScrollView  contentContainerStyle={styles.container}
                  keyboardShouldPersistTaps='handled'>
-        <View style={styles.Padding_verticele}>
+        <View style={styles.padding_vertical_3}>
         <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
         </View>
-         <View style={[styles.box,styles.Padding_verticele]}>
+         <View style={[styles.box,{paddingVertical:hp("4.2%")}]}>
          <Text style={[styles.Big_text,styles.margin_left]}>Sign In Using</Text>
          <Text></Text>
          
@@ -240,9 +242,9 @@ passwordHandle=(value)=>{
             <Text style={[styles.buttonText]}>Sign In</Text>
           </TouchableOpacity>
       <TouchableOpacity onPress={()=>{this.props.navigation.navigate('AuthStack')}}>
-          <Text style={[styles.orange_text,styles.Padding_verticele]}>Continue without Signing In</Text>
+          <Text style={[styles.orange_text]}>Continue without Signing In</Text>
           </TouchableOpacity>
-      <View style={[styles.Row,styles]}>
+      <View style={[styles.Row,{marginTop:hp("1%")}]}>
         <Text style={styles.text}>Don't have an account? </Text>
         <View style={styles.column}>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('SignUp')}>

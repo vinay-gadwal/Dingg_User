@@ -110,7 +110,7 @@ export default class example extends Component {
             <Text style={[styles.buttonText]}>Submit for OTP</Text>
           </TouchableOpacity>
 
-        <View style={[styles.Row,styles.Padding_verticele_signup,{marginTop:hp("11%")}]}>
+        <View style={[styles.Row,styles.Padding_verticele_signup,{marginTop:hp("16%")}]}>
         <Text style={styles.text}>Already have an account? </Text>
         <View style={styles.column}>
         <TouchableOpacity onPress={() => this.props.navigation.navigate('SignIn')}>
@@ -123,7 +123,7 @@ export default class example extends Component {
         </View>
         <Text style={styles.text}>here</Text>
         </View>
-        <View style={styles.copy_right_column_Forgot}>
+        <View style={[styles.copy_right_column_Forgot,]}>
         <View style={styles.Row}>
         <ResponsiveImage style={styles.copy_rigth_image}
            source={GLOBAL.Copy_right}

@@ -48,11 +48,13 @@ export default class StarReview extends Component {
                 label: 'Join Now',
                 color: 'rgb(255,164,0)',
                 value:this.JoinNow(),
+                size: 18,
             },
             {
                 label: 'Join Later',
                 color: 'rgb(255,164,0)',
                 value:this.JoinLatter(),
+                size: 18,
             }, 
               ],
     }
@@ -186,7 +188,7 @@ render() {
                 style={styles.back_butt0n}
               />
               </TouchableOpacity>
-        <Text style={[styles.text,styles.Padding_verticele,{marginRight:wp("35%")}]}>BOOK SERVICE</Text>
+        <Text style={[styles.text,styles.Padding_verticele,{marginRight:wp("35%"),fontSize:RF(2.5)}]}>BOOK SERVICE</Text>
         </View>
         <Text style={styles.BookServiceText}>Select Service</Text>
         <TouchableOpacity style={styles.star_row}
@@ -320,7 +322,7 @@ render() {
                    </View>
                    </View>
         </Dialog>
-        <View style={styles.radio_button}>
+        <View style={[styles.radio_button,{marginRight:wp("28%"),marginTop:hp("5%")}]}>
           <RadioGroup radioButtons={this.state.data} onPress={this.onPress} flexDirection='row' />
           </View>    
           <View style={styles.Category_line}>

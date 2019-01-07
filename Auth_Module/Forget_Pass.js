@@ -81,7 +81,7 @@ if(isConnected){
 <View style={styles.Padding_verticele_signup}>
 <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
         </View>
-        <View style={[styles.box_SignUp,styles.Image_margin]}>
+        <View style={[styles.box_SignUp,styles.margin_3]}>
           <Text style={styles.text}>Enter the registered mobile number</Text>
           <View style={styles.Row}>
               <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}>

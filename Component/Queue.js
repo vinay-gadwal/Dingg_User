@@ -60,7 +60,7 @@ class Queue extends Component {
 render() {
 return (    
 <View style={styles.container}>
-     <View style={styles.Row}>
+     <View style={[styles.Row,{marginTop:hp("2%")}]}>
               <FlatList      
             //   horizontal="true"    
                     data={ this.state.dataSource }
@@ -79,8 +79,8 @@ return (
                                                 // setBelow='true'
                                                 ref='tooltip1'
                                                 buttonComponent={
-                                                    <View style={[styles.button,styles.Action_Touch_button]}>
-                                                    <Text style={[styles.buttonText,{color:GLOBAL.COLOR.ORANGE}]}>
+                                                    <View style={[styles.button,styles.Action_Touch_button,{paddingVertical:hp("1%")}]}>
+                                                    <Text style={[styles.buttonText,{color:GLOBAL.COLOR.ORANGE,}]}>
                                                         Action
                                                     </Text>
                                                     </View>
@@ -112,11 +112,11 @@ return (
                         </View>
                         <View style={styles.Queue_row}>
                           <ResponsiveImage source={GLOBAL.Location_icon} style={{marginHorizontal:hp("2%")}} initWidth={GLOBAL.COLOR.Size_14} initHeight={GLOBAL.COLOR.Size_15}/>                
-                          <Text style={[styles.grey_text]}>28 Citi Centre, S V Road, Goregaon(W)</Text>
+                          <Text style={[styles.grey_text,{marginTop:hp("0%")}]}>28 Citi Centre, S V Road, Goregaon(W)</Text>
                         </View>
                         <View style={styles.Queue_row}>
                           <ResponsiveImage source={GLOBAL.call_icon} style={{marginHorizontal:hp("2%")}} initWidth={GLOBAL.COLOR.Size_15} initHeight={GLOBAL.COLOR.Size_15}/>                
-                          <Text style={[styles.grey_text]}>28 Citi Centre, S V Road, Goregaon(W)</Text>
+                          <Text style={[styles.grey_text,{marginTop:hp("0%")}]}>28 Citi Centre, S V Road, Goregaon(W)</Text>
                         </View> 
                         <View style={[styles.Row,{marginHorizontal:wp("5%")}]}>
                           <View style={styles.column}>
@@ -190,7 +190,7 @@ export default createStackNavigator({
    Alert_top:{
             screen:Alert_top,
             navigationOptions: ({ navigation }) => ({
-              title: 'ALERTS',
+              title: 'NOTIFICATION',
               headerLeft:null,
               headerRight:(
               <Image

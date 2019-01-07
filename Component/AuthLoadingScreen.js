@@ -20,24 +20,25 @@ export default class AuthLoadingScreen extends React.Component {
     const Registered = await AsyncStorage.getItem('Registered');
     // This will switch to the App screen or Auth screen and this loading
     // screen will be unmounted and thrown away.
-    console.log(Registered)
-    GLOBAL.token=userTokenOTP
-    if(Registered != null){
-      this.props.navigation.navigate('Home');
-    }else if(userTokenOTP != undefined){
-        this.props.navigation.navigate(userTokenOTP ? 'AddDetails' : 'SignIn');
-          GLOBAL.Sign_Token=userTokenOTP
-      }
-    else{
-    this.props.navigation.navigate(userToken ? 'Home' : 'SignIn');
-    }
+    // console.log(Registered)
+    // GLOBAL.token=userTokenOTP
+    // if(Registered != null){
+    //   this.props.navigation.navigate('Home');
+    // }else if(userTokenOTP != undefined){
+    //     this.props.navigation.navigate(userTokenOTP ? 'AddDetails' : 'SignIn');
+    //       GLOBAL.Sign_Token=userTokenOTP
+    //   }
+    // else{
+    // this.props.navigation.navigate(userToken ? 'Home' : 'SignIn');
+    // }
     // this.props.navigation.navigate(userTokenOTP ? 'Crea_pass' : 'SignIn');
+    this.props.navigation.navigate('AuthStack');
   };
 
   // Render any loading content that you like here
   render() {
     return (
-      <View>
+      <View style={{backgroundColor:"rgb(243,242,242)",flex:1}}>
         <ActivityIndicator />
         <Text style={{ fontSize:3, 
         fontFamily:"Muli-ExtraBold",

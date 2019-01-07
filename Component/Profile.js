@@ -122,13 +122,13 @@ class Profile extends Component {
                     <Text style={styles.profile_Small_text}>Anniversary</Text>
                     <Text style={styles.setting_text}>{GLOBAL.Primary_No}</Text>
             </View>        
-            <TouchableOpacity style={[styles.box,styles.Row]}
+            <TouchableOpacity style={[styles.box,styles.Row,{paddingVertical:hp("1%"),marginTop:hp("2%")}]}
                           onPress={() => {this.props.navigation.navigate('QR_Code')}}>
                   
                   <Text style={[styles.setting_text]}>App Setting</Text>
                     <ResponsiveImage
                                 source={GLOBAL.Arro}
-                                initWidth={GLOBAL.COLOR.Icon_divider_height} initHeight={GLOBAL.COLOR.Icon_divider_height}
+                                initWidth={GLOBAL.COLOR.Size_16} initHeight={GLOBAL.COLOR.Size_16}
                     />
             </TouchableOpacity>
         </View>
@@ -154,7 +154,7 @@ export default createStackNavigator({
  Alert_top:{
           screen:Alert_top,
           navigationOptions: ({ navigation }) => ({
-            title: 'ALERTS',
+            title: 'NOTIFICATION',
             headerLeft:null,
             headerRight:(
               <Image

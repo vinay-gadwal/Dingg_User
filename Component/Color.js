@@ -18,8 +18,8 @@ module.exports = {
       width:290,
       _width : 330,
        _height : 2,
-       Logo_width:94,
-       Logo_height:65,
+       Logo_width:90,
+       Logo_height:64,
        Icon_divider_width:3,
        Icon_divider_height:23,
        Icon_width:25,
@@ -68,4 +68,6 @@ module.exports = {
     Select_Icon : require('../Image/main/selectedIcon3x.png'),
     Edit_Icon : require('../Image/main/editButtonmain3x.png'),
     Loader : require('../Image/new_images/Ellipsis.gif'),
+    Service_icon : require('../Image/main/serviceIcon3x.png'),
+    Calander_icon : require('../Image/main/calenderIcon3x.png')
   };

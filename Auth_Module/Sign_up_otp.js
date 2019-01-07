@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import {
   Text,
   TextInput,
@@ -59,7 +58,7 @@ export default class example extends Component {
             apis.Sign_LOCAL_SET_DATA('OTPticket',responseJson.token).then(() => {
               this.props.navigation.navigate('AddDetails');
               }).catch((error) => {
-               Alert.alert(error);
+               Alert.alert(responseJson.message);
                 this.setState({ loginText: 'Try Again' });
               });
             GLOBAL.token = responseJson.token;
@@ -67,7 +66,7 @@ export default class example extends Component {
           }
         })
         .catch((error) => {
-          Alert.alert(error)
+          Alert.alert("!Error")
           // this.setState({ processing: false, loginText: 'Try Again' });
         });
       }
@@ -94,7 +93,7 @@ _resend_OTP = async () =>{
     >      
         <Text style={styles.verify_big_text}>Verify your mobile Number</Text>
         <View style={[styles.box_SignUp,styles.padding_bottom_4]}>
-          <Text style={[styles.text,{marginTop:hp("3%")}]}>Enter OTP sent to +91-{GLOBAL.mobile}</Text>
+          <Text style={[styles.text,{marginTop:hp("2%")}]}>Enter OTP sent to +91-{GLOBAL.mobile}</Text>
           <View style={styles.Row}>
           <View style={styles.Otp}> 
             <CodeInput
@@ -119,7 +118,7 @@ _resend_OTP = async () =>{
                     />
                     {/* onPress={this._resend_OTP.bind(this)} */}
                   <TouchableOpacity >
-                  <Text style={[styles.orange_text]}>Resend OTP</Text>
+                  <Text style={[styles.orange_text,{marginVertical:hp("1%")}]}>Resend OTP</Text>
                   </TouchableOpacity>
               </View>
           </View>
@@ -133,7 +132,7 @@ _resend_OTP = async () =>{
         initWidth={GLOBAL.COLOR.Size_75} initHeight={GLOBAL.COLOR.Size_75}/>   
       }            
       </TouchableOpacity> */}
-       <TouchableOpacity style={[styles.button,{marginBottom:hp("25%")}]} onPress={this.otp_verified}>
+       <TouchableOpacity style={[styles.button,{marginBottom:hp("35%")}]} onPress={this.otp_verified}>
       <Text style={[styles.buttonText]}>Next</Text>          
       </TouchableOpacity>
       </KeyboardAwareScrollView>    );
