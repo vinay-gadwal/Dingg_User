@@ -81,8 +81,8 @@ export default class StarReview extends Component {
                                   </View>
                                   <View style={[styles.Row,{justifyContent:"flex-start"}]}>
                                   <View style={styles.column}>
-                                    <Text style={[styles.grey_text,styles.Queue_row]}>Chowpatty</Text>
-                                    <Text style={[styles.grey_text,styles.Queue_row]}>Open till 10 pm</Text>
+                                    <Text style={[styles.grey_text,styles.Queue_row,{marginTop:hp("0%")}]}>Chowpatty</Text>
+                                    <Text style={[styles.grey_text,styles.Queue_row,{marginTop:hp("0%")}]}>Open till 10 pm</Text>
                                   </View>
                                     <ResponsiveImage style={styles.rectangle_image} source={GLOBAL.rectangle_image} initWidth={GLOBAL.COLOR.Icon_divider_width} initHeight={GLOBAL.COLOR.Size_35}/>
                                     <View style={styles.column}>

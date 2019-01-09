@@ -6,6 +6,7 @@ import {
   StyleSheet,Text,
   View,
 } from 'react-native';
+import RF from "react-native-responsive-fontsize"
 
 export default class AuthLoadingScreen extends React.Component {
   constructor(props) {
@@ -38,14 +39,14 @@ export default class AuthLoadingScreen extends React.Component {
   // Render any loading content that you like here
   render() {
     return (
-      <View style={{backgroundColor:"rgb(243,242,242)",flex:1}}>
-        <ActivityIndicator />
-        <Text style={{ fontSize:3, 
-        fontFamily:"Muli-ExtraBold",
-        justifyContent:"flex-start",
-        color:'#ffa400',
-        }}>Loading...</Text>
-      </View>
+      <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:"white"}}>
+      <ActivityIndicator />
+      <Text style={{ fontSize: RF(3), 
+      fontFamily:"Muli-ExtraBold",
+      justifyContent:"flex-start",
+      color:'#ffa400',
+      }}>Loading...</Text>
+    </View>
     );
   }
 }

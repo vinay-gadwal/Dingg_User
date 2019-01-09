@@ -91,7 +91,12 @@ Alert.alert("Please check your internet connection")
                 this.setState({ processing: false });
               });
             } else {
-              Alert.alert(responseJson.message)
+              if(isNaN(this.state.username)){
+                Alert.alert("No user registered with this Email.")
+              }
+              else{
+              Alert.alert("No user registered with this mobile number.")
+              }
             }
             this.setState({
               loading: false

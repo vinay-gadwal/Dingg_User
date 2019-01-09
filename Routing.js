@@ -279,7 +279,7 @@ Rating_Screen:{
             </TouchableOpacity>)
           })
         },
-        Salon_details:Salon_details
+        // Salon_details:Salon_details
 
       },
 

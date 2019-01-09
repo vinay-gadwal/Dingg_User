@@ -217,15 +217,15 @@ class StarReview extends Component {
     componentDidMount(){
       this.Bottom_star();
     }
+  
     Bottom_star(){
-      constStar_b = []
-      for(let j = 1; j< 5 ; j++){
-          let i =1;
-          i = i +1;
+      let table = []
+      for (let i = 0; i < 5; i++) {
+        table.push( 
+          <ResponsiveImage style={{marginHorizontal:wp(".5%")}} source={GLOBAL.Star}  initWidth={GLOBAL.COLOR.Size_13} initHeight={GLOBAL.COLOR.Size_13}/>                
+          )
       }
-      return(
-        <ResponsiveImage source={GLOBAL.Star} initWidth={GLOBAL.COLOR.Size_15} initWidth={GLOBAL.COLOR.Size_15}/>                
-      )
+      return table
     }
   
     halfRatingMode() {
@@ -419,7 +419,7 @@ class StarReview extends Component {
                                     </View>
                                     <Text style={[styles.Titile_small_text,styles.Queue_row,{marginRight:wp("8%")}]}>255 Reviews</Text>
                                   </View>
-                                  <View style={[styles.Row,styles.Home_icon]}>
+                                  <View style={[styles.Row,styles.Home_icon,{marginTop:hp("0%")}]}>
                                   <View style={styles.column}>
                                     <Text style={[styles.Titile_small_text,styles.Queue_row]}>Chowpatty</Text>
                                     <Text style={[styles.Titile_small_text,styles.Queue_row]}>Open till 10 pm</Text>
@@ -445,7 +445,7 @@ class StarReview extends Component {
                     />
            </View>
           {!this.state.Rating_view ? <View></View> : 
-          <View style={[styles.Home_header,{height:hp("10%")}]}>
+          <View style={[styles.Home_header,{height:hp("10%"),paddingTop:hp("1.5%"),paddingLeft:wp("2%")}]}>
           <View style={styles.Row}>
           <Text style={styles.text}>Rate your service by Bianca Beauty</Text>
           <TouchableOpacity onPress={this.Star_Rating_view}>
@@ -456,7 +456,9 @@ class StarReview extends Component {
            </TouchableOpacity>
           </View>
           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Rating_Screen')}}>
-               <Text>hello</Text>           
+               <View style={{flexDirection:"row"}}>
+               {this.Bottom_star()}     
+               </View>    
                </TouchableOpacity>
           </View>}
           
@@ -505,11 +507,12 @@ StarReview.defaultProps = {
 export default createStackNavigator({
   StarReview:{
     screen:StarReview,
+      headerMode: "none",
     navigationOptions: {
       header: null //this will hide the header
     },
   },
-  Search:{
+Search:{
           screen:Search,
           navigationOptions: {
             header: null //this will hide the header
@@ -530,7 +533,8 @@ export default createStackNavigator({
   Booking:{
           screen:Booking,
           navigationOptions: ({ navigation }) => ({
-            title: 'NOTIFICATION',
+            header: null,
+            title: 'BOOK SERVICE',
               headerLeft:(
                 <TouchableOpacity  onPress={ () => { navigation.saloonDetails() }}>
               <Image
@@ -540,17 +544,18 @@ export default createStackNavigator({
               </TouchableOpacity>)
           })
         },
-        saloonDetails:{
+  saloonDetails:{
           screen:saloonDetails,
           navigationOptions: ({ navigation }) => ({
+            header: null,
             title: 'SALON DETAIL',
               headerLeft:(
-                <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
-              <Image
-                source={GLOBAL.back_icon}
-                style={[styles.back_right]}
-              />
-              </TouchableOpacity>)
+                <TouchableOpacity  onPress={ () => { navigation.saloonDetails() }}>
+                <Image
+                  source={GLOBAL.back_icon}
+                  style={[styles.back_right,]}
+                />
+                </TouchableOpacity>)
           })
         }
 },

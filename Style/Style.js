@@ -251,7 +251,8 @@ box:{
 BookServiceBox:{
       alignItems:"center",
           width: wp('85%'),
-          height: hp('8%'),
+        //   height: hp('8%'),
+        paddingVertical:hp("1%"),
           backgroundColor:GLOBAL.COLOR.White_color,
           borderBottomRightRadius: 8,
           borderTopRightRadius: 8,
@@ -321,7 +322,7 @@ Margin_half:{marginTop:hp("1.5%")},
 orange_text:{
           color:GLOBAL.COLOR.ORANGE,fontSize: RF(2.1),marginVertical:hp("2%"),fontWeight:"bold",marginTop:hp("3%")
         },
-Home_icon:{ marginTop:hp("1%"),marginRight:wp("2%")},
+Home_icon:{ marginTop:hp("1%"),marginRight:wp("2%")},//
 grey_text:{
     fontSize: RF(1.8), 
     color:GLOBAL.COLOR.GRAY,

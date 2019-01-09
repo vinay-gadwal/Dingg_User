@@ -164,7 +164,7 @@ openDialogStylist = (show) => {
             } 
         }
        
-        Stylist_list=(item)=>{
+        Stylist_list=(item,index)=>{
             this.setState({Stylist_name : item})      
           }
        
@@ -196,7 +196,7 @@ render() {
             <View style={[styles.BookServiceBoxYello]}>
             </View>
             <View style={[styles.BookServiceBox]}>
-            <Text style={[styles.text,]}>{this.state.hair_styling}{this.state.shampoo}{this.state.Hair_oil}
+            <Text style={[styles.text,{width:wp("77%")}]}>{this.state.hair_styling}{this.state.shampoo}{this.state.Hair_oil}
                 {this.state.regular_cut}{this.state.premium_cut}{this.state.blow_dry}</Text>
             <ResponsiveImage source={GLOBAL.Down_Arrow} style={styles.Home_icon} initWidth={GLOBAL.COLOR.Size_13} initHeight={GLOBAL.COLOR.Size_8}/>
             </View>
@@ -210,7 +210,7 @@ render() {
             <View style={[styles.BookServiceBox]}>
             <Text style={[styles.text,{width:wp("55"),justifyContent:"flex-start",marginLeft:wp("3%")}]}>{this.state.Stylist_name}</Text>
             <ResponsiveImage source={GLOBAL.Serve_time} initWidth={GLOBAL.COLOR.Size_20} initHeight={GLOBAL.COLOR.Size_20}/>
-            <Text></Text>
+            <Text>{this.state.Stylist_time}</Text>
             <ResponsiveImage source={GLOBAL.Down_Arrow} style={styles.Home_icon} initWidth={GLOBAL.COLOR.Size_13} initHeight={GLOBAL.COLOR.Size_8}/>
             </View>
         </TouchableOpacity>
@@ -322,7 +322,7 @@ render() {
                    </View>
                    </View>
         </Dialog>
-        <View style={[styles.radio_button,{marginRight:wp("28%"),marginTop:hp("5%")}]}>
+        <View style={[styles.radio_button,{marginRight:wp("33%"),marginTop:hp("5%")}]}>
           <RadioGroup radioButtons={this.state.data} onPress={this.onPress} flexDirection='row' />
           </View>    
           <View style={styles.Category_line}>
