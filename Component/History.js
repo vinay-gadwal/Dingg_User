@@ -12,7 +12,6 @@ import {createStackNavigator,} from 'react-navigation';
 const GLOBAL = require('../Component/Color');
 
 class Ongoing extends React.Component {
-    
         state = {
                      valueArray: [], disabled: false ,hair_data:"",hair_data_time:"",
                      isLoading: true,MakeUp_data:"",makeup_data_time:"",time:30,Increase_time:10,
@@ -25,8 +24,7 @@ class Ongoing extends React.Component {
                              {
                               name:"1h 15m "
                           },
-                     ],
-                    
+                     ],         
             }
           index = 0;
           animatedValue = new Animated.Value(0);

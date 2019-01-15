@@ -31,14 +31,14 @@ const AuthStack = createBottomTabNavigator({
     screen: Home,
     navigationOptions: () => ({
       tabBarIcon: ({ focused }) => {
-        const line = focused ? require('./Image/main/highlight3x.png') : require('./Image/main/line-transparent-vertical-2.png')
+        const line = focused ?  GLOBAL.TAb_image_yellow : GLOBAL.TAb_image_transparent
         const image = focused
-        ? require('./Image/new_images/homeIcon_yellow3x.png')
-        : require('./Image/new_images/homeIcon3x.png')
+        ? GLOBAL.Home_yello
+        : GLOBAL.Home
         return (
-          <View style={{flexDirection:"column",alignItems:"center"}}>
-          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth="55" initHeight="3"/>
-          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="23" initHeight="23"/>
+          <View style={styles.Routing_tab}>
+          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth={GLOBAL.COLOR.size_55} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
+          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth={GLOBAL.COLOR.Icon_divider_height} initHeight={GLOBAL.COLOR.Icon_divider_height}/>
           </View>
         )
     }
@@ -49,14 +49,14 @@ const AuthStack = createBottomTabNavigator({
     screen: Queue,
     navigationOptions: () => ({
       tabBarIcon: ({ focused }) => {
-        const line = focused ? require('./Image/main/highlight3x.png') : require('./Image/main/line-transparent-vertical-2.png')
+        const line = focused ?  GLOBAL.TAb_image_yellow : GLOBAL.TAb_image_transparent
         const image = focused
-        ? require('./Image/icon/queueIcon_yellow2x.png')
-        : require('./Image/icon/queueIcon2x.png')
+        ? GLOBAL.Queue_yello
+        : GLOBAL.Queue
         return (
-          <View style={{flexDirection:"column",alignItems:"center"}}>
-          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth="60" initHeight="3"/>
-          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="23" initHeight="23"/>
+          <View style={styles.Routing_tab}>
+          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth={GLOBAL.COLOR.Yellow_60} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
+          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth={GLOBAL.COLOR.Icon_divider_height} initHeight={GLOBAL.COLOR.Icon_divider_height}/>
           </View>
         )
     }
@@ -66,14 +66,14 @@ const AuthStack = createBottomTabNavigator({
     screen: QR,
     navigationOptions: () => ({
       tabBarIcon: ({ focused }) => {
-        const line = focused ? require('./Image/main/highlight3x.png') : require('./Image/main/line-transparent-vertical-2.png')
+        const line = focused ?  GLOBAL.TAb_image_yellow : GLOBAL.TAb_image_transparent
         const image = focused
-        ? require('./Image/new_images/qrCodeIcon_yellow3x.png')
-        : require('./Image/new_images/qrCodeIcon3x.png')
+        ? GLOBAL.Scanner_yellow
+        : GLOBAL.Scanner
         return (
-          <View style={{flexDirection:"column",alignItems:"center"}}>
-          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth="60" initHeight="3"/>
-          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="23" initHeight="23"/>
+          <View style={styles.Routing_tab}>
+          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth={GLOBAL.COLOR.Yellow_60} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
+          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth={GLOBAL.COLOR.Icon_divider_height} initHeight={GLOBAL.COLOR.Icon_divider_height}/>
           </View>
         )
     }
@@ -83,14 +83,14 @@ const AuthStack = createBottomTabNavigator({
     screen: history,
     navigationOptions: () => ({
       tabBarIcon: ({ focused }) => {
-        const line = focused ? require('./Image/main/highlight3x.png') : require('./Image/main/line-transparent-vertical-2.png')
+        const line = focused ? GLOBAL.TAb_image_yellow : GLOBAL.TAb_image_transparent
         const image = focused
-        ? require('./Image/icon/historyIcon_yellow2x.png')
-        : require('./Image/icon/historyIcon2x.png')
+        ? GLOBAL.History_yellow
+        : GLOBAL.History
         return (
-          <View style={{flexDirection:"column",alignItems:"center"}}>
-          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth="60" initHeight="3"/>
-          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="23" initHeight="23"/>
+          <View style={styles.Routing_tab}>
+          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth={GLOBAL.COLOR.Yellow_60} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
+          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth={GLOBAL.COLOR.Icon_divider_height} initHeight={GLOBAL.COLOR.Icon_divider_height}/>
           </View>
         )
     }
@@ -100,17 +100,16 @@ const AuthStack = createBottomTabNavigator({
     screen: Profile,
     navigationOptions: () => ({
       tabBarIcon: ({ focused }) => {
-        const line = focused ? require('./Image/main/highlight3x.png') : require('./Image/main/line-transparent-vertical-2.png')
+        const line = focused ?  GLOBAL.TAb_image_yellow : GLOBAL.TAb_image_transparent
         const image = focused
-        ? require('./Image/icon/profileIcon_yellow2x.png')
-        : require('./Image/icon/profileIcon2x.png')
+        ? GLOBAL.Profile_yellow
+        : GLOBAL.Profile
         return (
-         <View style={{flexDirection:"column",alignItems:"center"}}>
-          <ResponsiveImage source={line} style={{marginBottom:hp("2%"),marginRight:wp("4%")}} initWidth="55" initHeight="3"/>
-          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="21" initHeight="23"/>
+          <View style={styles.Routing_tab}>
+          <ResponsiveImage source={line} style={{marginBottom:hp("2%"),marginRight:wp("4%")}} initWidth={GLOBAL.COLOR.size_55} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
+          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="21" initHeight={GLOBAL.COLOR.Icon_divider_height}/>
           </View>
-        )
-    }
+        )}
     })
   },
 
@@ -118,7 +117,6 @@ const AuthStack = createBottomTabNavigator({
 {
   initialRouteName: 'Home',
   headerMode:"none",
-
   tabBarOptions: {
     indicatorStyle: {
       backgroundColor: 'black',
@@ -127,8 +125,6 @@ const AuthStack = createBottomTabNavigator({
   },
       showIcon: true,
       showLabel: false,
-    // activeTintColor: '#F8F8F8', // active icon color
-    // inactiveTintColor: '#586589',  // inactive icon color
     style: {
       height: hp("8%"),
       backgroundColor: "white",
@@ -167,7 +163,7 @@ const RootStack = createStackNavigator({
             headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
-              source={require('./Image/icon/back_2x.png')}
+              source={GLOBAL.back_icon}
               style={[styles.back_butt0n,{marginBottom:hp("1%")}]}
             />
             </TouchableOpacity>)
@@ -180,7 +176,7 @@ const RootStack = createStackNavigator({
             headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
-              source={require('./Image/icon/back_2x.png')}
+              source={GLOBAL.back_icon}
               style={[styles.back_butt0n,{marginBottom:hp("1%")}]}
             />
             </TouchableOpacity>)
@@ -193,7 +189,7 @@ const RootStack = createStackNavigator({
             headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
-              source={require('./Image/icon/back_2x.png')}
+              source={GLOBAL.back_icon}
               style={[styles.back_butt0n,{marginBottom:hp("1%")}]}
             />
             </TouchableOpacity>)
@@ -259,7 +255,7 @@ const RootStack = createStackNavigator({
             headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
-              source={require('./Image/icon/back_2x.png')}
+              source={GLOBAL.back_icon}
               style={styles.back_butt0n}
             />
             </TouchableOpacity>)
@@ -273,19 +269,16 @@ Rating_Screen:{
             headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
-              source={require('./Image/icon/back_2x.png')}
+              source={GLOBAL.back_icon}
               style={styles.back_butt0n}
             />
             </TouchableOpacity>)
           })
         },
-        // Salon_details:Salon_details
-
       },
 
       {
         initialRouteName:"AuthLoadingScreen",
-        // headerMode: "none",
         navigationOptions: {
           headerTitleStyle: {
             fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
@@ -304,30 +297,14 @@ const FinalStack = createStackNavigator({
 }
 )
 export default class DinggApp extends React.Component {
-  constructor(){
-    
+  constructor(){  
     super();
   }
-function(){
-  // apis.LOCAL_GET_DATA('ticket').then((value) => {
-  //   if (value) {
-  //     return < RootStack />
-  //   }
-  //   else{
-  //    return <AuthStack/>
-  //   }
-  // }).catch((error) => {
-  //   Alert.alert(error);
-  // });
-  
-}
   render() {
     return (
-      <SafeAreaView style={{flex: 1, backgroundColor: GLOBAL.COLOR.White_color}}  forceInset={{top: 'always'}}>
+      <SafeAreaView   forceInset={{top: 'always'}}>
       <FinalStack />
       </SafeAreaView>
     );
   }
 }
-
-// export default DinggApp = DinggApp;

@@ -238,7 +238,7 @@ export default class swiper extends Component {
                 style={styles.back_butt0n}
               />
               </TouchableOpacity>
-        <Text style={[styles.text,{marginRight:wp("35%"),fontSize:RF(2.5)}]}>SALON DETAIL</Text>
+        <Text style={[styles.text,{marginRight:wp("33%"),fontSize:RF(2.5)}]}>SALON DETAIL</Text>
         </View>
       <View style={{height:"15%",marginBottom:hp("0%")}}>
       <Swiper showsButtons={true} showsPagination={false}

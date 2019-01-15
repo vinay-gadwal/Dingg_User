@@ -23,7 +23,7 @@ module.exports = {
        Icon_divider_width:3,
        Icon_divider_height:23,
        Icon_width:25,
-       Yellow_60:60,
+       Yellow_60:60,size_55:55,
        Size_75 :75,size_10:10,size_7:7,
        Size_15:15,Size_14:14,
        Size_60:60,Size_13:13,Size_12:12,
@@ -69,5 +69,16 @@ module.exports = {
     Edit_Icon : require('../Image/main/editButtonmain3x.png'),
     Loader : require('../Image/new_images/Ellipsis.gif'),
     Service_icon : require('../Image/main/serviceIcon3x.png'),
-    Calander_icon : require('../Image/main/calenderIcon3x.png')
+    Calander_icon : require('../Image/main/calenderIcon3x.png'),
+
+    Home_yello : require('../Image/new_images/homeIcon_yellow3x.png'),
+    Home : require('../Image/new_images/homeIcon3x.png'),
+    Queue_yello : require('../Image/icon/queueIcon_yellow2x.png'),
+    Queue : require('../Image/icon/queueIcon2x.png'),
+    Scanner_yellow : require('../Image/new_images/qrCodeIcon_yellow3x.png'),
+    Scanner : require('../Image/new_images/qrCodeIcon3x.png'),
+    History_yellow : require('../Image/icon/historyIcon_yellow2x.png'),
+    History : require('../Image/icon/historyIcon2x.png'),
+    Profile_yellow : require('../Image/icon/profileIcon_yellow2x.png'),
+    Profile : require('../Image/icon/profileIcon2x.png'),   
   };
